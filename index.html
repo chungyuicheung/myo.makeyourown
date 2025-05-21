@@ -9,22 +9,22 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fdfaf6; /* 柔和的米白色背景 */
+            background-color: #fdfaf6;
             color: #333;
         }
         .hero-section {
-            background: linear-gradient(to bottom right, #fdfaf6, #ffece6); /* 柔和的漸變背景 */
+            background: linear-gradient(to bottom right, #fdfaf6, #ffece6);
             padding: 8rem 0;
             text-align: center;
         }
         .section-title {
-            color: #8B4513; /* 深棕色，溫暖而有質感 */
+            color: #8B4513;
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 2rem;
         }
         .btn-primary {
-            background-color: #CD853F; /* 溫暖的棕色 */
+            background-color: #CD853F;
             color: white;
             padding: 0.8rem 2rem;
             border-radius: 9999px;
@@ -32,7 +32,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .btn-primary:hover {
-            background-color: #A0522D; /* 加深色 */
+            background-color: #A0522D;
         }
         .card {
             background-color: white;
@@ -56,6 +56,23 @@
         .footer-link:hover {
             color: #CD853F;
         }
+        /* 自訂 CSS 調整，讓漢堡選單在手機上顯示，在大螢幕上隱藏 */
+        @media (min-width: 768px) { /* md breakpoint in Tailwind is 768px */
+            .hamburger-menu {
+                display: none;
+            }
+            .mobile-nav-links {
+                display: none; /* 在大螢幕下預設隱藏 */
+            }
+        }
+        @media (max-width: 767px) {
+             .desktop-nav-links {
+                display: none;
+            }
+             .mobile-nav-links {
+                display: block; /* 在小螢幕下顯示 */
+             }
+        }
     </style>
 </head>
 <body>
@@ -65,12 +82,26 @@
             <a href="#" class="text-2xl font-bold text-gray-800">
                 <span class="text-rose-500">愛</span>的見證
             </a>
-            <div class="space-x-6">
+
+            <div class="desktop-nav-links space-x-6">
                 <a href="#product-info" class="text-gray-600 hover:text-rose-500 transition-colors">產品簡介</a>
                 <a href="#customization" class="text-gray-600 hover:text-rose-500 transition-colors">客製化</a>
                 <a href="#designs" class="text-gray-600 hover:text-rose-500 transition-colors">設計樣式</a>
                 <a href="#contact" class="text-gray-600 hover:text-rose-500 transition-colors">聯絡我們</a>
             </div>
+
+            <button class="hamburger-menu md:hidden focus:outline-none" id="mobile-menu-button">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="mobile-nav-links hidden md:hidden bg-white py-2" id="mobile-menu">
+            <a href="#product-info" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">產品簡介</a>
+            <a href="#customization" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">客製化</a>
+            <a href="#designs" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">設計樣式</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">聯絡我們</a>
         </div>
     </nav>
 
@@ -195,7 +226,7 @@
                         <p class="text-gray-600 text-sm">融入夢幻元素，讓您的愛情故事充滿魔法。</p>
                     </div>
                 </div>
-                </div>
+            </div>
             <div class="text-center mt-12">
                 <a href="#" class="btn-primary text-lg font-semibold inline-block">
                     查看所有設計
@@ -255,6 +286,24 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden'); // Toggle visibility
+            });
+
+            // Optional: Close menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>

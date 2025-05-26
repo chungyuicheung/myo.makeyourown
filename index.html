@@ -1,143 +1,204 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>愛的永恆見證 - 專屬結婚證書套</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
+<html lang="zh-Hant"> <head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>愛的永恆見證 - 專屬結婚證書套</title> <script src="https://cdn.tailwindcss.com"></script> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <style>
+        /* <style> 標籤: 用於在 HTML 文件中直接嵌入 CSS 樣式規則。
+            這些規則會影響網頁的視覺呈現，例如顏色、字體、佈局等。
+        */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fdfaf6; /* 柔和的米白色背景 */
-            color: #333;
+            /* 定義整個網頁主體的樣式 */
+            font-family: 'Inter', sans-serif; /* 設定頁面預設字體為 Inter，如果 Inter 不可用，則使用任何無襯線字體 */
+            background-color: #fdfaf6; /* 設定網頁的背景顏色為柔和的米白色 */
+            color: #333; /* 設定網頁的預設文字顏色為深灰色 */
         }
         .hero-section {
-            background: linear-gradient(to bottom right, #fdfaf6, #ffece6); /* 柔和的漸變背景 */
-            padding: 8rem 0;
-            text-align: center;
+            /* 主視覺區塊 (hero section) 的樣式 */
+            background: linear-gradient(to bottom right, #fdfaf6, #ffece6); /* 設定背景為從左上到右下的漸變色，從米白色漸變到淺玫瑰色 */
+            padding: 8rem 0; /* 設定上下內邊距為 8rem (1rem 通常等於 16px)，左右內邊距為 0 */
+            text-align: center; /* 設定區塊內的文字水平置中 */
         }
         .section-title {
-            color: #8B4513; /* 深棕色，溫暖而有質感 */
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
+            /* 各個內容區塊標題的樣式 */
+            color: #8B4513; /* 設定文字顏色為深棕色，營造溫暖有質感的視覺效果 */
+            font-size: 2.5rem; /* 設定字體大小為 2.5 倍於根字體大小 */
+            font-weight: 700; /* 設定字體粗細為粗體 (bold) */
+            margin-bottom: 2rem; /* 設定標題底部外邊距為 2rem，與下方內容分隔 */
         }
         .btn-primary {
-            background-color: #CD853F; /* 溫暖的棕色 */
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 9999px;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* 主要按鈕的樣式 */
+            background-color: #CD853F; /* 設定按鈕背景顏色為溫暖的棕色 */
+            color: white; /* 設定按鈕文字顏色為白色 */
+            padding: 0.8rem 2rem; /* 設定按鈕的內邊距，提供舒適的點擊區域 */
+            border-radius: 9999px; /* 設定極大的圓角，使按鈕呈現膠囊形狀 */
+            transition: background-color 0.3s ease; /* 設定背景顏色在 0.3 秒內平滑過渡，提供視覺回饋 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加柔和的陰影，增加立體感 */
         }
         .btn-primary:hover {
-            background-color: #A0522D; /* 加深色 */
+            /* 主要按鈕懸停時的樣式 (當滑鼠移到按鈕上時) */
+            background-color: #A0522D; /* 將背景顏色加深，表示可互動 */
         }
         .card {
-            background-color: white;
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            padding: 2rem;
-            transition: transform 0.3s ease;
+            /* 通用的卡片樣式 */
+            background-color: white; /* 設定卡片背景為白色 */
+            border-radius: 1.5rem; /* 設定卡片邊緣圓角 */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* 添加柔和的陰影，使其看起來像是浮動的卡片 */
+            padding: 2rem; /* 設定卡片內邊距 */
+            transition: transform 0.3s ease; /* 設定平滑的過渡效果，用於懸停時的動畫 */
         }
         .card:hover {
-            transform: translateY(-5px);
+            /* 卡片懸停時的樣式 */
+            transform: translateY(-5px); /* 當滑鼠懸停時，卡片向上輕微移動 5 像素，增加互動感 */
         }
         .feature-icon {
-            color: #CD853F;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            /* 特色圖示的樣式 */
+            color: #CD853F; /* 設定圖示顏色為與主要按鈕一致的棕色 */
+            font-size: 2.5rem; /* 設定圖示大小 */
+            margin-bottom: 1rem; /* 設定圖示底部外邊距 */
         }
         .footer-link {
-            color: #8B4513;
-            transition: color 0.3s ease;
+            /* 頁腳連結的樣式 */
+            color: #8B4513; /* 設定連結顏色為深棕色 */
+            transition: color 0.3s ease; /* 設定顏色在 0.3 秒內平滑過渡 */
         }
         .footer-link:hover {
-            color: #CD853F;
+            /* 頁腳連結懸停時的樣式 */
+            color: #CD853F; /* 懸停時顏色變淺，提供視覺回饋 */
         }
         /* 自訂 CSS 調整，讓漢堡選單在手機上顯示，在大螢幕上隱藏 */
-        @media (min-width: 768px) { /* md breakpoint in Tailwind is 768px */
+        @media (min-width: 768px) { /* @media 規則: 用於響應式設計，根據不同的媒體類型或裝置特性應用不同的 CSS 樣式。
+            (min-width: 768px): 這是一個媒體查詢，表示當螢幕寬度至少為 768 像素時（即中等螢幕 'md' breakpoint 以上），應用以下樣式。
+        */
             .hamburger-menu {
-                display: none;
+                display: none; /* 隱藏漢堡選單按鈕，因為在大螢幕上會顯示完整的導覽列 */
             }
             .mobile-nav-links {
-                display: none; /* 在大螢幕下預設隱藏 */
+                display: none; /* 在大螢幕下預設隱藏手機版導覽連結，避免重複顯示 */
             }
         }
-        @media (max-width: 767px) {
+        @media (max-width: 767px) { /* (max-width: 767px): 這是一個媒體查詢，表示當螢幕寬度最大為 767 像素時（即小於中等螢幕 'md' breakpoint），應用以下樣式。
+        */
              .desktop-nav-links {
-                display: none;
+                display: none; /* 隱藏桌面版導覽連結，為手機版騰出空間 */
             }
              .mobile-nav-links {
-                display: block; /* 在小螢幕下顯示 */
+                display: block; /* 在小螢幕下顯示手機版導覽連結，通常搭配 JavaScript 實現切換顯示 */
              }
         }
 
-        /* 新增的選擇項目樣式 */
+        /* 新增的選擇項目樣式 (用於客製化選項卡片) */
         .select-option {
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            display: flex; /* Make it a flex container */
-            flex-direction: column; /* Stack children vertically */
-            align-items: center; /* Center items horizontally */
-            text-align: center; /* Center text within the option */
+            /* 選擇卡片的通用樣式 */
+            border: 2px solid transparent; /* 預設邊框為 2px 寬的透明邊框 */
+            cursor: pointer; /* 當滑鼠移到元素上時，游標變為手型，表示可點擊 */
+            transition: all 0.2s ease-in-out; /* 所有 CSS 屬性在 0.2 秒內平滑過渡，提供動畫效果 */
+            display: flex; /* 設定為 Flex 容器，使其子元素可以彈性排列 */
+            flex-direction: column; /* 設定子元素垂直堆疊 (由上而下) */
+            align-items: center; /* 設定子元素在交叉軸 (水平方向) 上置中對齊 */
+            text-align: center; /* 設定卡片內文字水平置中 */
         }
         .select-option:hover {
-            border-color: #F0A3A7; /* 輕微的玫瑰色 */
-            transform: translateY(-2px);
+            /* 選擇卡片懸停時的樣式 */
+            border-color: #F0A3A7; /* 懸停時邊框顏色變為輕微的玫瑰色 */
+            transform: translateY(-2px); /* 向上輕微移動 2 像素，增加互動感 */
         }
         .select-option.selected {
-            border-color: #E05663; /* 選擇後的深玫瑰色 */
-            box-shadow: 0 0 0 3px rgba(224, 86, 99, 0.3);
-            transform: translateY(-2px);
+            /* 選擇卡片被選中時的樣式 */
+            border-color: #E05663; /* 選中後邊框顏色變為深玫瑰色 */
+            box-shadow: 0 0 0 3px rgba(224, 86, 99, 0.3); /* 添加一個外發光的陰影，突出選中狀態 */
+            transform: translateY(-2px); /* 保持向上輕微移動的效果 */
         }
         /* 顏色預覽圓圈的樣式 */
         .color-circle {
-            width: 48px; /* w-12 */
-            height: 48px; /* h-12 */
-            border-radius: 50%; /* Make it circular */
-            border: 1px solid #ccc; /* Add a subtle border */
-            margin-bottom: 0.75rem; /* space-y-3 between circle and text */
+            width: 48px; /* 寬度 48 像素 */
+            height: 48px; /* 高度 48 像素 */
+            border-radius: 50%; /* 設定邊框半徑為 50%，使其成為圓形 */
+            border: 1px solid #ccc; /* 添加一個微妙的灰色邊框 */
+            margin-bottom: 0.75rem; /* 設定底部外邊距 */
         }
         /* 新增的圖片樣式，用於顏色選項卡片內的圖片 */
         .select-option-image {
-            width: 100%; /* Take full width of its parent */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 0.75rem; /* rounded-lg */
-            margin-top: 1rem; /* Add some space above the image */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for images */
+            width: 100%; /* 寬度佔滿其父容器 */
+            height: auto; /* 高度自動調整，以保持圖片的原始比例 */
+            border-radius: 0.75rem; /* 設定圓角邊緣 */
+            margin-top: 1rem; /* 設定圖片頂部外邊距，與上方文字分隔 */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 為圖片添加柔和的陰影 */
         }
 
-        /* 以下為新增的樣式，用於調整左上角標誌 */
+        /* 以下為新增的樣式，用於調整左上角標誌 (這些 class 名稱可能來自外部工具，例如 Google 某些預設樣式) */
         .GAuSPc { /* 原本的class，為確保樣式效果保留 */
-            display: flex;
-            align-items: center;
-            text-decoration: none; /* 移除下劃線 */
-            color: inherit; /* 繼承父元素顏色 */
+            display: flex; /* 設定為 Flex 容器 */
+            align-items: center; /* 將 Flex 項目（圖片和文字）在交叉軸（垂直方向）上置中對齊 */
+            text-decoration: none; /* 移除連結預設的下劃線 */
+            color: inherit; /* 繼承父元素的文字顏色 */
         }
         .lzy1Td { /* 圖片的class */
-            height: 24px; /* 或根據實際需求調整 */
-            width: 24px; /* 或根據實際需求調整 */
-            margin-right: 8px; /* 圖片與文字間距 */
+            height: 24px; /* 設定圖片高度為 24 像素 */
+            width: 24px; /* 設定圖片寬度為 24 像素 */
+            margin-right: 8px; /* 設定圖片右側外邊距，與文字之間產生間距 */
         }
         .QTKDff { /* 文字的class */
-            font-size: 1.25rem; /* text-xl, 或根據實際需求調整 */
-            font-weight: 600; /* font-semibold */
-            color: #333; /* text-gray-800 */
+            font-size: 1.25rem; /* 設定文字大小為 1.25 倍於根字體大小 (約 text-xl) */
+            font-weight: 600; /* 設定字體粗細為半粗體 (semibold) */
+            color: #333; /* 設定文字顏色為深灰色 */
         }
         .p46B7e {
-            /* 額外 class 的樣式 */
+            /* 額外 class 的樣式，目前沒有定義具體屬性，可能為預留或從其他地方繼承的樣式 */
+        }
+
+        /* 讓 Font Awesome 圖示顯示官方顏色 (保持不變) */
+        .fa-instagram {
+            color: #E1306C; /* 設定 Instagram 圖示的顏色為其品牌代表色 (粉紫色調) */
+        }
+        .fa-whatsapp {
+            color: #25D366; /* 設定 WhatsApp 圖示的顏色為其品牌代表色 (官方綠色) */
+        }
+        /* 調整聯絡區塊的連結樣式，使其更像按鈕 */
+        .contact-cta-item {
+            display: flex; /* 設定為 Flex 容器 */
+            flex-direction: column; /* 子元素垂直堆疊 */
+            align-items: center; /* 水平置中對齊子元素 */
+            justify-content: center; /* 垂直置中對齊子元素 */
+            text-align: center; /* 文字置中 */
+            padding: 1.5rem 1rem; /* 增加內邊距，使點擊區域更大、更舒適 */
+            border-radius: 1.5rem; /* 設定圓角，與卡片樣式保持一致 */
+            background-color: white; /* 設定聯絡項目的背景為白色 */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* 添加柔和的陰影，增加立體感 */
+            transition: all 0.3s ease-in-out; /* 設定所有 CSS 屬性在 0.3 秒內平滑過渡 */
+            cursor: pointer; /* 游標變為手型，表示可點擊 */
+            text-decoration: none; /* 移除連結下劃線 */
+            color: #333; /* 設定預設文字顏色 */
+        }
+
+        .contact-cta-item:hover {
+            /* 聯絡項目懸停時的樣式 */
+            transform: translateY(-7px); /* 向上移動 7 像素，視覺效果更明顯 */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* 陰影加深，進一步突出互動感 */
+        }
+
+        .contact-cta-item .icon-large {
+            /* 聯絡項目中大圖示的樣式 */
+            font-size: 4.5rem; /* 放大圖示，使其更醒目和吸引人 */
+            margin-bottom: 0.75rem; /* 圖示與下方文字之間的間距 */
+        }
+
+        .contact-cta-item .cta-text {
+            /* 聯絡項目中行動呼籲文字的樣式 */
+            font-size: 1.125rem; /* 放大文字 */
+            font-weight: 600; /* 加粗文字 */
+            color: #555; /* 文字顏色稍微深一點 */
+        }
+
+        /* 調整 hover 效果，讓 hover 時顏色變化更明顯 */
+        .contact-cta-item:hover .fa-instagram,
+        .contact-cta-item:hover .fa-whatsapp {
+            filter: brightness(1.15); /* 當懸停時，圖示顏色亮度增加 15%，使其更亮更鮮明 */
         }
     </style>
 </head>
 <body>
-
     <nav class="bg-white p-4 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <a class="GAuSPc" aria-hidden="false" tabindex="0">
-                <img src="https://img.notionusercontent.com/s3/prod-files-secure%2F1d07182e-0ccd-4d70-80e0-e2882f2135ed%2F35d0a0f4-58ad-4b88-8de3-446e5d60678b%2F%E5%9C%96%E7%89%87_13.png/size/w=250?exp=1747850306&sig=eyTjqHqCWq_fvkDuDTTZKtcgrXnAzvw43uzDF2yXJko&id=d94f2cd5-43fd-4d5a-b4b9-a86c856e450c&table=block&userId=469afa7f-c90a-4337-8db1-e0f7af879ef8" class="lzy1Td" role="img" aria-label="網站首頁" jsname="SwcDWb">
+                <img src="https://chungyuicheung.github.io/myo.makeyourown/image/01_company_logo.png" class="lzy1Td" role="img" aria-label="網站首頁" jsname="SwcDWb">
                 <span class="QTKDff text-rose-500">My O!</span>證書套
             </a>
 
@@ -171,16 +232,15 @@
             <p class="text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
                 您的結婚證書，承載著一生一世的誓言。我們為您打造設計師級結婚證書套，讓這份愛情的見證，永恆閃耀。
             </p>
-            <a href="#customization" class="btn-primary text-lg font-semibold inline-block">
-                立即定制您的專屬證書套
+            <a href="#contact" class="btn-primary text-lg font-semibold inline-block">
+                立即聯絡我們
             </a>
         </div>
     </header>
 
     <section id="product-info" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="section-title text-center">產品簡介</h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <h2 class="section-title text-center">產品簡介</h2> <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="flex justify-center">
                     <img src="https://lh5.googleusercontent.com/DWeIfZzwIHgSE31vh0akZf8RFa4FSApdYuzT_Cer8xnRZ3AdnIqurxsmKCM82KVA1GmyjdCxfLDtzuL1f1RtYvojfmzK-Ee38rYaossg4OfSVJ4oKA5iaryucGf6cRqe3mCcj5nfJwXmZP3785AdCaWNgTR_M7BlcNdw4a8CDRX9eJxBNg=w1326?key=Bl7sKK6_IAHx2-hi6KOMLg" alt="結婚證書套示意圖" class="rounded-2xl shadow-lg">
                 </div>
@@ -193,8 +253,7 @@
                             <span class="feature-icon mr-3">💖</span>
                             <div>
                                 <strong class="font-semibold">完美尺寸：</strong> 尺寸適用於香港婚姻登記處發出的 A4 結婚證書，確保完美貼合。
-                                <span class="block text-sm text-gray-500">約 30.7cm(高) × 22.6cm(闊)</span>
-                            </div>
+                                <span class="block text-sm text-gray-500">約 30.7cm(高) × 22.6cm(闊)</span> </div>
                         </li>
                         <li class="flex items-start">
                             <span class="feature-icon mr-3">✨</span>
@@ -205,7 +264,7 @@
                         <li class="flex items-start">
                             <span class="feature-icon mr-3">🛡️</span>
                             <div>
-                                <strong class="font-semibold">穩妥保護：</strong> 厚卡內襯，配備固定帶，可穩妥保護證書，防潮防塵。
+                                <strong class="font-semibold">穩妥保護：：</strong> 厚卡內襯，配備固定帶，可穩妥保護證書，防潮防塵。
                             </div>
                         </li>
                         <li class="flex items-start">
@@ -222,16 +281,12 @@
 
     <section id="customization" class="py-16 bg-rose-50">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="section-title">客製化您的專屬印記</h2>
-            <p class="text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
+            <h2 class="section-title">客製化您的專屬印記</h2> <p class="text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
                 讓您的結婚證書套獨一無二，刻印下屬於您們的愛情密碼。我們提供多樣化的客製選項，無需您自備圖稿。
             </p>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="card">
-                    <div class="feature-icon">✒️</div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">印製新人名字</h3>
-                    <p class="text-gray-600">支援繁體中文與英文，多款字體風格可選，為您們的名字賦予藝術感。</p>
-                </div>
+                    <div class="feature-icon">✒️</div> <h3 class="text-xl font-semibold text-gray-800 mb-3">印製新人名字</h3> <p class="text-gray-600">支援繁體中文與英文，多款字體風格可選，為您們的名字賦予藝術感。</p> </div>
                 <div class="card">
                     <div class="feature-icon">🗓️</div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">結婚日期刻印</h3>
@@ -245,10 +300,10 @@
             </div>
         </div>
     </section>
+    
     <section id="designs" class="py-16 bg-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="section-title">選擇您的專屬款式與設計</h2>
-            <p class="text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
+            <h2 class="section-title">選擇您的專屬款式與設計</h2> <p class="text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
                 從簡約優雅到浪漫古典，總有一款能完美襯托您們的愛情故事。
                 在此您可以選擇證書套的顏色與質地，以及豐富的圖案設計樣式。
             </p>
@@ -256,8 +311,7 @@
             <div class="mb-12 text-left max-w-4xl mx-auto">
                 <h3 class="text-2xl font-semibold text-gray-800 mb-4 text-center">
                     選擇證書套顏色 | Select the Color of the Certificate Cover
-                    <span class="text-red-500">*</span>
-                </h3>
+                    <span class="text-red-500">*</span> </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="card select-option p-6" data-type="color" data-value="beige">
                         <div class="color-circle bg-gray-200 border-gray-300" style="background-color: #f6dba6;"></div>
@@ -275,8 +329,7 @@
             <div class="mb-12 text-left max-w-4xl mx-auto">
                 <h3 class="text-2xl font-semibold text-gray-800 mb-4 text-center">
                     選擇證書套設計樣式 | Support English/Chinese Character
-                    <span class="text-red-500">*</span>
-                </h3>
+                    <span class="text-red-500">*</span> </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                     <div class="card select-option text-center p-4" data-type="style" data-value="style1">
                         <img src="https://lh4.googleusercontent.com/2vA2HWi9vUqzkhcx9iFEOyb80Em4VeVHrbyfCz65cF0pIIvzzHO8-g1fPX268pD2-aOA5I179u06rIA2Byfx9eMjQRK9CyrhTvA8pESlfz0HErKN38wPO_dvz-yLxka-k4I498zzU_N_mXOeRkl5VZTHz5B-KEOwDc6zafakUUTGcL2Xsw=w260?key=Bl7sKK6_IAHx2-hi6KOMLg" alt="款式1" class="w-full h-auto rounded-md mb-3">
@@ -303,57 +356,51 @@
                         <span class="block font-medium text-gray-800">款式5｜Cert Style 5</span>
                         <p class="text-gray-600 text-sm mt-1">更多風格選擇，等待您發掘。</p>
                     </div>
-                    </div>
+                </div>
             </div>
-
-            </div>
+            <input type="hidden" id="selected-color-input" name="selected_color">
+            <input type="hidden" id="selected-style-input" name="selected_style">
+        </div>
     </section>
 
     <section class="py-16 bg-rose-50">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="section-title">不僅是證書套，更是愛的傳承</h2>
-            <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <h2 class="section-title">不僅是證書套，更是愛的傳承</h2> <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
                 您的結婚證書套，將成為家中一份美麗的裝飾，一份可以隨時回味甜蜜的信物。
                 它承載著您們的誓言，見證著歲月的流轉，並將這份愛的故事，傳遞給未來的世代。
             </p>
             <div class="flex justify-center">
-                <img src="https://img.notionusercontent.com/s3/prod-files-secure%2F1d07182e-0ccd-4d70-80e0-e2882f2135ed%2F35d0a0f4-58ad-4b88-8de3-446e5d60678b%2F%E5%9C%96%E7%89%87_13.png/size/w=250?exp=1747850306&sig=eyTjqHqCWq_fvkDuDTTZKtcgrXnAzvw43uzDF2yXJko&id=d94f2cd5-43fd-4d5a-b4b9-a86c856e450c&table=block&userId=469afa7f-c90a-4337-8db1-e0f7af879ef8" alt="夫妻手持證書套" class="rounded-2xl shadow-lg max-w-full h-auto">
+                <img src="https://chungyuicheung.github.io/myo.makeyourown/image/01_company_logo.png" alt="myo.makeyourown company logo" class="rounded-2xl shadow-lg max-w-full h-auto">
             </div>
         </div>
     </section>
 
     <section id="contact" class="py-16 bg-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="section-title">聯絡我們</h2>
-            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+            <h2 class="section-title">聯絡我們</h2> <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
                 有任何疑問或需要客製化協助嗎？歡迎隨時與我們聯繫，我們將竭誠為您服務。
             </p>
-            <div class="max-w-md mx-auto bg-rose-50 p-8 rounded-2xl shadow-md">
-                <form action="#" method="POST">
-                    <div class="mb-6">
-                        <label for="name" class="block text-gray-700 text-left text-sm font-semibold mb-2">姓名</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-500" placeholder="您的姓名" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="email" class="block text-gray-700 text-left text-sm font-semibold mb-2">電子郵件</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-500" placeholder="您的電子郵件" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block text-gray-700 text-left text-sm font-semibold mb-2">訊息</label>
-                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-500" placeholder="您想說什麼？" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary w-full text-lg font-semibold">
-                        送出訊息
-                    </button>
-                </form>
+            <div class="max-w-3xl mx-auto mb-8">
+                <p class="text-2xl font-bold text-gray-800 mb-8 text-center leading-relaxed">
+                    準備好定制您的專屬證書套了嗎？<br>
+                    立即透過以下方式聯絡我們！✨
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <a href="https://www.instagram.com/myo.makeyourown/" target="_blank" class="contact-cta-item">
+                        <i class="fab fa-instagram icon-large"></i>
+                        <span class="cta-text">透過 Instagram 訊息我們</span> </a>
+                    <a href="https://api.whatsapp.com/send?phone=85263796410&text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E5%BE%9E%E4%BD%A0%E5%80%91%E7%B6%B2%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%E9%80%99%E5%80%8B%E7%94%A2%E5%93%81%EF%BC%81%E6%9C%89%E8%88%88%E8%B6%A3%E4%BA%86%E8%A7%A3%E6%9B%B4%E5%A4%9A%EF%BC%81" target="_blank" class="contact-cta-item">
+                        <i class="fab fa-whatsapp icon-large"></i>
+                        <span class="cta-text">透過 WhatsApp 聯絡我們</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="bg-gray-800 text-white py-10">
         <div class="container mx-auto px-4 text-center">
-            <p class="mb-4">© 2025 愛的見證. 版權所有。</p>
-            <div class="space-x-6">
+            <p class="mb-4">© 2025 愛的見證. 版權所有。</p> <div class="space-x-6">
                 <a href="#" class="footer-link">隱私政策</a>
                 <a href="#" class="footer-link">服務條款</a>
                 <a href="#" class="footer-link">常見問題</a>
@@ -362,49 +409,66 @@
     </footer>
 
     <script>
+        // DOMContentLoaded 事件監聽器: 確保在 HTML 文檔完全載入並解析後才執行 JavaScript 程式碼。
         document.addEventListener('DOMContentLoaded', function () {
-            // Mobile Menu Toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
+            // 1. 手機選單開關功能 (Mobile Menu Toggle)
+            const mobileMenuButton = document.getElementById('mobile-menu-button'); // 透過 ID 取得漢堡選單按鈕元素
+            const mobileMenu = document.getElementById('mobile-menu'); // 透過 ID 取得手機版導覽選單容器元素
 
+            // 檢查兩個元素是否存在，避免在元素不存在時發生 JavaScript 錯誤
             if (mobileMenuButton && mobileMenu) {
+                // 為漢堡選單按鈕添加點擊事件監聽器
                 mobileMenuButton.addEventListener('click', function () {
-                    mobileMenu.classList.toggle('hidden'); // Toggle visibility
+                    mobileMenu.classList.toggle('hidden'); // 當點擊按鈕時，切換 `mobileMenu` 元素的 'hidden' class。
+                                                            // 如果有 'hidden' class，就移除它（顯示）；如果沒有，就添加它（隱藏）。
                 });
 
-                // Optional: Close menu when a link is clicked
+                // (可選) 當點擊手機選單中的任何連結時，自動關閉選單
+                // 使用 `querySelectorAll('a')` 選擇 `mobileMenu` 內部所有的 `<a>` 標籤
                 mobileMenu.querySelectorAll('a').forEach(link => {
+                    // 為每個連結添加點擊事件監聽器
                     link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.add('hidden'); // 當連結被點擊時，強制添加 'hidden' class 以關閉選單。
                     });
                 });
             }
 
-            // Selection functionality for Color and Style Options
+            // 2. 選擇項目功能 (用於顏色和樣式選項卡片)
+            // 選擇所有具有 'select-option' class 的元素（這些是我們的顏色和樣式選擇卡片）
             const selectOptions = document.querySelectorAll('.select-option');
+            // 取得用於儲存選中顏色的隱藏 input 欄位
+            const selectedColorInput = document.getElementById('selected-color-input');
+            // 取得用於儲存選中樣式的隱藏 input 欄位
+            const selectedStyleInput = document.getElementById('selected-style-input');
 
+            // 遍歷 (loop through) 每個選擇選項卡片
             selectOptions.forEach(option => {
+                // 為每個選項卡片添加點擊事件監聽器
                 option.addEventListener('click', function() {
-                    const type = this.dataset.type; // 'color' or 'style'
+                    // 取得當前被點擊卡片的 `data-type` 屬性值 (例如 'color' 或 'style')
+                    const type = this.dataset.type;
+                    // 取得當前被點擊卡片的 `data-value` 屬性值 (例如 'beige', 'blue', 'style1' 等)
                     const value = this.dataset.value;
 
-                    // Remove 'selected' from other options of the same type
+                    // 移除同類型其他選項的 'selected' class
+                    // 1. 使用 `document.querySelectorAll()` 選擇所有具有相同 `data-type` 的選項。
+                    // 2. 遍歷這些同類型選項，並從它們身上移除 'selected' class，確保每次只有一個選項被選中。
                     document.querySelectorAll(`.select-option[data-type="${type}"]`).forEach(sibling => {
                         sibling.classList.remove('selected');
                     });
 
-                    // Add 'selected' to the clicked option
+                    // 為當前被點擊的選項添加 'selected' class
                     this.classList.add('selected');
 
-                    // You can now store the selected value, e.g., in a hidden input or global variable
-                    console.log(`Selected ${type}: ${value}`);
-                    // Example of storing selected values (you might need to create hidden input fields for this)
-                    // if (type === 'color') {
-                    //     document.getElementById('selected-color-input').value = value;
-                    // }
-                    // if (type === 'style') {
-                    //     document.getElementById('selected-style-input').value = value;
-                    // }
+                    // 根據選項的類型 (顏色或樣式) 將選中的值儲存到對應的隱藏 input 欄位中
+                    if (type === 'color' && selectedColorInput) {
+                        selectedColorInput.value = value; // 將選中的顏色值賦給隱藏的顏色 input 欄位
+                        console.log(`Selected color: ${value}`); // 在瀏覽器的開發者工具控制台輸出選中的顏色，方便調試
+                    }
+                    if (type === 'style' && selectedStyleInput) {
+                        selectedStyleInput.value = value; // 將選中的樣式值賦給隱藏的樣式 input 欄位
+                        console.log(`Selected style: ${value}`); // 在瀏覽器的開發者工具控制台輸出選中的樣式，方便調試
+                    }
                 });
             });
         });

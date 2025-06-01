@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">HEIC/HEIF 轉圖片工具</title>
+    <style>
+        /* --- CSS 樣式開始 --- */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            margin: 0;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            box-sizing: border-box;
+            position: relative;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .drag-area {
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            cursor: pointer;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        .drag-area.highlight {
+            border-color: #007bff;
+            background-color: #e6f2ff;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .message {
+            margin-top: 15px;
+            color: #d9534f;
+            font-weight: bold;
+        }
+        .format-selection {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .format-selection label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .format-selection input[type="radio"] {
+            margin-right: 5px;
+        }
+        #output {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            text-align: left;
+        }
+        #output h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            margin: 20px auto;
+            height: 30px;
+            overflow: hidden;
+            position: relative;
+            display: none;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 30px 30px;
+            background-color: #4CAF50;
+            border-radius: 8px;
+            transition: width 0.5s ease-in-out;
+            animation: progressAnimation 1.5s linear infinite;
+        }
+        @keyframes progressAnimation {
+            0% { background-position: 0 0; }
+            100% { background-position: 30px 30px; }
+        }
+        .progress-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 0;
+            left: 0;
+            line-height: 30px;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .progress-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+        }
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95em;
+        }
+        .file-item:last-child {
+            border-bottom: none;
+        }
+        .file-name {
+            font-weight: bold;
+            flex-grow: 1;
+            margin-right: 15px;
+            word-break: break-all;
+        }
+        .file-status {
+            font-size: 0.9em;
+            color: #5cb85c;
+            white-space: nowrap;
+            min-width: 80px;
+            text-align: right;
+        }
+        .file-status.error {
+            color: #d9534f;
+        }
+        .download-link {
+            display: inline-block;
+            margin-left: 15px;
+            background-color: #28a745;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9em;
+            white-space: nowrap;
+            transition: background-color 0.3s ease;
+        }
+        .download-link:hover {
+            background-color: #218838;
+        }
+        #zipDownloadLink {
+            display: none;
+            margin-top: 25px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        #zipDownloadLink:hover {
+            background-color: #45a049;
+        }
+        .loading-spinner {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* 語言切換按鈕 */
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .language-switcher button {
+            background-color: #6c757d;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        .language-switcher button:hover {
+            background-color: #5a6268;
+        }
+        /* --- CSS 樣式結束 --- */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-switcher">
+            <button id="langToggleBtn">English</button>
+        </div>
+        <h1 id="mainTitle">HEIC/HEIF 轉圖片工具</h1>
+        <p id="description">拖曳 HEIC/HEIF 圖片到下方區域，或點擊選擇檔案。支援多檔案上傳和轉換。</p>
+
+        <div class="drag-area" id="dragArea">
+            <p id="dragText">將檔案拖曳到這裡</p>
+            <p>或</p>
+            <button id="selectFileButton">選擇檔案</button>
+            <input type="file" id="heicInput" accept=".heic,.heif" multiple>
+        </div>
+
+        <div class="format-selection">
+            <label>
+                <input type="radio" name="outputFormat" value="image/png" checked> PNG
+            </label>
+            <label>
+                <input type="radio" name="outputFormat" value="image/jpeg"> JPG
+            </label>
+        </div>
+
+        <button id="convertAllButton" disabled>開始轉換</button>
+        <p class="message" id="errorMessage"></p>
+
+        <div id="output">
+            <h2 id="outputTitle">轉換結果</h2>
+            <div class="progress-container">
+                <div class="progress-bar" id="overallProgressBar"></div>
+                <div class="progress-text" id="overallProgressText">0%</div>
+            </div>
+            <div class="progress-info" id="progressInfo">等待開始...</div>
+            <div id="fileList"></div>
+            <a id="zipDownloadLink" style="display: none;">下載所有圖片 (ZIP)</a>
+        </div>
+    </div>
+
+    <script src="js library/heic2any.min.js"></script>
+    <script src="js library/jszip.min.js"></script>
+    <script src="js library/FileSaver.min.js"></script>
+
+    <script>
+        /* --- JavaScript 程式碼開始 --- */
+        document.addEventListener('DOMContentLoaded', () => {
+            const heicInput = document.getElementById('heicInput');
+            const dragArea = document.getElementById('dragArea');
+            const selectFileButton = document.getElementById('selectFileButton');
+            const convertAllButton = document.getElementById('convertAllButton');
+            const errorMessage = document.getElementById('errorMessage');
+            const fileListContainer = document.getElementById('fileList');
+            const zipDownloadLink = document.getElementById('zipDownloadLink');
+            const overallProgressBar = document.getElementById('overallProgressBar');
+            const overallProgressText = document.getElementById('overallProgressText');
+            const progressContainer = document.querySelector('.progress-container');
+            const progressInfo = document.getElementById('progressInfo');
+            const langToggleBtn = document.getElementById('langToggleBtn');
+            const pageTitle = document.getElementById('pageTitle');
+            const mainTitle = document.getElementById('mainTitle');
+            const description = document.getElementById('description');
+            const dragText = document.getElementById('dragText');
+            const outputTitle = document.getElementById('outputTitle');
+
+            let selectedFiles = [];
+            let convertedBlobs = {};
+            let completedConversionsCount = 0;
+            let currentFileIndex = 0;
+            let currentLang = navigator.language.startsWith('zh') ? 'zh-Hant' : 'en';
+
+            // 語言內容物件
+            const translations = {
+                'zh-Hant': {
+                    pageTitle: 'HEIC/HEIF 轉圖片工具',
+                    mainTitle: 'HEIC/HEIF 轉圖片工具',
+                    description: '拖曳 HEIC/HEIF 圖片到下方區域，或點擊選擇檔案。支援多檔案上傳和轉換。',
+                    dragText: '將檔案拖曳到這裡',
+                    selectFileButton: '選擇檔案',
+                    convertAllButton: '開始轉換',
+                    outputTitle: '轉換結果',
+                    progressInfoWaiting: '等待開始...',
+                    progressInfoConverting: (fileName, index, total) => `正在轉換: ${fileName} (${index}/${total})`,
+                    progressInfoCompleted: (success, total) => `轉換完成: ${success}/${total} 檔案`,
+                    progressInfoFailed: '轉換失敗',
+                    noFilesSelected: '請選擇或拖曳一個或多個 HEIC/HEIF 檔案。',
+                    noValidFiles: '沒有找到有效的 HEIC/HEIF 檔案。請確保您選擇的是正確的檔案類型。',
+                    invalidFileWarning: (fileName) => `警告: 檔案 "${fileName}" 不是 HEIC 或 HEIF 格式，將被忽略。`,
+                    noFilesToConvert: '沒有檔案可以轉換。請先選擇檔案。',
+                    partialSuccess: '部分檔案轉換成功，但有些失敗。ZIP 只會包含成功的檔案。',
+                    allSuccess: '所有檔案都已轉換完成！',
+                    allFailed: '所有檔案轉換失敗。請檢查檔案是否損壞或格式不正確。',
+                    noConvertedFiles: '沒有已轉換的檔案可以打包。',
+                    zipSuccess: 'ZIP 檔案已成功生成並下載！',
+                    zipFailed: (error) => `生成 ZIP 檔案失敗: ${error || '未知錯誤'}`,
+                    fileStatusPending: '待轉換',
+                    fileStatusConverting: '轉換中...',
+                    fileStatusSuccess: '轉換成功！',
+                    fileStatusFailed: (error) => `轉換失敗: ${error || '未知錯誤'}`,
+                    downloadLink: (format) => `下載 ${format === 'image/png' ? 'PNG' : 'JPG'}`,
+                    zipDownloadLink: (format) => `下載所有 ${format === 'image/png' ? 'PNG' : 'JPG'} 圖片 (ZIP)`,
+                    zipPacking: '打包中...',
+                    langToggle: 'English'
+                },
+                'en': {
+                    pageTitle: 'HEIC/HEIF to Image Converter',
+                    mainTitle: 'HEIC/HEIF to Image Converter',
+                    description: 'Drag and drop HEIC/HEIF images here, or click to select files. Supports multiple file uploads and conversions.',
+                    dragText: 'Drag files here',
+                    selectFileButton: 'Select Files',
+                    convertAllButton: 'Start Conversion',
+                    outputTitle: 'Conversion Results',
+                    progressInfoWaiting: 'Waiting to start...',
+                    progressInfoConverting: (fileName, index, total) => `Converting: ${fileName} (${index}/${total})`,
+                    progressInfoCompleted: (success, total) => `Conversion completed: ${success}/${total} files`,
+                    progressInfoFailed: 'Conversion failed',
+                    noFilesSelected: 'Please select or drag one or more HEIC/HEIF files.',
+                    noValidFiles: 'No valid HEIC/HEIF files found. Please ensure you select the correct file type.',
+                    invalidFileWarning: (fileName) => `Warning: File "${fileName}" is not in HEIC or HEIF format and will be ignored.`,
+                    noFilesToConvert: 'No files to convert. Please select files first.',
+                    partialSuccess: 'Some files were converted successfully, but others failed. The ZIP will only include successful files.',
+                    allSuccess: 'All files have been converted successfully!',
+                    allFailed: 'All file conversions failed. Please check if the files are corrupted or in the correct format.',
+                    noConvertedFiles: 'No converted files available to zip.',
+                    zipSuccess: 'ZIP file generated and downloaded successfully!',
+                    zipFailed: (error) => `Failed to generate ZIP file: ${error || 'Unknown error'}`,
+                    fileStatusPending: 'Pending',
+                    fileStatusConverting: 'Converting...',
+                    fileStatusSuccess: 'Conversion successful!',
+                    fileStatusFailed: (error) => `Conversion failed: ${error || 'Unknown error'}`,
+                    downloadLink: (format) => `Download ${format === 'image/png' ? 'PNG' : 'JPG'}`,
+                    zipDownloadLink: (format) => `Download all ${format === 'image/png' ? 'PNG' : 'JPG'} images (ZIP)`,
+                    zipPacking: 'Packing...',
+                    langToggle: '中文'
+                }
+            };
+
+            // 更新 UI 語言
+            function updateUILanguage() {
+                const t = translations[currentLang];
+                pageTitle.textContent = t.pageTitle;
+                mainTitle.textContent = t.mainTitle;
+                description.textContent = t.description;
+                dragText.textContent = t.dragText;
+                selectFileButton.textContent = t.selectFileButton;
+                convertAllButton.textContent = t.convertAllButton;
+                outputTitle.textContent = t.outputTitle;
+                progressInfo.textContent = t.progressInfoWaiting;
+                errorMessage.textContent = '';
+                langToggleBtn.textContent = t.langToggle;
+                zipDownloadLink.textContent = t.zipDownloadLink(document.querySelector('input[name="outputFormat"]:checked').value);
+                document.documentElement.lang = currentLang;
+
+                // 更新檔案列表中的狀態和下載連結文字
+                Array.from(fileListContainer.children).forEach(fileItem => {
+                    const uniqueId = fileItem.dataset.uniqueId;
+                    const fileStatus = fileItem.querySelector('.file-status');
+                    const downloadLink = fileItem.querySelector('.download-link');
+                    const file = selectedFiles.find(f => `${f.name}-${f.lastModified}` === uniqueId);
+                    if (file) {
+                        const newFileName = file.name.replace(/\.(heic|heif)$/i, document.querySelector('input[name="outputFormat"]:checked').value.includes('png') ? '.png' : '.jpg');
+                        if (convertedBlobs[newFileName]) {
+                            fileStatus.textContent = t.fileStatusSuccess;
+                            downloadLink.textContent = t.downloadLink(document.querySelector('input[name="outputFormat"]:checked').value);
+                        } else {
+                            fileStatus.textContent = t.fileStatusPending;
+                        }
+                    }
+                });
+            }
+
+            // 語言切換按鈕事件
+            langToggleBtn.addEventListener('click', () => {
+                currentLang = currentLang === 'zh-Hant' ? 'en' : 'zh-Hant';
+                updateUILanguage();
+            });
+
+            // 初始化語言
+            updateUILanguage();
+
+            // 動態生成 yyyy-mm-dd_hh-mm-ss_converter.zip 文件名
+            function getZipFileName() {
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = String(today.getMonth() + 1).padStart(2, '0');
+                const day = String(today.getDate()).padStart(2, '0');
+                const hours = String(today.getHours()).padStart(2, '0');
+                const minutes = String(today.getMinutes()).padStart(2, '0');
+                const seconds = String(today.getSeconds()).padStart(2, '0');
+                return `${year}-${month}-${day}_${hours}-${minutes}-${seconds}_converter.zip`;
+            }
+
+            selectFileButton.addEventListener('click', () => {
+                heicInput.click();
+            });
+
+            heicInput.addEventListener('change', (event) => {
+                handleFiles(event.target.files);
+                event.target.value = '';
+            });
+
+            dragArea.addEventListener('dragover', (event) => {
+                event.preventDefault();
+                dragArea.classList.add('highlight');
+                errorMessage.textContent = '';
+            });
+
+            dragArea.addEventListener('dragleave', () => {
+                dragArea.classList.remove('highlight');
+            });
+
+            dragArea.addEventListener('drop', (event) => {
+                event.preventDefault();
+                dragArea.classList.remove('highlight');
+                handleFiles(event.dataTransfer.files);
+            });
+
+            function handleFiles(files) {
+                const t = translations[currentLang];
+                errorMessage.textContent = '';
+                zipDownloadLink.style.display = 'none';
+                progressContainer.style.display = 'none';
+                overallProgressBar.style.width = '0%';
+                overallProgressText.textContent = '0%';
+                completedConversionsCount = 0;
+                currentFileIndex = 0;
+                progressInfo.textContent = t.progressInfoWaiting;
+
+                if (files.length === 0) {
+                    errorMessage.textContent = t.noFilesSelected;
+                    return;
+                }
+
+                const validFiles = Array.from(files).filter(file => {
+                    const fileName = file.name.toLowerCase();
+                    const isValid = fileName.endsWith('.heic') || fileName.endsWith('.heif');
+                    if (!isValid) {
+                        errorMessage.textContent += t.invalidFileWarning(fileName) + '\n';
+                    }
+                    return isValid;
+                });
+
+                if (validFiles.length === 0 && selectedFiles.length === 0) {
+                    errorMessage.textContent = t.noValidFiles;
+                    return;
+                }
+
+                selectedFiles = [...selectedFiles, ...validFiles];
+                displayFilesForConversion(selectedFiles);
+                convertAllButton.disabled = selectedFiles.length === 0;
+            }
+
+            function displayFilesForConversion(files) {
+                const t = translations[currentLang];
+                fileListContainer.innerHTML = '';
+                files.forEach(file => {
+                    const uniqueId = `${file.name}-${file.lastModified}`;
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'file-item';
+                    fileItem.dataset.uniqueId = uniqueId;
+                    fileItem.innerHTML = `
+                        <span class="file-name">${file.name}</span>
+                        <span class="file-status">${t.fileStatusPending}</span>
+                        <div class="loading-spinner"></div>
+                        <a href="#" class="download-link">${t.downloadLink(document.querySelector('input[name="outputFormat"]:checked').value)}</a>
+                    `;
+                    fileListContainer.appendChild(fileItem);
+                    fileItem.querySelector('.file-status').style.display = 'inline-block';
+                    fileItem.querySelector('.loading-spinner').style.display = 'none';
+                    fileItem.querySelector('.download-link').style.display = 'none';
+
+                    const newFileName = file.name.replace(/\.(heic|heif)$/i, document.querySelector('input[name="outputFormat"]:checked').value.includes('png') ? '.png' : '.jpg');
+                    if (convertedBlobs[newFileName]) {
+                        fileItem.querySelector('.file-status').textContent = t.fileStatusSuccess;
+                        fileItem.querySelector('.download-link').href = URL.createObjectURL(convertedBlobs[newFileName]);
+                        fileItem.querySelector('.download-link').download = newFileName;
+                        fileItem.querySelector('.download-link').style.display = 'inline-block';
+                    }
+                });
+            }
+
+            convertAllButton.addEventListener('click', async () => {
+                const t = translations[currentLang];
+                if (selectedFiles.length === 0) {
+                    errorMessage.textContent = t.noFilesToConvert;
+                    return;
+                }
+
+                convertAllButton.disabled = true;
+                errorMessage.textContent = '';
+                zipDownloadLink.style.display = 'none';
+                progressContainer.style.display = 'block';
+                overallProgressBar.style.width = '0%';
+                overallProgressText.textContent = '0%';
+                completedConversionsCount = 0;
+                currentFileIndex = 0;
+
+                const outputFormat = document.querySelector('input[name="outputFormat"]:checked').value;
+
+                for (const [index, file] of selectedFiles.entries()) {
+                    currentFileIndex = index;
+                    progressInfo.textContent = t.progressInfoConverting(file.name, index + 1, selectedFiles.length);
+                    await convertFile(file, outputFormat);
+                }
+
+                const successfulConversions = Object.keys(convertedBlobs).length;
+                if (successfulConversions > 0) {
+                    zipDownloadLink.style.display = 'inline-block';
+                    zipDownloadLink.textContent = t.zipDownloadLink(outputFormat);
+                    zipDownloadLink.download = getZipFileName();
+                    progressInfo.textContent = t.progressInfoCompleted(successfulConversions, selectedFiles.length);
+                    overallProgressBar.style.backgroundColor = '#28a745';
+                    if (successfulConversions < selectedFiles.length) {
+                        errorMessage.textContent = t.partialSuccess;
+                    } else {
+                        errorMessage.textContent = t.allSuccess;
+                        errorMessage.style.color = '#007bff';
+                    }
+                } else {
+                    errorMessage.textContent = t.allFailed;
+                    errorMessage.style.color = '#d9534f';
+                    progressInfo.textContent = t.progressInfoFailed;
+                }
+                convertAllButton.disabled = false;
+            });
+
+            async function convertFile(file, outputFormat) {
+                const t = translations[currentLang];
+                const uniqueId = `${file.name}-${file.lastModified}`;
+                const fileItem = document.querySelector(`.file-item[data-unique-id="${uniqueId}"]`);
+                const fileStatus = fileItem.querySelector('.file-status');
+                const spinner = fileItem.querySelector('.loading-spinner');
+                const downloadLink = fileItem.querySelector('.download-link');
+
+                fileStatus.textContent = t.fileStatusConverting;
+                fileStatus.classList.remove('error');
+                spinner.style.display = 'inline-block';
+                downloadLink.style.display = 'none';
+
+                try {
+                    const blob = await heic2any({
+                        blob: file,
+                        toType: outputFormat,
+                        quality: 0.9
+                    });
+
+                    const newFileName = file.name.replace(/\.(heic|heif)$/i, outputFormat.includes('png') ? '.png' : '.jpg');
+                    let finalFileName = newFileName;
+                    let counter = 1;
+                    while (convertedBlobs[finalFileName]) {
+                        const extIndex = newFileName.lastIndexOf('.');
+                        const baseName = newFileName.substring(0, extIndex);
+                        const extension = newFileName.substring(extIndex);
+                        finalFileName = `${baseName}(${counter})${extension}`;
+                        counter++;
+                    }
+                    convertedBlobs[finalFileName] = blob;
+
+                    fileStatus.textContent = t.fileStatusSuccess;
+                    fileStatus.classList.remove('error');
+                    spinner.style.display = 'none';
+                    downloadLink.href = URL.createObjectURL(blob);
+                    downloadLink.download = finalFileName;
+                    downloadLink.style.display = 'inline-block';
+                    downloadLink.textContent = t.downloadLink(outputFormat);
+
+                    completedConversionsCount++;
+                    updateOverallProgress();
+                } catch (e) {
+                    console.error(`轉換檔案 ${file.name} 失敗:`, e);
+                    fileStatus.textContent = t.fileStatusFailed(e.message);
+                    fileStatus.classList.add('error');
+                    spinner.style.display = 'none';
+                    completedConversionsCount++;
+                    updateOverallProgress();
+                }
+            }
+
+            function updateOverallProgress() {
+                const t = translations[currentLang];
+                if (selectedFiles.length === 0) return;
+                const progress = (completedConversionsCount / selectedFiles.length) * 100;
+                overallProgressBar.style.width = `${progress.toFixed(0)}%`;
+                overallProgressText.textContent = `${progress.toFixed(0)}%`;
+                if (completedConversionsCount === selectedFiles.length) {
+                    overallProgressBar.style.animation = 'none';
+                    progressInfo.textContent = t.progressInfoCompleted(Object.keys(convertedBlobs).length, selectedFiles.length);
+                }
+            }
+
+            zipDownloadLink.addEventListener('click', async (event) => {
+                const t = translations[currentLang];
+                event.preventDefault();
+                if (Object.keys(convertedBlobs).length === 0) {
+                    errorMessage.textContent = t.noConvertedFiles;
+                    return;
+                }
+
+                zipDownloadLink.textContent = t.zipPacking;
+                zipDownloadLink.disabled = true;
+                errorMessage.textContent = '';
+
+                const zip = new JSZip();
+                for (const fileName in convertedBlobs) {
+                    zip.file(fileName, convertedBlobs[fileName]);
+                }
+
+                try {
+                    const content = await zip.generateAsync({ type: 'blob', compression: "DEFLATE", compressionOptions: { level: 9 } });
+                    saveAs(content, getZipFileName());
+                    zipDownloadLink.textContent = t.zipDownloadLink(document.querySelector('input[name="outputFormat"]:checked').value);
+                    zipDownloadLink.disabled = false;
+                    errorMessage.textContent = t.zipSuccess;
+                    errorMessage.style.color = '#007bff';
+                } catch (e) {
+                    console.error('生成 ZIP 檔案失敗:', e);
+                    errorMessage.textContent = t.zipFailed(e.message);
+                    errorMessage.style.color = '#d9534f';
+                    zipDownloadLink.textContent = t.zipDownloadLink(document.querySelector('input[name="outputFormat"]:checked').value);
+                    zipDownloadLink.disabled = false;
+                }
+            });
+        });
+        /* --- JavaScript 程式碼結束 --- */
+    </script>
+</body>
+</html>

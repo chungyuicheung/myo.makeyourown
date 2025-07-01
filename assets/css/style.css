@@ -1,0 +1,234 @@
+/* --- assets/css/style.css --- */
+
+/* 1. 全域與變數設定 (Global & Variables) */
+/* 使用 CSS 變數可以讓你未來輕鬆更換網站主題色 */
+:root {
+    --primary-color: #0056b3;  /* 一個穩重的藍色，適合科技與專業感 */
+    --secondary-color: #e85d04; /* 一個活潑的橘色，適合旅遊與美食 */
+    --dark-color: #333333;
+    --light-color: #f8f9fa;
+    --text-color: #555555;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 基礎重設與字體設定 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: #ffffff;
+}
+
+/* 2. 通用元件 (General Components) */
+h1, h2, h3 {
+    color: var(--dark-color);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2rem; text-align: center; }
+p { margin-bottom: 1rem; }
+a { color: var(--primary-color); text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.content-section {
+    padding: 4rem 2rem;
+}
+
+.bg-light {
+    background-color: var(--light-color);
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* 在小螢幕上會自動換行 */
+    margin-top: 2rem;
+}
+
+/* 3. 頁首/導覽列 (Header / Navigation) */
+header {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+/* 4. 英雄區塊 (Hero Section) */
+.hero {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=1974&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.hero h1 {
+    color: #fff;
+    font-size: 3.5rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 1rem auto 2rem;
+}
+
+.cta-button {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ff7900;
+    transform: translateY(-3px);
+}
+
+/* 5. 卡片樣式 (Card Styles) */
+.card {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.card img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover; /* 讓圖片不變形地填滿容器 */
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1; /* 讓內容區塊填滿剩餘空間 */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    flex-grow: 1; /* 讓段落填滿，確保 "閱讀更多" 按鈕對齊底部 */
+}
+
+.card-tag {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    display: inline-block; /* 讓背景色只包住文字 */
+    align-self: flex-start; /* 讓標籤靠左上 */
+}
+
+/* 針對旅遊卡片使用第二種顏色 */
+#latest-posts .card:nth-child(2) .card-tag {
+    background-color: var(--secondary-color);
+}
+
+.card-content a {
+    font-weight: bold;
+    align-self: flex-end; /* 讓連結靠右下 */
+}
+
+/* 6. 頁尾 (Footer) */
+footer {
+    background-color: var(--dark-color);
+    color: #fff;
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+
+/* 7. 響應式設計 (Responsive Design) */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .hero h1 { font-size: 2.8rem; }
+    h2 { font-size: 1.8rem; }
+
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,56 @@
+body {
+    /* 基礎背景色，提供一個溫暖的基底 */
+    background-color: #FAF9F6; 
+    /* 多層次的放射狀漸層，模擬柔和、不規則的光影效果。
+      - 每個漸層都有不同的位置 (at X% Y%)、大小和透明度。
+      - 這創造了一種比單一漸層更有機、更不「完美」的視覺感受。
+    */
+    background-image:
+        radial-gradient(circle at 15% 85%, rgba(224, 231, 255, 0.4), transparent 30%), /* 左下角的淡紫色光暈 */
+        radial-gradient(circle at 85% 20%, rgba(239, 246, 255, 0.5), transparent 40%), /* 右上角的淡藍色光暈 */
+        radial-gradient(circle at 50% 50%, rgba(245, 245, 245, 0.3), transparent 50%); /* 中間的柔和白光 */
+    font-family: 'Noto Sans TC', sans-serif;
+    color: #2d3748;
+}
+
+/* 移除舊的 hero-gradient，因為背景已應用於整個 body */
+
+.cta-btn {
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 15px -3px rgba(67, 56, 202, 0.2), 0 4px 6px -2px rgba(67, 56, 202, 0.1);
+}
+
+.highlight-active {
+    background-color: #eef2ff !important;
+    color: #4338ca !important;
+    border-color: #4338ca !important;
+}
+
+.content-active {
+    display: block !important;
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4338ca;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}

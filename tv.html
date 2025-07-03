@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="make your own tv (MYO.tv) 是一個強大的影視聚合平台。自由整合、管理並播放您喜愛的電影、劇集、直播與短片。一個介面，無限內容，打造專屬於您的個人電視台。">
+    
+    <title>make your own tv | 您的專屬影視聚合平台</title>
+    
+    <link rel="canonical" href="https://makeyourown-tv.pages.dev/">
+
+    <meta property="og:title" content="make your own tv | 您的專屬影視聚合平台">
+    <meta property="og:description" content="自由整合、管理並播放您喜愛的電影、劇集與直播。一個介面，無限內容，打造專屬於您的個人電視台。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://makeyourown-tv.pages.dev/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1593359677879-a4bb92f82e46?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:site_name" content="make your own tv">
+    <meta property="og:locale" content="zh_TW">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Website",
+      "name": "make your own tv",
+      "headline": "您的影視宇宙，由您定義",
+      "description": "自由整合、管理並播放您喜愛的電影、劇集、直播與短片。一個介面，無限內容，打造專屬於您的個人電視台。",
+      "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f82e46?q=80&w=1200&auto=format&fit=crop",
+      "url": "https://makeyourown-tv.pages.dev/",
+      "author": {
+        "@type": "Organization",
+        "name": "make your own tv"
+      }
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4331940044118490"
+     crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #111827; /* Dark background */
+            color: #f3f4f6;
+        }
+        .cta-btn {
+            transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        /* Marquee Animation */
+        .marquee-content {
+            display: flex;
+            animation: marquee 45s linear infinite;
+            white-space: nowrap;
+        }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        /* Scroll Reveal Animation */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Card hover effect */
+        .card-link {
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        }
+        /* Text shadow for better readability on images */
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <header id="header" class="bg-gray-900/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm shadow-indigo-500/10">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="relative flex justify-between items-center">
+                <a href="#" class="text-xl font-bold text-indigo-400 z-10 flex-shrink-0">📺 make your own tv</a>
+                
+                <div class="hidden md:flex absolute inset-x-0 justify-center items-center space-x-8">
+                    <a href="#features" class="nav-link text-gray-300 hover:text-indigo-400">核心功能</a>
+                    <a href="#showcase" class="nav-link text-gray-300 hover:text-indigo-400">精選推薦</a>
+                    <a href="#demo" class="nav-link text-gray-300 hover:text-indigo-400">立即體驗</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-indigo-400">關於我們</a>
+                </div>
+                
+                <div class="hidden md:flex flex-grow justify-end">
+                    <a href="#demo" class="bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg cta-btn z-10">開始使用</a>
+                </div>
+            </div>
+    
+            <div id="mobile-menu-visible" class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 pt-4 md:hidden">
+                <a href="#features" class="text-gray-300 hover:text-indigo-400 bg-gray-800/80 px-3 py-1.5 rounded-full text-sm transition-colors">核心功能</a>
+                <a href="#showcase" class="text-gray-300 hover:text-indigo-400 bg-gray-800/80 px-3 py-1.5 rounded-full text-sm transition-colors">精選推薦</a>
+                <a href="#demo" class="font-semibold text-indigo-300 bg-indigo-900/80 px-4 py-1.5 rounded-full text-sm transition-colors hover:bg-indigo-800/80">立即體驗</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section 
+            class="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-cover bg-center reveal-on-scroll" 
+            style="background-image: url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=1200&auto=format&fit=crop');">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight text-shadow">
+                    您的影視宇宙，<span class="text-indigo-400">由您定義</span>
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto text-shadow">
+                    厭倦了在各個平台間切換嗎？在這裡，聚合所有您喜愛的電影、劇集與直播。一個介面，無限精彩，打造您的個人化電視台。
+                </p>
+            </div>
+        </section>
+        
+        <div class="container mx-auto px-6 py-12 md:py-16">
+            <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden mb-16 reveal-on-scroll">
+                <div class="marquee-content py-3 text-gray-400 font-medium">
+                    <span class="mx-6">🎬 最新院線電影</span> • <span class="mx-6">📺 Netflix 熱播劇集</span> • <span class="mx-6">🇯🇵 當季新番動畫</span> • <span class="mx-6">🍿 YouTube 創作者精選</span> • <span class="mx-6">⚽️ 體育賽事直播</span> • <span class="mx-6">📰 新聞即時看</span> • <span class="mx-6">🎮 遊戲實況</span>
+                    <span class="mx-6">🎬 最新院線電影</span> • <span class="mx-6">📺 Netflix 熱播劇集</span> • <span class="mx-6">🇯🇵 當季新番動畫</span> • <span class="mx-6">🍿 YouTube 創作者精選</span> • <span class="mx-6">⚽️ 體育賽事直播</span> • <span class="mx-6">📰 新聞即時看</span> • <span class="mx-6">🎮 遊戲實況</span>
+                </div>
+            </div>
+
+            <section id="features" class="mb-16 reveal-on-scroll">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-white">您是哪一種觀影者？</h2>
+                    <p class="mt-2 text-gray-400">看看這些情境，是否說中了您的追劇心聲？</p>
+                </div>
+                <div class="max-w-4xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="flex flex-wrap justify-center gap-2 mb-6">
+                        <button data-audience="bingeWatcher" class="audience-btn bg-indigo-900 text-indigo-200 px-4 py-2 rounded-full font-semibold text-sm">資訊焦慮的追劇狂</button>
+                        <button data-audience="cinephile" class="audience-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full font-semibold text-sm">品味獨到的電影迷</button>
+                        <button data-audience="family" class="audience-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full font-semibold text-sm">尋找共樂的家庭長</button>
+                        <button data-audience="casual" class="audience-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full font-semibold text-sm">隨心探索的休閒派</button>
+                    </div>
+                    <div id="audience-content-container" class="min-h-[220px]">
+                        </div>
+                </div>
+            </section>
+
+            <section id="showcase" class="mb-16">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-white">探索無限內容</h2>
+                    <p class="mt-2 text-gray-400">從熱門串流到小眾直播，自由組合您的專屬頻道。</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a href="#demo" class="card-link md:col-span-2 lg:col-span-1 bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px] reveal-on-scroll" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1627873649417-c67f701f1949?q=80&w=600&auto=format&fit=crop');">
+                         <span class="font-semibold text-sm opacity-80 mb-1">熱門劇集</span>
+                        <h3 class="text-2xl font-bold text-shadow">聚合各大串流平台，新集數絕不錯過</h3>
+                    </a>
+
+                    <a href="#demo" class="card-link md:col-span-2 lg:col-span-2 bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px] reveal-on-scroll" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600&auto=format&fit=crop');">
+                         <span class="font-semibold text-sm opacity-80 mb-1">電影資料庫</span>
+                        <h3 class="text-2xl font-bold text-shadow">從經典老片到最新院線，打造您的私人影院</h3>
+                    </a>
+
+                    <a href="#demo" class="card-link bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px] reveal-on-scroll" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1616469829911-7a6358343903?q=80&w=600&auto=format&fit=crop');">
+                         <span class="font-semibold text-sm opacity-80 mb-1">動畫新番</span>
+                        <h3 class="text-2xl font-bold text-shadow">日本同步放送，建立您的追番清單</h3>
+                    </a>
+                    
+                    <a href="#demo" class="card-link bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px] reveal-on-scroll" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1603380353725-f8a4d39cc41e?q=80&w=600&auto=format&fit=crop');">
+                         <span class="font-semibold text-sm opacity-80 mb-1">直播與體育</span>
+                        <h3 class="text-2xl font-bold text-shadow">遊戲、新聞、體育賽事，即時掌握</h3>
+                    </a>
+                    
+                     <a href="#demo" class="card-link bg-indigo-700 text-white p-8 rounded-xl flex flex-col items-center justify-center text-center min-h-[400px] reveal-on-scroll">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 mb-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v1.5a1.5 1.5 0 01-3 0V7a1 1 0 00-1-1H7a1 1 0 00-1 1v1.5a1.5 1.5 0 01-3 0V5a1 1 0 011-1h3a1 1 0 001-1v-.5z" /><path d="M4 11a1 1 0 011-1h10a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4z" /></svg>
+                        <h3 class="text-2xl font-bold">自訂您的播放清單</h3>
+                        <p class="mt-2 opacity-80 max-w-xs">不只是觀看，更是創造。混合搭配不同來源的內容，打造真正屬於您的電視頻道。</p>
+                    </a>
+                </div>
+            </section>
+            
+            <section id="demo" class="mb-16 reveal-on-scroll">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-white">立即體驗</h2>
+                    <p class="mt-2 text-gray-400">直接操作下方的平台，感受前所未有的自由觀影體驗。</p>
+                </div>
+                <div class="max-w-7xl mx-auto bg-black p-2 md:p-4 rounded-xl shadow-2xl shadow-indigo-500/10 overflow-hidden">
+                    <iframe src="https://makeyourown-tv.pages.dev/" style="width: 100%; height: 70vh; border: 0; border-radius: 8px;" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section id="newsletter" class="bg-indigo-900/50 border border-indigo-500/20 text-white rounded-xl p-10 md:p-16 text-center reveal-on-scroll">
+                 <h2 class="text-3xl font-bold mb-4">保持更新，掌握最新功能</h2>
+                 <p class="max-w-2xl mx-auto mb-8 opacity-90">訂閱我們的更新通知。當有新功能、支援更多平台或精選內容推薦時，您將第一時間收到消息。</p>
+                 <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                     <input type="email" placeholder="您的常用電子郵件" class="flex-grow p-3 rounded-lg text-gray-800 bg-gray-200 focus:ring-4 focus:ring-indigo-400 focus:outline-none" required>
+                     <button type="submit" class="bg-indigo-600 text-white font-bold px-6 py-3 rounded-lg cta-btn">訂閱更新</button>
+                 </form>
+            </section>
+            
+        </div>
+    </main>
+
+    <footer id="contact" class="bg-gray-900 text-white mt-16">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-indigo-400">make your own tv</h3>
+                    <p class="text-gray-400">我們的使命是打破內容的壁壘，將觀看的選擇權，真正交還到您的手中。</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">快速導覽</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition">核心功能</a></li>
+                        <li><a href="#showcase" class="text-gray-400 hover:text-white transition">精選推薦</a></li>
+                         <li><a href="#demo" class="text-gray-400 hover:text-white transition">立即體驗</a></li>
+                         <li><a href="#newsletter" class="text-gray-400 hover:text-white transition">訂閱更新</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">與我們聯繫</h4>
+                    <p class="text-gray-400 mb-4">對於功能有任何建議，或是希望支援新的平台？</p>
+                    <a href="mailto:feedback@myo.tv" class="inline-block bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg cta-btn">歡迎來信</a>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 make your own tv. All Rights Reserved. | 您的專屬影視聚合平台</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audienceData = {
+                bingeWatcher: {
+                    title: '給資訊焦慮的「追劇狂」',
+                    painPoint: 'Netflix、Disney+、YouTube... 為了追不同劇，手機裡裝滿了 App？常常忘記追到第幾集，或是在資訊海中找不到下一部想看的劇。',
+                    solution: 'MYO.tv 能幫您整合所有訂閱的平台。建立一個「待追清單」，自動標示觀看進度，並根據您的喜好推薦相關內容，讓您無縫接軌，專心享受劇情。'
+                },
+                cinephile: {
+                    title: '給品味獨到的「電影迷」',
+                    painPoint: '熱愛尋找冷門佳片或特定導演的作品，但在各平台搜尋不易，也缺乏一個地方來整理與收藏您的私人片單？',
+                    solution: '在這裡，您可以建立專屬的「主題影展」。不論是「大衛芬奇專題」或「90年代經典港片」，輕鬆匯集、分類並加上註解，打造您的個人電影資料庫。'
+                },
+                family: {
+                    title: '給尋找共樂的「家庭長」',
+                    painPoint: '想找一部適合全家觀賞的電影，卻要在不同平台間來回搜尋比對？或是想讓孩子看益智卡通，又擔心他們接觸到不適當的內容？',
+                    solution: '建立一個「家庭共享頻道」吧！您可以預先篩選適合的電影、卡通或紀錄片，設定播放清單。一鍵開啟，就是專為家人打造的安全又歡樂的影視時光。'
+                },
+                casual: {
+                    title: '給隨心探索的「休閒派」',
+                    painPoint: '下班後只想放空，不想花腦筋決定要看什麼？打開電視或 App，卻被排山倒海的推薦壓得喘不過氣，最後乾脆關掉不看。',
+                    solution: '試試我們的「探索模式」。您可以匯入一些感興趣的 YouTube 頻道、新聞直播或 Twitch 實況，讓它們像傳統電視一樣輪播。隨意切換，總有新鮮事，輕鬆無負擔。'
+                }
+            };
+
+            const audienceBtns = document.querySelectorAll('.audience-btn');
+            const audienceContentContainer = document.getElementById('audience-content-container');
+
+            function updateAudienceContent(audience) {
+                const data = audienceData[audience];
+                if (!data) return;
+
+                const newContent = document.createElement('div');
+                newContent.className = 'audience-content transition-opacity duration-500 opacity-0';
+                newContent.innerHTML = `
+                    <h3 class="text-2xl font-bold text-indigo-400 mb-4">${data.title}</h3>
+                    <div class="grid md:grid-cols-2 gap-6 text-left">
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2 text-gray-300 border-b-2 border-red-400/50 pb-1">您的痛點 (Before)</h4>
+                            <p class="text-gray-400">${data.painPoint}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2 text-gray-300 border-b-2 border-green-400/50 pb-1">我們的解法 (After)</h4>
+                            <p class="text-gray-400">${data.solution}</p>
+                        </div>
+                    </div>
+                `;
+                
+                audienceContentContainer.innerHTML = '';
+                audienceContentContainer.appendChild(newContent);
+                
+                setTimeout(() => {
+                    newContent.classList.remove('opacity-0');
+                }, 50);
+            }
+
+            audienceBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    audienceBtns.forEach(b => {
+                         b.classList.remove('bg-indigo-900', 'text-indigo-200');
+                         b.classList.add('bg-gray-700', 'text-gray-300');
+                    });
+                    btn.classList.add('bg-indigo-900', 'text-indigo-200');
+                    btn.classList.remove('bg-gray-700', 'text-gray-300');
+
+                    const audience = btn.dataset.audience;
+                    updateAudienceContent(audience);
+                });
+            });
+
+            if (audienceBtns.length > 0) {
+                audienceBtns[0].click();
+            }
+        });
+
+        // Script for Scroll Animations
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+    
+<script src="js library/include-ads.js"></script>
+</body>
+</html>

@@ -104,6 +104,14 @@
         .mobile-header-hidden {
             transform: translateY(-100%);
         }
+             /* --- Style for Destination Picker --- */
+        .destination-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .destination-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 
@@ -145,6 +153,76 @@
                 </div>
             </div>
 
+           <section id="destination-picker" class="mb-20 reveal-on-scroll">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-gray-800">我們的旅行地圖</h2>
+                    <p class="mt-2 text-gray-600">選擇一個目的地，探索相關的旅程故事。</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                    <a href="trip/japan/tokyo" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-center text-white flex flex-col justify-end p-3" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=800&auto=format&fit=crop');">
+                        <div class="relative">
+                            <span class="text-2xl">🇯🇵</span>
+                            <h3 class="text-lg font-bold mt-1 text-shadow">東京</h3>
+                        </div>
+                    </a>
+                    <a href="trip/korea/seoul" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-center text-white flex flex-col justify-end p-3" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=800&auto=format&fit=crop');">
+                        <div class="relative">
+                            <span class="text-2xl">🇰🇷</span>
+                            <h3 class="text-lg font-bold mt-1 text-shadow">首爾</h3>
+                        </div>
+                    </a>
+                    <a href="trip/taiwan" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-center text-white flex flex-col justify-end p-3" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?q=80&w=800&auto=format&fit=crop');">
+                        <div class="relative">
+                            <span class="text-2xl">🇹🇼</span>
+                            <h3 class="text-lg font-bold mt-1 text-shadow">台灣</h3>
+                        </div>
+                    </a>
+                    <a href="trip/hongkong" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-center text-white flex flex-col justify-end p-3" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?q=80&w=800&auto=format&fit=crop');">
+                        <div class="relative">
+                            <span class="text-2xl">🇭🇰</span>
+                            <h3 class="text-lg font-bold mt-1 text-shadow">香港</h3>
+                        </div>
+                    </a>
+                    <a href="trip/thailand/bangkok" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-center text-white flex flex-col justify-end p-3" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1563492065599-3520f775ee05?q=80&w=800&auto=format&fit=crop');">
+                        <div class="relative">
+                            <span class="text-2xl">🇹🇭</span>
+                            <h3 class="text-lg font-bold mt-1 text-shadow">曼谷</h3>
+                        </div>
+                    </a>
+                    <a href="trip/singapore" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-center text-white flex flex-col justify-end p-3" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=800&auto=format&fit=crop');">
+                        <div class="relative">
+                            <span class="text-2xl">🇸🇬</span>
+                            <h3 class="text-lg font-bold mt-1 text-shadow">新加坡</h3>
+                        </div>
+                    </a>
+                    <a href="trip/malaysia/kualalumpur" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-center text-white flex flex-col justify-end p-3" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1582260273730-85343f8e5b4b?q=80&w=800&auto=format&fit=crop');">
+                        <div class="relative">
+                            <span class="text-2xl">🇲🇾</span>
+                            <h3 class="text-lg font-bold mt-1 text-shadow">吉隆坡</h3>
+                        </div>
+                    </a>
+                    <a href="trip/vietnam" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-center text-white flex flex-col justify-end p-3" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=800&auto=format&fit=crop');">
+                        <div class="relative">
+                            <span class="text-2xl">🇻🇳</span>
+                            <h3 class="text-lg font-bold mt-1 text-shadow">越南</h3>
+                        </div>
+                    </a>
+                    <a href="trip/japan/kyoto" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-center text-white flex flex-col justify-end p-3" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?q=80&w=800&auto=format&fit=crop');">
+                        <div class="relative">
+                            <span class="text-2xl">🇯🇵</span>
+                            <h3 class="text-lg font-bold mt-1 text-shadow">京都</h3>
+                        </div>
+                    </a>
+                     <a href="trip/china" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-center text-white flex flex-col justify-end p-3" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1508804185872-d7bad50a4ba4?q=80&w=800&auto=format&fit=crop');">
+                         <div class="relative">
+                            <span class="text-2xl">🇨🇳</span>
+                            <h3 class="text-lg font-bold mt-1 text-shadow">中國</h3>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            
             <section id="travelers" class="mb-16 reveal-on-scroll">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-gray-800">你是哪一種旅人？</h2>

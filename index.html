@@ -86,6 +86,14 @@
         .text-shadow {
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
+
+        /* --- Style for Hiding Header on Scroll --- */
+        #header {
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-header-hidden {
+            transform: translateY(-100%);
+        }
     </style>
 </head>
 
@@ -93,62 +101,18 @@
 
     <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4">
-            <div class="relative flex justify-between items-center md:justify-start">
-                <a href="/index.html" class="text-xl font-bold text-indigo-700 z-10 flex-shrink-0">⌂策略探索家</a>
+            <div class="flex flex-col items-center">
+                <a href="/index.html" class="text-xl font-bold text-indigo-700 mb-4">⌂策略探索家</a>
                 
-                <div class="hidden md:flex absolute inset-x-0 justify-center items-center space-x-8">
-    
-                    <div class="relative group">
-                        <a href="/trip.html" class="nav-link text-gray-600 hover:text-indigo-600 px-3 py-2 flex items-center gap-1.5 cursor-pointer">
-                            <span>旅程 ✈️</span>
-                            <svg class="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </a>
-
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-max
-                                    invisible opacity-0 group-hover:visible group-hover:opacity-100 
-                                    transition-all duration-300 transform group-hover:translate-y-0 -translate-y-2
-                                    bg-white rounded-lg shadow-xl ring-1 ring-black ring-opacity-5 z-10">
-                            <div class="p-2 space-y-1">
-                                <a href="/trip.html#stories" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md transition-colors">旅程故事</a>
-                                <a href="/trip.html#travelers" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md transition-colors">旅人分類</a>
-                                <a href="/trip.html#tools" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md transition-colors">旅行工具</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="/tv.html" class="nav-link text-gray-600 hover:text-indigo-600">影視 📺</a>
-                    <a href="#about" class="nav-link text-gray-600 hover:text-indigo-600">你是不是也...</a>
-                    <a href="#content" class="nav-link text-gray-600 hover:text-indigo-600">精選內容</a>
-                    <a href="#contact" class="nav-link text-gray-600 hover:text-indigo-600">和我聊聊</a>
-    
+                <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3">
+                    <a href="/trip.html" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">旅程 ✈️</a>
+                    <a href="/tv.html" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">影視 📺</a>
+                    <a href="/food.html" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">美食 😋</a>
                 </div>
-                
-                <div class="hidden md:flex flex-grow justify-end">
-                    <a href="#newsletter" class="bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg cta-btn z-10">領取免費模板</a>
-                </div>
-            </div>
-    
-            <div id="mobile-menu-visible" class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 pt-4 md:hidden">
-    
-                <div class="w-full text-center">
-                    <button id="mobile-trip-toggle" type="button" class="inline-flex items-center gap-1.5 text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">
-                        <span>旅程 ✈️</span>
-                        <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div id="mobile-trip-submenu" class="hidden mt-2 space-x-2">
-                        <a href="/trip.html#stories" class="text-gray-600 bg-white px-2.5 py-1 rounded-full text-xs">旅程故事</a>
-                        <a href="/trip.html#travelers" class="text-gray-600 bg-white px-2.5 py-1 rounded-full text-xs">旅人分類</a>
-                        <a href="/trip.html#tools" class="text-gray-600 bg-white px-2.5 py-1 rounded-full text-xs">旅行工具</a>
-                    </div>
-                </div>
-                
-                <a href="/tv.html" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">影視 📺</a>
-                <a href="#about" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">你是不是也...</a>
-                <a href="#content" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">精選內容</a>
-                <a href="#contact" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">和我聊聊</a>
-                <a href="#newsletter" class="font-semibold text-indigo-700 bg-indigo-100/80 px-4 py-1.5 rounded-full text-sm transition-colors hover:bg-indigo-200/80">領取免費模板</a>
             </div>
         </nav>
     </header>
+
 
     <main>
         <section 
@@ -225,7 +189,6 @@
                 </div>
             </section>
             
-            <!-- New Notion Embed Section -->
             <section id="notion-embed" class="mb-16 reveal-on-scroll">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-gray-800">Notion 實戰分享</h2>
@@ -236,22 +199,6 @@
 
                 </div>
             </section>
-
-<!--        
-
-
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdOO1-mDNoLZSFaC5FX4xvGTsNwsjZN4xK6t0EAiNz2HXet3g/viewform?embedded=true" style="width: 100%; height: 600px; border: 0; border-radius: 8px;" allowfullscreen></iframe>
-
-            <section id="newsletter" class="bg-indigo-700 text-white rounded-xl p-10 md:p-16 text-center reveal-on-scroll">
-                 <h2 class="text-3xl font-bold mb-4">別再單打獨鬥了</h2>
-                 <p class="max-w-2xl mx-auto mb-8 opacity-90">訂閱我的電子報，我會把私藏的「旅行PRD」、「投資決策檢查表」等 Notion 模板直接送到你信箱。讓我們一起用更聰明的方式，搞定人生大小事。</p>
-                 <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                     <input type="email" placeholder="你的常用電子郵件" class="flex-grow p-3 rounded-lg text-gray-800 focus:ring-4 focus:ring-indigo-300 focus:outline-none" required>
-                     <button type="submit" class="bg-white text-indigo-700 font-bold px-6 py-3 rounded-lg cta-btn">免費領取，立刻升級</button>
-                 </form>
-            </section>
--->
-            
         </div>
     </main>
 
@@ -284,8 +231,8 @@
 
 
     <script>
-        // Script for Audience Section Interaction
         document.addEventListener('DOMContentLoaded', function() {
+            // Script for Audience Section Interaction
             const audienceData = {
                 optimizer: {
                     title: '給渴望整合的「優化者」',
@@ -308,14 +255,11 @@
                     solution: '投資不該像賭博。我跟你一樣，也是從零開始的學習者。我會分享一套「把公司當產品研究」的笨方法，幫我們排除情緒干擾，建立自己的投資原則。在這裡，我們不聽明牌，只建立屬於自己的思考系統，一起穩穩地成長。'
                 }
             };
-
             const audienceBtns = document.querySelectorAll('.audience-btn');
             const audienceContentContainer = document.getElementById('audience-content-container');
-
             function updateAudienceContent(audience) {
                 const data = audienceData[audience];
                 if (!data) return;
-
                 const newContent = document.createElement('div');
                 newContent.className = 'audience-content transition-opacity duration-500 opacity-0';
                 newContent.innerHTML = `
@@ -331,15 +275,10 @@
                         </div>
                     </div>
                 `;
-                
                 audienceContentContainer.innerHTML = '';
                 audienceContentContainer.appendChild(newContent);
-                
-                setTimeout(() => {
-                    newContent.classList.remove('opacity-0');
-                }, 50);
+                setTimeout(() => { newContent.classList.remove('opacity-0'); }, 50);
             }
-
             audienceBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     audienceBtns.forEach(b => {
@@ -348,29 +287,58 @@
                     });
                     btn.classList.add('bg-indigo-100', 'text-indigo-800');
                     btn.classList.remove('bg-gray-100', 'text-gray-800');
-
                     const audience = btn.dataset.audience;
                     updateAudienceContent(audience);
                 });
             });
-
-            if (audienceBtns.length > 0) {
-                audienceBtns[0].click();
-            }
+            if (audienceBtns.length > 0) { audienceBtns[0].click(); }
 
             // --- Mobile Menu Toggle ---
             const mobileToggleButton = document.getElementById('mobile-trip-toggle');
             if (mobileToggleButton) {
                 const mobileSubmenu = document.getElementById('mobile-trip-submenu');
                 const mobileArrowIcon = mobileToggleButton.querySelector('svg');
-
                 mobileToggleButton.addEventListener('click', () => {
-                    // 切換子選單的顯示/隱藏
                     mobileSubmenu.classList.toggle('hidden');
-                    // 同時旋轉箭頭
                     mobileArrowIcon.classList.toggle('rotate-180');
                 });
-}
+            }
+
+            // --- CORRECTED: Header Hide/Show on Scroll (Mobile Only) ---
+            const header = document.getElementById('header');
+            if (header) {
+                let lastScrollY = window.scrollY;
+                const mobileMediaQuery = window.matchMedia('(max-width: 767px)');
+
+                const handleScroll = () => {
+                    if (!mobileMediaQuery.matches) {
+                        header.classList.remove('mobile-header-hidden');
+                        return;
+                    }
+
+                    const currentScrollY = window.scrollY;
+
+                    // Hide header on scroll down (if past 100px from top)
+                    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                        header.classList.add('mobile-header-hidden');
+                    } 
+                    // Show header on scroll up
+                    else if (currentScrollY < lastScrollY) {
+                        header.classList.remove('mobile-header-hidden');
+                    }
+
+                    // Update last scroll position, ensuring it's not negative
+                    lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+                };
+
+                window.addEventListener('scroll', handleScroll, { passive: true });
+                
+                mobileMediaQuery.addEventListener('change', () => {
+                    if (!mobileMediaQuery.matches) {
+                        header.classList.remove('mobile-header-hidden');
+                    }
+                });
+            }
         });
 
         // Script for Scroll Animations
@@ -379,14 +347,10 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    // Optional: unobserve after revealing to save resources
-                    // observer.unobserve(entry.target); 
                 }
             });
         }, { threshold: 0.1 });
         revealElements.forEach(el => observer.observe(el));
-
-        
     </script>
 
 <script src="js library/include-ads.js"></script>

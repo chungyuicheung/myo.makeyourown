@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://myo-hk.github.io/sitemap.xml

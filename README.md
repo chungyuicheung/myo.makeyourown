@@ -19,6 +19,8 @@
 myo.makeyourown/
 ├── index_system.html      # 主頁（策略探索家核心故事）
 ├── trip.html             # 旅行規劃專區
+├── trip/okinawa-presentation.html  # 沖繩七天六夜深度文化與手作之旅（40頁簡報）
+├── trip/okinawa-plan.md  # 沖繩行程完整規劃
 ├── tv.html               # 影評/科技內容
 ├── cert-folder.html      # 證書套產生器
 ├── heic-converter.html   # HEIC 轉 PNG 工具
@@ -78,6 +80,26 @@ myo.makeyourown/
 ## 📈 SEO & Open Graph
 
 主要頁面已配置完整的 OG 標籤、JSON-LD 結構化數據，適合搜索引擎收錄與社群分享。
+
+## 📖 學習記錄
+
+### 2026-05-21：沖繩簡報圖片修復
+
+**問題**：簡報中使用了 Wikipedia/Wikimedia 圖片，造成版權與穩定性問題。
+
+**解決方案**：
+1. 掃描 40 頁簡報，找出所有 Wikipedia/Wikimedia 圖片 URL
+2. 使用 Bing 圖片搜尋取得對應的 OIP（原始圖片 ID）
+3. 透過 DuckDuckGo 代理（`https://external-content.duckduckgo.com/iu/?u=ENCODED_BING_URL`）提供穩定的圖片來源
+4. 修正圖片重複問題（例如：首里城城堡出現在封面與內容頁，通過更換為沖繩風獅爺石像解決）
+
+**技術要點**：
+- `curl -sI` 驗證所有 URL 可存取（HTTP 200）
+- 強制刷新瀏覽器（`ignoreCache: true`）確認緩存問題
+- 圖片 alt 文字與內容上下文對應檢查
+
+**修改檔案**：
+- `trip/okinawa-presentation.html`：更換為 DuckDuckGo 代理 URL，修正圖片重複
 
 ## 🤝 貢獻
 

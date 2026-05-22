@@ -136,6 +136,129 @@
         justify-content: flex-start;
       }
     }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--s6);
+    }
+    .day {
+      margin-bottom: var(--s12);
+    }
+    .day-header {
+      display: flex;
+      align-items: center;
+      gap: var(--s4);
+      margin-bottom: var(--s6);
+    }
+    .day-date {
+      background: var(--mint-green);
+      color: white;
+      padding: var(--s2) var(--s4);
+      border-radius: 8px;
+      font-family: var(--font-title);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .day-info h2 {
+      font-family: var(--font-title);
+      font-size: 1.75rem;
+      color: var(--dark-gray);
+    }
+    .day-theme {
+      color: var(--ocean-blue);
+      font-size: 0.95rem;
+    }
+    .route-line {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+      flex-wrap: wrap;
+      padding: var(--s4);
+      background: var(--light-wood);
+      border-radius: 12px;
+      margin-bottom: var(--s6);
+    }
+    .route-stop {
+      background: var(--ocean-blue);
+      color: white;
+      padding: var(--s1) var(--s3);
+      border-radius: 15px;
+      font-size: 0.85rem;
+    }
+    .route-arrow {
+      color: var(--coral-orange);
+      font-weight: bold;
+    }
+    .itinerary {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s4);
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    .card-time {
+      background: var(--mint-green);
+      color: white;
+      padding: var(--s2) var(--s4);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .card-content {
+      padding: var(--s4);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: var(--s4);
+      align-items: start;
+    }
+    .card-icon {
+      font-size: 2rem;
+    }
+    .card-text h3 {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      color: var(--dark-gray);
+      margin-bottom: var(--s1);
+    }
+    .card-location {
+      color: var(--ocean-blue);
+      font-size: 0.9rem;
+      margin-bottom: var(--s2);
+    }
+    .card-desc {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+    }
+    .card-image {
+      width: 150px;
+      height: 100px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      .card-content {
+        grid-template-columns: 1fr;
+      }
+      .card-image {
+        width: 100%;
+        height: 180px;
+        order: -1;
+      }
+    }
   </style>
 </head>
 <body>
@@ -162,5 +285,86 @@
       </div>
     </div>
   </header>
+<main>
+  <section class="day" id="day1">
+    <div class="day-header">
+      <span class="day-date">6/15</span>
+      <div class="day-info">
+        <h2>Day 1｜抵達 + 市區初探</h2>
+        <p class="day-theme">單軌初體驗 × 戰後奇蹟</p>
+      </div>
+    </div>
+    <div class="route-line">
+      <span class="route-stop">✈️ 那霸機場</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">🏨 新都心</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">🛍️ T Galleria</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">⛩️ 懸崖神宮</span>
+    </div>
+    <div class="itinerary">
+      <div class="card">
+        <div class="card-time">09:00 - 11:00</div>
+        <div class="card-content">
+          <div class="card-icon">✈️</div>
+          <div class="card-text">
+            <h3>抵達那霸機場</h3>
+            <p class="card-location">📍 那霸機場</p>
+            <p class="card-desc">搭乘單軌電車前往市區，車票可直接刷 Visa/Mastercard 入閘，出站步行6分鐘到酒店寄放行李。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse4.mm.bing.net/th/id/OIP.n8i_Jya4Ma0sD_ngvQw14gHaE8?pid=Api" alt="那霸機場單軌電車" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">12:30 - 14:30</div>
+        <div class="card-content">
+          <div class="card-icon">🍽️</div>
+          <div class="card-text">
+            <h3>午餐：和風亭天婦羅/刺身定食</h3>
+            <p class="card-location">📍 SAN-A 那霸 Main Place 1樓</p>
+            <p class="card-desc">完美避開牛肉的天婦羅與刺身定食，新都心商圈內的優質選擇。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse2.mm.bing.net/th/id/OIP.OoNDXVkEwd16Csblll2cnQHaE6?pid=Api" alt="天婦羅刺身定食" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">15:30 - 18:00</div>
+        <div class="card-content">
+          <div class="card-icon">🛍️</div>
+          <div class="card-text">
+            <h3>新都心文藝與免稅店</h3>
+            <p class="card-location">📍 T Galleria 免稅店</p>
+            <p class="card-desc">步行前往 T Galleria 免稅店，選購化妝品與精品。替代方案：沖繩縣立博物館/美術館。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse4.mm.bing.net/th/id/OIP.MQV8afb6_ov8VdGZO0QGlwHaFc?pid=Api" alt="T Galleria 免稅店" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">18:00 - 20:00</div>
+        <div class="card-content">
+          <div class="card-icon">⛩️</div>
+          <div class="card-text">
+            <h3>懸崖神宮參拜</h3>
+            <p class="card-location">📍 旭橋站步行前往</p>
+            <p class="card-desc">建於珊瑚礁懸崖上的琉球八社之首，俯瞰東海的壯闊景色。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse2.mm.bing.net/th/id/OIP.CWCCZvXrxBhTAEndb_kMmwHaE8?pid=Api" alt="懸崖神宮" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 </body>
 </html>

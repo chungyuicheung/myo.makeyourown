@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>沖繩美食與文化手作之旅｜5天4夜</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --mint-green: #A8D5BA;
+      --ocean-blue: #5DADE2;
+      --cream-white: #FDFEFE;
+      --dark-gray: #2C3E50;
+      --coral-orange: #F5B041;
+      --light-wood: #E8E4D9;
+      --font-title: 'Noto Serif JP', serif;
+      --font-body: 'Noto Sans JP', sans-serif;
+      --s4: 1rem;
+      --s6: 1.5rem;
+      --s8: 2rem;
+      --s10: 2.5rem;
+      --s12: 3rem;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream-white);
+      color: var(--dark-gray);
+      line-height: 1.7;
+    }
+    .hero {
+      min-height: 60vh;
+      background: linear-gradient(135deg, var(--mint-green) 0%, var(--ocean-blue) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--s12) var(--s6);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.2) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    .hero h1 {
+      font-family: var(--font-title);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: white;
+      margin-bottom: var(--s4);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: rgba(255,255,255,0.95);
+      margin-bottom: var(--s6);
+    }
+    .hero-tags {
+      display: flex;
+      gap: var(--s4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .tag {
+      background: rgba(255,255,255,0.9);
+      color: var(--dark-gray);
+      padding: 0.5rem var(--s4);
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>🌴 沖繩美食與文化之旅</h1>
+      <p class="hero-subtitle">5天4夜・不自駕・深度探索琉球王國的靈魂</p>
+      <div class="hero-tags">
+        <span class="tag">🍽️ 美食</span>
+        <span class="tag">🎨 手作</span>
+        <span class="tag">🏯 歷史</span>
+      </div>
+    </div>
+  </header>
+</body>
+</html>

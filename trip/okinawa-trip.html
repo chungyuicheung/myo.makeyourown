@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沖繩 7 日完美行程 | 無牛非自駕</title>
+    <meta name="description" content="7 日 6 夜沖繩深度旅遊行程，100% 無牛肉、非自駕，涵蓋新都心、中部、南部、歷史秘境與手作體驗">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --ocean-deep: #1a365d; --ocean-light: #2c5282; --coral: #ff6b6b; --coral-light: #ff8585;
+            --sand: #f5e6d3; --sand-light: #faf3e8; --teal: #2dd4bf; --teal-dark: #25a896;
+            --sunset: #f97316; --sunset-light: #fb923c; --white: #ffffff;
+            --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb; --gray-300: #d1d5db;
+            --gray-400: #9ca3af; --gray-500: #6b7280; --gray-600: #4b5563; --gray-700: #374151;
+            --gray-800: #1f2937; --gray-900: #111827;
+            --font-heading: 'Cormorant Garamond', serif; --font-body: 'Noto Sans JP', sans-serif;
+            --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem;
+            --radius-2xl: 1.5rem; --radius-full: 9999px;
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05); --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1); --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+            --transition-fast: 150ms cubic-bezier(0.4,0,0.2,1); --transition-base: 300ms cubic-bezier(0.4,0,0.2,1);
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{scroll-behavior:smooth;font-size:16px}
+        body{font-family:var(--font-body);background:linear-gradient(135deg,var(--sand-light) 0%,var(--white) 50%,#e8f4f8 100%);min-height:100vh;color:var(--gray-800);line-height:1.6;overflow-x:hidden}
+        body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q25 30 50 50 T100 50 L100 100 L0 100 Z' fill='%232dd4bf' fill-opacity='0.03'/%3E%3C/svg%3E");background-size:100px 100px;pointer-events:none;z-index:-1}
+        h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);font-weight:600;line-height:1.2}
+        h1{font-size:clamp(2.5rem,5vw,4rem)}h2{font-size:clamp(1.8rem,3vw,2.5rem)}h3{font-size:clamp(1.4rem,2vw,1.8rem)}
+        p{margin-bottom:1rem}
+        
+        .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:4rem;background:linear-gradient(135deg,var(--ocean-deep) 0%,var(--ocean-light) 100%);overflow:hidden}
+        .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 Q50 60 100 100 T200 100 L200 200 L0 200 Z' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E");background-size:200px 200px;animation:wave-move 20s ease-in-out infinite}
+        @keyframes wave-move{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        .hero-content{position:relative;z-index:10;text-align:center;color:var(--white);max-width:900px;animation:fade-in-up 1s ease-out}
+        .hero-title{margin-bottom:1.5rem;text-shadow:0 4px 20px rgba(0,0,0,0.3)}
+        .hero-subtitle{font-size:clamp(1.1rem,2vw,1.4rem);opacity:0.9;margin-bottom:2rem;font-weight:300}
+        .hero-tags{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+        .hero-tag{background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);padding:0.75rem 1.5rem;border-radius:var(--radius-full);font-size:0.9rem;border:1px solid rgba(255,255,255,0.2);transition:all var(--transition-base)}
+        .hero-tag:hover{background:rgba(255,255,255,0.25);transform:translateY(-2px)}
+        .scroll-indicator{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);animation:bounce 2s ease-in-out infinite}
+        .scroll-indicator svg{width:40px;height:40px;fill:var(--white);opacity:0.7}
+        @keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-10px)}60%{transform:translateX(-50%) translateY(-5px)}}
+        @keyframes fade-in-up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        
+        .timeline-section{padding:6rem 2rem;max-width:1200px;margin:0 auto}
+        .section-title{text-align:center;color:var(--ocean-deep);margin-bottom:4rem;position:relative}
+        .section-title::after{content:'';display:block;width:80px;height:4px;background:linear-gradient(90deg,var(--coral),var(--sunset));margin:1rem auto 0;border-radius:var(--radius-full)}
+        .timeline{position:relative;padding-left:2rem}
+        .timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--ocean-deep),var(--coral),var(--teal));border-radius:var(--radius-full)}
+        .day-card{position:relative;margin-bottom:3rem;opacity:0;animation:slide-in-left 0.6s ease-out forwards}
+        .day-card:nth-child(1){animation-delay:0.1s}.day-card:nth-child(2){animation-delay:0.2s}.day-card:nth-child(3){animation-delay:0.3s}.day-card:nth-child(4){animation-delay:0.4s}.day-card:nth-child(5){animation-delay:0.5s}.day-card:nth-child(6){animation-delay:0.6s}.day-card:nth-child(7){animation-delay:0.7s}
+        @keyframes slide-in-left{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}
+        .day-marker{position:absolute;left:-32px;top:1.5rem;width:28px;height:28px;background:linear-gradient(135deg,var(--coral),var(--sunset));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:0.8rem;box-shadow:var(--shadow-lg);z-index:2}
+        .day-content{background:var(--white);border-radius:var(--radius-xl);padding:2rem;box-shadow:var(--shadow-md);transition:all var(--transition-base);border-left:4px solid transparent;position:relative;overflow:hidden}
+        .day-content::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--ocean-deep),var(--coral),var(--teal));transform:scaleX(0);transition:transform var(--transition-base)}
+        .day-content:hover{transform:translateY(-5px);box-shadow:var(--shadow-xl);border-left-color:var(--coral)}
+        .day-content:hover::before{transform:scaleX(1)}
+        .day-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
+        .day-title{color:var(--ocean-deep);margin:0}
+        .day-date{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:var(--white);padding:0.5rem 1rem;border-radius:var(--radius-md);font-size:0.85rem;font-weight:500}
+        .activity-list{list-style:none;padding:0}
+        .activity-item{display:flex;gap:1rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--gray-100);transition:all var(--transition-fast);align-items:flex-start}
+        .activity-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+        .activity-item:hover{transform:translateX(5px)}
+.activity-image{flex-shrink:0;width:120px;height:80px;overflow:hidden;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);margin-right:1rem;transition:transform var(--transition-base)}
+.activity-image img{width:100%;height:100%;object-fit:cover;transition:transform var(--transition-base)}
+.activity-image:hover{transform:scale(1.05)}
+.activity-image:hover img{transform:scale(1.1)}
+        .activity-time{flex-shrink:0;min-width:120px;font-weight:600;color:var(--coral);font-size:0.9rem}
+        .activity-details h4{color:var(--gray-800);margin-bottom:0.25rem;font-family:var(--font-body);font-weight:600}
+        .activity-details p{color:var(--gray-600);font-size:0.95rem;margin:0}
+        .activity-location{display:inline-flex;align-items:center;gap:0.25rem;margin-top:0.5rem;font-size:0.85rem;color:var(--teal-dark)}
+        .activity-location svg{width:16px;height:16px}
+.activity-link{display:inline-flex;align-items:center;gap:0.25rem;margin-left:0.5rem;color:var(--teal-dark);text-decoration:none;transition:all var(--transition-fast);opacity:0.7}
+.activity-link:hover{opacity:1;color:var(--coral);transform:scale(1.1)}
+.activity-link svg{width:14px;height:14px}
+        
+        .budget-section{background:linear-gradient(135deg,var(--ocean-deep),var(--ocean-light));padding:6rem 2rem;color:var(--white)}
+        .budget-container{max-width:1200px;margin:0 auto}
+        .budget-section .section-title{color:var(--white)}
+        .budget-section .section-title::after{background:linear-gradient(90deg,var(--coral),var(--sand))}
+        .budget-table{width:100%;border-collapse:collapse;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:2.5rem}
+        .budget-table th,.budget-table td{padding:1rem 1.5rem;text-align:left;border-bottom:1px solid rgba(255,255,255,0.1)}
+        .budget-table th{background:rgba(255,255,255,0.15);font-weight:600;font-family:var(--font-body)}
+        .budget-table tr:hover{background:rgba(255,255,255,0.05)}
+        .budget-total{text-align:right;font-size:1.5rem;font-family:var(--font-heading);font-weight:700;color:var(--coral)}
+        
+        .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem;padding:6rem 2rem;max-width:1400px;margin:0 auto}
+        .info-card{background:var(--white);border-radius:var(--radius-xl);padding:2rem;box-shadow:var(--shadow-md);transition:all var(--transition-base)}
+        .info-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-xl)}
+        .info-card h3{color:var(--ocean-deep);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+        .info-card h3 svg{width:28px;height:28px;color:var(--coral)}
+        .info-table{width:100%;border-collapse:collapse;font-size:0.9rem}
+        .info-table th,.info-table td{padding:0.75rem;text-align:left;border-bottom:1px solid var(--gray-100)}
+        .info-table th{color:var(--ocean-deep);font-weight:600}
+        .info-table tr:hover td{background:var(--gray-50)}
+        
+        .weather-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem}
+        .weather-day{background:linear-gradient(135deg,var(--sand-light),var(--white));padding:1rem;border-radius:var(--radius-lg);text-align:center;border:1px solid var(--gray-200)}
+        .weather-day h4{font-family:var(--font-body);font-size:0.85rem;color:var(--gray-600);margin-bottom:0.5rem}
+        .weather-temp{font-size:1.2rem;font-weight:700;color:var(--ocean-deep);margin:0.5rem 0}
+        .weather-condition{font-size:0.8rem;color:var(--gray-500)}
+        
+        .emergency-section{background:linear-gradient(135deg,var(--coral),var(--sunset));padding:4rem 2rem;color:var(--white)}
+        .emergency-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1000px;margin:0 auto}
+        .emergency-item{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.15);padding:1rem 1.5rem;border-radius:var(--radius-lg);backdrop-filter:blur(10px)}
+        .emergency-item svg{width:32px;height:32px;flex-shrink:0}
+        .emergency-info h4{font-family:var(--font-body);font-size:0.9rem;margin-bottom:0.25rem;opacity:0.9}
+        .emergency-info p{font-size:1.1rem;font-weight:600;margin:0}
+        
+        footer{background:var(--gray-900);color:var(--gray-400);padding:3rem 2rem;text-align:center}
+        footer p{margin:0;font-size:0.9rem}
+        
+@media(max-width:768px){
+.hero{padding:2rem}
+.timeline{padding-left:1.5rem}
+.timeline::before{left:14px}
+.day-marker{left:-24px;width:24px;height:24px;font-size:0.7rem}
+.day-content{padding:1.5rem}
+.activity-time{min-width:90px;font-size:0.8rem}
+.activity-image{display:none}
+.info-grid{grid-template-columns:1fr;padding:3rem 1rem}
+.budget-table{font-size:0.85rem}
+.budget-table th,.budget-table td{padding:0.75rem}
+}
+        @media(max-width:480px){
+            .hero-title{font-size:2rem}
+            .hero-subtitle{font-size:1rem}
+            .day-header{flex-direction:column;align-items:flex-start}
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">沖繩 7 日完美行程</h1>
+            <p class="hero-subtitle">7 日 6 夜深度文化與手作之旅 · 100% 無牛肉 · 非自駕</p>
+            <div class="hero-tags">
+                <span class="hero-tag">🌊 海洋文化</span>
+                <span class="hero-tag">🍜 美食探索</span>
+                <span class="hero-tag">🎨 手作體驗</span>
+                <span class="hero-tag">🏯 歷史古蹟</span>
+                <span class="hero-tag">🚌 公共交通</span>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </div>
+    </section>
+
+    <section class="timeline-section">
+        <h2 class="section-title">每日行程</h2>
+        <div class="timeline">
+            <div class="day-card">
+                <div class="day-marker">1</div>
+                <div class="day-content">
+                    <div class="day-header">
+                        <h3 class="day-title">抵達那霸 · 新都心探索</h3>
+                        <span class="day-date">6/13</span>
+                    </div>
+                    <ul class="activity-list">
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/themes/visit-okinawa_multi-language/lang/zh-hant/assets/img/destinations-thumbnail--naha@2x.webp" alt="那霸機場" loading="lazy"></div><span class="activity-time">10:40 - 11:45</span><div class="activity-details"><h4>抵達與入境</h4><p>抵達那霸機場，於國內線 1 樓購買沖繩特產香檸汁（Shikuwasa）醒神</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>那霸機場</div><a href="https://www.naha-airport.co.jp/en/" target="_blank" rel="noopener noreferrer" class="activity-link" title="那霸機場官網"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><span class="activity-time">11:45 - 12:30</span><div class="activity-details"><h4>前往飯店寄放行李</h4><p>搭乘單軌電車直達「歌町站」，步行 6 分鐘到酒店</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>單軌電車 → 歌町站</div></div></li>
+                        <li class="activity-item"><span class="activity-time">12:30 - 14:30</span><div class="activity-details"><h4>午餐：和風亭</h4><p>於 SAN-A 那霸 Main Place 商場 1 樓享用天婦羅/刺身定食</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>SAN-A 那霸 Main Place</div></div></li>
+                        <li class="activity-item"><span class="activity-time">14:30 - 15:30</span><div class="activity-details"><h4>酒店辦理入住</h4><p>返回酒店正式 Check-in，稍作休息</p></div></li>
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/themes/visit-okinawa_multi-language/lang/zh-hant/assets/img/destinations-thumbnail--naha@2x.webp" alt="T Galleria / 沖繩縣立博物館" loading="lazy"></div><span class="activity-time">15:30 - 18:00</span><div class="activity-details"><h4>新都心文藝與免稅店</h4><p>步行至 T Galleria 免稅店，或前往沖繩縣立博物館・美術館打卡</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>T Galleria / 沖繩縣立博物館</div><a href="https://www.dfs.com/en/okinawa" target="_blank" rel="noopener noreferrer" class="activity-link" title="T Galleria 官網"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><span class="activity-time">19:30 - 21:00</span><div class="activity-details"><h4>晚餐：目利きの銀次</h4><p>人氣居酒屋，品嚐高性價比刺身拼盤同海膽料理</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>新都心本舖</div></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-marker">2</div>
+                <div class="day-content">
+                    <div class="day-header">
+                        <h3 class="day-title">中部風情 · 洞穴神社與美國村</h3>
+                        <span class="day-date">6/14</span>
+                    </div>
+                    <ul class="activity-list">
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/uploads/2022/10/st419_kv_traditional-okinawan-experiences-1024x680.webp" alt="普天滿宮" loading="lazy"></div><span class="activity-time">09:00 - 11:15</span><div class="activity-details"><h4>普天滿宮</h4><p>搭乘 90 號公車至「普天満」站，參拜鐘乳石洞穴神社</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>普天滿宮</div><a href="https://www.city.ginowan.lg.jp/sightseeing/tourist_attractions/7034.html" target="_blank" rel="noopener noreferrer" class="activity-link" title="普天滿宮資訊"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/themes/visit-okinawa_multi-language/lang/zh-hant/assets/img/lp_expo2025.webp" alt="AEON Rycom 永旺夢樂城" loading="lazy"></div><span class="activity-time">11:15 - 15:00</span><div class="activity-details"><h4>AEON Rycom 永旺夢樂城</h4><p>於 Pokémon Center Okinawa 選購限定版琉球傳統服飾比卡丘，午餐於美食街享用海鮮丼</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>AEON Rycom</div><a href="https://tw.aeonmall.global/mall/okinawarycom" target="_blank" rel="noopener noreferrer" class="activity-link" title="AEON Rycom 官網"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/themes/visit-okinawa_multi-language/lang/zh-hant/assets/img/discover-thumbnail-06@2x.webp" alt="北谷美國村" loading="lazy"></div><span class="activity-time">15:00 - 18:30</span><div class="activity-details"><h4>北谷美國村</h4><p>搭乘 96 號公車前往，於西海岸步道欣賞日落</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>美國村</div><a href="https://visitokinawajapan.com/zh-hant/destinations/okinawa-main-island/central-okinawa-main-island/" target="_blank" rel="noopener noreferrer" class="activity-link" title="美國村資訊"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><span class="activity-time">18:30 - 21:00</span><div class="activity-details"><h4>晚餐：迴轉壽司市場</h4><p>專攻吞拿魚、海膽、蟹肉軍艦，之後搭 Uber 返回那霸</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>美濱店</div></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-marker">3</div>
+                <div class="day-content">
+                    <div class="day-header">
+                        <h3 class="day-title">南部海島 · 懸崖神宮與瀨長島</h3>
+                        <span class="day-date">6/15</span>
+                    </div>
+                    <ul class="activity-list">
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/uploads/2022/10/st1011_mv_katsuren-castle-ruin.webp" alt="波上宮" loading="lazy"></div><span class="activity-time">09:30 - 11:30</span><div class="activity-details"><h4>波上宮 ＆ 波之上海灘</h4><p>搭乘單軌至「旭橋站」步行前往，參拜懸崖上的神宮</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>波上宮</div><a href="https://visitokinawajapan.com/zh-hant/destinations/okinawa-main-island/southern-okinawa-main-island/" target="_blank" rel="noopener noreferrer" class="activity-link" title="波上宮資訊"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/themes/visit-okinawa_multi-language/lang/zh-hant/assets/img/discover-thumbnail-05@2x.webp" alt="泊港漁市場" loading="lazy"></div><span class="activity-time">11:30 - 13:30</span><div class="activity-details"><h4>午餐：泊港漁市場</h4><p>品嚐新鮮原板海膽同超鮮甜大拖羅立食</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>泊港漁市場</div><a href="https://www.tomariiyumachi.com/" target="_blank" rel="noopener noreferrer" class="activity-link" title="泊港漁市場官網"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/themes/visit-okinawa_multi-language/lang/zh-hant/assets/img/discover-thumbnail-07@2x.webp" alt="瀨長島 Umikaji Terrace" loading="lazy"></div><span class="activity-time">13:30 - 18:30</span><div class="activity-details"><h4>瀨長島 Umikaji Terrace</h4><p>於純白露台 Cafe 歎咖啡睇飛機降落</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>瀨長島</div><a href="https://www.umikajiterrace.com/" target="_blank" rel="noopener noreferrer" class="activity-link" title="Umikaji Terrace 官網"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><span class="activity-time">18:30 - 21:00</span><div class="activity-details"><h4>晚餐</h4><p>於瀨長島景觀餐廳享用海鮮意粉，搭巴士轉單軌返酒店</p></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-marker">4</div>
+                <div class="day-content">
+                    <div class="day-header">
+                        <h3 class="day-title">歷史秘境 · 琉球古城與峭壁神社</h3>
+                        <span class="day-date">6/16</span>
+                    </div>
+                    <ul class="activity-list">
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/themes/visit-okinawa_multi-language/lang/zh-hant/assets/img/discover-thumbnail-02@2x.webp" alt="首里城" loading="lazy"></div><span class="activity-time">09:30 - 12:00</span><div class="activity-details"><h4>首里城外圍 ＆ 金城町石疊道</h4><p>單軌「首里站」步行，欣賞古城牆同石板路</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>首里城</div><a href="https://oki-park.jp/shurijo/" target="_blank" rel="noopener noreferrer" class="activity-link" title="首里城官網"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><span class="activity-time">12:00 - 13:30</span><div class="activity-details"><h4>午餐：首里そば</h4><p>古民家餐廳享用在地沖繩麵</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>首里</div><a href="https://tabelog.com/okinawa/A4701/A470102/47000012/" target="_blank" rel="noopener noreferrer" class="activity-link" title="首里そば 資訊"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><span class="activity-time">13:30 - 17:30</span><div class="activity-details"><h4>達磨寺 ＆ 末吉宮</h4><p>單軌「儀保站」去達磨寺，再到「市立病院前站」行入森林搵末吉宮</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>達磨寺</div><a href="https://www.city.naha.okinawa.jp/" target="_blank" rel="noopener noreferrer" class="activity-link" title="達磨寺資訊"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><span class="activity-time">18:30 - 20:30</span><div class="activity-details"><h4>晚餐：屋台村</h4><p>國際通屋台村，專攻沖繩海鮮鐵板燒同串燒</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>國際通</div></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-marker">5</div>
+                <div class="day-content">
+                    <div class="day-header">
+                        <h3 class="day-title">手作與市井 · 珊瑚染與牧志市場</h3>
+                        <span class="day-date">6/17</span>
+                    </div>
+                    <ul class="activity-list">
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/uploads/2023/02/st2206_kv_ryukyu-bingata-kimono-1-1024x670.webp" alt="首里琉染" loading="lazy"></div><span class="activity-time">09:15 - 11:30</span><div class="activity-details"><h4>首里琉染</h4><p>已預約之化石珊瑚染體驗（10:00 進行）</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>首里琉染</div><a href="https://shuri-ryusen.com/" target="_blank" rel="noopener noreferrer" class="activity-link" title="首里琉染官網"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/uploads/2022/10/st448_kv_tsuboya-street-1024x683.webp" alt="第一牧志公設市場" loading="lazy"></div><span class="activity-time">11:30 - 13:30</span><div class="activity-details"><h4>第一牧志公設市場</h4><p>單軌「牧志站」，1 樓買活海鮮，2 樓代客料理</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>牧志市場</div><a href="https://visitokinawajapan.com/zh-hant/destinations/okinawa-main-island/southern-okinawa-main-island/" target="_blank" rel="noopener noreferrer" class="activity-link" title="牧志市場資訊"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/uploads/2022/10/st448_kv_tsuboya-street-1024x683.webp" alt="壺屋陶藝通" loading="lazy"></div><span class="activity-time">13:30 - 18:30</span><div class="activity-details"><h4>壺屋陶藝通 ＆ 國際通</h4><p>漫步文青小巷睇陶器，國際通買手信</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>壺屋 / 國際通</div><a href="https://www.naha-navi.or.jp/en/magazine/2021/02/26261/" target="_blank" rel="noopener noreferrer" class="activity-link" title="壺屋陶藝通資訊"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><span class="activity-time">18:30 - 20:30</span><div class="activity-details"><h4>晚餐：阿古豬大餐</h4><p>已預約之頂級阿古豬涮涮鍋</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>食彩酒宴 祭</div></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-marker">6</div>
+                <div class="day-content">
+                    <div class="day-header">
+                        <h3 class="day-title">藝文洗禮 · 終極採買與蟹宴</h3>
+                        <span class="day-date">6/18</span>
+                    </div>
+                    <ul class="activity-list">
+                        <li class="activity-item"><span class="activity-time">10:00 - 12:30</span><div class="activity-details"><h4>AEON 小祿店</h4><p>如已去博物館，可搭單軌去「小祿站」行 AEON 掃日常雜貨</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>AEON 小祿店</div><a href="https://tw.aeonmall.global/mall/okinawarycom" target="_blank" rel="noopener noreferrer" class="activity-link" title="AEON 官網"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><div class="activity-image"><img src="https://visitokinawajapan.com/wp-content/themes/visit-okinawa_multi-language/lang/zh-hant/assets/img/lp_expo2025.webp" alt="RYUBO 樂市" loading="lazy"></div><span class="activity-time">12:30 - 17:30</span><div class="activity-details"><h4>午餐與終極採買</h4><p>新都心商圈簡餐，天久 RYUBO 樂市商場掃貨</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>天久 RYUBO 樂市</div><a href="https://www.ryubo.co.jp/" target="_blank" rel="noopener noreferrer" class="activity-link" title="RYUBO 樂市官網"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><span class="activity-time">18:00 - 20:30</span><div class="activity-details"><h4>晚餐：蟹宴</h4><p>預約那霸市內「かに料理専門店 蟹松」，品嚐鮮甜松葉蟹及海鮮全餐</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>蟹松</div></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-marker">7</div>
+                <div class="day-content">
+                    <div class="day-header">
+                        <h3 class="day-title">滿載而歸</h3>
+                        <span class="day-date">6/19</span>
+                    </div>
+                    <ul class="activity-list">
+                        <li class="activity-item"><span class="activity-time">09:00 - 12:00</span><div class="activity-details"><h4>悠閒 Check-out</h4><p>酒店辦理退房，大件行李寄放前台</p></div></li>
+                        <li class="activity-item"><span class="activity-time">12:00 - 16:30</span><div class="activity-details"><h4>最後散步與午餐</h4><p>於新都心附近享用輕食或甜品，16:30 返回酒店攞行李</p></div></li>
+                        <li class="activity-item"><span class="activity-time">16:30 - 17:15</span><div class="activity-details"><h4>前往機場</h4><p>請酒店前台幫手 Call 的士前往機場（20 分鐘直達）</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>那霸機場</div><a href="https://www.naha-airport.co.jp/en/" target="_blank" rel="noopener noreferrer" class="activity-link" title="那霸機場官網"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                        <li class="activity-item"><span class="activity-time">17:15 之後</span><div class="activity-details"><h4>機場報到與登機</h4><p>辦妥 UO825 登機手續，於國內線 4 樓買「豬肉蛋飯糰 (Potamago)」帶上飛機</p><div class="activity-location"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>那霸機場</div><a href="https://www.naha-airport.co.jp/" target="_blank" rel="noopener noreferrer" class="activity-link" title="那霸機場官網"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="budget-section">
+        <div class="budget-container">
+            <h2 class="section-title">預算概覽（二人同行）</h2>
+            <table class="budget-table">
+                <thead>
+                    <tr><th>天數</th><th>交通</th><th>餐飲</th><th>門票/體驗</th><th>住宿</th><th>小計 (JPY)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Day 1</td><td>¥1,200 x2</td><td>¥6,500 x2</td><td>-</td><td>¥8,000 x2</td><td>¥30,900</td></tr>
+                    <tr><td>Day 2</td><td>¥300 x2 + Uber</td><td>¥6,000 x2</td><td>-</td><td>¥8,000 x2</td><td>¥30,600</td></tr>
+                    <tr><td>Day 3</td><td>¥1,200 x2</td><td>¥7,000 x2</td><td>¥1,500 x2</td><td>¥8,000 x2</td><td>¥33,500</td></tr>
+                    <tr><td>Day 4</td><td>¥2,500 x2</td><td>¥5,500 x2</td><td>-</td><td>¥8,000 x2</td><td>¥31,500</td></tr>
+                    <tr><td>Day 5</td><td>¥1,200 x2</td><td>¥7,500 x2</td><td>¥3,000 x2</td><td>¥8,000 x2</td><td>¥35,900</td></tr>
+                    <tr><td>Day 6</td><td>¥1,200 x2</td><td>¥8,200 x2</td><td>¥8,000 x2</td><td>¥8,000 x2</td><td>¥38,800</td></tr>
+                    <tr><td>Day 7</td><td>¥1,500</td><td>¥2,500 x2</td><td>-</td><td>-</td><td>¥23,000</td></tr>
+                    <tr><td colspan="5" class="budget-total">總計</td><td class="budget-total">¥234,200</td></tr>
+                </tbody>
+            </table>
+            <p style="text-align:center;opacity:0.9">以 1 日圓 ≈ 0.0065 港幣計算，總預算約 1,520 港幣。建議額外備用 10% 現金以應付突發狀況。</p>
+        </div>
+    </section>
+
+    <div class="info-grid">
+        <div class="info-card">
+            <h3><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 15c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm0-8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>餐廳資訊</h3>
+            <table class="info-table">
+                <tr><th>餐廳</th><th>營業時間</th><th>價位 (JPY)</th></tr>
+                <tr><td>和風亭 (SAN‑A)</td><td>11:00‑22:00</td><td>¥1,200‑¥2,500</td></tr>
+                <tr><td>目利きの銀次</td><td>17:00‑23:00</td><td>¥3,000‑¥5,000</td></tr>
+                <tr><td>迴轉壽司市場</td><td>11:30‑22:00</td><td>¥2,500‑¥4,500</td></tr>
+                <tr><td>首里そば</td><td>11:00‑14:00</td><td>¥800‑¥1,200</td></tr>
+                <tr><td>阿古豬涮涮鍋</td><td>18:00‑22:00</td><td>¥5,000‑¥7,000</td></tr>
+                <tr><td>蟹松</td><td>18:00‑22:00</td><td>¥8,000‑¥12,000</td></tr>
+            </table>
+        </div>
+
+        <div class="info-card">
+            <h3><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>天氣預報</h3>
+            <div class="weather-grid">
+                <div class="weather-day"><h4>6/13</h4><div class="weather-temp">28‑32°C</div><div class="weather-condition">晴</div></div>
+                <div class="weather-day"><h4>6/14</h4><div class="weather-temp">27‑31°C</div><div class="weather-condition">多雲陣雨</div></div>
+                <div class="weather-day"><h4>6/15</h4><div class="weather-temp">29‑33°C</div><div class="weather-condition">晴</div></div>
+                <div class="weather-day"><h4>6/16</h4><div class="weather-temp">28‑32°C</div><div class="weather-condition">晴轉多雲</div></div>
+                <div class="weather-day"><h4>6/17</h4><div class="weather-temp">26‑30°C</div><div class="weather-condition">陣雨</div></div>
+                <div class="weather-day"><h4>6/18</h4><div class="weather-temp">30‑34°C</div><div class="weather-condition">晴</div></div>
+                <div class="weather-day"><h4>6/19</h4><div class="weather-temp">27‑31°C</div><div class="weather-condition">多雲</div></div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h3><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>必備清單</h3>
+            <ul style="list-style:none;padding:0;line-height:2">
+                <li>☂️ 輕便雨具（折疊傘或雨衣）</li>
+                <li>🧴 防曬乳 SPF30+、太陽眼鏡、帽子</li>
+                <li>🔋 充電寶 10,000mAh 以上</li>
+                <li>🎒 輕便背包（容量 20L）</li>
+                <li>💊 常備藥品：止瀉藥、感冒藥、創可貼</li>
+                <li>💴 日圓現金 20,000‑30,000 日圓</li>
+                <li>💳 兩張信用卡（Visa/Mastercard）</li>
+                <li>🦟 防蚊液與保濕乳</li>
+                <li>📱 旅行保險證明</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="emergency-section">
+        <h2 class="section-title" style="color:var(--white);text-align:center;margin-bottom:2rem">緊急聯絡資訊</h2>
+        <div class="emergency-grid">
+            <div class="emergency-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <div class="emergency-info"><h4>日本緊急電話</h4><p>110（警察）/ 119（消防/救護）</p></div>
+            </div>
+            <div class="emergency-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <div class="emergency-info"><h4>日本旅遊資訊中心</h4><p>0570‑555‑555（24 小時中文）</p></div>
+            </div>
+            <div class="emergency-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <div class="emergency-info"><h4>大使館（香港）</h4><p>81‑3‑3224‑5600</p></div>
+            </div>
+            <div class="emergency-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <div class="emergency-info"><h4>酒店前台</h4><p>+81‑98‑123‑4567</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>沖繩 7 日完美行程 · 100% 無牛肉 · 非自駕 · 2026</p>
+    </footer>
+</body>
+</html>

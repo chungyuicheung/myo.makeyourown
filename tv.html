@@ -91,38 +91,33 @@
 
 <body class="antialiased">
 
-<!-- Shared Header Component -->
-<!-- Shared Header Component -->
+<!-- components/site-header.html -->
+<!-- Shared Site Header — copy entire file content into each page's <body> at top -->
 <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm transition-all duration-300" data-brand="策略探索家">
   <nav class="container mx-auto px-6 py-4">
     <!-- Desktop Header Layout -->
     <div class="hidden md:flex justify-between items-center" id="desktop-nav">
-      <!-- Left: Brand + Back Link (if enabled) -->
+      <!-- Left: Brand + Back Link -->
       <div class="flex items-center gap-6">
-        <a href="index.html" class="text-xl font-bold" id="desktop-brand">
+        <a href="INDEX_HREF" class="text-xl font-bold" id="desktop-brand">
           <span id="brand-text">策略探索家</span>
         </a>
-        <a href="/index.html" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors" id="back-link" style="display: none;">
-          ⬅️ 主頁
+        <a href="INDEX_HREF" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors" id="back-link" style="display: none;">
+          ⬅️ 返回首頁
         </a>
       </div>
 
       <!-- Center: Navigation Links -->
-      <div class="flex items-center gap-8" id="desktop-links">
-        <!-- Links injected by JS -->
-      </div>
+      <div class="flex items-center gap-8" id="desktop-links"></div>
 
       <!-- Right: CTA Button (optional) -->
-      <div id="desktop-cta" style="display: none;">
-        <!-- CTA injected by JS -->
-      </div>
+      <div id="desktop-cta" style="display: none;"></div>
     </div>
 
     <!-- Mobile Header -->
     <div class="flex flex-col items-center md:hidden">
-      <!-- Mobile Brand -->
       <div class="flex items-center gap-2 w-full justify-between mb-3">
-        <a href="index.html" class="text-xl font-bold" id="mobile-brand">
+        <a href="INDEX_HREF" class="text-xl font-bold" id="mobile-brand">
           <span id="mobile-brand-text">策略探索家</span>
         </a>
         <button id="mobile-menu-btn" class="text-gray-700 hover:text-indigo-600 focus:outline-none p-3 min-w-[44px] min-h-[44px] flex items-center justify-center touch-action-manipulation">
@@ -134,232 +129,157 @@
 
       <!-- Mobile Menu (hidden by default) -->
       <div id="mobile-menu" class="hidden w-full mt-3 pb-4 border-t border-gray-200">
-        <div class="flex flex-col space-y-3 pt-4" id="mobile-links">
-          <!-- Mobile links injected by JS -->
-        </div>
+        <div class="flex flex-col space-y-3 pt-4" id="mobile-links"></div>
       </div>
     </div>
   </nav>
 </header>
 
 <script>
-(() => {
-  // Extended navigation configuration
-  const NAVIGATION_CONFIG = {
-    '策略探索家': {
-      brand: '策略探索家',
-      theme: 'light',
-      backLink: false,
-      cta: null,
-      items: [
-        { name: '旅程', emoji: '✈️', href: 'trip.html' },
-        { name: '影視', emoji: '📺', href: 'tv.html' },
-        { name: '美食', emoji: '🍽️', href: 'food.html' },
-        { name: '首頁', emoji: '🏠', href: 'index.html' }
-      ]
-    },
-    'make your own tv': {
-      brand: 'make your own tv',
-      theme: 'dark',
-      backLink: { text: '⬅️ 主頁', href: '/index.html' },
-      cta: { text: '開始使用', href: '#demo', class: 'bg-indigo-600 text-white', mobileHighlight: true },
-      items: [
-        { name: '核心功能', emoji: '⚡', href: '#features', anchor: true },
-        { name: '精選推薦', emoji: '✨', href: '#showcase', anchor: true },
-        { name: '立即體驗', emoji: '🚀', href: '#demo', anchor: true },
-        { name: '關於我們', emoji: 'ℹ️', href: '#contact', anchor: true }
-      ]
-    }
-  };
+(function() {
+  // Auto-detect directory depth from window.location.pathname
+  function getNavRoot() {
+    var path = window.location.pathname;
+    if (path.indexOf('/trip/hongkong/') > -1) return '../../';
+    if (path.indexOf('/blog/') > -1 || path.indexOf('/trip/') > -1 || path.indexOf('/archive/') > -1) return '../';
+    return './';
+  }
 
-  // Detect current brand from page title
+  var NAV_ROOT = getNavRoot();
+  var INDEX_HREF = NAV_ROOT + 'index.html';
+
+  // Replace INDEX_HREF placeholder in HTML with actual path
+  var placeholderLinks = document.querySelectorAll('a[href="INDEX_HREF"]');
+  for (var i = 0; i < placeholderLinks.length; i++) {
+    placeholderLinks[i].href = INDEX_HREF;
+  }
+
   function detectBrand() {
-    const title = document.title;
-    if (title.includes('make your own tv')) {
-      return 'make your own tv';
-    }
+    var title = document.title;
+    if (title.indexOf('make your own tv') > -1) return 'make your own tv';
     return '策略探索家';
   }
 
-  // Get current page filename (for non-anchor links)
   function getCurrentPage() {
-    const path = window.location.pathname;
-    const filename = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
-    return filename;
+    var path = window.location.pathname;
+    return path.substring(path.lastIndexOf('/') + 1) || 'index.html';
   }
 
-  // Apply theme styles
   function applyTheme(config) {
-    const header = document.getElementById('header');
-    const brandElements = document.querySelectorAll('#brand-text, #desktop-brand, #mobile-brand, #mobile-brand-text');
-    
+    var header = document.getElementById('header');
+    var brandEls = document.querySelectorAll('#brand-text, #desktop-brand, #mobile-brand, #mobile-brand-text');
     if (config.theme === 'dark') {
-      header.className = header.className.replace(/bg-\w+\/80/, 'bg-gray-900/80');
+      header.className = header.className.replace(/bg-\w+\/\w+/, 'bg-gray-900/80');
       header.classList.add('shadow-indigo-500/10');
-      brandElements.forEach(el => {
-        if (el) el.className = 'text-indigo-400';
-      });
+      for (var i = 0; i < brandEls.length; i++) {
+        if (brandEls[i]) brandEls[i].className = 'text-indigo-400';
+      }
     } else {
-      header.className = header.className.replace(/bg-\w+\/80/, 'bg-white/80');
+      header.className = header.className.replace(/bg-\w+\/\w+/, 'bg-white/80');
       header.classList.remove('shadow-indigo-500/10');
-      brandElements.forEach(el => {
-        if (el) el.className = 'text-indigo-700';
-      });
+      for (var j = 0; j < brandEls.length; j++) {
+        if (brandEls[j]) brandEls[j].className = 'text-indigo-700';
+      }
     }
   }
 
-  // Generate desktop navigation links
   function renderDesktopLinks(items, currentPage) {
-    const container = document.getElementById('desktop-links');
+    var container = document.getElementById('desktop-links');
     if (!container) return;
-    
-    container.innerHTML = items.map(item => {
-      const isAnchor = item.anchor;
-      const isActive = !isAnchor && (item.href.endsWith(currentPage) || item.href.endsWith(currentPage + '/'));
-      let classes = 'text-sm transition-colors px-3 py-1.5 rounded-full';
-      
+    var html = '';
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      var isAnchor = item.anchor;
+      // Use endsWith for precise active page detection
+      var isActive = !isAnchor && (item.href.indexOf(currentPage) === item.href.length - currentPage.length);
+      var cls = 'text-sm transition-colors px-3 py-1.5 rounded-full';
       if (isAnchor) {
-        classes += ' text-gray-300 hover:text-indigo-400';
+        cls += ' text-gray-300 hover:text-indigo-400';
       } else {
-        classes += isActive 
-          ? 'bg-indigo-100/80 text-indigo-800' 
-          : 'text-gray-700 hover:text-indigo-600 bg-gray-100/80';
+        cls += isActive ? ' bg-indigo-100/80 text-indigo-800' : ' text-gray-700 hover:text-indigo-600 bg-gray-100/80';
       }
-      
-      // Adjust colors for tv dark theme
-      const brand = detectBrand();
-      if (brand === 'make your own tv' && !isAnchor) {
-        classes = classes.replace(/text-gray-\d+/, 'text-gray-300').replace(/bg-gray-\d+\/80/, 'bg-gray-800/80');
-        if (isActive) {
-          classes = 'bg-indigo-900/80 text-indigo-200';
-        }
-      }
-      
-      const emoji = item.emoji ? `<span class="mr-1">${item.emoji}</span>` : '';
-      return `<a href="${item.href}" class="${classes}">${emoji}${item.name}</a>`;
-    }).join('');
+      var emoji = item.emoji ? '<span class="mr-1">' + item.emoji + '</span>' : '';
+      html += '<a href="' + item.href + '" class="' + cls + '">' + emoji + item.name + '</a>';
+    }
+    container.innerHTML = html;
   }
 
-  // Generate mobile navigation links
   function renderMobileLinks(items, currentPage) {
-    const container = document.querySelector('#mobile-menu #mobile-links');
+    var container = document.querySelector('#mobile-menu #mobile-links');
     if (!container) return;
-    
-    container.innerHTML = items.map(item => {
-      const isAnchor = item.anchor;
-      const isActive = !isAnchor && (item.href.endsWith(currentPage) || item.href.endsWith(currentPage + '/'));
-      let classes = 'text-base py-2 border-b border-gray-100 last:border-0';
-      
+    var html = '';
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      var isAnchor = item.anchor;
+      var isActive = !isAnchor && (item.href.indexOf(currentPage) === item.href.length - currentPage.length);
+      var cls = 'text-base py-2 border-b border-gray-100 last:border-0';
       if (isAnchor) {
-        classes += ' text-gray-300 hover:text-indigo-400';
+        cls += ' text-gray-300 hover:text-indigo-400';
       } else {
-        classes += isActive 
-          ? 'text-indigo-600 font-semibold' 
-          : 'text-gray-700 hover:text-indigo-600';
+        cls += isActive ? ' text-indigo-600 font-semibold' : ' text-gray-700 hover:text-indigo-600';
       }
-      
-      // For tv dark theme
-      const brand = detectBrand();
-      if (brand === 'make your own tv') {
-        classes = classes.replace(/text-gray-\d+/g, 'text-gray-300').replace(/bg-gray-\d+/g, 'bg-gray-800');
-        if (isActive) classes = 'text-indigo-300 font-semibold';
-      }
-      
-      const emoji = item.emoji ? `${item.emoji} ` : '';
-      return `<a href="${item.href}" class="${classes}">${emoji}${item.name}</a>`;
-    }).join('');
+      var emoji = item.emoji ? item.emoji + ' ' : '';
+      html += '<a href="' + item.href + '" class="' + cls + '">' + emoji + item.name + '</a>';
+    }
+    container.innerHTML = html;
   }
 
-  // Render CTA button
   function renderCTA(ctaConfig) {
-    const container = document.getElementById('desktop-cta');
+    var container = document.getElementById('desktop-cta');
     if (!container || !ctaConfig) return;
-    
-    container.innerHTML = `<a href="${ctaConfig.href}" class="${ctaConfig.class} font-semibold px-5 py-2 rounded-lg cta-btn">${ctaConfig.text}</a>`;
+    container.innerHTML = '<a href="' + ctaConfig.href + '" class="' + ctaConfig.class + ' font-semibold px-5 py-2 rounded-lg cta-btn">' + ctaConfig.text + '</a>';
     container.style.display = 'block';
   }
 
-  // Render back link
-  function renderBackLink(backConfig) {
-    const backLink = document.getElementById('back-link');
-    if (!backLink || !backConfig) return;
-    
-    backLink.href = backConfig.href;
-    backLink.textContent = backConfig.text;
-    backLink.style.display = 'inline-block';
+  function renderBackLink() {
+    var backLink = document.getElementById('back-link');
+    if (!backLink) return;
+    var currentPage = getCurrentPage();
+    if (currentPage !== 'index.html') {
+      backLink.href = INDEX_HREF;
+      backLink.style.display = 'inline-block';
+    }
   }
 
-  // Main initialization
   function initHeader() {
-    const brand = detectBrand();
-    const config = NAVIGATION_CONFIG[brand] || NAVIGATION_CONFIG['策略探索家'];
-    const currentPage = getCurrentPage();
-    
-    // Set brand attribute
+    var brand = detectBrand();
+    var config = NAVIGATION_CONFIG[brand] || NAVIGATION_CONFIG['策略探索家'];
+    var currentPage = getCurrentPage();
     document.documentElement.setAttribute('data-brand', brand);
-    
-    // Apply theme (light/dark)
     applyTheme(config);
-    
-    // Render desktop links
     renderDesktopLinks(config.items, currentPage);
-    
-    // Render mobile links
     renderMobileLinks(config.items, currentPage);
-    
-    // Render optional elements
-    renderBackLink(config.backLink);
+    renderBackLink();
     renderCTA(config.cta);
   }
 
-  // Mobile menu toggle
   function setupMobileMenu() {
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    console.log('🎮 setupMobileMenu: btn=', !!btn, 'menu=', !!menu);
+    var btn = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
     if (btn && menu) {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', function(e) {
         e.preventDefault();
-        console.log('🍔 mobile menu clicked! toggling...');
-        const isHidden = menu.classList.contains('hidden');
-        console.log('   before toggle: hidden?', isHidden);
         menu.classList.toggle('hidden');
-        console.log('   after toggle: hidden?', menu.classList.contains('hidden'));
       });
-      console.log('✅ Mobile menu event listener attached');
-    } else {
-      console.warn('❌ Mobile menu elements not found');
     }
   }
 
-  // Initialize on DOM load
-  document.addEventListener('DOMContentLoaded', () => {
-    initHeader();
-    setupMobileMenu();
-  });
-})();
-</script>
-
-<script>
-(() => {
-  // Extended navigation configuration
-  const NAVIGATION_CONFIG = {
+  // Navigation config — NAV_ROOT is set at the top of this script block
+  var NAVIGATION_CONFIG = {
     '策略探索家': {
       brand: '策略探索家',
       theme: 'light',
-      backLink: false,
       cta: null,
       items: [
-        { name: '旅程', emoji: '✈️', href: 'trip.html' },
-        { name: '影視', emoji: '📺', href: 'tv.html' },
-        { name: '美食', emoji: '🍽️', href: 'food.html' },
-        { name: '首頁', emoji: '🏠', href: 'index.html' }
+        { name: '首頁', emoji: '🏠', href: NAV_ROOT + 'index.html' },
+        { name: '旅程', emoji: '✈️', href: NAV_ROOT + 'trip.html' },
+        { name: '影視', emoji: '📺', href: NAV_ROOT + 'tv.html' },
+        { name: '美食', emoji: '🍽️', href: NAV_ROOT + 'food.html' }
       ]
     },
     'make your own tv': {
       brand: 'make your own tv',
       theme: 'dark',
-      backLink: { text: '⬅️ 主頁', href: '/index.html' },
       cta: { text: '開始使用', href: '#demo', class: 'bg-indigo-600 text-white', mobileHighlight: true },
       items: [
         { name: '核心功能', emoji: '⚡', href: '#features', anchor: true },
@@ -370,355 +290,12 @@
     }
   };
 
-  // Detect current brand from page title
-  function detectBrand() {
-    const title = document.title;
-    if (title.includes('make your own tv')) {
-      return 'make your own tv';
-    }
-    return '策略探索家';
-  }
-
-  // Get current page filename (for non-anchor links)
-  function getCurrentPage() {
-    const path = window.location.pathname;
-    const filename = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
-    return filename;
-  }
-
-  // Apply theme styles
-  function applyTheme(config) {
-    const header = document.getElementById('header');
-    const brandElements = document.querySelectorAll('#brand-text, #desktop-brand, #mobile-brand, #mobile-brand-text');
-    
-    if (config.theme === 'dark') {
-      header.className = header.className.replace(/bg-\w+\/80/, 'bg-gray-900/80');
-      header.classList.add('shadow-indigo-500/10');
-      brandElements.forEach(el => {
-        if (el) el.className = 'text-indigo-400';
-      });
-    } else {
-      header.className = header.className.replace(/bg-\w+\/80/, 'bg-white/80');
-      header.classList.remove('shadow-indigo-500/10');
-      brandElements.forEach(el => {
-        if (el) el.className = 'text-indigo-700';
-      });
-    }
-  }
-
-  // Generate desktop navigation links
-  function renderDesktopLinks(items, currentPage) {
-    const container = document.getElementById('desktop-links');
-    if (!container) return;
-    
-    container.innerHTML = items.map(item => {
-      const isAnchor = item.anchor;
-      const isActive = !isAnchor && (item.href.endsWith(currentPage) || item.href.endsWith(currentPage + '/'));
-      let classes = 'text-sm transition-colors px-3 py-1.5 rounded-full';
-      
-      if (isAnchor) {
-        classes += ' text-gray-300 hover:text-indigo-400';
-      } else {
-        classes += isActive 
-          ? 'bg-indigo-100/80 text-indigo-800' 
-          : 'text-gray-700 hover:text-indigo-600 bg-gray-100/80';
-      }
-      
-      // Adjust colors for tv dark theme
-      const brand = detectBrand();
-      if (brand === 'make your own tv' && !isAnchor) {
-        classes = classes.replace(/text-gray-\d+/, 'text-gray-300').replace(/bg-gray-\d+\/80/, 'bg-gray-800/80');
-        if (isActive) {
-          classes = 'bg-indigo-900/80 text-indigo-200';
-        }
-      }
-      
-      const emoji = item.emoji ? `<span class="mr-1">${item.emoji}</span>` : '';
-      return `<a href="${item.href}" class="${classes}">${emoji}${item.name}</a>`;
-    }).join('');
-  }
-
-  // Generate mobile navigation links
-  function renderMobileLinks(items, currentPage) {
-    const container = document.querySelector('#mobile-menu #mobile-links');
-    if (!container) return;
-    
-    container.innerHTML = items.map(item => {
-      const isAnchor = item.anchor;
-      const isActive = !isAnchor && (item.href.endsWith(currentPage) || item.href.endsWith(currentPage + '/'));
-      let classes = 'text-base py-2 border-b border-gray-100 last:border-0';
-      
-      if (isAnchor) {
-        classes += ' text-gray-300 hover:text-indigo-400';
-      } else {
-        classes += isActive 
-          ? 'text-indigo-600 font-semibold' 
-          : 'text-gray-700 hover:text-indigo-600';
-      }
-      
-      // For tv dark theme
-      const brand = detectBrand();
-      if (brand === 'make your own tv') {
-        classes = classes.replace(/text-gray-\d+/g, 'text-gray-300').replace(/bg-gray-\d+/g, 'bg-gray-800');
-        if (isActive) classes = 'text-indigo-300 font-semibold';
-      }
-      
-      const emoji = item.emoji ? `${item.emoji} ` : '';
-      return `<a href="${item.href}" class="${classes}">${emoji}${item.name}</a>`;
-    }).join('');
-  }
-
-  // Render CTA button
-  function renderCTA(ctaConfig) {
-    const container = document.getElementById('desktop-cta');
-    if (!container || !ctaConfig) return;
-    
-    container.innerHTML = `<a href="${ctaConfig.href}" class="${ctaConfig.class} font-semibold px-5 py-2 rounded-lg cta-btn">${ctaConfig.text}</a>`;
-    container.style.display = 'block';
-  }
-
-  // Render back link
-  function renderBackLink(backConfig) {
-    const backLink = document.getElementById('back-link');
-    if (!backLink || !backConfig) return;
-    
-    backLink.href = backConfig.href;
-    backLink.textContent = backConfig.text;
-    backLink.style.display = 'inline-block';
-  }
-
-  // Main initialization
-  function initHeader() {
-    const brand = detectBrand();
-    const config = NAVIGATION_CONFIG[brand] || NAVIGATION_CONFIG['策略探索家'];
-    const currentPage = getCurrentPage();
-    
-    // Set brand attribute
-    document.documentElement.setAttribute('data-brand', brand);
-    
-    // Apply theme (light/dark)
-    applyTheme(config);
-    
-    // Render desktop links
-    renderDesktopLinks(config.items, currentPage);
-    
-    // Render mobile links
-    renderMobileLinks(config.items, currentPage);
-    
-    // Render optional elements
-    renderBackLink(config.backLink);
-    renderCTA(config.cta);
-  }
-
-  // Mobile menu toggle
-  function setupMobileMenu() {
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    if (btn && menu) {
-      btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-      });
-    }
-  }
-
-  // Initialize on DOM load
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', function() {
     initHeader();
     setupMobileMenu();
   });
 })();
 </script>
-
-<script>
-// Extended navigation configuration
-const NAVIGATION_CONFIG = {
-  '策略探索家': {
-    brand: '策略探索家',
-    theme: 'light',
-    backLink: false,
-    cta: null,
-    items: [
-      { name: '旅程', emoji: '✈️', href: 'trip.html' },
-      { name: '影視', emoji: '📺', href: 'tv.html' },
-      { name: '美食', emoji: '🍽️', href: 'food.html' },
-      { name: '首頁', emoji: '🏠', href: 'index.html' }
-    ]
-  },
-  'make your own tv': {
-    brand: 'make your own tv',
-    theme: 'dark',
-    backLink: { text: '⬅️ 主頁', href: '/index.html' },
-    cta: { text: '開始使用', href: '#demo', class: 'bg-indigo-600 text-white', mobileHighlight: true },
-    items: [
-      { name: '核心功能', emoji: '⚡', href: '#features', anchor: true },
-      { name: '精選推薦', emoji: '✨', href: '#showcase', anchor: true },
-      { name: '立即體驗', emoji: '🚀', href: '#demo', anchor: true },
-      { name: '關於我們', emoji: 'ℹ️', href: '#contact', anchor: true }
-    ]
-  }
-};
-
-// Detect current brand from page title
-function detectBrand() {
-  const title = document.title;
-  if (title.includes('make your own tv')) {
-    return 'make your own tv';
-  }
-  return '策略探索家';
-}
-
-// Get current page filename (for non-anchor links)
-function getCurrentPage() {
-  const path = window.location.pathname;
-  const filename = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
-  return filename;
-}
-
-// Apply theme styles
-function applyTheme(config) {
-  const header = document.getElementById('header');
-  const brandElements = document.querySelectorAll('#brand-text, #desktop-brand, #mobile-brand, #mobile-brand-text');
-  
-  if (config.theme === 'dark') {
-    header.className = header.className.replace(/bg-\w+\/80/, 'bg-gray-900/80');
-    header.classList.add('shadow-indigo-500/10');
-    // Update text colors for dark theme
-    brandElements.forEach(el => {
-      if (el) el.className = 'text-indigo-400';
-    });
-  } else {
-    header.className = header.className.replace(/bg-\w+\/80/, 'bg-white/80');
-    header.classList.remove('shadow-indigo-500/10');
-    brandElements.forEach(el => {
-      if (el) el.className = 'text-indigo-700';
-    });
-  }
-}
-
-// Generate desktop navigation links
-function renderDesktopLinks(items, currentPage) {
-  const container = document.getElementById('desktop-links');
-  if (!container) return;
-  
-  container.innerHTML = items.map(item => {
-    const isAnchor = item.anchor;
-    const isActive = !isAnchor && (item.href.endsWith(currentPage) || item.href.endsWith(currentPage + '/'));
-    let classes = 'text-sm transition-colors px-3 py-1.5 rounded-full';
-    
-    if (isAnchor) {
-      classes += ' text-gray-300 hover:text-indigo-400'; // For dark theme, will override
-    } else {
-      classes += isActive 
-        ? 'bg-indigo-100/80 text-indigo-800' 
-        : 'text-gray-700 hover:text-indigo-600 bg-gray-100/80';
-    }
-    
-    // Adjust colors for tv dark theme
-    if (document.documentElement.getAttribute('data-brand') === 'make your own tv' && !isActive) {
-      classes = classes.replace(/text-gray-\d+/, 'text-gray-300').replace(/bg-gray-\d+\/80/, 'bg-gray-800/80');
-      if (isActive) {
-        classes = 'bg-indigo-900/80 text-indigo-200';
-      }
-    }
-    
-    const emoji = item.emoji ? `<span class="mr-1">${item.emoji}</span>` : '';
-    return `<a href="${item.href}" class="${classes}">${emoji}${item.name}</a>`;
-  }).join('');
-}
-
-// Generate mobile navigation links
-function renderMobileLinks(items, currentPage) {
-  const container = document.querySelector('#mobile-menu #mobile-links');
-  if (!container) return;
-  
-  container.innerHTML = items.map(item => {
-    const isAnchor = item.anchor;
-    const isActive = !isAnchor && (item.href.endsWith(currentPage) || item.href.endsWith(currentPage + '/'));
-    let classes = 'text-base py-2 border-b border-gray-100 last:border-0';
-    
-    if (isAnchor) {
-      classes += ' text-gray-300 hover:text-indigo-400';
-    } else {
-      classes += isActive 
-        ? 'text-indigo-600 font-semibold' 
-        : 'text-gray-700 hover:text-indigo-600';
-    }
-    
-    // For tv dark theme
-    if (document.documentElement.getAttribute('data-brand') === 'make your own tv') {
-      classes = classes.replace(/text-gray-\d+/g, 'text-gray-300').replace(/bg-gray-\d+/g, 'bg-gray-800');
-      if (isActive) classes = 'text-indigo-300 font-semibold';
-    }
-    
-    const emoji = item.emoji ? `${item.emoji} ` : '';
-    return `<a href="${item.href}" class="${classes}">${emoji}${item.name}</a>`;
-  }).join('');
-}
-
-// Render CTA button
-function renderCTA(ctaConfig) {
-  const container = document.getElementById('desktop-cta');
-  if (!container || !ctaConfig) return;
-  
-  container.innerHTML = `<a href="${ctaConfig.href}" class="${ctaConfig.class} font-semibold px-5 py-2 rounded-lg cta-btn">${ctaConfig.text}</a>`;
-  container.style.display = 'block';
-}
-
-// Render back link
-function renderBackLink(backConfig) {
-  const backLink = document.getElementById('back-link');
-  if (!backLink || !backConfig) return;
-  
-  backLink.href = backConfig.href;
-  backLink.textContent = backConfig.text;
-  backLink.style.display = 'inline-block';
-}
-
-// Main initialization
-function initHeader() {
-  const brand = detectBrand();
-  const config = NAVIGATION_CONFIG[brand] || NAVIGATION_CONFIG['策略探索家'];
-  const currentPage = getCurrentPage();
-  
-  // Set brand attribute
-  document.documentElement.setAttribute('data-brand', brand);
-  
-  // Apply theme (light/dark)
-  applyTheme(config);
-  
-  // Update brand texts
-  document.getElementById('brand-text')?.setAttribute('data-original', config.brand);
-  
-  // Render desktop links
-  renderDesktopLinks(config.items, currentPage);
-  
-  // Render mobile links
-  renderMobileLinks(config.items, currentPage);
-  
-  // Render optional elements
-  renderBackLink(config.backLink);
-  renderCTA(config.cta);
-}
-
-// Mobile menu toggle
-function setupMobileMenu() {
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  if (btn && menu) {
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-  }
-}
-
-// Initialize on DOM load
-document.addEventListener('DOMContentLoaded', () => {
-  initHeader();
-  setupMobileMenu();
-});
-</script>
-
-
 
 <main>
         <section 

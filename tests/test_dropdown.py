@@ -123,6 +123,140 @@ def test_all_dropdown_links_accessible():
         browser.close()
     return results
 
+def test_navigation_module_exists():
+    """Test that navigation.js module exists as external file"""
+    results = []
+    import os
+
+    # Test that navigation.js exists
+    result = TestResult("navigation.js module exists")
+    nav_path = "/Users/baba/Documents/Github/myo.makeyourown/assets/js/navigation.js"
+    if os.path.exists(nav_path):
+        result.passed = True
+    else:
+        result.error = f"navigation.js not found at {nav_path}"
+    results.append(result)
+
+    # Test that component file uses the module
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto(BASE_URL + "/index.html")
+        page.wait_for_load_state('domcontentloaded')
+
+        result = TestResult("navigation.js is loaded by index.html")
+        try:
+            scripts = page.evaluate("""() => {
+                return Array.from(document.querySelectorAll('script[src]')).map(s => s.src);
+            }""")
+            has_nav_module = any('navigation.js' in s for s in scripts)
+            if has_nav_module:
+                result.passed = True
+            else:
+                result.error = f"No navigation.js script found. Scripts: {scripts}"
+        except Exception as e:
+            result.error = str(e)[:100]
+        results.append(result)
+
+        browser.close()
+
+    return results
+
+
+def test_mobile_viewport():
+    """Test dropdown behavior at mobile viewport (375px)"""
+    results = []
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page(viewport={"width": 375, "height": 667})
+        page.goto(BASE_URL + "/index.html")
+        page.wait_for_load_state('domcontentloaded')
+        page.wait_for_timeout(500)
+
+        # Test mobile menu opens
+        result = TestResult("Mobile - menu toggle works at 375px")
+        try:
+            menu_btn = page.locator("#mobile-menu-btn")
+            if menu_btn.count() > 0:
+                menu = page.locator("#mobile-menu")
+                menu_btn.click()
+                page.wait_for_timeout(300)
+                is_visible = menu.locator("#mobile-links").is_visible()
+                result.passed = is_visible
+                if not is_visible:
+                    result.error = "Mobile menu not visible after toggle"
+            else:
+                result.error = "Mobile menu button not found"
+        except Exception as e:
+            result.error = str(e)[:100]
+        results.append(result)
+
+        # Test dropdown children visible on mobile
+        result = TestResult("Mobile - dropdown children visible at 375px")
+        try:
+            # Menu should already be open from previous test
+            mobile_links = page.locator("#mobile-links")
+            html = mobile_links.inner_html() if mobile_links.count() > 0 else ""
+            # Check for 旅程 and 文章 as dropdown parents
+            has_journey = "旅程" in html or "trip.html" in html
+            has_article = "文章" in html or "best-wedding-gifts-hk.html" in html
+            if has_journey and has_article:
+                result.passed = True
+            else:
+                result.error = f"Missing dropdowns. Has journey: {has_journey}, has article: {has_article}"
+        except Exception as e:
+            result.error = str(e)[:100]
+        results.append(result)
+
+        browser.close()
+
+    return results
+
+
+def test_other_pages_dropdowns():
+    """Test that dropdowns work on other pages besides index.html"""
+    results = []
+
+    pages_to_test = [
+        ("/trip.html", "Trip page"),
+        ("/trip/okinawa-trip.html", "Okinawa trip detail"),
+        ("/blog/best-wedding-gifts-hk.html", "Blog article"),
+        ("/tv.html", "TV page"),
+        ("/food.html", "Food page"),
+        ("/heic-converter.html", "HEIC converter"),
+    ]
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+
+        for path, name in pages_to_test:
+            result = TestResult(f"{name} - has 2+ dropdowns")
+            try:
+                page = browser.new_page(viewport={"width": 1280, "height": 800})
+                page.goto(BASE_URL + path, timeout=10000)
+                page.wait_for_load_state('domcontentloaded', timeout=10000)
+                page.wait_for_timeout(500)
+
+                dropdowns = page.locator(".relative.group").all()
+                if len(dropdowns) >= 2:
+                    result.passed = True
+                else:
+                    result.error = f"Found {len(dropdowns)} dropdowns, expected 2+"
+                page.close()
+            except Exception as e:
+                result.error = str(e)[:100]
+                try:
+                    page.close()
+                except:
+                    pass
+            results.append(result)
+
+        browser.close()
+
+    return results
+
+
 def run_all_tests():
     all_results = []
 
@@ -148,6 +282,30 @@ def run_all_tests():
 
     print("\n[3] Link access tests")
     for r in test_all_dropdown_links_accessible():
+        all_results.append(r)
+        status = "PASS" if r.passed else "FAIL"
+        print(f"  [{status}] {r.name}")
+        if r.error:
+            print(f"         -> {r.error}")
+
+    print("\n[4] Navigation module tests")
+    for r in test_navigation_module_exists():
+        all_results.append(r)
+        status = "PASS" if r.passed else "FAIL"
+        print(f"  [{status}] {r.name}")
+        if r.error:
+            print(f"         -> {r.error}")
+
+    print("\n[5] Mobile viewport tests (375px)")
+    for r in test_mobile_viewport():
+        all_results.append(r)
+        status = "PASS" if r.passed else "FAIL"
+        print(f"  [{status}] {r.name}")
+        if r.error:
+            print(f"         -> {r.error}")
+
+    print("\n[6] Other pages dropdown tests")
+    for r in test_other_pages_dropdowns():
         all_results.append(r)
         status = "PASS" if r.passed else "FAIL"
         print(f"  [{status}] {r.name}")

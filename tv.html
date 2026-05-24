@@ -199,7 +199,22 @@
         cls += isActive ? ' bg-indigo-100/80 text-indigo-800' : ' text-gray-700 hover:text-indigo-600 bg-gray-100/80';
       }
       var emoji = item.emoji ? '<span class="mr-1">' + item.emoji + '</span>' : '';
-      html += '<a href="' + item.href + '" class="' + cls + '">' + emoji + item.name + '</a>';
+      // Handle dropdown items
+      if (item.children) {
+        html += '<div class="relative group">';
+        html += '<a href="' + item.href + '" class="' + cls + ' cursor-pointer">' + emoji + item.name + ' <span class="text-xs ml-1">▼</span></a>';
+        html += '<div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[160px] hidden group-hover:block z-50">';
+        for (var j = 0; j < item.children.length; j++) {
+          var child = item.children[j];
+          var childActive = child.href.indexOf(currentPage) === child.href.length - currentPage.length;
+          var childCls = childActive ? 'block px-4 py-2 text-sm bg-indigo-50 text-indigo-700' : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600';
+          var childEmoji = child.emoji ? '<span class="mr-1">' + child.emoji + '</span>' : '';
+          html += '<a href="' + child.href + '" class="' + childCls + '">' + childEmoji + child.name + '</a>';
+        }
+        html += '</div></div>';
+      } else {
+        html += '<a href="' + item.href + '" class="' + cls + '">' + emoji + item.name + '</a>';
+      }
     }
     container.innerHTML = html;
   }
@@ -219,7 +234,19 @@
         cls += isActive ? ' text-indigo-600 font-semibold' : ' text-gray-700 hover:text-indigo-600';
       }
       var emoji = item.emoji ? item.emoji + ' ' : '';
-      html += '<a href="' + item.href + '" class="' + cls + '">' + emoji + item.name + '</a>';
+      // Handle dropdown items - mobile shows as indented links
+      if (item.children) {
+        html += '<a href="' + item.href + '" class="' + cls + '">' + emoji + item.name + ' <span class="text-xs">▼</span></a>';
+        for (var j = 0; j < item.children.length; j++) {
+          var child = item.children[j];
+          var childActive = child.href.indexOf(currentPage) === child.href.length - currentPage.length;
+          var childCls = childActive ? 'text-sm py-1.5 pl-8 text-indigo-600 font-medium block border-b border-gray-50 last:border-0' : 'text-sm py-1.5 pl-8 text-gray-600 hover:text-indigo-600 block border-b border-gray-50 last:border-0';
+          var childEmoji = child.emoji ? child.emoji + ' ' : '';
+          html += '<a href="' + child.href + '" class="' + childCls + '">' + childEmoji + child.name + '</a>';
+        }
+      } else {
+        html += '<a href="' + item.href + '" class="' + cls + '">' + emoji + item.name + '</a>';
+      }
     }
     container.innerHTML = html;
   }
@@ -272,11 +299,32 @@
       cta: null,
       items: [
         { name: '首頁', emoji: '🏠', href: NAV_ROOT + 'index.html' },
-        { name: '旅程', emoji: '✈️', href: NAV_ROOT + 'trip.html' },
-        { name: '沖繩', emoji: '🏝️', href: NAV_ROOT + 'trip/okinawa-trip.html' },
-        { name: '香港行山', emoji: '🌋', href: NAV_ROOT + 'trip/hongkong/2025-07-09-red-incense-burner-peak.html' },
+        {
+          name: '旅程',
+          emoji: '✈️',
+          href: NAV_ROOT + 'trip.html',
+          children: [
+            { name: '沖繩七天', emoji: '🏝️', href: NAV_ROOT + 'trip/okinawa-trip.html' },
+            { name: '沖繩美食手作', emoji: '🍜', href: NAV_ROOT + 'trip/okinawa-food-craft-5days.html' },
+            { name: '沖繩簡報', emoji: '📽️', href: NAV_ROOT + 'trip/okinawa-presentation.html' },
+            { name: '香港行山', emoji: '🌋', href: NAV_ROOT + 'trip/hongkong/2025-07-09-red-incense-burner-peak.html' }
+          ]
+        },
+        {
+          name: '文章',
+          emoji: '📝',
+          href: NAV_ROOT + 'blog/best-wedding-gifts-hk.html',
+          children: [
+            { name: '婚禮禮物', emoji: '🎁', href: NAV_ROOT + 'blog/best-wedding-gifts-hk.html' },
+            { name: '結婚證書尺寸', emoji: '📜', href: NAV_ROOT + 'blog/hk-marriage-certificate-size-guide.html' },
+            { name: '註冊攻略', emoji: '📋', href: NAV_ROOT + 'blog/hk-marriage-registry-guide.html' },
+            { name: ' preservation指南', emoji: '🗂️', href: NAV_ROOT + 'blog/how-to-preserve-marriage-certificate.html' },
+            { name: '婚禮檢查表', emoji: '✅', href: NAV_ROOT + 'blog/hk-marriage-registration-checklist.html' }
+          ]
+        },
         { name: '影視', emoji: '📺', href: NAV_ROOT + 'tv.html' },
-        { name: '美食', emoji: '🍽️', href: NAV_ROOT + 'food.html' }
+        { name: '美食', emoji: '🍽️', href: NAV_ROOT + 'food.html' },
+        { name: '工具', emoji: '🔧', href: NAV_ROOT + 'heic-converter.html' }
       ]
     },
     'make your own tv': {

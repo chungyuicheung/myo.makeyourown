@@ -34,7 +34,8 @@
     }
     </script>
     
-    <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="tokens.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -45,7 +46,7 @@
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: #f3f4f6; /* Light gray background */
+            background-color: var(--color-ink);
         }
         .cta-btn {
             transition: transform 0.2s ease-out, background-color 0.2s ease-out;
@@ -193,259 +194,24 @@
 </header>
 
 <script>
-(() => {
-  // Extended navigation configuration
-  const NAVIGATION_CONFIG = {
-    '策略探索家': {
-      brand: '策略探索家',
-      theme: 'light',
-      backLink: false,
-      cta: null,
-      items: [
-        { name: '旅程', href: 'trip.html', children: [
-            { name: '沖繩七天', href: 'trip/okinawa-trip.html' },
-            { name: '沖繩美食手作', href: 'trip/okinawa-food-craft-5days.html' },
-            { name: '沖繩簡報', href: 'trip/okinawa-presentation.html' },
-            { name: '香港行山', href: 'trip/hongkong/2025-07-09-red-incense-burner-peak.html' }
-        ] },
-        { name: '文章', href: 'blog/best-wedding-gifts-hk.html', children: [
-            { name: '婚禮禮物', href: 'blog/best-wedding-gifts-hk.html' },
-            { name: '結婚證書尺寸', href: 'blog/hk-marriage-certificate-size-guide.html' },
-            { name: '註冊攻略', href: 'blog/hk-marriage-registry-guide.html' },
-            { name: 'Preservation指南', href: 'blog/how-to-preserve-marriage-certificate.html' },
-            { name: '婚禮檢查表', href: 'blog/hk-marriage-registration-checklist.html' }
-        ] },
-        { name: '影視', href: 'tv.html' },
-        { name: '美食', href: 'food.html' },
-        { name: '首頁', href: 'index.html' }
-      ]
-    },
-    'make your own tv': {
-      brand: 'make your own tv',
-      theme: 'dark',
-      backLink: { text: '主頁', href: '/index.html' },
-      cta: { text: '開始使用', href: '#demo', class: 'bg-indigo-600 text-white', mobileHighlight: true },
-      items: [
-        { name: '核心功能', href: '#features', anchor: true },
-        { name: '精選推薦', href: '#showcase', anchor: true },
-        { name: '立即體驗', href: '#demo', anchor: true },
-        { name: '關於我們', href: '#contact', anchor: true }
-      ]
-    }
-  };
-
-  // Detect current brand from page title
-  function detectBrand() {
-    const title = document.title;
-    if (title.includes('make your own tv')) {
-      return 'make your own tv';
-    }
-    return '策略探索家';
-  }
-
-  // Get current page filename (for non-anchor links)
-  function getCurrentPage() {
-    const path = window.location.pathname;
-    const filename = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
-    return filename;
-  }
-
-  // Apply theme styles
-  function applyTheme(config) {
-    const header = document.getElementById('header');
-    const brandElements = document.querySelectorAll('#brand-text, #desktop-brand, #mobile-brand, #mobile-brand-text');
-    
-    if (config.theme === 'dark') {
-      header.className = header.className.replace(/bg-\w+\/80/, 'bg-gray-900/80');
-      header.classList.add('shadow-indigo-500/10');
-      brandElements.forEach(el => {
-        if (el) el.className = 'text-indigo-400';
-      });
-    } else {
-      header.className = header.className.replace(/bg-\w+\/80/, 'bg-white/80');
-      header.classList.remove('shadow-indigo-500/10');
-      brandElements.forEach(el => {
-        if (el) el.className = 'text-indigo-700';
-      });
-    }
-  }
-
-  // Generate desktop navigation links
-  function renderDesktopLinks(items, currentPage) {
-    const container = document.getElementById('desktop-links');
-    if (!container) return;
-
-    container.innerHTML = items.map(item => {
-      const isAnchor = item.anchor;
-      const isActive = !isAnchor && (item.href.endsWith(currentPage) || item.href.endsWith(currentPage + '/'));
-      let classes = 'text-sm transition-colors px-3 py-1.5 rounded-full';
-
-      if (isAnchor) {
-        classes += ' text-gray-300 hover:text-indigo-400';
-      } else {
-        classes += isActive
-          ? 'bg-indigo-100/80 text-indigo-800'
-          : 'text-gray-700 hover:text-indigo-600 bg-gray-100/80';
-      }
-
-      // Adjust colors for tv dark theme
-      const brand = detectBrand();
-      if (brand === 'make your own tv' && !isAnchor) {
-        classes = classes.replace(/text-gray-\d+/, 'text-gray-300').replace(/bg-gray-\d+\/80/, 'bg-gray-800/80');
-        if (isActive) {
-          classes = 'bg-indigo-900/80 text-indigo-200';
-        }
-      }
-
-const emoji = '';
-
-      // Handle dropdown items
-      if (item.children) {
-        let dropdownHtml = `<div class="relative group">`;
-        dropdownHtml += `<a href="${item.href}" class="${classes} cursor-pointer">${emoji}${item.name} <span class="text-xs ml-1">▼</span></a>`;
-        dropdownHtml += `<div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[160px] hidden group-hover:block z-50">`;
-        for (const child of item.children) {
-          const childActive = child.href.endsWith(currentPage) || child.href.endsWith(currentPage + '/');
-          const childCls = childActive ? 'block px-4 py-2 text-sm bg-indigo-50 text-indigo-700' : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600';
-const childEmoji = '';
-          dropdownHtml += `<a href="${child.href}" class="${childCls}">${childEmoji}${child.name}</a>`;
-        }
-        dropdownHtml += `</div></div>`;
-        return dropdownHtml;
-      }
-
-      return `<a href="${item.href}" class="${classes}">${emoji}${item.name}</a>`;
-    }).join('');
-  }
-
-  // Generate mobile navigation links
-  function renderMobileLinks(items, currentPage) {
-    const container = document.querySelector('#mobile-menu #mobile-links');
-    if (!container) return;
-    
-    container.innerHTML = items.map(item => {
-      const isAnchor = item.anchor;
-      const isActive = !isAnchor && (item.href.endsWith(currentPage) || item.href.endsWith(currentPage + '/'));
-      let classes = 'text-base py-2 border-b border-gray-100 last:border-0';
-      
-      if (isAnchor) {
-        classes += ' text-gray-300 hover:text-indigo-400';
-      } else {
-        classes += isActive 
-          ? 'text-indigo-600 font-semibold' 
-          : 'text-gray-700 hover:text-indigo-600';
-      }
-      
-      // For tv dark theme
-      const brand = detectBrand();
-      if (brand === 'make your own tv') {
-        classes = classes.replace(/text-gray-\d+/g, 'text-gray-300').replace(/bg-gray-\d+/g, 'bg-gray-800');
-        if (isActive) classes = 'text-indigo-300 font-semibold';
-      }
-      
-      const emoji = item.emoji ? `${item.emoji} ` : '';
-      let html = `<a href="${item.href}" class="${classes}">${emoji}${item.name}</a>`;
-      
-      // Add children if present
-      if (item.children && item.children.length > 0) {
-        html += item.children.map(child => {
-          const childActive = child.href.endsWith(currentPage) || child.href.endsWith(currentPage + '/');
-          const childEmoji = child.emoji ? `${child.emoji} ` : '';
-          const childCls = childActive 
-            ? 'text-sm py-1.5 pl-8 text-indigo-600 font-medium block border-b border-gray-50 last:border-0'
-            : 'text-sm py-1.5 pl-8 text-gray-600 hover:text-indigo-600 block border-b border-gray-50 last:border-0';
-          return `<a href="${child.href}" class="${childCls}">${childEmoji}${child.name}</a>`;
-        }).join('');
-      }
-      
-      return html;
-    }).join('');
-  }
-
-  // Render CTA button
-  function renderCTA(ctaConfig) {
-    const container = document.getElementById('desktop-cta');
-    if (!container || !ctaConfig) return;
-    
-    container.innerHTML = `<a href="${ctaConfig.href}" class="${ctaConfig.class} font-semibold px-5 py-2 rounded-lg cta-btn">${ctaConfig.text}</a>`;
-    container.style.display = 'block';
-  }
-
-  // Render back link
-  function renderBackLink(backConfig) {
-    const backLink = document.getElementById('back-link');
-    if (!backLink || !backConfig) return;
-    
-    backLink.href = backConfig.href;
-    backLink.textContent = backConfig.text;
-    backLink.style.display = 'inline-block';
-  }
-
-  // Main initialization
-  function initHeader() {
-    const brand = detectBrand();
-    const config = NAVIGATION_CONFIG[brand] || NAVIGATION_CONFIG['策略探索家'];
-    const currentPage = getCurrentPage();
-    
-    // Set brand attribute
-    document.documentElement.setAttribute('data-brand', brand);
-    
-    // Apply theme (light/dark)
-    applyTheme(config);
-    
-    // Render desktop links
-    renderDesktopLinks(config.items, currentPage);
-    
-    // Render mobile links
-    renderMobileLinks(config.items, currentPage);
-    
-    // Render optional elements
-    renderBackLink(config.backLink);
-    renderCTA(config.cta);
-  }
-
-  // Mobile menu toggle
-  function setupMobileMenu() {
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    if (btn && menu) {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        menu.classList.toggle('hidden');
-      });
-    }
-
-    // Mobile dropdown toggles
-    document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
-      toggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        const content = toggle.nextElementSibling;
-        const arrow = toggle.querySelector('svg');
-        content.classList.toggle('hidden');
-        if (arrow) {
-          arrow.style.transform = content.classList.contains('hidden') ? '' : 'rotate(180deg)';
-        }
-      });
-    });
-  }
-
-  // Initialize on DOM load
-  document.addEventListener('DOMContentLoaded', () => {
-    initHeader();
-    setupMobileMenu();
-  });
-})();
-</script>
-
-<script>
 document.addEventListener('DOMContentLoaded', function() {
   var btn = document.getElementById('mobile-menu-btn');
   var menu = document.getElementById('mobile-menu');
   if (btn && menu) {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
       menu.classList.toggle('hidden');
     });
   }
+  document.querySelectorAll('.mobile-dropdown-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      var content = toggle.nextElementSibling;
+      var arrow = toggle.querySelector('svg');
+      if (content) content.classList.toggle('hidden');
+      if (arrow) arrow.style.transform = content && content.classList.contains('hidden') ? '' : 'rotate(180deg)';
+    });
+  });
 });
 </script>
 
@@ -532,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </a>
 
-                    <a href="#" class="card-link bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[250px]" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('https://images.unsplash.com/photo-1552634433-6a59a722616f?q=80&w=600&auto=format&fit=crop');">
+                    <a href="#" class="card-link bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[250px]" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1552634433-6a59a722616f?q=80&w=600&auto=format&fit=crop');">
                          <span class="font-semibold text-sm opacity-80 mb-1">旅行規劃</span>
                         <h3 class="text-xl font-bold">東京巷弄拉麵地圖：我不藏私的 Notion 踩點清單</h3>
                     </a>
@@ -560,32 +326,14 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </main>
 
-    <footer id="contact" class="bg-gray-800 text-white mt-16">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">策略探索家</h3>
-                    <p class="text-gray-400">把人生當成最重要的產品來打造。</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">快速導覽</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition">你是不是也...</a></li>
-                        <li><a href="#content" class="text-gray-400 hover:text-white transition">從這開始</a></li>
-                         <li><a href="#newsletter" class="text-gray-400 hover:text-white transition">訂閱電子報</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">和我聊聊</h4>
-                    <p class="text-gray-400 mb-4">有專案想合作，或想聊聊你遇到的卡關點？</p>
-                    <a href="mailto:hello@explorer.com" class="inline-block bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg cta-btn">隨時歡迎來信</a>
-                </div>
-            </div>
-            <div class="mt-12 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
-                <p>&copy; 2025 策略探索家. All Rights Reserved. | 網站由 AI 與產品思維精心打造</p>
-            </div>
-        </div>
-    </footer>
+    <footer id="contact" class="bg-[var(--color-paper-2)] border-t mt-16" style="border-color: var(--color-rule);">
+  <div class="container mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <span class="font-bold" style="color: var(--color-ink);">策略探索家</span>
+      <p class="text-sm" style="color: var(--color-ink-2);">© 2025 策略探索家. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
 
     <script>

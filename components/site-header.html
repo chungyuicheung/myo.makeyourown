@@ -99,139 +99,23 @@
 </header>
 
 <script>
-(function() {
-  // Auto-detect directory depth from window.location.pathname
-  function getNavRoot() {
-    var path = window.location.pathname;
-    if (path.indexOf('/trip/hongkong/') > -1) return '../../';
-    if (path.indexOf('/blog/') > -1 || path.indexOf('/trip/') > -1 || path.indexOf('/archive/') > -1) return '../';
-    return './';
-  }
-
-  var NAV_ROOT = getNavRoot();
-  var INDEX_HREF = NAV_ROOT + 'index.html';
-  var TRIP_PREFIX = NAV_ROOT;
-  var BLOG_PREFIX = NAV_ROOT;
-  var TV_HREF = NAV_ROOT + 'tv.html';
-  var FOOD_HREF = NAV_ROOT + 'food.html';
-
-  // Replace path placeholders in HTML
-  function replacePaths() {
-    var replaceMap = {
-      'INDEX_HREF': INDEX_HREF,
-      'TRIP_PREFIX + ': TRIP_PREFIX,
-      'BLOG_PREFIX + ': BLOG_PREFIX,
-      'TV_HREF': TV_HREF,
-      'FOOD_HREF': FOOD_HREF
-    };
-
-    // Replace in href attributes
-    document.querySelectorAll('a[href]').forEach(function(el) {
-      var href = el.getAttribute('href');
-      if (href === 'INDEX_HREF') el.setAttribute('href', INDEX_HREF);
-      else if (href === 'TV_HREF') el.setAttribute('href', TV_HREF);
-      else if (href === 'FOOD_HREF') el.setAttribute('href', FOOD_HREF);
-      else if (href.indexOf("TRIP_PREFIX + '") === 0) {
-        var file = href.replace("TRIP_PREFIX + '", '').replace("'", '');
-        el.setAttribute('href', TRIP_PREFIX + file);
-      }
-      else if (href.indexOf("BLOG_PREFIX + '") === 0) {
-        var file = href.replace("BLOG_PREFIX + '", '').replace("'", '');
-        el.setAttribute('href', BLOG_PREFIX + file);
-      }
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      menu.classList.toggle('hidden');
     });
   }
-
-  function detectBrand() {
-    var title = document.title;
-    if (title.indexOf('make your own tv') > -1) return 'make your own tv';
-    return '策略探索家';
-  }
-
-  function getCurrentPage() {
-    var path = window.location.pathname;
-    return path.substring(path.lastIndexOf('/') + 1) || 'index.html';
-  }
-
-  function applyTheme(config) {
-    var header = document.getElementById('header');
-    var brandEls = document.querySelectorAll('#brand-text, #desktop-brand, #mobile-brand, #mobile-brand-text');
-    if (config.theme === 'dark') {
-      header.className = header.className.replace(/bg-\w+\/\w+/, 'bg-gray-900/80');
-      header.classList.add('shadow-indigo-500/10');
-      for (var i = 0; i < brandEls.length; i++) {
-        if (brandEls[i]) brandEls[i].className = 'text-indigo-400';
-      }
-    } else {
-      header.className = header.className.replace(/bg-\w+\/\w+/, 'bg-white/80');
-      header.classList.remove('shadow-indigo-500/10');
-      for (var j = 0; j < brandEls.length; j++) {
-        if (brandEls[j]) brandEls[j].className = 'text-xl font-bold';
-      }
-    }
-  }
-
-  function renderBackLink() {
-    var backLink = document.getElementById('back-link');
-    if (!backLink) return;
-    var currentPage = getCurrentPage();
-    if (currentPage !== 'index.html') {
-      backLink.href = INDEX_HREF;
-      backLink.style.display = 'inline-block';
-    }
-  }
-
-  function initHeader() {
-    replacePaths();
-    var brand = detectBrand();
-    var config = NAVIGATION_CONFIG[brand] || NAVIGATION_CONFIG['策略探索家'];
-    document.documentElement.setAttribute('data-brand', brand);
-    applyTheme(config);
-    renderBackLink();
-  }
-
-  function setupMobileMenu() {
-    var btn = document.getElementById('mobile-menu-btn');
-    var menu = document.getElementById('mobile-menu');
-    if (btn && menu) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        menu.classList.toggle('hidden');
-      });
-    }
-    // Mobile dropdown toggles
-    document.querySelectorAll('.mobile-dropdown-toggle').forEach(function(toggle) {
-      toggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        var content = toggle.nextElementSibling;
-        var arrow = toggle.querySelector('svg');
-        content.classList.toggle('hidden');
-        if (arrow) {
-          arrow.style.transform = content.classList.contains('hidden') ? '' : 'rotate(180deg)';
-        }
-      });
+  document.querySelectorAll('.mobile-dropdown-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      var content = toggle.nextElementSibling;
+      var arrow = toggle.querySelector('svg');
+      if (content) content.classList.toggle('hidden');
+      if (arrow) arrow.style.transform = content && content.classList.contains('hidden') ? '' : 'rotate(180deg)';
     });
-  }
-
-  // Navigation config — no emoji, static HTML handles links
-  var NAVIGATION_CONFIG = {
-    '策略探索家': {
-      brand: '策略探索家',
-      theme: 'light',
-      cta: null,
-      items: []
-    },
-    'make your own tv': {
-      brand: 'make your own tv',
-      theme: 'dark',
-      cta: { text: '開始使用', href: '#demo', class: 'bg-indigo-600 text-white', mobileHighlight: true },
-      items: []
-    }
-  };
-
-  document.addEventListener('DOMContentLoaded', function() {
-    initHeader();
-    setupMobileMenu();
   });
-})();
+});
 </script>

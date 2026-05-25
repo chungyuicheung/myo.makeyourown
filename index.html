@@ -86,134 +86,54 @@
             transform: translateY(-100%);
         }
         
-        /* Mobile menu button focus style for keyboard navigation */
-        #mobile-menu-btn:focus-visible {
-            outline: 2px solid #4f46e5;
-            outline-offset: 2px;
-            border-radius: 4px;
-        }
-    </style>
+        </style>
     <link rel="stylesheet" href="assets/css/style_system.css">
 </head>
 
 <body class="antialiased">
 
-<!-- Hallmark · N5 Floating pill nav -->
+<!-- Hallmark · N5 static nav -->
 <header id="header" class="sticky top-0 z-50 transition-all duration-300" style="background-color: var(--color-paper, #FAF9F6); box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
-  <nav class="container mx-auto px-6 py-4">
-    <!-- Desktop: brand left, links as pill buttons -->
-    <div class="hidden md:flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold" style="font-family: Georgia, serif; color: var(--color-ink, #333);">
-        策略探索家
-      </a>
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-xl font-bold" style="font-family: Georgia, serif; color: var(--color-ink, #333);">
+      策略探索家
+    </a>
 
-      <div class="flex items-center gap-2">
-        <!-- 旅程 dropdown -->
-        <div class="relative group">
-          <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">
-            旅程 <span class="text-xs">▼</span>
-          </button>
-          <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
-            <a href="trip/okinawa-trip.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩七天</a>
-            <a href="trip/okinawa-food-craft-5days.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩美食手作</a>
-            <a href="trip/okinawa-presentation.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩簡報</a>
-            <a href="trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">香港行山</a>
-          </div>
-        </div>
-        <!-- 文章 dropdown -->
-        <div class="relative group">
-          <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">
-            文章 <span class="text-xs">▼</span>
-          </button>
-          <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
-            <a href="blog/best-wedding-gifts-hk.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮禮物</a>
-            <a href="blog/hk-marriage-certificate-size-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">結婚證書尺寸</a>
-            <a href="blog/hk-marriage-registry-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">註冊攻略</a>
-            <a href="blog/how-to-preserve-marriage-certificate.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">Preservation指南</a>
-            <a href="blog/hk-marriage-registration-checklist.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮檢查表</a>
-          </div>
-        </div>
-        <!-- 影視 flat link -->
-        <a href="tv.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">影視</a>
-        <!-- 美食 flat link -->
-        <a href="food.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">美食</a>
-        <!-- 首頁 CTA -->
-        <a href="index.html" class="text-sm px-4 py-1.5 rounded-full transition-opacity" style="background-color: var(--color-accent, #c75a3a); color: #fff;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">首頁</a>
-      </div>
-    </div>
-
-    <!-- Mobile: hamburger with slide-down menu and expandable dropdowns -->
-    <div class="flex flex-col items-center md:hidden">
-      <div class="flex items-center justify-between w-full mb-3">
-        <a href="index.html" class="text-xl font-bold" style="font-family: Georgia, serif; color: var(--color-ink, #333);">策略探索家</a>
-        <button id="mobile-menu-btn" class="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" style="color: var(--color-ink, #333);">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
+    <div class="flex items-center gap-2">
+      <!-- 旅程 dropdown -->
+      <div class="relative group">
+        <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">
+          旅程 <span class="text-xs">▼</span>
         </button>
-      </div>
-      <div id="mobile-menu" class="hidden w-full border-t py-4" style="border-color: var(--color-rule, #e5e5e0);">
-        <div class="flex flex-col gap-1">
-          <!-- 旅程 expandable dropdown -->
-          <div class="mobile-dropdown">
-            <button class="mobile-dropdown-toggle w-full text-left px-4 py-2 rounded-lg flex items-center justify-between" style="color: var(--color-ink, #333);">
-              <span>旅程</span>
-              <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="mobile-dropdown-content hidden pl-4 flex flex-col gap-1 border-l-2" style="border-color: var(--color-rule, #e5e5e0);">
-              <a href="trip/okinawa-trip.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">沖繩七天</a>
-              <a href="trip/okinawa-food-craft-5days.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">沖繩美食手作</a>
-              <a href="trip/okinawa-presentation.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">沖繩簡報</a>
-              <a href="trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">香港行山</a>
-            </div>
-          </div>
-          <!-- 文章 expandable dropdown -->
-          <div class="mobile-dropdown">
-            <button class="mobile-dropdown-toggle w-full text-left px-4 py-2 rounded-lg flex items-center justify-between" style="color: var(--color-ink, #333);">
-              <span>文章</span>
-              <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="mobile-dropdown-content hidden pl-4 flex flex-col gap-1 border-l-2" style="border-color: var(--color-rule, #e5e5e0);">
-              <a href="blog/best-wedding-gifts-hk.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">婚禮禮物</a>
-              <a href="blog/hk-marriage-certificate-size-guide.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">結婚證書尺寸</a>
-              <a href="blog/hk-marriage-registry-guide.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">註冊攻略</a>
-              <a href="blog/how-to-preserve-marriage-certificate.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">Preservation指南</a>
-              <a href="blog/hk-marriage-registration-checklist.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">婚禮檢查表</a>
-            </div>
-          </div>
-          <!-- 影視 flat link -->
-          <a href="tv.html" class="px-4 py-2 rounded-lg" style="color: var(--color-ink, #333);">影視</a>
-          <!-- 美食 flat link -->
-          <a href="food.html" class="px-4 py-2 rounded-lg" style="color: var(--color-ink, #333);">美食</a>
-          <!-- 首頁 CTA -->
-          <a href="index.html" class="px-4 py-2 mt-2 text-center rounded-lg" style="background-color: var(--color-accent, #c75a3a); color: #fff;">返回首頁</a>
+        <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
+          <a href="trip/okinawa-trip.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩七天</a>
+          <a href="trip/okinawa-food-craft-5days.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩美食手作</a>
+          <a href="trip/okinawa-presentation.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩簡報</a>
+          <a href="trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">香港行山</a>
         </div>
       </div>
+      <!-- 文章 dropdown -->
+      <div class="relative group">
+        <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">
+          文章 <span class="text-xs">▼</span>
+        </button>
+        <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
+          <a href="blog/best-wedding-gifts-hk.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮禮物</a>
+          <a href="blog/hk-marriage-certificate-size-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">結婚證書尺寸</a>
+          <a href="blog/hk-marriage-registry-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">註冊攻略</a>
+          <a href="blog/how-to-preserve-marriage-certificate.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">Preservation指南</a>
+          <a href="blog/hk-marriage-registration-checklist.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮檢查表</a>
+        </div>
+      </div>
+      <!-- 影視 flat link -->
+      <a href="tv.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">影視</a>
+      <!-- 美食 flat link -->
+      <a href="food.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">美食</a>
+      <!-- 首頁 CTA -->
+      <a href="index.html" class="text-sm px-4 py-1.5 rounded-full transition-opacity" style="background-color: var(--color-accent, #c75a3a); color: #fff;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">首頁</a>
     </div>
   </nav>
 </header>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var btn = document.getElementById('mobile-menu-btn');
-  var menu = document.getElementById('mobile-menu');
-  if (btn && menu) {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      menu.classList.toggle('hidden');
-    });
-  }
-  document.querySelectorAll('.mobile-dropdown-toggle').forEach(function(toggle) {
-    toggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      var content = toggle.nextElementSibling;
-      var arrow = toggle.querySelector('svg');
-      if (content) content.classList.toggle('hidden');
-      if (arrow) arrow.style.transform = content && content.classList.contains('hidden') ? '' : 'rotate(180deg)';
-    });
-  });
-});
-</script>
 
     <main>
         <!-- Hallmark · macrostructure: Marquee Hero · genre: editorial -->
@@ -398,17 +318,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
             if (audienceBtns.length > 0) { audienceBtns[0].click(); }
-
-            // --- Mobile Menu Toggle ---
-            const mobileToggleButton = document.getElementById('mobile-trip-toggle');
-            if (mobileToggleButton) {
-                const mobileSubmenu = document.getElementById('mobile-trip-submenu');
-                const mobileArrowIcon = mobileToggleButton.querySelector('svg');
-                mobileToggleButton.addEventListener('click', () => {
-                    mobileSubmenu.classList.toggle('hidden');
-                    mobileArrowIcon.classList.toggle('rotate-180');
-                });
-            }
 
             // --- CORRECTED: Header Hide/Show on Scroll (Mobile Only) ---
             const header = document.getElementById('header');

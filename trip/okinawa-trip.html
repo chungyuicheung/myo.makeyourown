@@ -37,25 +37,22 @@
         .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:4rem;background:var(--ocean-deep);overflow:hidden}
         .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 Q50 60 100 100 T200 100 L200 200 L0 200 Z' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E");background-size:200px 200px;animation:wave-move 20s ease-in-out infinite}
         @keyframes wave-move{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-        .hero-content{position:relative;z-index:10;text-align:center;color:var(--white);max-width:900px;animation:fade-in-up 1s ease-out}
+        .hero-content{position:relative;z-index:10;text-align:center;color:var(--white);max-width:900px}
         .hero-title{margin-bottom:1.5rem;text-shadow:0 4px 20px rgba(0,0,0,0.3)}
         .hero-subtitle{font-size:clamp(1.1rem,2vw,1.4rem);opacity:0.9;margin-bottom:2rem;font-weight:300}
         .hero-tags{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
         .hero-tag{background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);padding:0.75rem 1.5rem;border-radius:var(--radius-full);font-size:0.9rem;border:1px solid rgba(255,255,255,0.2);transition:all var(--transition-base)}
         .hero-tag:hover{background:rgba(255,255,255,0.25);transform:translateY(-2px)}
-        .scroll-indicator{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);animation:bounce 2s ease-in-out infinite}
+        .scroll-indicator{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%)}
         .scroll-indicator svg{width:40px;height:40px;fill:var(--white);opacity:0.7}
-        @keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-10px)}60%{transform:translateX(-50%) translateY(-5px)}}
-        @keyframes fade-in-up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        
         
         .timeline-section{padding:6rem 2rem;max-width:1200px;margin:0 auto}
         .section-title{text-align:center;color:var(--ocean-deep);margin-bottom:4rem;position:relative}
         .section-title::after{content:'';display:block;width:80px;height:4px;background:var(--coral);margin:1rem auto 0;border-radius:var(--radius-full)}
         .timeline{position:relative;padding-left:2rem}
         .timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:3px;background:var(--ocean-deep);border-radius:var(--radius-full)}
-        .day-card{position:relative;margin-bottom:3rem;opacity:0;animation:slide-in-left 0.6s ease-out forwards}
-        .day-card:nth-child(1){animation-delay:0.1s}.day-card:nth-child(2){animation-delay:0.2s}.day-card:nth-child(3){animation-delay:0.3s}.day-card:nth-child(4){animation-delay:0.4s}.day-card:nth-child(5){animation-delay:0.5s}.day-card:nth-child(6){animation-delay:0.6s}.day-card:nth-child(7){animation-delay:0.7s}
-        @keyframes slide-in-left{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}
+        .day-card{position:relative;margin-bottom:3rem}
         .day-marker{position:absolute;left:-32px;top:1.5rem;width:28px;height:28px;background:var(--coral);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:0.8rem;box-shadow:var(--shadow-lg);z-index:2}
         .day-content{background:var(--white);border-radius:var(--radius-xl);padding:2rem;box-shadow:var(--shadow-md);transition:all var(--transition-base);border-left:4px solid transparent;position:relative;overflow:hidden}
         .day-content::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--ocean-deep);transform:scaleX(0);transition:transform var(--transition-base)}
@@ -138,71 +135,27 @@
 </head>
 <body>
 <!-- Shared Site Header -->
-<header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm transition-all duration-300" data-brand="策略探索家">
-  <nav class="container mx-auto px-6 py-4">
-    <!-- Desktop Header Layout -->
-    <div class="hidden md:flex justify-between items-center" id="desktop-nav">
-      <!-- Left: Brand + Back Link -->
-      <div class="flex items-center gap-6">
-        <a href="INDEX_HREF" class="text-xl font-bold" id="desktop-brand">
-          <span id="brand-text">策略探索家</span>
-        </a>
-        <a href="INDEX_HREF" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors" id="back-link" style="display: none;">
-          ⬅️ 返回首頁
-        </a>
-      </div>
-
-      <!-- Center: Navigation Links -->
-      <div class="flex items-center gap-8" id="desktop-links"></div>
-
-      <!-- Right: CTA Button (optional) -->
-      <div id="desktop-cta" style="display: none;"></div>
-    </div>
-
-    <!-- Mobile Header -->
-    <div class="flex flex-col items-center md:hidden">
-      <div class="flex items-center gap-2 w-full justify-between mb-3">
-        <a href="INDEX_HREF" class="text-xl font-bold" id="mobile-brand">
-          <span id="mobile-brand-text">策略探索家</span>
-        </a>
-        <button id="mobile-menu-btn" class="text-gray-700 hover:text-indigo-600 focus:outline-none p-3 min-w-[44px] min-h-[44px] flex items-center justify-center touch-action-manipulation">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Menu (hidden by default) -->
-      <div id="mobile-menu" class="hidden w-full mt-3 pb-4 border-t border-gray-200">
-        <div class="flex flex-col space-y-3 pt-4" id="mobile-links"></div>
-      </div>
+<header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm transition-all duration-300" style="background:var(--color-paper);">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="INDEX_HREF" class="text-xl font-bold" style="color:var(--color-ink);">
+      <span>策略探索家</span>
+    </a>
+    <div class="flex items-center gap-8">
+      <a href="INDEX_HREF" class="text-sm hover:text-[var(--color-accent)] transition-colors" style="color:var(--color-ink-2);">返回首頁</a>
     </div>
   </nav>
 </header>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var btn = document.getElementById('mobile-menu-btn');
-  var menu = document.getElementById('mobile-menu');
-  if (btn && menu) {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      menu.classList.toggle('hidden');
-    });
-  }
-});
-</script>
 
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">沖繩 7 日完美行程</h1>
             <p class="hero-subtitle">7 日 6 夜深度文化與手作之旅 · 100% 無牛肉 · 非自駕</p>
             <div class="hero-tags">
-                <span class="hero-tag">🌊 海洋文化</span>
-                <span class="hero-tag">🍜 美食探索</span>
-                <span class="hero-tag">🎨 手作體驗</span>
-                <span class="hero-tag">🏯 歷史古蹟</span>
-                <span class="hero-tag">🚌 公共交通</span>
+                <span class="hero-tag">海洋文化</span>
+                <span class="hero-tag">美食探索</span>
+                <span class="hero-tag">手作體驗</span>
+                <span class="hero-tag">歷史古蹟</span>
+                <span class="hero-tag">公共交通</span>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -379,16 +332,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <div class="info-card">
             <h3><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>必備清單</h3>
-            <ul style="list-style:none;padding:0;line-height:2">
-                <li>☂️ 輕便雨具（折疊傘或雨衣）</li>
-                <li>🧴 防曬乳 SPF30+、太陽眼鏡、帽子</li>
-                <li>🔋 充電寶 10,000mAh 以上</li>
-                <li>🎒 輕便背包（容量 20L）</li>
-                <li>💊 常備藥品：止瀉藥、感冒藥、創可貼</li>
-                <li>💴 日圓現金 20,000‑30,000 日圓</li>
-                <li>💳 兩張信用卡（Visa/Mastercard）</li>
-                <li>🦟 防蚊液與保濕乳</li>
-                <li>📱 旅行保險證明</li>
+<ul style="list-style:none;padding:0;line-height:2">
+                <li>輕便雨具（折疊傘或雨衣）</li>
+                <li>防曬乳 SPF30+、太陽眼鏡、帽子</li>
+                <li>充電寶 10,000mAh 以上</li>
+                <li>輕便背包（容量 20L）</li>
+                <li>常備藥品：止瀉藥、感冒藥、創可貼</li>
+                <li>日圓現金 20,000-30,000 日圓</li>
+                <li>兩張信用卡（Visa/Mastercard）</li>
+                <li>防蚊液與保濕乳</li>
+                <li>旅行保險證明</li>
             </ul>
         </div>
     </div>

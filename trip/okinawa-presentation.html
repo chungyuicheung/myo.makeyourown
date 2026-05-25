@@ -9,10 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../tokens.css">
 <style>
-:root{--ryukyu-red:#C73E3A;--limestone-cream:#F5F0E6;--deep-navy:#1A2B4A;--rhodium-black:#2D2926;--coral-pink:#E8A87C;--font-title:'Noto Serif JP',serif;--font-body:'Noto Sans JP',sans-serif;--s4:1rem;--s6:1.5rem;--s8:2rem;--s10:2.5rem;--s12:3rem;--s16:4rem;--tw:cubic-bezier(.25,.46,.45,.94)}
+:root{--ryukyu-red:var(--color-accent);--limestone-cream:var(--color-paper);--deep-navy:var(--color-ink);--rhodium-black:var(--color-ink);--coral-pink:var(--color-accent);--font-title:'Noto Serif JP',serif;--font-body:'Noto Sans JP',sans-serif;--s4:1rem;--s6:1.5rem;--s8:2rem;--s10:2.5rem;--s12:3rem;--s16:4rem;--tw:cubic-bezier(.25,.46,.45,.94)}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--limestone-cream);color:var(--rhodium-black);line-height:1.7}
-.presentation{position:relative;width:100%}.slide{min-height:100vh;width:100%;padding:var(--s16) var(--s10);display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start;opacity:0;transform:translateY(30px);transition:opacity .8s var(--tw),transform .8s var(--tw);position:relative;overflow:hidden}
+.presentation{position:relative;width:100%}.slide{min-height:100vh;width:100%;padding:var(--s16) var(--s10);display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start;position:relative;overflow:hidden}
 .slide::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(199,62,58,.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(26,43,74,.08) 0%,transparent 50%);pointer-events:none;z-index:0}
 .slide.visible{opacity:1;transform:translateY(0)}.slide-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;width:100%}
 .ryukyu-border{position:absolute;top:var(--s6);left:var(--s6);right:var(--s6);bottom:var(--s6);border:2px solid var(--ryukyu-red);pointer-events:none;z-index:0}
@@ -54,60 +54,16 @@ th{background:var(--deep-navy);color:var(--limestone-cream);font-family:var(--fo
 </head>
 <body>
 <!-- Shared Site Header -->
-<header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm transition-all duration-300" data-brand="策略探索家">
-  <nav class="container mx-auto px-6 py-4">
-    <!-- Desktop Header Layout -->
-    <div class="hidden md:flex justify-between items-center" id="desktop-nav">
-      <!-- Left: Brand + Back Link -->
-      <div class="flex items-center gap-6">
-        <a href="INDEX_HREF" class="text-xl font-bold" id="desktop-brand">
-          <span id="brand-text">策略探索家</span>
-        </a>
-        <a href="INDEX_HREF" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors" id="back-link" style="display: none;">
-          ⬅️ 返回首頁
-        </a>
-      </div>
-
-      <!-- Center: Navigation Links -->
-      <div class="flex items-center gap-8" id="desktop-links"></div>
-
-      <!-- Right: CTA Button (optional) -->
-      <div id="desktop-cta" style="display: none;"></div>
-    </div>
-
-    <!-- Mobile Header -->
-    <div class="flex flex-col items-center md:hidden">
-      <div class="flex items-center gap-2 w-full justify-between mb-3">
-        <a href="INDEX_HREF" class="text-xl font-bold" id="mobile-brand">
-          <span id="mobile-brand-text">策略探索家</span>
-        </a>
-        <button id="mobile-menu-btn" class="text-gray-700 hover:text-indigo-600 focus:outline-none p-3 min-w-[44px] min-h-[44px] flex items-center justify-center touch-action-manipulation">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Menu (hidden by default) -->
-      <div id="mobile-menu" class="hidden w-full mt-3 pb-4 border-t border-gray-200">
-        <div class="flex flex-col space-y-3 pt-4" id="mobile-links"></div>
-      </div>
+<header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm transition-all duration-300" style="background:var(--color-paper);">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="INDEX_HREF" class="text-xl font-bold" style="color:var(--color-ink);">
+      <span>策略探索家</span>
+    </a>
+    <div class="flex items-center gap-8">
+      <a href="INDEX_HREF" class="text-sm hover:text-[var(--color-accent)] transition-colors" style="color:var(--color-ink-2);">返回首頁</a>
     </div>
   </nav>
 </header>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var btn = document.getElementById('mobile-menu-btn');
-  var menu = document.getElementById('mobile-menu');
-  if (btn && menu) {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      menu.classList.toggle('hidden');
-    });
-  }
-});
-</script>
 
 <div class="progress-bar" id="progressBar"></div>
 <div class="nav-dots" id="navDots"></div>
@@ -120,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <section class="slide" id="slide-7"><div class="ryukyu-border"></div><div class="slide-content"><div class="slide-images"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.Gk-h8SnnCjHODyGI9qVCfwHaE8%3Fpid%3DApi&f=1" alt="Shuri Castle"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.kSMl7cgTMN8OQnIQV_kHYAHaFc%3Fpid%3DApi&f=1" alt="Shuri Castle wall"></div><h2 class="slide-title">王國的心臟——首里城</h2><p class="slide-subtitle">Shurijo Castle｜UNESCO世界遺產</p><div class="content-block"><p>首里城建於15世紀，作為琉球王國的政治與文化中心，見證了從三山統一（1429年）到1879年日本吞併（琉球處分）約450年的王朝歷史。現存的正殿為1992年重建，2000年與其他「琉球王國古城遺址群」共同登錄為UNESCO世界遺產。</p></div><div class="info-grid"><div class="info-card"><h4>建築特色</h4><p>融合：中國閩南・日本九州・東南亞風格<br>正殿：三層結構（曾為日本境內最大木造建築之一）<br>柱：使用琉球石灰岩與當地木材</p></div><div class="info-card"><h4>重要門戶</h4><p>守禮門：最具標誌性的國王牌樓<br>歡會門：歡迎中國冊封使的門<br>瑞泉門：擁有著名「漓泉」</p></div><div class="info-card"><h4>歷史意義</h4><p>1682年：尚貞王統一陶業於壺屋<br>1879年：《球姑處分》王國滅亡<br>1945年：戰火中嚴重損毀<br>1992年：首里城復元記念</p></div></div><div class="slide-footer">參考來源：shurijo-tower.net | unesco.or.jp</div></div><span class="slide-number">7 / 40</span></section>
 <section class="slide" id="slide-8"><div class="ryukyu-border"></div><div class="slide-content"><div class="slide-images"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthf.bing.com%2Fth%2Fid%2FOIP.Rk5Z8xG4eZ7J8qK9m3nX6QHaE7" alt="Tamaudun royal mausoleum"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthf.bing.com%2Fth%2Fid%2FOIP.W9vL2pQ6rT4sM1oN7kJ8dAHaFj" alt="Tamaudun stone walls"></div><h2 class="slide-title">皇家永眠之所——玉陵</h2><p class="slide-subtitle">Tamaudun｜1501年建造的琉球王室陵墓</p><div class="content-block"><p>玉陵建於1501年，由琉球王國第二尚氏王朝的建立者尚圓王（Soyun）下令建造。這座獨特的陵墓是琉球王國最重要的歷史建築之一，2000年與首里城等共同登錄為UNESCO世界遺產。</p></div><div class="info-grid"><div class="info-card"><h4>建築結構</h4><p>分為內外兩區：外陵（祭祀空間）和內陵（遺骨安置）<br>使用琉球石灰岩建造<br>屋頂為赤瓦，與首里城風格統一</p></div><div class="info-card"><h4>歷史功能</h4><p>第二尚氏歷代國王的長眠之所<br>舉行年度祭祀儀式<br>琉球王權與祖先崇拜的核心</p></div><div class="info-card"><h4>參觀資訊</h4><p>位置：首里城西側，步行約10分鐘<br>門票：含在首里城公園門票內<br>建議時間：30分鐘</p></div></div><div class="content-block"><p><strong>重要備注：</strong>此處並非同名的「玉泉洞」（位於南部），而是專門指首里城附近的皇家陵墓。請勿與行程第三日的玉泉洞混淆。</p></div><div class="slide-footer">參考來源：city.naha.okinawa.jp/shisetsu/reisure/1007835/1003522.html ✅</div></div><span class="slide-number">8 / 40</span></section>
 <section class="slide" id="slide-9"><div class="ryukyu-border"></div><div class="slide-content"><div class="slide-images"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthf.bing.com%2Fth%2Fid%2FOIP.M8xL2kP5qR3nN4oO6iJ9cBHaE8" alt="Tsuboya pottery street"></div><h2 class="slide-title">火之藝術——壺屋燒物通</h2><p class="slide-subtitle">Tsuboya-yakimizudōri｜琉球陶器的故鄉</p><div class="content-block"><p>壺屋燒物通是沖繩陶器的核心地區。1682年，琉球王府為整合產業與管理資源，將分散於各地的陶窯集中於此，自此奠定了壺屋作為沖繩陶業中心的地位。</p></div><div class="info-grid"><div class="info-card"><h4>歷史脈絡</h4><p>起源：可追溯至15世紀以前<br>1682年：王府統一集中陶窯於此<br>19世紀末：解除庶民使用赤瓦禁令後進入繁榮期</p></div><div class="info-card"><h4>陶器分類</h4><p><strong>荒燒（あらやけ）</strong>：無釉藥，自然風格<br><strong>上燒（うわやけ）</strong>：上釉藥，色彩豐富<br><strong>南窯</strong>：縣指定文化遺產，保留登窯結構</p></div><div class="info-card"><h4>圖案特色</h4><p>魚紋：象徵海洋共生民族性<br>唐草紋：東亞裝飾傳統<br>風獅爺：辟邪守護意象</p></div></div><div class="map-box"><strong>建議遊覽方式：</strong>從單軌首里站步行約10分鐘，沿途為赤瓦傳統建築群。石疊道由琉球石灰岩鋪設，兩側林立傳統陶器工坊與人偶店鋪。如遇多數店家公休，可參觀鄰近的壺屋燒物博物館進行靜態知識學習。</div><div class="slide-footer">參考來源：en.kogei-japonica.com/media/crafts/tsuboya-pottery/ ✅</div></div><span class="slide-number">9 / 40</span></section>
-<section class="slide" id="slide-10"><div class="ryukyu-border"></div><div class="slide-content"><div class="slide-images"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.OoNDXVkEwd16Csblll2cnQHaE6%3Fpid%3DApi&f=1" alt="Shisa lion statue Naha"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.rYq3dABJV9N1XbCj8gQ8LAHaFj%3Fpid%3DApi&f=1" alt="Okinawa pottery Tsuboya"></div><h2 class="slide-title">泥土的餽贈——風獅爺捏陶體驗</h2><p class="slide-subtitle">Shisa｜張口吸福・閉口守福</p><div class="content-block"><p>在壺屋通的工坊內，安排親手捏製沖繩守護神風獅爺（シーサー/Shisa）的體驗活動。風獅爺的信仰源自古代中東的獅子信仰，經由絲綢之路傳至中國，再隨冊封使與貿易船傳入琉球。</p></div><div class="shisa-grid"><div class="shisa-type"><div class="icon">🦁</div><h4>張口雄獅</h4><p>寓意：<strong>吸入福氣、驅除惡靈</strong><br>面向大海或道路<br>代表：活力與驅邪</p></div><div class="shisa-type"><div class="icon">🐱</div><h4>閉口雌獅</h4><p>寓意：<strong>守住福氣</strong><br>通常成對擺放<br>代表：保守與祥和</p></div></div><div class="info-grid"><div class="info-card"><h4>歷史背景</h4><p>最初：僅設立於城門或村落入口作為鎮落之用<br>19世紀末：解除庶民使用赤瓦禁令後，家家戶戶才開始將風獅爺安放於屋頂或門柱上</p></div><div class="info-card"><h4>捏製流程</h4><p>1. 選擇泥土質地<br>2. 手工捏製基本形狀<br>3. 添加眼睛、牙齒等細節<br>4. 陰乾後進行素燒（需時數月）</p></div></div><div class="warning"><strong>替代方案：</strong>如因時間限制無法等待數月的陶器燒製與國際運送，可選擇<strong>素燒風獅爺彩繪體驗</strong>，直接在已燒製成型的素胚上使用壓克力顏料上色，當天即可帶走。</div><div class="slide-footer">參考來源：en.kogei-japonica.com | mlit.go.jp (文化遺產)</div></div><span class="slide-number">10 / 40</span></section>
+<section class="slide" id="slide-10"><div class="ryukyu-border"></div><div class="slide-content"><div class="slide-images"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.OoNDXVkEwd16Csblll2cnQHaE6%3Fpid%3DApi&f=1" alt="Shisa lion statue Naha"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.rYq3dABJV9N1XbCj8gQ8LAHaFj%3Fpid%3DApi&f=1" alt="Okinawa pottery Tsuboya"></div><h2 class="slide-title">泥土的餽贈——風獅爺捏陶體驗</h2><p class="slide-subtitle">Shisa｜張口吸福・閉口守福</p><div class="content-block"><p>在壺屋通的工坊內，安排親手捏製沖繩守護神風獅爺（シーサー/Shisa）的體驗活動。風獅爺的信仰源自古代中東的獅子信仰，經由絲綢之路傳至中國，再隨冊封使與貿易船傳入琉球。</p></div><div class="shisa-grid"><div class="shisa-type"><div class="icon">雄獅</div><h4>張口雄獅</h4><p>寓意：<strong>吸入福氣、驅除惡靈</strong><br>面向大海或道路<br>代表：活力與驅邪</p></div><div class="shisa-type"><div class="icon">雌獅</div><h4>閉口雌獅</h4><p>寓意：<strong>守住福氣</strong><br>通常成對擺放<br>代表：保守與祥和</p></div></div><div class="info-grid"><div class="info-card"><h4>歷史背景</h4><p>最初：僅設立於城門或村落入口作為鎮落之用<br>19世紀末：解除庶民使用赤瓦禁令後，家家戶戶才開始將風獅爺安放於屋頂或門柱上</p></div><div class="info-card"><h4>捏製流程</h4><p>1. 選擇泥土質地<br>2. 手工捏製基本形狀<br>3. 添加眼睛、牙齒等細節<br>4. 陰乾後進行素燒（需時數月）</p></div></div><div class="warning"><strong>替代方案：</strong>如因時間限制無法等待數月的陶器燒製與國際運送，可選擇<strong>素燒風獅爺彩繪體驗</strong>，直接在已燒製成型的素胚上使用壓克力顏料上色，當天即可帶走。</div><div class="slide-footer">參考來源：en.kogei-japonica.com | mlit.go.jp (文化遺產)</div></div><span class="slide-number">10 / 40</span></section>
 <section class="slide" id="slide-11"><div class="ryukyu-border"></div><div class="slide-content"><div class="slide-images"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthf.bing.com%2Fth%2Fid%2FOIP.G4hJ6kM0oO5pP7qR8sL4mCHaE8" alt="Gyokusendo Cave entrance"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthf.bing.com%2Fth%2Fid%2FOIP.K8jN2lP0pP6qM7oN9iK3jBHaFA" alt="Southern Okinawa scenery"></div><h2 class="slide-title">第三日行程一覽</h2><p class="slide-subtitle">Day 3 — 南部探索：鐘乳洞、王國村、珊瑚礁地質</p><div class="route-diagram"><span class="route-stop">玉泉洞</span><span class="route-stop">王國村</span><span class="route-stop">普天滿宮</span><span class="route-stop">北谷美國村</span></div><div class="day-grid"><div class="day-card"><h3>上午</h3><p>玉泉洞（南部最大鐘乳石洞）→ 琉球王朝城下町</p></div><div class="day-card"><h3>中午</h3><p>王國村園區內簡餐（排骨麵等無牛肉）</p></div><div class="day-card"><h3>下午</h3><p>EISA太鼓舞表演 → 普天滿宮鐘乳洞</p></div><div class="day-card"><h3>傍晚</h3><p>北谷町美國村日落 → 晚餐（塔可飯/義式海鮮）</p></div></div><div class="content-block"><p>本日行程較遠，建議購買南部定期觀光巴士票，或使用單軌+路線巴士組合。如對大型商業觀光園區缺乏興趣，可將王國村替換為普天滿宮洞穴或和平祈念公園。</div><div class="slide-footer">交通：單軌旭橋站轉乘82/54/83路巴士｜ 全程約需8-10小時</div></div><span class="slide-number">11 / 40</span></section>
 <section class="slide" id="slide-12"><div class="ryukyu-border"></div><div class="slide-content"><div class="slide-images"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthf.bing.com%2Fth%2Fid%2FOIP.H5iK7lN1pQ7rM8sT9uL5nDHaE8" alt="Gyokusendo Cave stalactites"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthf.bing.com%2Fth%2Fid%2FOIP.J6kM2lO3qR8sN9tO0iK6mEHaEK" alt="Cape Manzamo cliffs"></div><h2 class="slide-title">三十萬年的鬼斧神工——玉泉洞</h2><p class="slide-subtitle">Gyokusendo｜日本最大規模鐘乳石洞之一</p><div class="content-block"><p>玉泉洞位於沖繩世界文化王國園區內，全長達5公里，是日本最大規模的鐘乳石洞之一。洞穴由珊瑚礁石灰岩層形成，歷經三十萬年的地質演變，內部佈滿了壯觀的石筍、石柱與地下暗河。</p></div><div class="info-grid"><div class="info-card"><h4>地質意義</h4><p>形成年代：約30萬年前<br>石灰岩層：珊瑚礁隆起形成<br>地下水溶解：二氧化碳作用<br>鐘乳石生成：每年前進約0.03mm</p></div><div class="info-card"><h4>參觀區域</h4><p>目前開放約890公尺的展示區<br>沿途可見高達數十公尺的石柱<br>最知名：充斥亀形的石灰岩「萬年床」</p></div><div class="info-card"><h4>自然價值</h4><p>了解沖繩珊瑚礁地質演變的最佳戶外教室<br>保有獨立的地下生態系統<br>湿度保持在90%以上</p></div></div><div class="content-block"><p>參觀時需注意地面濕滑，穿著防滑鞋子。洞穴內氣溫常年約17-21度，與外部溫差明顯，建議攜帶薄外套。</p></div><div class="slide-footer">參考來源：gyokusendo.co.jp | tenbusukan.jp ✅</div></div><span class="slide-number">12 / 40</span></section>
 <section class="slide" id="slide-13"><div class="ryukyu-border"></div><div class="slide-content"><div class="slide-images"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthf.bing.com%2Fth%2Fid%2FOIP.I7nM3lP4qS9tN0uO1jL7mFHaE7" alt="Ryukyu traditional village"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthf.bing.com%2Fth%2Fid%2FOIP.K8oN4kQ5rT0sN1uO2iK8nGHaFj" alt="Okinawa old town street"></div><h2 class="slide-title">王國的時光膠囊——琉球王朝城下町</h2><p class="slide-subtitle">Ryukyu Kingdom Old Town｜百年古民家移築聚落</p><div class="content-block"><p>琉球王國城下町移築了多棟百年歷史的國家登錄有形文化遺產古民家。走在此區域，彷彿穿越時空回到了琉球王國的日常生活場景。</p></div><div class="info-grid"><div class="info-card"><h4>建築特色</h4><p><strong>防颱石牆設計</strong>：使用琉球石灰岩疊砌，高約2-3公尺，能有效抵擋颱風<br><strong>赤瓦屋頂</strong>：燒製困難，過去僅貴族與神社可用<br><strong>風獅爺</strong>：屋頂四角設置，用於辟邪祈福</p></div><div class="info-card"><h4>古民家建築元素</h4><p>緣側（屋檐下的走廊空間）<br>犬見切（通風口設計）<br>フ kutia（家族中心火堂）<br>水琴窟（洗手池裝飾）</p></div><div class="info-card"><h4>文化體驗</h4><p>可觀看傳統工藝演示<br>參與手作體驗活動<br>購買在地製作的傳統工藝品</p></div></div><div class="warning"><strong>如對大型觀光園區缺乏興趣：</strong>可替換為普天滿宮洞穴（第五日介紹）參觀，或前往和平祈念公園從近代史角度了解沖繩戰役的悲壯歷史。</div><div class="slide-footer">參考來源：tenbusukan.jp ✅ | gyokusendo.co.jp</div></div><span class="slide-number">13 / 40</span></section>

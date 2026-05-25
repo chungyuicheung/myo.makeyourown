@@ -55,7 +55,7 @@
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: #f3f4f6; /* Light gray background */
+            background-color: var(--color-paper); /* Light gray background */
         }
         .cta-btn {
             transition: transform 0.2s ease-out, background-color 0.2s ease-out;
@@ -107,136 +107,58 @@
 
 <body class="antialiased">
 
-<!-- Hallmark · N5 Floating pill nav -->
+<!-- Hallmark · N5 static nav -->
 <header id="header" class="sticky top-0 z-50 transition-all duration-300" style="background-color: var(--color-paper, #FAF9F6); box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
-  <nav class="container mx-auto px-6 py-4">
-    <!-- Desktop: brand left, links as pill buttons -->
-    <div class="hidden md:flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold" style="font-family: Georgia, serif; color: var(--color-ink, #333);">
-        策略探索家
-      </a>
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-xl font-bold" style="font-family: Georgia, serif; color: var(--color-ink, #333);">
+      策略探索家
+    </a>
 
-      <div class="flex items-center gap-2">
-        <!-- 旅程 dropdown -->
-        <div class="relative group">
-          <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">
-            旅程 <span class="text-xs">▼</span>
-          </button>
-          <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
-            <a href="trip/okinawa-trip.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩七天</a>
-            <a href="trip/okinawa-food-craft-5days.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩美食手作</a>
-            <a href="trip/okinawa-presentation.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩簡報</a>
-            <a href="trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">香港行山</a>
-          </div>
-        </div>
-        <!-- 文章 dropdown -->
-        <div class="relative group">
-          <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">
-            文章 <span class="text-xs">▼</span>
-          </button>
-          <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
-            <a href="blog/best-wedding-gifts-hk.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮禮物</a>
-            <a href="blog/hk-marriage-certificate-size-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">結婚證書尺寸</a>
-            <a href="blog/hk-marriage-registry-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">註冊攻略</a>
-            <a href="blog/how-to-preserve-marriage-certificate.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">Preservation指南</a>
-            <a href="blog/hk-marriage-registration-checklist.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮檢查表</a>
-          </div>
-        </div>
-        <!-- 影視 flat link -->
-        <a href="tv.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">影視</a>
-        <!-- 美食 flat link -->
-        <a href="food.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">美食</a>
-        <!-- 返回首頁 CTA -->
-        <a href="index.html" class="text-sm px-4 py-1.5 rounded-full transition-opacity" style="background-color: var(--color-accent, #c75a3a); color: #fff;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">返回首頁</a>
-      </div>
-    </div>
-
-    <!-- Mobile: hamburger with slide-down menu and expandable dropdowns -->
-    <div class="flex flex-col items-center md:hidden">
-      <div class="flex items-center justify-between w-full mb-3">
-        <a href="index.html" class="text-xl font-bold" style="font-family: Georgia, serif; color: var(--color-ink, #333);">策略探索家</a>
-        <button id="mobile-menu-btn" class="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" style="color: var(--color-ink, #333);">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
+    <div class="flex items-center gap-2">
+      <!-- 旅程 dropdown -->
+      <div class="relative group">
+        <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">
+          旅程 <span class="text-xs">▼</span>
         </button>
-      </div>
-      <div id="mobile-menu" class="hidden w-full border-t py-4" style="border-color: var(--color-rule, #e5e5e0);">
-        <div class="flex flex-col gap-1">
-          <!-- 旅程 expandable dropdown -->
-          <div class="mobile-dropdown">
-            <button class="mobile-dropdown-toggle w-full text-left px-4 py-2 rounded-lg flex items-center justify-between" style="color: var(--color-ink, #333);">
-              <span>旅程</span>
-              <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="mobile-dropdown-content hidden pl-4 flex flex-col gap-1 border-l-2" style="border-color: var(--color-rule, #e5e5e0);">
-              <a href="trip/okinawa-trip.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">沖繩七天</a>
-              <a href="trip/okinawa-food-craft-5days.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">沖繩美食手作</a>
-              <a href="trip/okinawa-presentation.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">沖繩簡報</a>
-              <a href="trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">香港行山</a>
-            </div>
-          </div>
-          <!-- 文章 expandable dropdown -->
-          <div class="mobile-dropdown">
-            <button class="mobile-dropdown-toggle w-full text-left px-4 py-2 rounded-lg flex items-center justify-between" style="color: var(--color-ink, #333);">
-              <span>文章</span>
-              <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="mobile-dropdown-content hidden pl-4 flex flex-col gap-1 border-l-2" style="border-color: var(--color-rule, #e5e5e0);">
-              <a href="blog/best-wedding-gifts-hk.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">婚禮禮物</a>
-              <a href="blog/hk-marriage-certificate-size-guide.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">結婚證書尺寸</a>
-              <a href="blog/hk-marriage-registry-guide.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">註冊攻略</a>
-              <a href="blog/how-to-preserve-marriage-certificate.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">Preservation指南</a>
-              <a href="blog/hk-marriage-registration-checklist.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">婚禮檢查表</a>
-            </div>
-          </div>
-          <!-- 影視 flat link -->
-          <a href="tv.html" class="px-4 py-2 rounded-lg" style="color: var(--color-ink, #333);">影視</a>
-          <!-- 美食 flat link -->
-          <a href="food.html" class="px-4 py-2 rounded-lg" style="color: var(--color-ink, #333);">美食</a>
-          <!-- 返回首頁 CTA -->
-          <a href="index.html" class="px-4 py-2 mt-2 text-center rounded-lg" style="background-color: var(--color-accent, #c75a3a); color: #fff;">返回首頁</a>
+        <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
+          <a href="trip/okinawa-trip.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩七天</a>
+          <a href="trip/okinawa-food-craft-5days.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩美食手作</a>
+          <a href="trip/okinawa-presentation.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩簡報</a>
+          <a href="trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">香港行山</a>
         </div>
       </div>
+      <!-- 文章 dropdown -->
+      <div class="relative group">
+        <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">
+          文章 <span class="text-xs">▼</span>
+        </button>
+        <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
+          <a href="blog/best-wedding-gifts-hk.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮禮物</a>
+          <a href="blog/hk-marriage-certificate-size-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">結婚證書尺寸</a>
+          <a href="blog/hk-marriage-registry-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">註冊攻略</a>
+          <a href="blog/how-to-preserve-marriage-certificate.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">Preservation指南</a>
+          <a href="blog/hk-marriage-registration-checklist.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮檢查表</a>
+        </div>
+      </div>
+      <!-- 影視 flat link -->
+      <a href="tv.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">影視</a>
+      <!-- 美食 flat link -->
+      <a href="food.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">美食</a>
+      <!-- 返回首頁 CTA -->
+      <a href="index.html" class="text-sm px-4 py-1.5 rounded-full transition-opacity" style="background-color: var(--color-accent, #c75a3a); color: #fff;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">返回首頁</a>
     </div>
   </nav>
 </header>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var btn = document.getElementById('mobile-menu-btn');
-  var menu = document.getElementById('mobile-menu');
-  if (btn && menu) {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      menu.classList.toggle('hidden');
-    });
-  }
-  // Mobile dropdown toggles
-  document.querySelectorAll('.mobile-dropdown-toggle').forEach(function(toggle) {
-    toggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      var content = toggle.nextElementSibling;
-      var arrow = toggle.querySelector('svg');
-      content.classList.toggle('hidden');
-      if (arrow) {
-        arrow.style.transform = content.classList.contains('hidden') ? '' : 'rotate(180deg)';
-      }
-    });
-  });
-});
-</script>
-
     <main>
         <section 
-            class="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-cover bg-center" 
-            style="background-image: url('https://images.unsplash.com/photo-1500835556837-99ac94a94552?q=80&w=1200&auto=format&fit=crop');">
-            <div class="absolute inset-0 bg-black/50"></div>
-            <div class="relative container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight text-shadow">
-                    探索世界的<span class="text-cyan-300">另一種方式</span>
+            class="pt-24 pb-20 md:pt-32 md:pb-28"
+            style="background-color: var(--color-paper);">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight" style="color: var(--color-ink);">
+                    探索世界的<span style="color: var(--color-accent);">另一種方式</span>
                 </h1>
-                <p class="mt-4 text-lg md:text-xl text-gray-100 max-w-3xl mx-auto text-shadow">
+                <p class="mt-4 text-lg md:text-xl max-w-3xl" style="color: var(--color-ink-2);">
                     我相信，旅行不只是打卡，而是一場精心設計的「產品體驗」。跟我一起，用系統化思維，把每次旅程都打造成獨一無二的精彩故事。
                 </p>
             </div>
@@ -257,61 +179,61 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-                    <a href="trip/japan/tokyo" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=800&auto=format&fit=crop');">
+                    <a href="trip/japan/tokyo" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=800&auto=format&fit=crop');">
                         <div class="relative">
                             <span class="text-2xl">Tokyo</span>
                             <h3 class="text-lg font-bold mt-1 text-shadow">東京</h3>
                         </div>
                     </a>
-                    <a href="trip/korea/seoul" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=800&auto=format&fit=crop');">
+                    <a href="trip/korea/seoul" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=800&auto=format&fit=crop');">
                         <div class="relative">
                             <span class="text-2xl">Seoul</span>
                             <h3 class="text-lg font-bold mt-1 text-shadow">首爾</h3>
                         </div>
                     </a>
-                    <a href="trip/taiwan" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?q=80&w=800&auto=format&fit=crop');">
+                    <a href="trip/taiwan" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?q=80&w=800&auto=format&fit=crop');">
                         <div class="relative">
                             <span class="text-2xl">Taiwan</span>
                             <h3 class="text-lg font-bold mt-1 text-shadow">台灣</h3>
                         </div>
                     </a>
-                    <a href="trip/hongkong" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?q=80&w=800&auto=format&fit=crop');">
+                    <a href="trip/hongkong" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?q=80&w=800&auto=format&fit=crop');">
                         <div class="relative">
                             <span class="text-2xl">HK</span>
                             <h3 class="text-lg font-bold mt-1 text-shadow">香港</h3>
                         </div>
                     </a>
-                    <a href="trip/thailand/bangkok" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1563492065599-3520f775ee05?q=80&w=800&auto=format&fit=crop');">
+                    <a href="trip/thailand/bangkok" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1563492065599-3520f775ee05?q=80&w=800&auto=format&fit=crop');">
                         <div class="relative">
                             <span class="text-2xl">Bangkok</span>
                             <h3 class="text-lg font-bold mt-1 text-shadow">曼谷</h3>
                         </div>
                     </a>
-                    <a href="trip/singapore" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=800&auto=format&fit=crop');">
+                    <a href="trip/singapore" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=800&auto=format&fit=crop');">
                         <div class="relative">
                             <span class="text-2xl">Singapore</span>
                             <h3 class="text-lg font-bold mt-1 text-shadow">新加坡</h3>
                         </div>
                     </a>
-                    <a href="trip/malaysia/kualalumpur" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1582260273730-85343f8e5b4b?q=80&w=800&auto=format&fit=crop');">
+                    <a href="trip/malaysia/kualalumpur" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1582260273730-85343f8e5b4b?q=80&w=800&auto=format&fit=crop');">
                         <div class="relative">
                             <span class="text-2xl">KL</span>
                             <h3 class="text-lg font-bold mt-1 text-shadow">吉隆坡</h3>
                         </div>
                     </a>
-                    <a href="trip/vietnam" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=800&auto=format&fit=crop');">
+                    <a href="trip/vietnam" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=800&auto=format&fit=crop');">
                         <div class="relative">
                             <span class="text-2xl">Vietnam</span>
                             <h3 class="text-lg font-bold mt-1 text-shadow">越南</h3>
                         </div>
                     </a>
-                    <a href="trip/japan/kyoto" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?q=80&w=800&auto=format&fit=crop');">
+                    <a href="trip/japan/kyoto" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?q=80&w=800&auto=format&fit=crop');">
                         <div class="relative">
                             <span class="text-2xl">Tokyo</span>
                             <h3 class="text-lg font-bold mt-1 text-shadow">京都</h3>
                         </div>
                     </a>
-                     <a href="trip/china" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1508804185872-d7bad50a4ba4?q=80&w=800&auto=format&fit=crop');">
+                     <a href="trip/china" class="destination-card relative rounded-xl overflow-hidden shadow-lg h-40 bg-cover bg-bottom text-white flex flex-col justify-end p-3" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1508804185872-d7bad50a4ba4?q=80&w=800&auto=format&fit=crop');">
                          <div class="relative">
                             <span class="text-2xl">China</span>
                             <h3 class="text-lg font-bold mt-1 text-shadow">中國</h3>
@@ -327,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
                     <div class="flex flex-wrap justify-center gap-2 mb-6">
-                        <button data-audience="planner" class="audience-btn bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full font-semibold text-sm">焦慮的計畫控</button>
+                        <button data-audience="planner" class="audience-btn px-4 py-2 rounded-full font-semibold text-sm" style="background-color: var(--color-accent); color: #fff; border-radius: var(--radius-pill);">焦慮的計畫控</button>
                         <button data-audience="spontaneous" class="audience-btn bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-semibold text-sm">隨性的踩雷王</button>
                         <button data-audience="explorer" class="audience-btn bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-semibold text-sm">想深度的體驗家</button>
                         <button data-audience="budget" class="audience-btn bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-semibold text-sm">精打細算的冒險家</button>
@@ -344,22 +266,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <a href="#" class="card-link md:col-span-2 lg:col-span-1 bg-cover bg-bottom rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px]" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1579033461380-adb47c3eb938?q=80&w=600&auto=format&fit=crop');">
+                    <a href="#" class="card-link md:col-span-2 lg:col-span-1 bg-cover bg-bottom rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px]" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1579033461380-adb47c3eb938?q=80&w=600&auto=format&fit=crop');">
                          <span class="font-semibold text-sm opacity-80 mb-1">日本關西 | 2024 秋</span>
                         <h3 class="text-2xl font-bold text-shadow">京都紅葉狩：一個人的五日禪意之旅</h3>
                     </a>
 
-                    <a href="#" class="card-link md:col-span-2 lg:col-span-2 bg-cover bg-bottom rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px]" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1549643276-f259b5df16b2?q=80&w=600&auto=format&fit=crop');">
+                    <a href="#" class="card-link md:col-span-2 lg:col-span-2 bg-cover bg-bottom rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px]" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1549643276-f259b5df16b2?q=80&w=600&auto=format&fit=crop');">
                          <span class="font-semibold text-sm opacity-80 mb-1">冰島 | 2025 冬</span>
                         <h3 class="text-2xl font-bold text-shadow">冰島環島自駕：追逐極光的冰與火之歌</h3>
                     </a>
 
-                    <a href="#" class="card-link bg-cover bg-bottom rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px]" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1534351590666-13e3e96b5017?q=80&w=600&auto=format&fit=crop');">
+                    <a href="#" class="card-link bg-cover bg-bottom rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px]" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1534351590666-13e3e96b5017?q=80&w=600&auto=format&fit=crop');">
                          <span class="font-semibold text-sm opacity-80 mb-1">義大利 | 2024 夏</span>
                         <h3 class="text-2xl font-bold text-shadow">托斯卡尼的陽光下：佛羅倫斯與鄉間酒莊</h3>
                     </a>
                     
-                    <a href="#" class="card-link bg-cover bg-bottom rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px]" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1596521863484-9d2492a3f208?q=80&w=600&auto=format&fit=crop');">
+                    <a href="#" class="card-link bg-cover bg-bottom rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px]" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1596521863484-9d2492a3f208?q=80&w=600&auto=format&fit=crop');">
                          <span class="font-semibold text-sm opacity-80 mb-1">越南 | 2024 春</span>
                         <h3 class="text-2xl font-bold text-shadow">河內舊城區漫步：咖啡、法棍與摩托車</h3>
                     </a>
@@ -390,8 +312,8 @@ document.addEventListener('DOMContentLoaded', function() {
                  <h2 class="text-3xl font-bold mb-4">不想錯過下一趟冒險？</h2>
                  <p class="max-w-2xl mx-auto mb-8 opacity-90">訂閱電子報，我會將獨家的「終極旅行規劃 Notion 模板」與最新遊記直接送到你的信箱。讓我們一起更聰明地探索世界。</p>
                  <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                     <input type="email" placeholder="你的常用電子郵件" class="flex-grow p-3 rounded-lg text-gray-800 focus:ring-4 focus:ring-indigo-300 focus:outline-none" required>
-                     <button type="submit" class="bg-white text-indigo-700 font-bold px-6 py-3 rounded-lg cta-btn">免費領取模板</button>
+<input type="email" placeholder="你的常用電子郵件" class="flex-grow p-3 rounded-lg text-gray-800 focus:outline-none" required style="border-radius: var(--radius-pill);">
+                      <button type="submit" class="font-bold px-6 py-3 cta-btn" style="background-color: #fff; color: var(--color-accent); border-radius: var(--radius-pill);">免費領取模板</button>
                  </form>
             </section>
             
@@ -444,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const newContent = document.createElement('div');
                 newContent.className = 'audience-content transition-opacity duration-500 opacity-0';
                 newContent.innerHTML = `
-                    <h3 class="text-2xl font-bold text-indigo-700 mb-4">${data.title}</h3>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--color-accent);">${data.title}</h3>
                     <div class="grid md:grid-cols-2 gap-6 text-left">
                         <div>
                             <h4 class="font-semibold text-lg mb-2 text-gray-700 border-b-2 border-red-200 pb-1">你的心聲 (Before)</h4>
@@ -468,11 +390,13 @@ document.addEventListener('DOMContentLoaded', function() {
             audienceBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     audienceBtns.forEach(b => {
-                         b.classList.remove('bg-indigo-100', 'text-indigo-800');
-                         b.classList.add('bg-gray-100', 'text-gray-800');
-                    });
-                    btn.classList.add('bg-indigo-100', 'text-indigo-800');
-                    btn.classList.remove('bg-gray-100', 'text-gray-800');
+b.style.backgroundColor = '';
+                          b.style.color = '';
+                          b.classList.add('bg-gray-100', 'text-gray-800');
+                     });
+                     btn.style.backgroundColor = 'var(--color-accent)';
+                     btn.style.color = '#fff';
+                     btn.classList.remove('bg-gray-100', 'text-gray-800');
 
                     const audience = btn.dataset.audience;
                     updateAudienceContent(audience);

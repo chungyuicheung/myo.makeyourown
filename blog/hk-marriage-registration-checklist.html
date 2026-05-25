@@ -32,31 +32,32 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../tokens.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body { font-family: var(--font-body); background-color: var(--color-paper); color: var(--color-ink); }
-        .btn-primary { background-color: #CD853F; color: white; padding: 0.7rem 1.8rem; border-radius: 9999px; transition: background-color 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 0.95rem; }
-        .btn-primary:hover { background-color: #A0522D; }
+        .text-accent { color: var(--color-accent); }
+        .badge-accent { background-color: var(--color-paper-2); color: var(--color-accent); }
+        .btn-primary { background-color: var(--color-accent); color: white; padding: 0.7rem 1.8rem; border-radius: 9999px; transition: background-color 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 0.95rem; }
+        .btn-primary:hover { filter: brightness(0.9); }
         .card { background-color: white; border-radius: 1.25rem; box-shadow: 0 8px 16px rgba(0,0,0,0.04); padding: 1.2rem; transition: transform 0.3s ease; }
         .card:hover { transform: translateY(-5px); }
-        .footer-link { color: #8B4513; transition: color 0.3s ease; }
-        .footer-link:hover { color: #CD853F; }
-        .blog-content h2 { font-size: 1.5rem; font-weight: 700; color: #8B4513; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #f0e6d6; padding-bottom: 0.5rem; }
-        .blog-content h3 { font-size: 1.2rem; font-weight: 600; color: #A0522D; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-        .blog-content p { line-height: 1.8; margin-bottom: 1rem; color: #444; }
+        .footer-link { color: var(--color-accent); transition: color 0.3s ease; }
+        .footer-link:hover { filter: brightness(0.8); }
+        .blog-content h2 { font-size: 1.5rem; font-weight: 700; color: var(--color-ink); margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--color-paper-2); padding-bottom: 0.5rem; }
+        .blog-content h3 { font-size: 1.2rem; font-weight: 600; color: var(--color-ink); margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .blog-content p { line-height: 1.8; margin-bottom: 1rem; color: var(--color-ink); }
         .blog-content ul, .blog-content ol { margin-left: 1.5rem; margin-bottom: 1rem; }
         .blog-content li { margin-bottom: 0.5rem; line-height: 1.7; }
         .blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-        .blog-content th, .blog-content td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: left; }
-        .blog-content th { background-color: #f9f5f0; font-weight: 600; }
-        .toc { background: #f9f5f0; border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 2rem; }
-        .toc h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; color: #8B4513; }
+        .blog-content th, .blog-content td { border: 1px solid var(--color-rule); padding: 0.75rem; text-align: left; }
+        .blog-content th { background-color: var(--color-paper-2); font-weight: 600; }
+        .toc { background: var(--color-paper-2); border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 2rem; }
+        .toc h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-ink); }
         .toc ul { list-style: none; margin-left: 0; }
         .toc li { margin-bottom: 0.35rem; }
-        .toc a { color: #A0522D; text-decoration: none; font-size: 0.9rem; }
+        .toc a { color: var(--color-accent); text-decoration: none; font-size: 0.9rem; }
         .toc a:hover { text-decoration: underline; }
-        .product-cta { background: var(--color-paper-2); border: 2px solid #CD853F; border-radius: 1rem; padding: 1.5rem; margin: 2rem 0; text-align: center; }
-        .checklist-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #f0e6d6; }
+        .product-cta { background: var(--color-paper-2); border: 2px solid var(--color-accent); border-radius: 1rem; padding: 1.5rem; margin: 2rem 0; text-align: center; }
+        .checklist-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--color-paper-2); }
         .checklist-item:last-child { border-bottom: none; }
         .check-icon { color: #10b981; font-size: 1.2rem; flex-shrink: 0; margin-top: 0.15rem; }
         .faq-item { background: white; border-radius: 0.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 0.75rem; }
@@ -72,81 +73,52 @@
 <!-- Hallmark · N5 Floating pill nav -->
 <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm transition-all duration-300">
   <nav class="container mx-auto px-6 py-4">
-    <div class="hidden md:flex justify-between items-center">
+    <div class="flex justify-between items-center">
       <a href="INDEX_HREF" class="text-xl font-bold" style="color: var(--color-ink);">策略探索家</a>
       <div class="flex items-center gap-2">
-        <div class="relative group">
-          <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-ink)'">旅程 <span class="text-xs">▼</span></button>
-          <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border hidden group-hover:block z-50" style="border-color: var(--color-rule);">
-            <a href="TRIP_PREFIX + 'trip/okinawa-trip.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">沖繩七天</a>
-            <a href="TRIP_PREFIX + 'trip/okinawa-food-craft-5days.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">沖繩美食手作</a>
-            <a href="TRIP_PREFIX + 'trip/okinawa-presentation.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">沖繩簡報</a>
-            <a href="TRIP_PREFIX + 'trip/hongkong/2025-07-09-red-incense-burner-peak.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">香港行山</a>
-          </div>
-        </div>
-        <div class="relative group">
-          <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-ink)'">文章 <span class="text-xs">▼</span></button>
-          <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border hidden group-hover:block z-50" style="border-color: var(--color-rule);">
-            <a href="BLOG_PREFIX + 'blog/best-wedding-gifts-hk.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">婚禮禮物</a>
-            <a href="BLOG_PREFIX + 'blog/hk-marriage-certificate-size-guide.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">結婚證書尺寸</a>
-            <a href="BLOG_PREFIX + 'blog/hk-marriage-registry-guide.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">註冊攻略</a>
-            <a href="BLOG_PREFIX + 'blog/how-to-preserve-marriage-certificate.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">Preservation指南</a>
-            <a href="BLOG_PREFIX + 'blog/hk-marriage-registration-checklist.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">婚禮檢查表</a>
-          </div>
-        </div>
+        <a href="TRIP_PREFIX + 'trip/okinawa-trip.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">沖繩七天</a>
+        <a href="TRIP_PREFIX + 'trip/okinawa-food-craft-5days.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">沖繩美食手作</a>
+        <a href="TRIP_PREFIX + 'trip/okinawa-presentation.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">沖繩簡報</a>
+        <a href="TRIP_PREFIX + 'trip/hongkong/2025-07-09-red-incense-burner-peak.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">香港行山</a>
+        <a href="BLOG_PREFIX + 'blog/best-wedding-gifts-hk.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">婚禮禮物</a>
+        <a href="BLOG_PREFIX + 'blog/hk-marriage-certificate-size-guide.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">結婚證書尺寸</a>
+        <a href="BLOG_PREFIX + 'blog/hk-marriage-registry-guide.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">註冊攻略</a>
+        <a href="BLOG_PREFIX + 'blog/how-to-preserve-marriage-certificate.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">Preservation指南</a>
+        <a href="BLOG_PREFIX + 'blog/hk-marriage-registration-checklist.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">婚禮檢查表</a>
         <a href="INDEX_HREF" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">首頁</a>
-      </div>
-    </div>
-    <!-- Mobile -->
-    <div class="flex flex-col items-center md:hidden">
-      <div class="flex items-center gap-2 w-full justify-between mb-3">
-        <a href="INDEX_HREF" class="text-xl font-bold" style="color: var(--color-ink);">策略探索家</a>
-        <button id="mobile-menu-btn" class="text-gray-700 p-3 min-w-[44px] min-h-[44px] flex items-center justify-center" style="color: var(--color-ink);">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-      <div id="mobile-menu" class="hidden w-full mt-3 pb-4 border-t" style="border-color: var(--color-rule);">
-        <div class="flex flex-col gap-1 pt-4">
-          <a href="INDEX_HREF" class="px-4 py-2 rounded-lg" style="color: var(--color-ink);">首頁</a>
-          <a href="INDEX_HREF" class="px-4 py-2 rounded-lg text-center" style="background-color: var(--color-accent); color: white;">返回首頁</a>
-        </div>
       </div>
     </div>
   </nav>
 </header>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var btn = document.getElementById('mobile-menu-btn');
-  var menu = document.getElementById('mobile-menu');
-  if (btn && menu) {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      menu.classList.toggle('hidden');
-    });
-  }
-});
-</script>
-
 <main id="content" class="container mx-auto px-4 py-8 max-w-3xl">
-    <nav class="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+    <nav class="text-sm mb-6" aria-label="Breadcrumb" style="color: var(--color-ink-2);">
         <ol class="flex items-center space-x-2">
-            <li><a href="../cert-folder.html" class="hover:text-rose-500">首頁</a></li>
+            <li><a href="../cert-folder.html" class="hover:text-accent">首頁</a></li>
             <li><span class="mx-1">/</span></li>
-            <li><a href="../cert-folder.html#blog-preview" class="hover:text-rose-500">結婚證書小知識</a></li>
+            <li><a href="../cert-folder.html#blog-preview" class="hover:text-accent">結婚證書小知識</a></li>
             <li><span class="mx-1">/</span></li>
-            <li class="text-gray-700">註冊結婚完整清單</li>
+            <li style="color: var(--color-ink);">註冊結婚完整清單</li>
         </ol>
     </nav>
 
     <article class="blog-content">
         <header class="mb-8">
-            <span class="inline-block bg-rose-100 text-rose-600 text-xs font-semibold px-3 py-1 rounded-full mb-3">註冊攻略</span>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-4">註冊結婚要帶什麼？完整清單 2026</h1>
-            <div class="flex items-center text-sm text-gray-500 space-x-4">
-                <span><i class="far fa-calendar mr-1"></i>2026年4月1日</span>
-                <span><i class="far fa-clock mr-1"></i>7 分鐘閱讀</span>
-                <span><i class="far fa-user mr-1"></i>My O! 編輯團隊</span>
+            <span class="badge-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">註冊攻略</span>
+            <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4" style="color: var(--color-ink);">註冊結婚要帶什麼？完整清單 2026</h1>
+            <div class="flex items-center text-sm space-x-4" style="color: var(--color-ink-2);">
+                <span class="flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-width="2"></rect><line x1="16" y1="2" x2="16" y2="6" stroke-width="2"></line><line x1="8" y1="2" x2="8" y2="6" stroke-width="2"></line><line x1="3" y1="10" x2="21" y2="10" stroke-width="2"></line></svg>
+                  2026年4月1日
+                </span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"></circle><polyline points="12 6 12 12 16 14" stroke-width="2"></polyline></svg>
+                  7 分鐘閱讀
+                </span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-width="2"></path><circle cx="12" cy="7" r="4" stroke-width="2"></circle></svg>
+                  My O! 編輯團隊
+                </span>
             </div>
         </header>
 
@@ -167,13 +139,25 @@ document.addEventListener('DOMContentLoaded', function() {
         <h2 id="documents">1. 必備文件清單</h2>
         <p>以下係註冊結婚時<strong>雙方都需要準備</strong>的文件：</p>
         <div class="card p-6 mb-6">
-            <h3 class="text-lg font-bold text-gray-800 mb-4">📋 文件清單</h3>
-            <div class="checklist-item"><span class="check-icon">✅</span><div><strong>身份證</strong><br><span class="text-gray-600 text-sm">香港永久性居民身份證或有效護照</span></div></div>
-            <div class="checklist-item"><span class="check-icon">✅</span><div><strong>出生證明書</strong><br><span class="text-gray-600 text-sm">如在香港出生，可提供出生證明書副本</span></div></div>
-            <div class="checklist-item"><span class="check-icon">✅</span><div><strong>婚姻狀況聲明書</strong><br><span class="text-gray-600 text-sm">於婚姻登記處簽署，聲明你目前未婚</span></div></div>
-            <div class="checklist-item"><span class="check-icon">✅</span><div><strong>擬結婚通知書（表格 MR1）</strong><br><span class="text-gray-600 text-sm">需至少提前 15 天遞交</span></div></div>
-            <div class="checklist-item"><span class="check-icon">✅</span><div><strong>如曾離婚：離婚證明書</strong><br><span class="text-gray-600 text-sm">絕對命令書（Absolute Decree）或離婚證明書</span></div></div>
-            <div class="checklist-item"><span class="check-icon">✅</span><div><strong>如配偶已故：配偶死亡證明書</strong><br><span class="text-gray-600 text-sm">前配偶的死亡證明</span></div></div>
+            <h3 class="text-lg font-bold mb-4" style="color: var(--color-ink);">文件清單</h3>
+            <div class="checklist-item"><span class="check-icon">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </span><div><strong>身份證</strong><br><span class="text-sm" style="color: var(--color-ink-2);">香港永久性居民身份證或有效護照</span></div></div>
+            <div class="checklist-item"><span class="check-icon">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </span><div><strong>出生證明書</strong><br><span class="text-sm" style="color: var(--color-ink-2);">如在香港出生，可提供出生證明書副本</span></div></div>
+            <div class="checklist-item"><span class="check-icon">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </span><div><strong>婚姻狀況聲明書</strong><br><span class="text-sm" style="color: var(--color-ink-2);">於婚姻登記處簽署，聲明你目前未婚</span></div></div>
+            <div class="checklist-item"><span class="check-icon">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </span><div><strong>擬結婚通知書（表格 MR1）</strong><br><span class="text-sm" style="color: var(--color-ink-2);">需至少提前 15 天遞交</span></div></div>
+            <div class="checklist-item"><span class="check-icon">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </span><div><strong>如曾離婚：離婚證明書</strong><br><span class="text-sm" style="color: var(--color-ink-2);">絕對命令書（Absolute Decree）或離婚證明書</span></div></div>
+            <div class="checklist-item"><span class="check-icon">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </span><div><strong>如配偶已故：配偶死亡證明書</strong><br><span class="text-sm" style="color: var(--color-ink-2);">前配偶的死亡證明</span></div></div>
         </div>
 
         <h2 id="steps">2. 註冊結婚完整流程</h2>
@@ -218,8 +202,8 @@ document.addEventListener('DOMContentLoaded', function() {
         </ol>
 
         <div class="product-cta">
-            <h3 class="text-xl font-bold text-gray-800 mb-2">註冊完結婚，下一步是保護你的證書！</h3>
-            <p class="text-gray-600 mb-4">My O! 專屬結婚證書套，專為香港結婚證書設計。HK$128 起，5 款設計可選。</p>
+            <h3 class="text-xl font-bold mb-2" style="color: var(--color-ink);">註冊完結婚，下一步是保護你的證書！</h3>
+            <p class="mb-4" style="color: var(--color-ink-2);">My O! 專屬結婚證書套，專為香港結婚證書設計。HK$128 起，5 款設計可選。</p>
             <a href="https://api.whatsapp.com/send?phone=85263796410&text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E5%93%8E%E5%88%9A%E6%B3%A8%E5%86%8C%E7%B5%90%E5%A9%9A%EF%BC%8C%E6%83%B3%E8%A8%82%E8%B3%BC%E8%AD%89%E6%9B%B8%E5%A5%97%EF%BC%81" target="_blank" class="btn-primary inline-block">WhatsApp 立即訂購</a>
         </div>
 
@@ -229,27 +213,27 @@ document.addEventListener('DOMContentLoaded', function() {
     <section id="faq" class="mt-12">
         <div class="space-y-3">
             <div class="faq-item card p-4">
-                <button class="faq-toggle font-semibold text-gray-800 flex justify-between items-center" onclick="toggleFaq(this)"><span>註冊結婚要提前多久預約？</span><span class="faq-arrow text-rose-500 transition-transform duration-300">▼</span></button>
-                <div class="faq-answer text-gray-600 text-sm">擬結婚通知書需至少提前 15 天遞交，有效期 3 個月。建議提前 2–3 個月開始準備，特別是熱門日期。</div>
+                <button class="faq-toggle font-semibold flex justify-between items-center" style="color: var(--color-ink);" onclick="toggleFaq(this)"><span>註冊結婚要提前多久預約？</span><span class="faq-arrow text-accent transition-transform duration-300">▼</span></button>
+                <div class="faq-answer text-sm" style="color: var(--color-ink-2);">擬結婚通知書需至少提前 15 天遞交，有效期 3 個月。建議提前 2–3 個月開始準備，特別是熱門日期。</div>
             </div>
             <div class="faq-item card p-4">
-                <button class="faq-toggle font-semibold text-gray-800 flex justify-between items-center" onclick="toggleFaq(this)"><span>證婚人可以是外國人嗎？</span><span class="faq-arrow text-rose-500 transition-transform duration-300">▼</span></button>
-                <div class="faq-answer text-gray-600 text-sm">可以。證婚人只需年滿 18 歲，能理解註冊儀式語言即可，沒有國籍限制。</div>
+                <button class="faq-toggle font-semibold flex justify-between items-center" style="color: var(--color-ink);" onclick="toggleFaq(this)"><span>證婚人可以是外國人嗎？</span><span class="faq-arrow text-accent transition-transform duration-300">▼</span></button>
+                <div class="faq-answer text-sm" style="color: var(--color-ink-2);">可以。證婚人只需年滿 18 歲，能理解註冊儀式語言即可，沒有國籍限制。</div>
             </div>
             <div class="faq-item card p-4">
-                <button class="faq-toggle font-semibold text-gray-800 flex justify-between items-center" onclick="toggleFaq(this)"><span>註冊結婚後多久可以拿到證書？</span><span class="faq-arrow text-rose-500 transition-transform duration-300">▼</span></button>
-                <div class="faq-answer text-gray-600 text-sm">註冊完成後即時獲發結婚證書。建議即日購買證書套保護，避免受潮或損壞。</div>
+                <button class="faq-toggle font-semibold flex justify-between items-center" style="color: var(--color-ink);" onclick="toggleFaq(this)"><span>註冊結婚後多久可以拿到證書？</span><span class="faq-arrow text-accent transition-transform duration-300">▼</span></button>
+                <div class="faq-answer text-sm" style="color: var(--color-ink-2);">註冊完成後即時獲發結婚證書。建議即日購買證書套保護，避免受潮或損壞。</div>
             </div>
         </div>
     </section>
 
     <section class="mt-12 text-center">
-        <h2 class="text-xl font-bold text-gray-800 mb-4">更多結婚證書相關文章</h2>
+        <h2 class="text-xl font-bold mb-4" style="color: var(--color-ink);">更多結婚證書相關文章</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <a href="hk-marriage-certificate-size-guide.html" class="blog-card card text-left block"><div class="text-rose-500 text-sm font-semibold mb-2">📏 尺寸指南</div><h3 class="font-bold text-gray-800">香港結婚證書尺寸完整指南</h3><p class="text-gray-600 text-sm">結婚證書到底多大？什麼尺寸的證書套最合適？</p></a>
-            <a href="best-certificate-cover-hk-2026.html" class="blog-card card text-left block"><div class="text-rose-500 text-sm font-semibold mb-2">🏆 推薦排行</div><h3 class="font-bold text-gray-800">結婚證書套推薦 2026</h3><p class="text-gray-600 text-sm">香港 5 大熱門品牌全面比較。</p></a>
-            <a href="how-to-preserve-marriage-certificate.html" class="blog-card card text-left block"><div class="text-rose-500 text-sm font-semibold mb-2">🛡️ 保存教學</div><h3 class="font-bold text-gray-800">結婚證書如何保存不發黃？</h3><p class="text-gray-600 text-sm">5 個實用方法，讓你的結婚證書歷久常新。</p></a>
-            <a href="hk-marriage-registry-guide.html" class="blog-card card text-left block"><div class="text-rose-500 text-sm font-semibold mb-2">📍 登記處指南</div><h3 class="font-bold text-gray-800">香港婚姻登記處地址+預約教學</h3><p class="text-gray-600 text-sm">全港婚姻登記處一覽。</p></a>
+            <a href="hk-marriage-certificate-size-guide.html" class="blog-card card text-left block"><div class="text-accent text-sm font-semibold mb-2">尺寸指南</div><h3 class="font-bold" style="color: var(--color-ink);">香港結婚證書尺寸完整指南</h3><p class="text-sm" style="color: var(--color-ink-2);">結婚證書到底多大？什麼尺寸的證書套最合適？</p></a>
+            <a href="best-certificate-cover-hk-2026.html" class="blog-card card text-left block"><div class="text-accent text-sm font-semibold mb-2">推薦排行</div><h3 class="font-bold" style="color: var(--color-ink);">結婚證書套推薦 2026</h3><p class="text-sm" style="color: var(--color-ink-2);">香港 5 大熱門品牌全面比較。</p></a>
+            <a href="how-to-preserve-marriage-certificate.html" class="blog-card card text-left block"><div class="text-accent text-sm font-semibold mb-2">保存教學</div><h3 class="font-bold" style="color: var(--color-ink);">結婚證書如何保存不發黃？</h3><p class="text-sm" style="color: var(--color-ink-2);">5 個實用方法，讓你的結婚證書歷久常新。</p></a>
+            <a href="hk-marriage-registry-guide.html" class="blog-card card text-left block"><div class="text-accent text-sm font-semibold mb-2">登記處指南</div><h3 class="font-bold" style="color: var(--color-ink);">香港婚姻登記處地址+預約教學</h3><p class="text-sm" style="color: var(--color-ink-2);">全港婚姻登記處一覽。</p></a>
         </div>
     </section>
 </main>
@@ -264,8 +248,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </footer>
 
 <script>
-    document.getElementById('mobile-menu-button').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });
-    document.querySelectorAll('#mobile-menu a').forEach(link => { link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden')); });
     function toggleFaq(btn) { const answer = btn.nextElementSibling; const arrow = btn.querySelector('.faq-arrow'); const isOpen = answer.classList.contains('open'); document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open')); document.querySelectorAll('.faq-arrow').forEach(a => a.style.transform = 'rotate(0deg)'); if (!isOpen) { answer.classList.add('open'); arrow.style.transform = 'rotate(180deg)'; } }
 </script>
 </body>

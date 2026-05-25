@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="tokens.css">
     <style>
         /* Hallmark · heic-converter · genre: editorial */
+        :root {
+          --color-error: #dc2626;
+          --color-success: #16a34a;
+        }
         body {
             font-family: var(--font-body);
             background-color: var(--color-paper);
@@ -240,61 +244,15 @@
 </head>
 <body>
 <!-- components/site-header.html -->
-<!-- Shared Site Header — copy entire file content into each page's <body> at top -->
-<header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm transition-all duration-300" data-brand="策略探索家">
-  <nav class="container mx-auto px-6 py-4">
-    <!-- Desktop Header Layout -->
-    <div class="hidden md:flex justify-between items-center" id="desktop-nav">
-      <!-- Left: Brand + Back Link -->
-      <div class="flex items-center gap-6">
-        <a href="INDEX_HREF" class="text-xl font-bold" id="desktop-brand">
-          <span id="brand-text">策略探索家</span>
-        </a>
-        <a href="INDEX_HREF" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors" id="back-link" style="display: none;">
-          ⬅️ 返回首頁
-        </a>
-      </div>
-
-      <!-- Center: Navigation Links -->
-      <div class="flex items-center gap-8" id="desktop-links"></div>
-
-      <!-- Right: CTA Button (optional) -->
-      <div id="desktop-cta" style="display: none;"></div>
-    </div>
-
-    <!-- Mobile Header -->
-    <div class="flex flex-col items-center md:hidden">
-      <div class="flex items-center gap-2 w-full justify-between mb-3">
-        <a href="INDEX_HREF" class="text-xl font-bold" id="mobile-brand">
-          <span id="mobile-brand-text">策略探索家</span>
-        </a>
-        <button id="mobile-menu-btn" class="text-gray-700 hover:text-indigo-600 focus:outline-none p-3 min-w-[44px] min-h-[44px] flex items-center justify-center touch-action-manipulation">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Menu (hidden by default) -->
-      <div id="mobile-menu" class="hidden w-full mt-3 pb-4 border-t border-gray-200">
-        <div class="flex flex-col space-y-3 pt-4" id="mobile-links"></div>
-      </div>
-    </div>
-  </nav>
+<!-- Shared Site Header — N5 Floating Pill style -->
+<header id="header" class="bg-[var(--color-paper-2)] border border-[var(--color-rule)] rounded-full px-6 py-3 mt-4 mx-auto max-w-2xl flex justify-between items-center">
+  <a href="INDEX_HREF" class="text-lg font-bold text-[var(--color-ink)]" id="desktop-brand">
+    <span id="brand-text">策略探索家</span>
+  </a>
+  <div class="flex items-center gap-4" id="desktop-links">
+    <a href="INDEX_HREF" class="text-sm text-[var(--color-ink-2)] hover:text-[var(--color-accent)] transition-colors">← 返回首頁</a>
+  </div>
 </header>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var btn = document.getElementById('mobile-menu-btn');
-  var menu = document.getElementById('mobile-menu');
-  if (btn && menu) {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      menu.classList.toggle('hidden');
-    });
-  }
-});
-</script>
 
     <div class="container">
         <div class="language-switcher">

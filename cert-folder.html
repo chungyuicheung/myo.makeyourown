@@ -241,11 +241,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="tokens.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <style>
+        :root {
+          --color-error: #dc2626;
+          --color-success: #16a34a;
+        }
+        .text-accent { color: var(--color-accent); }
+        .bg-accent { background-color: var(--color-accent); }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--color-paper);
@@ -258,13 +263,13 @@
             text-align: center;
         }
         .section-title {
-            color: #8B4513;
+            color: var(--color-ink);
             font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
         }
         .btn-primary {
-            background-color: #CD853F;
+            background-color: var(--color-accent);
             color: white;
             padding: 0.7rem 1.8rem;
             border-radius: 9999px;
@@ -273,7 +278,8 @@
             font-size: 0.95rem;
         }
         .btn-primary:hover {
-            background-color: #A0522D;
+            background-color: var(--color-accent);
+            opacity: 0.85;
         }
         /* 基本卡片樣式 - 適用於產品簡介和客製化 */
         .card {
@@ -287,32 +293,16 @@
             transform: translateY(-5px);
         }
         .feature-icon {
-            color: #CD853F;
+            color: var(--color-accent);
             font-size: 2.2rem;
             margin-bottom: 0.75rem;
         }
         .footer-link {
-            color: #8B4513;
-            transition: color 0.3s ease;
+            color: var(--color-ink);
+            transition: color var(--dur-short) var(--ease-out);
         }
         .footer-link:hover {
-            color: #CD853F;
-        }
-        @media (min-width: 768px) {
-            .hamburger-menu {
-                display: none;
-            }
-            .mobile-nav-links {
-                display: none;
-            }
-        }
-        @media (max-width: 767px) {
-             .desktop-nav-links {
-                display: none;
-            }
-             .mobile-nav-links {
-                display: block;
-             }
+color: var(--color-accent);
         }
 
         /* 顏色選擇卡片樣式基礎 */
@@ -339,7 +329,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            border: 1px solid #ccc;
+            border: 1px solid var(--color-rule);
             margin-bottom: 0.6rem;
         }
         /* 圖片容器，確保圖片高度一致 */
@@ -375,17 +365,11 @@
         .QTKDff {
             font-size: 1.25rem;
             font-weight: 600;
-            color: #333;
+            color: var(--color-ink);
         }
         .p46B7e {
         }
 
-        .fa-instagram {
-            color: #E1306C;
-        }
-        .fa-whatsapp {
-            color: #25D366;
-        }
         .contact-cta-item {
             display: flex;
             flex-direction: column;
@@ -399,7 +383,7 @@
             transition: all 0.3s ease-in-out;
             cursor: pointer;
             text-decoration: none;
-            color: #333;
+            color: var(--color-ink);
         }
         .contact-cta-item:hover {
             transform: translateY(-5px);
@@ -412,7 +396,7 @@
         .contact-cta-item .cta-text {
             font-size: 1rem;
             font-weight: 600;
-            color: #555;
+            color: var(--color-ink-2);
         }
         .contact-cta-item:hover .fa-instagram,
         .contact-cta-item:hover .fa-whatsapp {
@@ -421,10 +405,10 @@
 
         /* Swiper 客製化樣式 (僅適用於「選擇證書套設計樣式」) */
         .swiper-button-prev, .swiper-button-next {
-            color: #CD853F;
+            color: var(--color-accent);
         }
         .swiper-pagination-bullet-active {
-            background: #CD853F;
+            background: var(--color-accent);
         }
         
         /* 針對「選擇證書套設計樣式」卡片 (款式卡片) */
@@ -528,7 +512,7 @@
             position: absolute;
             top: 15px;
             right: 35px;
-            color: #f1f1f1;
+            color: var(--color-paper-2);
             font-size: 40px;
             font-weight: bold;
             transition: 0.3s;
@@ -537,7 +521,7 @@
 
         .close-button:hover,
         .close-button:focus {
-            color: #bbb;
+            color: var(--color-rule);
             text-decoration: none;
             cursor: pointer;
         }
@@ -811,32 +795,17 @@
     </style>
 </head>
 <body>
-    <nav class="bg-white p-4 shadow-md sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <a class="GAuSPc" aria-hidden="false" tabindex="0">
-                <img src="image/01_company_logo.png" class="lzy1Td" role="img" aria-label="網站首頁" jsname="SwcDWb">
-                <span class="QTKDff text-rose-500">My O!</span>專屬結婚證書套
-            </a>
+    <nav class="bg-[var(--color-paper-2)] border border-[var(--color-rule)] rounded-full px-6 py-3 mt-4 mx-auto max-w-3xl flex justify-between items-center">
+        <a class="GAuSPc" aria-hidden="false" tabindex="0">
+            <img src="image/01_company_logo.png" class="lzy1Td" role="img" aria-label="網站首頁" jsname="SwcDWb">
+            <span class="QTKDff text-accent">My O!</span>專屬結婚證書套
+        </a>
 
-            <div class="desktop-nav-links space-x-6">
-                <a href="index.html" class="text-gray-600 hover:text-rose-500 transition-colors font-medium">← 策略探索家</a>
-                <a href="#product-overview" class="text-gray-600 hover:text-rose-500 transition-colors">產品概覽</a>
-                <a href="#designs" class="text-gray-600 hover:text-rose-500 transition-colors">款式與設計</a>
-                <a href="#contact" class="text-gray-600 hover:text-rose-500 transition-colors">聯絡我們</a>
-            </div>
-
-            <button class="hamburger-menu md:hidden focus:outline-none" id="mobile-menu-button">
-                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-
-        <div class="mobile-nav-links hidden md:hidden bg-white py-2" id="mobile-menu">
-            <a href="index.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 font-medium">← 策略探索家</a>
-            <a href="#product-overview" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">產品概覽</a>
-            <a href="#designs" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">款式與設計</a>
-            <a href="#contact" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">聯絡我們</a>
+        <div class="desktop-nav-links flex items-center gap-6">
+            <a href="index.html" class="text-[var(--color-ink-2)] hover:text-[var(--color-accent)] transition-colors font-medium">← 策略探索家</a>
+            <a href="#product-overview" class="text-[var(--color-ink-2)] hover:text-[var(--color-accent)] transition-colors">產品概覽</a>
+            <a href="#designs" class="text-[var(--color-ink-2)] hover:text-[var(--color-accent)] transition-colors">款式與設計</a>
+            <a href="#contact" class="text-[var(--color-ink-2)] hover:text-[var(--color-accent)] transition-colors">聯絡我們</a>
         </div>
     </nav>
 
@@ -844,17 +813,21 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-center mb-6 md:mb-8"> <img src="image/01_company_logo.png" alt="My O! logo" class="w-28 md:w-36 h-auto"> </div>
 
-            <h1 class="text-4xl md:text-5xl font-bold text-rose-600 leading-tight mb-3 md:mb-4"> 珍藏您的愛情，<br>從一份證書套開始。💖
+            <h1 class="text-4xl md:text-5xl font-bold text-accent leading-tight mb-3 md:mb-4"> 珍藏您的愛情，<br>從一份證書套開始。💖
             </h1>
             <p class="text-lg text-gray-700 mb-5 md:mb-6 max-w-2xl mx-auto"> 您的結婚證書，承載著一生一世的誓言。我們為您打造設計師級結婚證書套，讓這份愛情的見證，永恆閃耀。
             </p>
             <a href="#contact" class="btn-primary text-md font-semibold inline-block mb-6 md:mb-8"> 立即聯絡我們
             </a>
-            <div class="text-center mt-3 md:mt-4"> <p class="text-md text-gray-700 font-semibold mb-1 md:mb-2">聯絡我們：</p> <p class="brand-name text-xl font-bold text-gray-800 mb-2 md:mb-3">myo.makeyourown</p> <div class="flex justify-center social-icons space-x-5 text-2xl md:text-3xl"> <a href="https://www.instagram.com/myo.makeyourown/" target="_blank" class="text-pink-600 hover:text-pink-700 transition-colors" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
+            <div class="text-center mt-3 md:mt-4"> <p class="text-md text-gray-700 font-semibold mb-1 md:mb-2">聯絡我們：</p> <p class="brand-name text-xl font-bold text-gray-800 mb-2 md:mb-3">myo.makeyourown</p> <div class="flex justify-center social-icons space-x-5 text-2xl md:text-3xl"> <a href="https://www.instagram.com/myo.makeyourown/" target="_blank" class="text-accent hover:opacity-80 transition-opacity" aria-label="Instagram">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
                     </a>
-                    <a href="https://api.whatsapp.com/send?phone=85263796410&text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E5%BE%9E%E4%BD%A0%E5%80%91%E7%B6%B2%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%E9%80%99%E5%80%8B%E7%94%A2%E5%93%81%EF%BC%81%E6%9C%89%E8%88%88%E8%B6%A3%E4%BA%86%E8%A7%A3%E6%9B%B4%E5%A4%9A%EF%BC%81" target="_blank" class="text-green-500 hover:text-green-600 transition-colors" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
+                    <a href="https://api.whatsapp.com/send?phone=85263796410&text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E5%BE%9E%E4%BD%A0%E5%80%91%E7%B6%B2%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%E9%80%99%E5%80%8B%E7%94%A2%E5%93%81%EF%BC%81%E6%9C%89%E8%88%88%E8%B6%A3%E4%BA%86%E8%A7%A3%E6%9B%B4%E5%A4%9A%EF%BC%81" target="_blank" class="text-accent hover:opacity-80 transition-opacity" aria-label="WhatsApp">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
                     </a>
                 </div>
             </div>
@@ -871,7 +844,7 @@
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4"> <div class="card select-option color-option-card" data-type="color" data-value="beige">
                         <div class="flex items-center flex-grow">
-                            <div class="color-circle bg-gray-200 border-gray-300" style="background-color: #f6dba6;"></div>
+                            <div class="color-circle bg-gray-200 border-gray-300" style="background-color: var(--color-paper-2);"></div>
                             <span class="text-md font-medium text-gray-800">米色 Beige ｜亞麻布 Linen Texture</span>
                         </div>
                         <div class="image-container">
@@ -880,7 +853,7 @@
                     </div>
                     <div class="card select-option color-option-card" data-type="color" data-value="blue">
                          <div class="flex items-center flex-grow">
-                            <div class="color-circle bg-blue-200 border-blue-300" style="background-color: #0a477e;"></div>
+                            <div class="color-circle bg-blue-200 border-blue-300" style="background-color: var(--color-accent);"></div>
                             <span class="text-md font-medium text-gray-800">藍色 Blue ｜磨砂珠光 Frosted Pearl</span>
                         </div>
                         <div class="image-container">
@@ -972,13 +945,13 @@
                             </div>
                         </li>
                         <li class="flex items-start">
-                            <span class="feature-icon mr-1 text-xl">🛡️</span>
+                            <span class="feature-icon mr-1 text-xl"></span>
                             <div>
                                 <strong class="font-semibold">穩妥保護：：</strong> 厚卡內襯、固定帶，防潮防塵。
                             </div>
                         </li>
                         <li class="flex items-start">
-                            <span class="feature-icon mr-1 text-xl">🎨</span>
+                            <span class="feature-icon mr-1 text-xl" aria-hidden="true"></span>
                             <div>
                                 <strong class="font-semibold">精緻印刷：：</strong> 熱轉印（燙印）工藝，呈現燙金/銀質感。
                             </div>
@@ -1042,7 +1015,7 @@
                 <div class="faq-item card p-4">
                     <button class="faq-toggle w-full text-left font-semibold text-gray-800 flex justify-between items-center" onclick="toggleFaq(this)">
                         <span>結婚證書套適合什麼尺寸？</span>
-                        <span class="faq-arrow text-rose-500 transition-transform duration-300">▼</span>
+                        <span class="faq-arrow text-accent transition-transform duration-300">▼</span>
                     </button>
                     <div class="faq-answer text-gray-600 text-sm">
                         My O! 證書套適用於香港婚姻登記處發出的標準 A4 尺寸結婚證書（約 30.7cm 高 × 22.6cm 闊），完美貼合所有香港結婚證書。
@@ -1051,7 +1024,7 @@
                 <div class="faq-item card p-4">
                     <button class="faq-toggle w-full text-left font-semibold text-gray-800 flex justify-between items-center" onclick="toggleFaq(this)">
                         <span>可以客製化名字和日期嗎？</span>
-                        <span class="faq-arrow text-rose-500 transition-transform duration-300">▼</span>
+                        <span class="faq-arrow text-accent transition-transform duration-300">▼</span>
                     </button>
                     <div class="faq-answer text-gray-600 text-sm">
                         可以！我們提供燙金名字和結婚日期客製化服務，支援中英文字。訂購時透過 WhatsApp 或 Instagram 提供所需文字即可。
@@ -1060,7 +1033,7 @@
                 <div class="faq-item card p-4">
                     <button class="faq-toggle w-full text-left font-semibold text-gray-800 flex justify-between items-center" onclick="toggleFaq(this)">
                         <span>訂購後多久可以收到？</span>
-                        <span class="faq-arrow text-rose-500 transition-transform duration-300">▼</span>
+                        <span class="faq-arrow text-accent transition-transform duration-300">▼</span>
                     </button>
                     <div class="faq-answer text-gray-600 text-sm">
                         一般訂單於確認後 5–7 個工作天內完成製作。可選擇順豐到付或面交。急單請提前聯絡我們協商。
@@ -1069,7 +1042,7 @@
                 <div class="faq-item card p-4">
                     <button class="faq-toggle w-full text-left font-semibold text-gray-800 flex justify-between items-center" onclick="toggleFaq(this)">
                         <span>證書套是什麼材質？</span>
-                        <span class="faq-arrow text-rose-500 transition-transform duration-300">▼</span>
+                        <span class="faq-arrow text-accent transition-transform duration-300">▼</span>
                     </button>
                     <div class="faq-answer text-gray-600 text-sm">
                         提供兩種材質選擇：米色亞麻布紋（Linen Texture）和藍色磨砂珠光（Frosted Pearl）。內襯為厚卡紙，有效防潮防塵，保護證書。
@@ -1078,7 +1051,7 @@
                 <div class="faq-item card p-4">
                     <button class="faq-toggle w-full text-left font-semibold text-gray-800 flex justify-between items-center" onclick="toggleFaq(this)">
                         <span>適合作為結婚禮物嗎？</span>
-                        <span class="faq-arrow text-rose-500 transition-transform duration-300">▼</span>
+                        <span class="faq-arrow text-accent transition-transform duration-300">▼</span>
                     </button>
                     <div class="faq-answer text-gray-600 text-sm">
                         非常適合！My O! 證書套是熱門結婚禮物選擇。我們提供精美禮盒包裝選項，送禮體面又實用。
@@ -1087,7 +1060,7 @@
                 <div class="faq-item card p-4">
                     <button class="faq-toggle w-full text-left font-semibold text-gray-800 flex justify-between items-center" onclick="toggleFaq(this)">
                         <span>如何訂購？</span>
-                        <span class="faq-arrow text-rose-500 transition-transform duration-300">▼</span>
+                        <span class="faq-arrow text-accent transition-transform duration-300">▼</span>
                     </button>
                     <div class="faq-answer text-gray-600 text-sm">
                         透過 Instagram (@myo.makeyourown) 或 WhatsApp (+852 6379 6410) 聯絡我們，選擇款式、顏色和客製化文字，確認訂單後付款即可。
@@ -1104,22 +1077,22 @@
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
                 <a href="blog/hk-marriage-certificate-size-guide.html" class="blog-card card text-left block">
-                    <div class="text-rose-500 text-sm font-semibold mb-2">📏 尺寸指南</div>
+                    <div class="text-accent text-sm font-semibold mb-2">尺寸指南</div>
                     <h3 class="font-bold text-gray-800 mb-2">香港結婚證書尺寸完整指南</h3>
                     <p class="text-gray-600 text-sm">結婚證書到底多大？什麼尺寸的證書套最合適？一文解答所有尺寸疑問。</p>
-                    <span class="text-rose-500 text-sm font-semibold mt-3 inline-block">閱讀更多 →</span>
+                    <span class="text-accent text-sm font-semibold mt-3 inline-block">閱讀更多 →</span>
                 </a>
                 <a href="blog/best-certificate-cover-hk-2026.html" class="blog-card card text-left block">
-                    <div class="text-rose-500 text-sm font-semibold mb-2">🏆 推薦排行</div>
+                    <div class="text-accent text-sm font-semibold mb-2">推薦排行</div>
                     <h3 class="font-bold text-gray-800 mb-2">結婚證書套推薦 2026</h3>
                     <p class="text-gray-600 text-sm">精選香港最受歡迎的結婚證書套品牌，從材質、設計到價格全面比較。</p>
-                    <span class="text-rose-500 text-sm font-semibold mt-3 inline-block">閱讀更多 →</span>
+                    <span class="text-accent text-sm font-semibold mt-3 inline-block">閱讀更多 →</span>
                 </a>
                 <a href="blog/hk-marriage-registration-checklist.html" class="blog-card card text-left block">
-                    <div class="text-rose-500 text-sm font-semibold mb-2">📋 註冊攻略</div>
+                    <div class="text-accent text-sm font-semibold mb-2">📋 註冊攻略</div>
                     <h3 class="font-bold text-gray-800 mb-2">註冊結婚要帶什麼？完整清單</h3>
                     <p class="text-gray-600 text-sm">香港註冊結婚全流程：所需文件、預約步驟、注意事項，一次搞定。</p>
-                    <span class="text-rose-500 text-sm font-semibold mt-3 inline-block">閱讀更多 →</span>
+                    <span class="text-accent text-sm font-semibold mt-3 inline-block">閱讀更多 →</span>
                 </a>
             </div>
         </div>
@@ -1133,10 +1106,14 @@
                     立即透過以下方式聯絡我們！✨
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4"> <a href="https://www.instagram.com/myo.makeyourown/" target="_blank" class="contact-cta-item">
-                        <i class="fab fa-instagram icon-large text-3xl md:text-4xl"></i> <span class="cta-text text-base md:text-base">透過 Instagram 訊息我們</span>
+                        <svg class="icon-large w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg> <span class="cta-text text-base md:text-base">透過 Instagram 訊息我們</span>
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=85263796410&text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E5%BE%9E%E4%BD%A0%E5%80%91%E7%B6%B2%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%E9%80%99%E5%80%8B%E7%94%A2%E5%93%81%EF%BC%81%E6%9C%89%E8%88%88%E8%B6%A3%E4%BA%86%E8%A7%A3%E6%9B%B4%E5%A4%9A%EF%BC%81" target="_blank" class="contact-cta-item">
-                        <i class="fab fa-whatsapp icon-large text-3xl md:text-4xl"></i> <span class="cta-text text-base md:text-base">透過 WhatsApp 聯絡我們</span>
+                        <svg class="icon-large w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg> <span class="cta-text text-base md:text-base">透過 WhatsApp 聯絡我們</span>
                     </a>
                 </div>
             </div>
@@ -1158,23 +1135,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // 1. 手機選單開關功能 (Mobile Menu Toggle)
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', function () {
-                    mobileMenu.classList.toggle('hidden');
-                });
-
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                    });
-                });
-            }
-
-            // 2. 選擇項目功能 (用於顏色和樣式選項卡片)
+            // 選擇項目功能 (用於顏色和樣式選項卡片)
             const selectOptions = document.querySelectorAll('.select-option');
             const selectedColorInput = document.getElementById('selected-color-input');
             const selectedStyleInput = document.getElementById('selected-style-input');

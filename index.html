@@ -64,16 +64,6 @@
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
         }
-        /* Scroll Reveal Animation */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .reveal-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
         /* Card hover effect */
         .card-link {
              transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -107,57 +97,100 @@
 
 <body class="antialiased">
 
-<!-- Shared Header Component -->
-<header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm transition-all duration-300" data-brand="策略探索家">
+<!-- Hallmark · N5 Floating pill nav -->
+<header id="header" class="sticky top-0 z-50 transition-all duration-300" style="background-color: var(--color-paper, #FAF9F6); box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
   <nav class="container mx-auto px-6 py-4">
-    <!-- Desktop Header Layout -->
-    <div class="hidden md:flex justify-between items-center" id="desktop-nav">
-      <!-- Left: Brand + Back Link (if enabled) -->
-      <div class="flex items-center gap-6">
-        <a href="index.html" class="text-xl font-bold" id="desktop-brand">
-          <span id="brand-text">策略探索家</span>
-        </a>
-        <a href="/index.html" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors" id="back-link" style="display: none;">
-          ⬅️ 主頁
-        </a>
-      </div>
+    <!-- Desktop: brand left, links as pill buttons -->
+    <div class="hidden md:flex justify-between items-center">
+      <a href="index.html" class="text-xl font-bold" style="font-family: Georgia, serif; color: var(--color-ink, #333);">
+        策略探索家
+      </a>
 
-      <!-- Center: Navigation Links -->
-      <div class="flex items-center gap-8" id="desktop-links">
-        <!-- Links injected by JS -->
-      </div>
-
-      <!-- Right: CTA Button (optional) -->
-      <div id="desktop-cta" style="display: none;">
-        <!-- CTA injected by JS -->
+      <div class="flex items-center gap-2">
+        <!-- 旅程 dropdown -->
+        <div class="relative group">
+          <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">
+            旅程 <span class="text-xs">▼</span>
+          </button>
+          <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
+            <a href="trip/okinawa-trip.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩七天</a>
+            <a href="trip/okinawa-food-craft-5days.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩美食手作</a>
+            <a href="trip/okinawa-presentation.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩簡報</a>
+            <a href="trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">香港行山</a>
+          </div>
+        </div>
+        <!-- 文章 dropdown -->
+        <div class="relative group">
+          <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">
+            文章 <span class="text-xs">▼</span>
+          </button>
+          <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
+            <a href="blog/best-wedding-gifts-hk.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮禮物</a>
+            <a href="blog/hk-marriage-certificate-size-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">結婚證書尺寸</a>
+            <a href="blog/hk-marriage-registry-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">註冊攻略</a>
+            <a href="blog/how-to-preserve-marriage-certificate.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">Preservation指南</a>
+            <a href="blog/hk-marriage-registration-checklist.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮檢查表</a>
+          </div>
+        </div>
+        <!-- 影視 flat link -->
+        <a href="tv.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">影視</a>
+        <!-- 美食 flat link -->
+        <a href="food.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">美食</a>
+        <!-- 首頁 CTA -->
+        <a href="index.html" class="text-sm px-4 py-1.5 rounded-full transition-opacity" style="background-color: var(--color-accent, #c75a3a); color: #fff;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">首頁</a>
       </div>
     </div>
 
-    <!-- Mobile Header -->
+    <!-- Mobile: hamburger with slide-down menu and expandable dropdowns -->
     <div class="flex flex-col items-center md:hidden">
-      <!-- Mobile Brand -->
-      <div class="flex items-center gap-2 w-full justify-between mb-3">
-        <a href="index.html" class="text-xl font-bold" id="mobile-brand">
-          <span id="mobile-brand-text">策略探索家</span>
-        </a>
-        <button id="mobile-menu-btn" class="text-gray-700 hover:text-indigo-600 focus:outline-none p-3 min-w-[44px] min-h-[44px] flex items-center justify-center touch-action-manipulation">
+      <div class="flex items-center justify-between w-full mb-3">
+        <a href="index.html" class="text-xl font-bold" style="font-family: Georgia, serif; color: var(--color-ink, #333);">策略探索家</a>
+        <button id="mobile-menu-btn" class="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" style="color: var(--color-ink, #333);">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
       </div>
-
-      <!-- Mobile Menu (hidden by default) -->
-      <div id="mobile-menu" class="hidden w-full mt-3 pb-4 border-t border-gray-200">
-        <div class="flex flex-col space-y-3 pt-4" id="mobile-links">
-          <!-- Mobile links injected by JS -->
+      <div id="mobile-menu" class="hidden w-full border-t py-4" style="border-color: var(--color-rule, #e5e5e0);">
+        <div class="flex flex-col gap-1">
+          <!-- 旅程 expandable dropdown -->
+          <div class="mobile-dropdown">
+            <button class="mobile-dropdown-toggle w-full text-left px-4 py-2 rounded-lg flex items-center justify-between" style="color: var(--color-ink, #333);">
+              <span>旅程</span>
+              <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="mobile-dropdown-content hidden pl-4 flex flex-col gap-1 border-l-2" style="border-color: var(--color-rule, #e5e5e0);">
+              <a href="trip/okinawa-trip.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">沖繩七天</a>
+              <a href="trip/okinawa-food-craft-5days.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">沖繩美食手作</a>
+              <a href="trip/okinawa-presentation.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">沖繩簡報</a>
+              <a href="trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">香港行山</a>
+            </div>
+          </div>
+          <!-- 文章 expandable dropdown -->
+          <div class="mobile-dropdown">
+            <button class="mobile-dropdown-toggle w-full text-left px-4 py-2 rounded-lg flex items-center justify-between" style="color: var(--color-ink, #333);">
+              <span>文章</span>
+              <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="mobile-dropdown-content hidden pl-4 flex flex-col gap-1 border-l-2" style="border-color: var(--color-rule, #e5e5e0);">
+              <a href="blog/best-wedding-gifts-hk.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">婚禮禮物</a>
+              <a href="blog/hk-marriage-certificate-size-guide.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">結婚證書尺寸</a>
+              <a href="blog/hk-marriage-registry-guide.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">註冊攻略</a>
+              <a href="blog/how-to-preserve-marriage-certificate.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">Preservation指南</a>
+              <a href="blog/hk-marriage-registration-checklist.html" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">婚禮檢查表</a>
+            </div>
+          </div>
+          <!-- 影視 flat link -->
+          <a href="tv.html" class="px-4 py-2 rounded-lg" style="color: var(--color-ink, #333);">影視</a>
+          <!-- 美食 flat link -->
+          <a href="food.html" class="px-4 py-2 rounded-lg" style="color: var(--color-ink, #333);">美食</a>
+          <!-- 首頁 CTA -->
+          <a href="index.html" class="px-4 py-2 mt-2 text-center rounded-lg" style="background-color: var(--color-accent, #c75a3a); color: #fff;">返回首頁</a>
         </div>
       </div>
     </div>
   </nav>
 </header>
-
-<script src="assets/js/navigation.js"></script>
 
 <script>
 (() => {
@@ -169,34 +202,34 @@
       backLink: false,
       cta: null,
       items: [
-        { name: '旅程', emoji: '✈️', href: 'trip.html', children: [
-            { name: '沖繩七天', emoji: '🏝️', href: 'trip/okinawa-trip.html' },
-            { name: '沖繩美食手作', emoji: '🍜', href: 'trip/okinawa-food-craft-5days.html' },
-            { name: '沖繩簡報', emoji: '📽️', href: 'trip/okinawa-presentation.html' },
-            { name: '香港行山', emoji: '🌋', href: 'trip/hongkong/2025-07-09-red-incense-burner-peak.html' }
+        { name: '旅程', href: 'trip.html', children: [
+            { name: '沖繩七天', href: 'trip/okinawa-trip.html' },
+            { name: '沖繩美食手作', href: 'trip/okinawa-food-craft-5days.html' },
+            { name: '沖繩簡報', href: 'trip/okinawa-presentation.html' },
+            { name: '香港行山', href: 'trip/hongkong/2025-07-09-red-incense-burner-peak.html' }
         ] },
-        { name: '文章', emoji: '📝', href: 'blog/best-wedding-gifts-hk.html', children: [
-            { name: '婚禮禮物', emoji: '🎁', href: 'blog/best-wedding-gifts-hk.html' },
-            { name: '結婚證書尺寸', emoji: '📜', href: 'blog/hk-marriage-certificate-size-guide.html' },
-            { name: '註冊攻略', emoji: '📋', href: 'blog/hk-marriage-registry-guide.html' },
-            { name: ' preservation指南', emoji: '🗂️', href: 'blog/how-to-preserve-marriage-certificate.html' },
-            { name: '婚禮檢查表', emoji: '✅', href: 'blog/hk-marriage-registration-checklist.html' }
+        { name: '文章', href: 'blog/best-wedding-gifts-hk.html', children: [
+            { name: '婚禮禮物', href: 'blog/best-wedding-gifts-hk.html' },
+            { name: '結婚證書尺寸', href: 'blog/hk-marriage-certificate-size-guide.html' },
+            { name: '註冊攻略', href: 'blog/hk-marriage-registry-guide.html' },
+            { name: 'Preservation指南', href: 'blog/how-to-preserve-marriage-certificate.html' },
+            { name: '婚禮檢查表', href: 'blog/hk-marriage-registration-checklist.html' }
         ] },
-        { name: '影視', emoji: '📺', href: 'tv.html' },
-        { name: '美食', emoji: '🍽️', href: 'food.html' },
-        { name: '首頁', emoji: '🏠', href: 'index.html' }
+        { name: '影視', href: 'tv.html' },
+        { name: '美食', href: 'food.html' },
+        { name: '首頁', href: 'index.html' }
       ]
     },
     'make your own tv': {
       brand: 'make your own tv',
       theme: 'dark',
-      backLink: { text: '⬅️ 主頁', href: '/index.html' },
+      backLink: { text: '主頁', href: '/index.html' },
       cta: { text: '開始使用', href: '#demo', class: 'bg-indigo-600 text-white', mobileHighlight: true },
       items: [
-        { name: '核心功能', emoji: '⚡', href: '#features', anchor: true },
-        { name: '精選推薦', emoji: '✨', href: '#showcase', anchor: true },
-        { name: '立即體驗', emoji: '🚀', href: '#demo', anchor: true },
-        { name: '關於我們', emoji: 'ℹ️', href: '#contact', anchor: true }
+        { name: '核心功能', href: '#features', anchor: true },
+        { name: '精選推薦', href: '#showcase', anchor: true },
+        { name: '立即體驗', href: '#demo', anchor: true },
+        { name: '關於我們', href: '#contact', anchor: true }
       ]
     }
   };
@@ -264,7 +297,7 @@
         }
       }
 
-      const emoji = item.emoji ? `<span class="mr-1">${item.emoji}</span>` : '';
+const emoji = '';
 
       // Handle dropdown items
       if (item.children) {
@@ -274,7 +307,7 @@
         for (const child of item.children) {
           const childActive = child.href.endsWith(currentPage) || child.href.endsWith(currentPage + '/');
           const childCls = childActive ? 'block px-4 py-2 text-sm bg-indigo-50 text-indigo-700' : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600';
-          const childEmoji = child.emoji ? `<span class="mr-1">${child.emoji}</span>` : '';
+const childEmoji = '';
           dropdownHtml += `<a href="${child.href}" class="${childCls}">${childEmoji}${child.name}</a>`;
         }
         dropdownHtml += `</div></div>`;
@@ -381,6 +414,19 @@
         menu.classList.toggle('hidden');
       });
     }
+
+    // Mobile dropdown toggles
+    document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const content = toggle.nextElementSibling;
+        const arrow = toggle.querySelector('svg');
+        content.classList.toggle('hidden');
+        if (arrow) {
+          arrow.style.transform = content.classList.contains('hidden') ? '' : 'rotate(180deg)';
+        }
+      });
+    });
   }
 
   // Initialize on DOM load
@@ -392,262 +438,63 @@
 </script>
 
 <script>
-// Extended navigation configuration
-const NAVIGATION_CONFIG = {
-  '策略探索家': {
-    brand: '策略探索家',
-    theme: 'light',
-    backLink: false,
-    cta: null,
-    items: [
-      {
-        name: '旅程',
-        emoji: '✈️',
-        href: 'trip.html',
-        children: [
-          { name: '沖繩七天', emoji: '🏝️', href: 'trip/okinawa-trip.html' },
-          { name: '沖繩美食手作', emoji: '🍜', href: 'trip/okinawa-food-craft-5days.html' },
-          { name: '沖繩簡報', emoji: '📽️', href: 'trip/okinawa-presentation.html' },
-          { name: '香港行山', emoji: '🌋', href: 'trip/hongkong/2025-07-09-red-incense-burner-peak.html' }
-        ]
-      },
-      {
-        name: '文章',
-        emoji: '📝',
-        href: 'blog/best-wedding-gifts-hk.html',
-        children: [
-          { name: '婚禮禮物', emoji: '🎁', href: 'blog/best-wedding-gifts-hk.html' },
-          { name: '結婚證書尺寸', emoji: '📜', href: 'blog/hk-marriage-certificate-size-guide.html' },
-          { name: '註冊攻略', emoji: '📋', href: 'blog/hk-marriage-registry-guide.html' },
-          { name: ' preservation指南', emoji: '🗂️', href: 'blog/how-to-preserve-marriage-certificate.html' },
-          { name: '婚禮檢查表', emoji: '✅', href: 'blog/hk-marriage-registration-checklist.html' }
-        ]
-      },
-      { name: '影視', emoji: '📺', href: 'tv.html' },
-      { name: '美食', emoji: '🍽️', href: 'food.html' },
-      { name: '首頁', emoji: '🏠', href: 'index.html' }
-    ]
-  },
-  'make your own tv': {
-    brand: 'make your own tv',
-    theme: 'dark',
-    backLink: { text: '⬅️ 主頁', href: '/index.html' },
-    cta: { text: '開始使用', href: '#demo', class: 'bg-indigo-600 text-white', mobileHighlight: true },
-    items: [
-      { name: '核心功能', emoji: '⚡', href: '#features', anchor: true },
-      { name: '精選推薦', emoji: '✨', href: '#showcase', anchor: true },
-      { name: '立即體驗', emoji: '🚀', href: '#demo', anchor: true },
-      { name: '關於我們', emoji: 'ℹ️', href: '#contact', anchor: true }
-    ]
-  }
-};
-
-// Detect current brand from page title
-function detectBrand() {
-  const title = document.title;
-  if (title.includes('make your own tv')) {
-    return 'make your own tv';
-  }
-  return '策略探索家';
-}
-
-// Get current page filename (for non-anchor links)
-function getCurrentPage() {
-  const path = window.location.pathname;
-  const filename = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
-  return filename;
-}
-
-// Apply theme styles
-function applyTheme(config) {
-  const header = document.getElementById('header');
-  const brandElements = document.querySelectorAll('#brand-text, #desktop-brand, #mobile-brand, #mobile-brand-text');
-  
-  if (config.theme === 'dark') {
-    header.className = header.className.replace(/bg-\w+\/80/, 'bg-gray-900/80');
-    header.classList.add('shadow-indigo-500/10');
-    // Update text colors for dark theme
-    brandElements.forEach(el => {
-      if (el) el.className = 'text-indigo-400';
-    });
-  } else {
-    header.className = header.className.replace(/bg-\w+\/80/, 'bg-white/80');
-    header.classList.remove('shadow-indigo-500/10');
-    brandElements.forEach(el => {
-      if (el) el.className = 'text-indigo-700';
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', function() {
+      menu.classList.toggle('hidden');
     });
   }
-}
-
-// Generate desktop navigation links
-function renderDesktopLinks(items, currentPage) {
-  const container = document.getElementById('desktop-links');
-  if (!container) return;
-
-  container.innerHTML = items.map(item => {
-    const isAnchor = item.anchor;
-    const isActive = !isAnchor && (item.href.endsWith(currentPage) || item.href.endsWith(currentPage + '/'));
-    let classes = 'text-sm transition-colors px-3 py-1.5 rounded-full';
-
-    if (isAnchor) {
-      classes += ' text-gray-300 hover:text-indigo-400';
-    } else {
-      classes += isActive
-        ? 'bg-indigo-100/80 text-indigo-800'
-        : 'text-gray-700 hover:text-indigo-600 bg-gray-100/80';
-    }
-
-    // Adjust colors for tv dark theme
-    if (document.documentElement.getAttribute('data-brand') === 'make your own tv' && !isActive) {
-      classes = classes.replace(/text-gray-\d+/, 'text-gray-300').replace(/bg-gray-\d+\/80/, 'bg-gray-800/80');
-      if (isActive) {
-        classes = 'bg-indigo-900/80 text-indigo-200';
-      }
-    }
-
-    const emoji = item.emoji ? `<span class="mr-1">${item.emoji}</span>` : '';
-
-    // Handle dropdown items
-    if (item.children) {
-      let dropdownHtml = `<div class="relative group">`;
-      dropdownHtml += `<a href="${item.href}" class="${classes} cursor-pointer">${emoji}${item.name} <span class="text-xs ml-1">▼</span></a>`;
-      dropdownHtml += `<div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[160px] hidden group-hover:block z-50">`;
-      for (const child of item.children) {
-        const childActive = child.href.endsWith(currentPage) || child.href.endsWith(currentPage + '/');
-        const childCls = childActive ? 'block px-4 py-2 text-sm bg-indigo-50 text-indigo-700' : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600';
-        const childEmoji = child.emoji ? `<span class="mr-1">${child.emoji}</span>` : '';
-        dropdownHtml += `<a href="${child.href}" class="${childCls}">${childEmoji}${child.name}</a>`;
-      }
-      dropdownHtml += `</div></div>`;
-      return dropdownHtml;
-    }
-
-    return `<a href="${item.href}" class="${classes}">${emoji}${item.name}</a>`;
-  }).join('');
-}
-
-// Generate mobile navigation links
-function renderMobileLinks(items, currentPage) {
-  const container = document.querySelector('#mobile-menu #mobile-links');
-  if (!container) return;
-  
-  container.innerHTML = items.map(item => {
-    const isAnchor = item.anchor;
-    const isActive = !isAnchor && (item.href.endsWith(currentPage) || item.href.endsWith(currentPage + '/'));
-    let classes = 'text-base py-2 border-b border-gray-100 last:border-0';
-    
-    if (isAnchor) {
-      classes += ' text-gray-300 hover:text-indigo-400';
-    } else {
-      classes += isActive 
-        ? 'text-indigo-600 font-semibold' 
-        : 'text-gray-700 hover:text-indigo-600';
-    }
-    
-    // For tv dark theme
-    if (document.documentElement.getAttribute('data-brand') === 'make your own tv') {
-      classes = classes.replace(/text-gray-\d+/g, 'text-gray-300').replace(/bg-gray-\d+/g, 'bg-gray-800');
-      if (isActive) classes = 'text-indigo-300 font-semibold';
-    }
-    
-    const emoji = item.emoji ? `${item.emoji} ` : '';
-    let html = `<a href="${item.href}" class="${classes}">${emoji}${item.name}</a>`;
-    
-    // Add children if present
-    if (item.children && item.children.length > 0) {
-      html += item.children.map(child => {
-        const childActive = child.href.endsWith(currentPage) || child.href.endsWith(currentPage + '/');
-        const childEmoji = child.emoji ? `${child.emoji} ` : '';
-        const childCls = childActive 
-          ? 'text-sm py-1.5 pl-8 text-indigo-600 font-medium block border-b border-gray-50 last:border-0'
-          : 'text-sm py-1.5 pl-8 text-gray-600 hover:text-indigo-600 block border-b border-gray-50 last:border-0';
-        return `<a href="${child.href}" class="${childCls}">${childEmoji}${child.name}</a>`;
-      }).join('');
-    }
-    
-    return html;
-  }).join('');
-}
-
-// Render CTA button
-function renderCTA(ctaConfig) {
-  const container = document.getElementById('desktop-cta');
-  if (!container || !ctaConfig) return;
-  
-  container.innerHTML = `<a href="${ctaConfig.href}" class="${ctaConfig.class} font-semibold px-5 py-2 rounded-lg cta-btn">${ctaConfig.text}</a>`;
-  container.style.display = 'block';
-}
-
-// Render back link
-function renderBackLink(backConfig) {
-  const backLink = document.getElementById('back-link');
-  if (!backLink || !backConfig) return;
-  
-  backLink.href = backConfig.href;
-  backLink.textContent = backConfig.text;
-  backLink.style.display = 'inline-block';
-}
-
-// Main initialization
-function initHeader() {
-  const brand = detectBrand();
-  const config = NAVIGATION_CONFIG[brand] || NAVIGATION_CONFIG['策略探索家'];
-  const currentPage = getCurrentPage();
-  
-  // Set brand attribute
-  document.documentElement.setAttribute('data-brand', brand);
-  
-  // Apply theme (light/dark)
-  applyTheme(config);
-  
-  // Update brand texts
-  document.getElementById('brand-text')?.setAttribute('data-original', config.brand);
-  
-  // Render desktop links
-  renderDesktopLinks(config.items, currentPage);
-  
-  // Render mobile links
-  renderMobileLinks(config.items, currentPage);
-  
-  // Render optional elements
-  renderBackLink(config.backLink);
-  renderCTA(config.cta);
-}
-
-// Mobile menu toggle - REMOVED DUPLICATE (first script block handles this)
-
-// Initialize on DOM load
-document.addEventListener('DOMContentLoaded', () => {
-  initHeader();
-  // setupMobileMenu() removed - already registered by first script block
 });
 </script>
 
-
-
     <main>
-        <section 
-            class="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-cover bg-no-repeat bg-left-center md:bg-center reveal-on-scroll" 
-            style="background-image: url('image/hero_hiking_tech3.png');">
-            <div class="absolute inset-0 bg-black/40"></div>
-            <div class="relative container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight text-shadow">
-                    別讓人生卡關，用<span class="text-cyan-300">產品思維</span>破局
-                </h1>
-                <p class="mt-4 text-lg md:text-xl text-gray-100 max-w-3xl mx-auto text-shadow">
-                    我不是什麼大師，只是一個熱愛解決問題的產品經理。我相信，那些用來打造好產品的思維，也能用來打造一個更好的自己。
-                </p>
-            </div>
+        <!-- Hallmark · macrostructure: Marquee Hero · genre: editorial -->
+        <section class="min-h-[85vh] flex flex-col justify-center px-6 md:px-12 lg:px-20 relative overflow-hidden"
+                 style="background-color: var(--color-paper);">
+  
+          <!-- Typographic statement — left-biased, no centered alignment -->
+          <div class="max-w-3xl relative z-10">
+            <p class="text-sm tracking-wide mb-4"
+               style="font-family: var(--font-body); color: var(--color-ink-2);">
+              產品經理的系統化思維
+            </p>
+            <h1 class="font-bold leading-[1.1] mb-6"
+                style="font-family: var(--font-display); font-size: var(--text-display); color: var(--color-ink);">
+              把人生當產品打造<br>為自己規劃路線圖
+            </h1>
+            <p class="text-lg max-w-xl leading-relaxed"
+               style="color: var(--color-ink-2);">
+              旅行、科技、投資 — 那些用來打造好產品的思維，也能用來打造更好的自己。
+            </p>
+            <a href="trip.html" 
+               class="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-[var(--radius-pill)] font-medium transition-opacity"
+               style="background-color: var(--color-accent); color: var(--color-accent-ink);"
+               onmouseover="this.style.opacity='0.9'"
+               onmouseout="this.style.opacity='1'">
+              開始探索旅程
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Decorative element — typography only, no AI blobs, no gradients -->
+          <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none select-none"
+               style="font-size: clamp(15rem, 30vw, 25rem); font-family: var(--font-display); font-weight: 700; color: var(--color-ink);">
+            策
+          </div>
         </section>
         <div class="container mx-auto px-6 py-12 md:py-16">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-16 reveal-on-scroll">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-16">
                 <div class="marquee-content py-3 text-gray-600 font-medium">
-                    <span class="mx-6">🚀 人生也需要產品路線圖</span> • <span class="mx-6">✈️ 像做專案一樣去旅行</span> • <span class="mx-6">📈 把公司當產品來研究</span> • <span class="mx-6">🤖 AI 是你的超強實習生</span> • <span class="mx-6">⚙️ 下載即用的 Notion 模板</span>
-                    <span class="mx-6">🚀 人生也需要產品路線圖</span> • <span class="mx-6">✈️ 像做專案一樣去旅行</span> • <span class="mx-6">📈 把公司當產品來研究</span> • <span class="mx-6">🤖 AI 是你的超強實習生</span> • <span class="mx-6">⚙️ 下載即用的 Notion 模板</span>
+                    <span class="mx-6">人生也需要產品路線圖</span> • <span class="mx-6">像做專案一樣去旅行</span> • <span class="mx-6">把公司當產品來研究</span> • <span class="mx-6">AI 是你的超強實習生</span> • <span class="mx-6">下載即用的 Notion 模板</span>
+                    <span class="mx-6">人生也需要產品路線圖</span> • <span class="mx-6">像做專案一樣去旅行</span> • <span class="mx-6">把公司當產品來研究</span> • <span class="mx-6">AI 是你的超強實習生</span> • <span class="mx-6">下載即用的 Notion 模板</span>
                 </div>
             </div>
 
-            <section id="about" class="mb-16 reveal-on-scroll">
+            <section id="about" class="mb-16">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-gray-800">你是不是也這樣覺得...？</h2>
                     <p class="mt-2 text-gray-600">如果底下的心聲說中了你，那這裡就是你的同溫層。</p>
@@ -671,13 +518,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <a href="#" class="card-link md:col-span-2 lg:col-span-1 bg-indigo-600 text-white p-8 rounded-xl flex flex-col items-center justify-center text-center reveal-on-scroll">
+                    <a href="#" class="card-link md:col-span-2 lg:col-span-1 bg-indigo-600 text-white p-8 rounded-xl flex flex-col items-center justify-center text-center">
                         <img src="https://www.svgrepo.com/show/493723/rocket.svg" alt="Rocket Icon" class="h-16 w-16 mb-4">
                         <h3 class="text-2xl font-bold">產品 x AI 雙引擎</h3>
                         <p class="mt-2 opacity-80">把 AI 當成你的超強實習生，用產品思維駕馭它。</p>
                     </a>
 
-                    <a href="#" class="card-link md:col-span-2 bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row reveal-on-scroll">
+                    <a href="#" class="card-link md:col-span-2 bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row">
                         <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=600&auto=format&fit=crop" alt="Investing Article" class="h-48 w-full md:h-full md:w-1/3 object-cover">
                         <div class="p-6 flex flex-col justify-center">
                             <span class="text-indigo-500 font-semibold text-sm mb-1">投資思考</span>
@@ -685,12 +532,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </a>
 
-                    <a href="#" class="card-link bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[250px] reveal-on-scroll" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('https://images.unsplash.com/photo-1552634433-6a59a722616f?q=80&w=600&auto=format&fit=crop');">
+                    <a href="#" class="card-link bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[250px]" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('https://images.unsplash.com/photo-1552634433-6a59a722616f?q=80&w=600&auto=format&fit=crop');">
                          <span class="font-semibold text-sm opacity-80 mb-1">旅行規劃</span>
                         <h3 class="text-xl font-bold">東京巷弄拉麵地圖：我不藏私的 Notion 踩點清單</h3>
                     </a>
 
-                    <a href="#" class="card-link md:col-span-2 bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row reveal-on-scroll">
+                    <a href="#" class="card-link md:col-span-2 bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row">
                         <img src="https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=600&auto=format&fit=crop" alt="AI Article" class="h-48 w-full md:h-full md:w-1/3 object-cover">
                         <div class="p-6 flex flex-col justify-center">
                             <span class="text-indigo-500 font-semibold text-sm mb-1">AI 工作流</span>
@@ -700,7 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </section>
             
-            <section id="notion-embed" class="mb-16 reveal-on-scroll">
+            <section id="notion-embed" class="mb-16">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-gray-800">Notion 實戰分享</h2>
                     <p class="mt-2 text-gray-600">直接在這裡探索我的 Notion 工作區，看看我是如何組織專案與想法的。</p>
@@ -851,17 +698,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-
-        // Script for Scroll Animations
-        const revealElements = document.querySelectorAll('.reveal-on-scroll');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        revealElements.forEach(el => observer.observe(el));
     </script>
 
 <script src="js library/include-ads.js"></script>

@@ -2,6 +2,7 @@
 <!-- Shared Site Header — copy entire file content into each page's <body> at top -->
 <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm transition-all duration-300" data-brand="策略探索家">
   <nav class="container mx-auto px-6 py-4">
+
     <!-- Desktop Header Layout -->
     <div class="hidden md:flex justify-between items-center" id="desktop-nav">
       <!-- Left: Brand + Back Link -->
@@ -10,12 +11,39 @@
           <span id="brand-text">策略探索家</span>
         </a>
         <a href="INDEX_HREF" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors" id="back-link" style="display: none;">
-          ⬅️ 返回首頁
+          返回首頁
         </a>
       </div>
 
       <!-- Center: Navigation Links -->
-      <div class="flex items-center gap-8" id="desktop-links"></div>
+      <div class="flex items-center gap-2" id="desktop-links">
+        <div class="relative group">
+          <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1 text-gray-700 hover:text-indigo-600 hover:bg-gray-100/80 cursor-pointer">
+            旅程 <span class="text-xs">▼</span>
+          </button>
+          <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
+            <a href="TRIP_PREFIX + 'trip/okinawa-trip.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩七天</a>
+            <a href="TRIP_PREFIX + 'trip/okinawa-food-craft-5days.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩美食手作</a>
+            <a href="TRIP_PREFIX + 'trip/okinawa-presentation.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩簡報</a>
+            <a href="TRIP_PREFIX + 'trip/hongkong/2025-07-09-red-incense-burner-peak.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">香港行山</a>
+          </div>
+        </div>
+        <div class="relative group">
+          <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1 text-gray-700 hover:text-indigo-600 hover:bg-gray-100/80 cursor-pointer">
+            文章 <span class="text-xs">▼</span>
+          </button>
+          <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
+            <a href="BLOG_PREFIX + 'blog/best-wedding-gifts-hk.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮禮物</a>
+            <a href="BLOG_PREFIX + 'blog/hk-marriage-certificate-size-guide.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">結婚證書尺寸</a>
+            <a href="BLOG_PREFIX + 'blog/hk-marriage-registry-guide.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">註冊攻略</a>
+            <a href="BLOG_PREFIX + 'blog/how-to-preserve-marriage-certificate.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">Preservation指南</a>
+            <a href="BLOG_PREFIX + 'blog/hk-marriage-registration-checklist.html'" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮檢查表</a>
+          </div>
+        </div>
+        <a href="TV_HREF" class="text-sm px-4 py-1.5 rounded-full transition-colors text-gray-700 hover:text-indigo-600 hover:bg-gray-100/80">影視</a>
+        <a href="FOOD_HREF" class="text-sm px-4 py-1.5 rounded-full transition-colors text-gray-700 hover:text-indigo-600 hover:bg-gray-100/80">美食</a>
+        <a href="INDEX_HREF" class="text-sm px-4 py-1.5 rounded-full transition-colors text-gray-700 hover:text-indigo-600 hover:bg-gray-100/80">首頁</a>
+      </div>
 
       <!-- Right: CTA Button (optional) -->
       <div id="desktop-cta" style="display: none;"></div>
@@ -29,14 +57,42 @@
         </a>
         <button id="mobile-menu-btn" class="text-gray-700 hover:text-indigo-600 focus:outline-none p-3 min-w-[44px] min-h-[44px] flex items-center justify-center touch-action-manipulation">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></svg>
         </button>
       </div>
 
       <!-- Mobile Menu (hidden by default) -->
       <div id="mobile-menu" class="hidden w-full mt-3 pb-4 border-t border-gray-200">
-        <div class="flex flex-col space-y-3 pt-4" id="mobile-links"></div>
+        <div class="flex flex-col gap-1 pt-4" id="mobile-links">
+          <div class="mobile-dropdown">
+            <button class="mobile-dropdown-toggle w-full text-left px-4 py-2 rounded-lg flex items-center justify-between" style="color: var(--color-ink, #333);">
+              <span>旅程</span>
+              <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="mobile-dropdown-content hidden pl-4 flex flex-col gap-1 border-l-2" style="border-color: var(--color-rule, #e5e5e0);">
+              <a href="TRIP_PREFIX + 'trip/okinawa-trip.html'" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">沖繩七天</a>
+              <a href="TRIP_PREFIX + 'trip/okinawa-food-craft-5days.html'" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">沖繩美食手作</a>
+              <a href="TRIP_PREFIX + 'trip/okinawa-presentation.html'" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">沖繩簡報</a>
+              <a href="TRIP_PREFIX + 'trip/hongkong/2025-07-09-red-incense-burner-peak.html'" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">香港行山</a>
+            </div>
+          </div>
+          <div class="mobile-dropdown">
+            <button class="mobile-dropdown-toggle w-full text-left px-4 py-2 rounded-lg flex items-center justify-between" style="color: var(--color-ink, #333);">
+              <span>文章</span>
+              <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="mobile-dropdown-content hidden pl-4 flex flex-col gap-1 border-l-2" style="border-color: var(--color-rule, #e5e5e0);">
+              <a href="BLOG_PREFIX + 'blog/best-wedding-gifts-hk.html'" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">婚禮禮物</a>
+              <a href="BLOG_PREFIX + 'blog/hk-marriage-certificate-size-guide.html'" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">結婚證書尺寸</a>
+              <a href="BLOG_PREFIX + 'blog/hk-marriage-registry-guide.html'" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">註冊攻略</a>
+              <a href="BLOG_PREFIX + 'blog/how-to-preserve-marriage-certificate.html'" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">Preservation指南</a>
+              <a href="BLOG_PREFIX + 'blog/hk-marriage-registration-checklist.html'" class="px-4 py-2 rounded-lg text-sm" style="color: var(--color-ink, #333);">婚禮檢查表</a>
+            </div>
+          </div>
+          <a href="TV_HREF" class="px-4 py-2 rounded-lg" style="color: var(--color-ink, #333);">影視</a>
+          <a href="FOOD_HREF" class="px-4 py-2 rounded-lg" style="color: var(--color-ink, #333);">美食</a>
+          <a href="INDEX_HREF" class="px-4 py-2 mt-2 text-center rounded-lg" style="background-color: var(--color-accent, #c75a3a); color: #fff;">返回首頁</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -54,11 +110,36 @@
 
   var NAV_ROOT = getNavRoot();
   var INDEX_HREF = NAV_ROOT + 'index.html';
+  var TRIP_PREFIX = NAV_ROOT;
+  var BLOG_PREFIX = NAV_ROOT;
+  var TV_HREF = NAV_ROOT + 'tv.html';
+  var FOOD_HREF = NAV_ROOT + 'food.html';
 
-  // Replace INDEX_HREF placeholder in HTML with actual path
-  var placeholderLinks = document.querySelectorAll('a[href="INDEX_HREF"]');
-  for (var i = 0; i < placeholderLinks.length; i++) {
-    placeholderLinks[i].href = INDEX_HREF;
+  // Replace path placeholders in HTML
+  function replacePaths() {
+    var replaceMap = {
+      'INDEX_HREF': INDEX_HREF,
+      'TRIP_PREFIX + ': TRIP_PREFIX,
+      'BLOG_PREFIX + ': BLOG_PREFIX,
+      'TV_HREF': TV_HREF,
+      'FOOD_HREF': FOOD_HREF
+    };
+
+    // Replace in href attributes
+    document.querySelectorAll('a[href]').forEach(function(el) {
+      var href = el.getAttribute('href');
+      if (href === 'INDEX_HREF') el.setAttribute('href', INDEX_HREF);
+      else if (href === 'TV_HREF') el.setAttribute('href', TV_HREF);
+      else if (href === 'FOOD_HREF') el.setAttribute('href', FOOD_HREF);
+      else if (href.indexOf("TRIP_PREFIX + '") === 0) {
+        var file = href.replace("TRIP_PREFIX + '", '').replace("'", '');
+        el.setAttribute('href', TRIP_PREFIX + file);
+      }
+      else if (href.indexOf("BLOG_PREFIX + '") === 0) {
+        var file = href.replace("BLOG_PREFIX + '", '').replace("'", '');
+        el.setAttribute('href', BLOG_PREFIX + file);
+      }
+    });
   }
 
   function detectBrand() {
@@ -85,91 +166,9 @@
       header.className = header.className.replace(/bg-\w+\/\w+/, 'bg-white/80');
       header.classList.remove('shadow-indigo-500/10');
       for (var j = 0; j < brandEls.length; j++) {
-        if (brandEls[j]) brandEls[j].className = 'text-indigo-700';
+        if (brandEls[j]) brandEls[j].className = 'text-xl font-bold';
       }
     }
-  }
-
-  function renderDesktopLinks(items, currentPage) {
-    var container = document.getElementById('desktop-links');
-    if (!container) return;
-    var html = '';
-    for (var i = 0; i < items.length; i++) {
-      var item = items[i];
-      var isAnchor = item.anchor;
-
-      // Check if this item has children (dropdown)
-      if (item.children) {
-        // Render dropdown trigger
-        html += '<div class="relative group">';
-        html += '<a href="' + item.href + '" class="text-sm transition-colors px-3 py-1.5 rounded-full text-gray-700 hover:text-indigo-600 bg-gray-100/80 flex items-center gap-1 cursor-pointer">';
-        html += (item.emoji ? '<span class="mr-1">' + item.emoji + '</span>' : '');
-        html += item.name + ' <span class="text-xs">▼</span></a>';
-        html += '<div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[160px] hidden group-hover:block z-50">';
-        for (var j = 0; j < item.children.length; j++) {
-          var child = item.children[j];
-          var childActive = child.href.indexOf(currentPage) === child.href.length - currentPage.length;
-          var childCls = childActive ? 'block px-4 py-2 text-sm bg-indigo-50 text-indigo-700' : 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600';
-          html += '<a href="' + child.href + '" class="' + childCls + '">' + (child.emoji ? '<span class="mr-1">' + child.emoji + '</span>' : '') + child.name + '</a>';
-        }
-        html += '</div></div>';
-      } else {
-        // Regular link
-        var isActive = !isAnchor && (item.href.indexOf(currentPage) === item.href.length - currentPage.length);
-        var cls = 'text-sm transition-colors px-3 py-1.5 rounded-full';
-        if (isAnchor) {
-          cls += ' text-gray-300 hover:text-indigo-400';
-        } else {
-          cls += isActive ? ' bg-indigo-100/80 text-indigo-800' : ' text-gray-700 hover:text-indigo-600 bg-gray-100/80';
-        }
-        var emoji = item.emoji ? '<span class="mr-1">' + item.emoji + '</span>' : '';
-        html += '<a href="' + item.href + '" class="' + cls + '">' + emoji + item.name + '</a>';
-      }
-    }
-    container.innerHTML = html;
-  }
-
-  function renderMobileLinks(items, currentPage) {
-    var container = document.querySelector('#mobile-menu #mobile-links');
-    if (!container) return;
-    var html = '';
-    for (var i = 0; i < items.length; i++) {
-      var item = items[i];
-      var isAnchor = item.anchor;
-      var isActive = !isAnchor && (item.href.indexOf(currentPage) === item.href.length - currentPage.length);
-      var cls = 'text-base py-2 border-b border-gray-100';
-      if (isAnchor) {
-        cls += ' text-gray-300 hover:text-indigo-400';
-      } else {
-        cls += isActive ? ' text-indigo-600 font-semibold' : ' text-gray-700 hover:text-indigo-600';
-      }
-      var emoji = item.emoji ? item.emoji + ' ' : '';
-
-      // Check if this item has children (dropdown)
-      if (item.children) {
-        // Mobile: expand dropdown inline
-        html += '<div class="border-b border-gray-100 py-2">';
-        html += '<a href="' + item.href + '" class="' + cls + '">' + emoji + item.name + '</a>';
-        html += '<div class="pl-4 mt-1 space-y-1">';
-        for (var j = 0; j < item.children.length; j++) {
-          var child = item.children[j];
-          var childActive = child.href.indexOf(currentPage) === child.href.length - currentPage.length;
-          var childCls = childActive ? 'block py-1 text-indigo-600 font-semibold' : 'block py-1 text-gray-600 hover:text-indigo-600';
-          html += '<a href="' + child.href + '" class="' + childCls + '">' + (child.emoji ? child.emoji + ' ' : '') + child.name + '</a>';
-        }
-        html += '</div></div>';
-      } else {
-        html += '<a href="' + item.href + '" class="' + cls + '">' + emoji + item.name + '</a>';
-      }
-    }
-    container.innerHTML = html;
-  }
-
-  function renderCTA(ctaConfig) {
-    var container = document.getElementById('desktop-cta');
-    if (!container || !ctaConfig) return;
-    container.innerHTML = '<a href="' + ctaConfig.href + '" class="' + ctaConfig.class + ' font-semibold px-5 py-2 rounded-lg cta-btn">' + ctaConfig.text + '</a>';
-    container.style.display = 'block';
   }
 
   function renderBackLink() {
@@ -183,15 +182,12 @@
   }
 
   function initHeader() {
+    replacePaths();
     var brand = detectBrand();
     var config = NAVIGATION_CONFIG[brand] || NAVIGATION_CONFIG['策略探索家'];
-    var currentPage = getCurrentPage();
     document.documentElement.setAttribute('data-brand', brand);
     applyTheme(config);
-    renderDesktopLinks(config.items, currentPage);
-    renderMobileLinks(config.items, currentPage);
     renderBackLink();
-    renderCTA(config.cta);
   }
 
   function setupMobileMenu() {
@@ -203,53 +199,33 @@
         menu.classList.toggle('hidden');
       });
     }
+    // Mobile dropdown toggles
+    document.querySelectorAll('.mobile-dropdown-toggle').forEach(function(toggle) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        var content = toggle.nextElementSibling;
+        var arrow = toggle.querySelector('svg');
+        content.classList.toggle('hidden');
+        if (arrow) {
+          arrow.style.transform = content.classList.contains('hidden') ? '' : 'rotate(180deg)';
+        }
+      });
+    });
   }
 
-  // Navigation config — NAV_ROOT is set at the top of this script block
+  // Navigation config — no emoji, static HTML handles links
   var NAVIGATION_CONFIG = {
     '策略探索家': {
       brand: '策略探索家',
       theme: 'light',
       cta: null,
-      items: [
-        { name: '首頁', emoji: '🏠', href: NAV_ROOT + 'index.html' },
-        {
-          name: '旅程',
-          emoji: '✈️',
-          href: NAV_ROOT + 'trip.html',
-          children: [
-            { name: '沖繩七天', emoji: '🏝️', href: NAV_ROOT + 'trip/okinawa-trip.html' },
-            { name: '沖繩美食手作', emoji: '🍜', href: NAV_ROOT + 'trip/okinawa-food-craft-5days.html' },
-            { name: '沖繩簡報', emoji: '📽️', href: NAV_ROOT + 'trip/okinawa-presentation.html' },
-            { name: '香港行山', emoji: '🌋', href: NAV_ROOT + 'trip/hongkong/2025-07-09-red-incense-burner-peak.html' }
-          ]
-        },
-        {
-          name: '文章',
-          emoji: '📝',
-          href: NAV_ROOT + 'blog/best-wedding-gifts-hk.html',
-          children: [
-            { name: '婚禮禮物', emoji: '🎁', href: NAV_ROOT + 'blog/best-wedding-gifts-hk.html' },
-            { name: '結婚證書尺寸', emoji: '📜', href: NAV_ROOT + 'blog/hk-marriage-certificate-size-guide.html' },
-            { name: '註冊攻略', emoji: '📋', href: NAV_ROOT + 'blog/hk-marriage-registry-guide.html' },
-            { name: ' preservation指南', emoji: '🗂️', href: NAV_ROOT + 'blog/how-to-preserve-marriage-certificate.html' },
-            { name: '婚禮檢查表', emoji: '✅', href: NAV_ROOT + 'blog/hk-marriage-registration-checklist.html' }
-          ]
-        },
-        { name: '影視', emoji: '📺', href: NAV_ROOT + 'tv.html' },
-        { name: '美食', emoji: '🍽️', href: NAV_ROOT + 'food.html' }
-      ]
+      items: []
     },
     'make your own tv': {
       brand: 'make your own tv',
       theme: 'dark',
       cta: { text: '開始使用', href: '#demo', class: 'bg-indigo-600 text-white', mobileHighlight: true },
-      items: [
-        { name: '核心功能', emoji: '⚡', href: '#features', anchor: true },
-        { name: '精選推薦', emoji: '✨', href: '#showcase', anchor: true },
-        { name: '立即體驗', emoji: '🚀', href: '#demo', anchor: true },
-        { name: '關於我們', emoji: 'ℹ️', href: '#contact', anchor: true }
-      ]
+      items: []
     }
   };
 

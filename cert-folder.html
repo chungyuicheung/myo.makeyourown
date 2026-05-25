@@ -239,6 +239,7 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="tokens.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -247,12 +248,12 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fdfaf6;
-            color: #333;
+            background-color: var(--color-paper);
+            color: var(--color-ink);
         }
         /* 縮減 Hero Section 間距 */
         .hero-section {
-            background: linear-gradient(to bottom right, #fdfaf6, #ffece6);
+            background-color: var(--color-paper);
             padding: 2.5rem 0; /* 縮減間距 */
             text-align: center;
         }
@@ -1142,13 +1143,11 @@
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-5"> <div class="container mx-auto px-4 text-center">
-            <p class="mb-1 text-sm">© 2025 愛的見證. 版權所有。</p> <div class="space-x-2 text-sm"> <a href="#" class="footer-link">隱私政策</a>
-                <a href="#" class="footer-link">服務條款</a>
-                <a href="#" class="footer-link">常見問題</a>
-            </div>
-        </div>
-    </footer>
+    <footer class="bg-[var(--color-paper-2)] border-t" style="border-color: var(--color-rule);">
+  <div class="container mx-auto px-4 py-5 text-center">
+    <p class="text-sm" style="color: var(--color-ink-2);">© 2025 My O! 愛的見證. 版權所有。</p>
+  </div>
+</footer>
 
     <div id="image-modal" class="modal">
         <span class="close-button">&times;</span>

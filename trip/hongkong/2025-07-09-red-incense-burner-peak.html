@@ -124,22 +124,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style> 
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f3f4f6; } 
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: var(--color-paper); } 
         .cta-btn { transition: transform 0.2s ease-out, background-color 0.2s ease-out; } 
         .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); } 
         .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.6); } 
         .prose { max-width: 80ch; margin-left: auto; margin-right: auto; } 
-        .prose h2 { font-size: 1.875rem; font-weight: 700; margin-top: 2.5em; margin-bottom: 1em; border-left: 4px solid #4f46e5; padding-left: 0.75rem; } 
+        .prose h2 { font-size: 1.875rem; font-weight: 700; margin-top: 2.5em; margin-bottom: 1em; border-left: 4px solid var(--color-accent); padding-left: 0.75rem; } 
         .prose h3 { font-size: 1.5rem; font-weight: 600; margin-top: 2em; margin-bottom: 0.75em; } 
         .prose p, .prose ul, .prose ol, .prose table { font-size: 1.125rem; line-height: 1.75; color: #374151; } 
-        .prose a { color: #4f46e5; text-decoration: none; font-weight: 500; transition: color 0.2s; } 
-        .prose a:hover { color: #312e81; } 
-        .prose strong { color: #1f2937; } 
-        .prose blockquote { border-left: 4px solid #a5b4fc; padding-left: 1rem; margin-left: 0; font-style: italic; color: #4b5563; } 
+.prose a { color: var(--color-accent); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .prose a:hover { color: var(--color-ink); }
+        .prose strong { color: var(--color-ink); } 
+        .prose blockquote { border-left: 4px solid var(--color-accent); padding-left: 1rem; margin-left: 0; font-style: italic; color: var(--color-ink-2); } 
         .prose table { width: 100%; border-collapse: collapse; margin-top: 1.5em; margin-bottom: 1.5em; } 
         .prose th, .prose td { border: 1px solid #d1d5db; padding: 0.75rem 1rem; } 
-        .prose th { background-color: #f3f4f6; font-weight: 600; } 
-        .prose .info-box { background-color: #eef2ff; border: 1px solid #c7d2fe; border-radius: 0.5rem; padding: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; } 
+        .prose th { background-color: var(--color-paper-2); font-weight: 600; } 
+        .prose .info-box { background-color: var(--color-paper-2); border: 1px solid var(--color-rule); border-radius: 0.5rem; padding: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; } 
         .prose .info-box ul { list-style-type: none; padding-left: 0; } 
         .prose .info-box li { position: relative; padding-left: 1.75rem; margin-bottom: 0.5rem; } 
         .prose .info-box li::before { content: '👉'; position: absolute; left: 0; top: 0; }
@@ -381,14 +381,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         </article>
         
-        <section class="bg-gray-100">
+        <section style="background-color: var(--color-paper-2);">
             <div class="container mx-auto px-6 py-16">
-                 <div class="bg-indigo-700 text-white rounded-xl p-10 md:p-16 text-center max-w-5xl mx-auto">
+                 <div class="text-white rounded-xl p-10 md:p-16 text-center max-w-5xl mx-auto" style="background-color: var(--color-accent);">
                       <h2 class="text-3xl font-bold mb-4">不想錯過下一趟冒險？</h2>
                       <p class="max-w-2xl mx-auto mb-8 opacity-90">訂閱電子報，我會將獨家的「終極旅行規劃 Notion 模板」與最新遊記直接送到你的信箱。讓我們一起更聰明地探索世界。</p>
                       <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                           <input type="email" placeholder="你的常用電子郵件" class="flex-grow p-3 rounded-lg text-gray-800 focus:ring-4 focus:ring-indigo-300 focus:outline-none" required>
-                           <button type="submit" class="bg-white text-indigo-700 font-bold px-6 py-3 rounded-lg cta-btn">免費領取模板</button>
+                           <input type="email" placeholder="你的常用電子郵件" class="flex-grow p-3 rounded-lg text-gray-800 focus:ring-4 focus:ring-[var(--color-accent)] focus:outline-none" required>
+                           <button type="submit" class="bg-white font-bold px-6 py-3 rounded-lg cta-btn" style="color: var(--color-accent);">免費領取模板</button>
                       </form>
                  </div>
             </div>

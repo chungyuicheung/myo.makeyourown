@@ -45,16 +45,7 @@
       position: relative;
       overflow: hidden;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.2) 0%, transparent 50%);
-      pointer-events: none;
-    }
+
     .hero-content {
       position: relative;
       z-index: 1;
@@ -392,7 +383,7 @@
 </head>
 <body>
 <!-- Shared Site Header -->
-<header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm transition-all duration-300" style="background:var(--color-paper);">
+<header id="header" class="nav-bar">
   <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
     <a href="INDEX_HREF" class="text-xl font-bold" style="color:var(--color-ink);">
       <span>策略探索家</span>

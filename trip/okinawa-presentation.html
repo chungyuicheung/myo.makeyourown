@@ -13,7 +13,6 @@
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--limestone-cream);color:var(--rhodium-black);line-height:1.7}
 .presentation{position:relative;width:100%}.slide{min-height:100vh;width:100%;padding:var(--s16) var(--s10);display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start;position:relative;overflow:hidden}
-.slide::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(199,62,58,.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(26,43,74,.08) 0%,transparent 50%);pointer-events:none;z-index:0}
 .slide.visible{opacity:1;transform:translateY(0)}.slide-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;width:100%}
 .ryukyu-border{position:absolute;top:var(--s6);left:var(--s6);right:var(--s6);bottom:var(--s6);border:2px solid var(--ryukyu-red);pointer-events:none;z-index:0}
 .ryukyu-border::before,.ryukyu-border::after{content:'';position:absolute;width:40px;height:40px;border:2px solid var(--ryukyu-red)}
@@ -54,7 +53,7 @@ th{background:var(--deep-navy);color:var(--limestone-cream);font-family:var(--fo
 </head>
 <body>
 <!-- Shared Site Header -->
-<header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm transition-all duration-300" style="background:var(--color-paper);">
+<header id="header" class="nav-bar">
   <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
     <a href="INDEX_HREF" class="text-xl font-bold" style="color:var(--color-ink);">
       <span>策略探索家</span>

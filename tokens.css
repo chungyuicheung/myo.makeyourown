@@ -11,6 +11,9 @@
   --color-accent:     oklch(52% 0.14 38);
   --color-accent-ink: oklch(97% 0.01 90);
   --color-focus:      oklch(52% 0.14 38);
+  /* Accent variants for interactive UI (audience buttons) */
+  --color-accent-light: oklch(92% 0.08 38);   /* light accent bg */
+  --color-accent-dark:  oklch(25% 0.12 250);  /* dark accent fg */
 
   /* Typography */
   --font-display: 'Noto Serif TC', 'Source Han Serif TC', Georgia, serif;
@@ -59,4 +62,13 @@
     --dur-medium: 0ms;
     --dur-long: 0ms;
   }
+}
+
+/* N5 static nav-bar — used in blog pages and trip subdirectory headers */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--color-paper);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }

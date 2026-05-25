@@ -187,7 +187,7 @@
                 </div>
                 <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
                     <div class="flex flex-wrap justify-center gap-2 mb-6">
-                        <button data-audience="optimizer" class="audience-btn bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full font-semibold text-sm">渴望整合的優化者</button>
+                        <button data-audience="optimizer" class="audience-btn px-4 py-2 rounded-full font-semibold text-sm" style="background-color: var(--color-accent-light); color: var(--color-accent-dark);">渴望整合的優化者</button>
                         <button data-audience="aspiring-pm" class="audience-btn bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-semibold text-sm">心虛的產品新人</button>
                         <button data-audience="adventurer" class="audience-btn bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-semibold text-sm">厭倦踩雷的旅人</button>
                         <button data-audience="investor" class="audience-btn bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-semibold text-sm">不想再焦慮的投資小白</button>
@@ -213,7 +213,7 @@
                     <a href="#" class="card-link md:col-span-2 bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row">
                         <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=600&auto=format&fit=crop" alt="Investing Article" class="h-48 w-full md:h-full md:w-1/3 object-cover">
                         <div class="p-6 flex flex-col justify-center">
-                            <span class="text-indigo-500 font-semibold text-sm mb-1">投資思考</span>
+                            <span class="font-semibold text-sm mb-1" style="color: var(--color-accent);">投資思考</span>
                             <h3 class="text-xl font-bold text-gray-800">美股第一年：我如何用產品分析的笨方法，搞懂 VOO 和 QQQ</h3>
                         </div>
                     </a>
@@ -226,7 +226,7 @@
                     <a href="#" class="card-link md:col-span-2 bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row">
                         <img src="https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=600&auto=format&fit=crop" alt="AI Article" class="h-48 w-full md:h-full md:w-1/3 object-cover">
                         <div class="p-6 flex flex-col justify-center">
-                            <span class="text-indigo-500 font-semibold text-sm mb-1">AI 工作流</span>
+                            <span class="font-semibold text-sm mb-1" style="color: var(--color-accent);">AI 工作流</span>
                             <h3 class="text-xl font-bold text-gray-800">我用 ChatGPT 自動化 50% 的報告工作，這是我的 Prompt</h3>
                         </div>
                     </a>
@@ -289,7 +289,7 @@
                 const newContent = document.createElement('div');
                 newContent.className = 'audience-content transition-opacity duration-500 opacity-0';
                 newContent.innerHTML = `
-                    <h3 class="text-2xl font-bold text-indigo-700 mb-4">${data.title}</h3>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--color-accent);">${data.title}</h3>
                     <div class="grid md:grid-cols-2 gap-6 text-left">
                         <div>
                             <h4 class="font-semibold text-lg mb-2 text-gray-700 border-b-2 border-red-200 pb-1">你的心聲 (Before)</h4>
@@ -308,11 +308,11 @@
             audienceBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     audienceBtns.forEach(b => {
-                         b.classList.remove('bg-indigo-100', 'text-indigo-800');
-                         b.classList.add('bg-gray-100', 'text-gray-800');
+                         b.style.backgroundColor = 'var(--color-gray-100, #f3f4f6)';
+                         b.style.color = 'var(--color-gray-800, #1f2937)';
                     });
-                    btn.classList.add('bg-indigo-100', 'text-indigo-800');
-                    btn.classList.remove('bg-gray-100', 'text-gray-800');
+                    btn.style.backgroundColor = 'var(--color-accent-light)';
+                    btn.style.color = 'var(--color-accent-dark)';
                     const audience = btn.dataset.audience;
                     updateAudienceContent(audience);
                 });

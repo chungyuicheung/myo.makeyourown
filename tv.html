@@ -156,7 +156,7 @@
                 </div>
                 <div class="max-w-4xl mx-auto bg-[var(--color-surface)] p-8 rounded-xl shadow-lg">
                     <div class="flex flex-wrap justify-center gap-2 mb-6">
-                        <button data-audience="bingeWatcher" class="audience-btn bg-indigo-900 text-indigo-200 px-4 py-2 rounded-full font-semibold text-sm">資訊焦慮的追劇狂</button>
+                        <button data-audience="bingeWatcher" class="audience-btn px-4 py-2 rounded-full font-semibold text-sm" style="background-color: var(--color-accent); color: var(--color-accent-ink);">資訊焦慮的追劇狂</button>
                         <button data-audience="cinephile" class="audience-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full font-semibold text-sm">品味獨到的電影迷</button>
                         <button data-audience="family" class="audience-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full font-semibold text-sm">尋找共樂的家庭長</button>
                         <button data-audience="casual" class="audience-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full font-semibold text-sm">隨心探索的休閒派</button>
@@ -316,7 +316,7 @@
                 const newContent = document.createElement('div');
                 newContent.className = 'audience-content transition-opacity duration-500 opacity-0';
                 newContent.innerHTML = `
-                    <h3 class="text-2xl font-bold text-indigo-400 mb-4">${data.title}</h3>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--color-accent);">${data.title}</h3>
                     <div class="grid md:grid-cols-2 gap-6 text-left">
                         <div>
                             <h4 class="font-semibold text-lg mb-2 text-gray-300 border-b-2 border-red-400/50 pb-1">您的痛點 (Before)</h4>
@@ -340,11 +340,11 @@
             audienceBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     audienceBtns.forEach(b => {
-                         b.classList.remove('bg-indigo-900', 'text-indigo-200');
-                         b.classList.add('bg-gray-700', 'text-gray-300');
+                         b.style.backgroundColor = 'var(--color-gray-700, #374151)';
+                         b.style.color = 'var(--color-gray-300, #d1d5db)';
                     });
-                    btn.classList.add('bg-indigo-900', 'text-indigo-200');
-                    btn.classList.remove('bg-gray-700', 'text-gray-300');
+                    btn.style.backgroundColor = 'var(--color-accent)';
+                    btn.style.color = 'var(--color-accent-ink)';
 
                     const audience = btn.dataset.audience;
                     updateAudienceContent(audience);

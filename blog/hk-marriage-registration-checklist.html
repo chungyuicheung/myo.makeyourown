@@ -30,6 +30,7 @@
     }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../tokens.css">
     <style>
         body { font-family: var(--font-body); background-color: var(--color-paper); color: var(--color-ink); }
@@ -58,7 +59,7 @@
         .product-cta { background: var(--color-paper-2); border: 2px solid var(--color-accent); border-radius: 1rem; padding: 1.5rem; margin: 2rem 0; text-align: center; }
         .checklist-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--color-paper-2); }
         .checklist-item:last-child { border-bottom: none; }
-        .check-icon { color: #10b981; font-size: 1.2rem; flex-shrink: 0; margin-top: 0.15rem; }
+        .check-icon { color: var(--color-accent); font-size: 1.2rem; flex-shrink: 0; margin-top: 0.15rem; }
         .faq-item { background: white; border-radius: 0.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 0.75rem; }
         .faq-toggle { padding: 1rem; cursor: pointer; width: 100%; text-align: left; background: none; border: none; font-size: inherit; }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; padding: 0 1rem; }
@@ -72,18 +73,18 @@
 <!-- Hallmark · N5 static nav -->
 <header id="header" class="nav-bar">
   <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="INDEX_HREF" class="font-bold text-xl" style="color: var(--color-ink);">策略探索家</a>
+    <a href="../index.html" class="font-bold text-xl" style="color: var(--color-ink);">策略探索家</a>
     <div class="flex items-center gap-2">
-      <a href="TRIP_PREFIX + 'trip/okinawa-trip.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">沖繩七天</a>
-      <a href="TRIP_PREFIX + 'trip/okinawa-food-craft-5days.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">沖繩美食手作</a>
-      <a href="TRIP_PREFIX + 'trip/okinawa-presentation.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">沖繩簡報</a>
-      <a href="TRIP_PREFIX + 'trip/hongkong/2025-07-09-red-incense-burner-peak.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">香港行山</a>
-      <a href="BLOG_PREFIX + 'blog/best-wedding-gifts-hk.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">婚禮禮物</a>
-      <a href="BLOG_PREFIX + 'blog/hk-marriage-certificate-size-guide.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">結婚證書尺寸</a>
-      <a href="BLOG_PREFIX + 'blog/hk-marriage-registry-guide.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">註冊攻略</a>
-      <a href="BLOG_PREFIX + 'blog/how-to-preserve-marriage-certificate.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">Preservation指南</a>
-      <a href="BLOG_PREFIX + 'blog/hk-marriage-registration-checklist.html'" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">婚禮檢查表</a>
-      <a href="INDEX_HREF" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">首頁</a>
+      <a href="../trip/okinawa-trip.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">沖繩七天</a>
+      <a href="../trip/okinawa-food-craft-5days.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">沖繩美食手作</a>
+      <a href="../trip/okinawa-presentation.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">沖繩簡報</a>
+      <a href="../trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">香港行山</a>
+      <a href="best-wedding-gifts-hk.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">婚禮禮物</a>
+      <a href="hk-marriage-certificate-size-guide.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">結婚證書尺寸</a>
+      <a href="hk-marriage-registry-guide.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">註冊攻略</a>
+      <a href="how-to-preserve-marriage-certificate.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">Preservation指南</a>
+      <a href="hk-marriage-registration-checklist.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">婚禮檢查表</a>
+      <a href="../index.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">首頁</a>
     </div>
   </nav>
 </header>

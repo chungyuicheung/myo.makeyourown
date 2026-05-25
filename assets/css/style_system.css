@@ -20,8 +20,8 @@ body {
 
 .highlight-active {
     background-color: var(--color-accent-light, #f5f3ff) !important;
-    color: var(--color-accent, #4338ca) !important;
-    border-color: var(--color-accent, #4338ca) !important;
+    color: var(--color-accent, #c75a3a) !important;
+    border-color: var(--color-accent, #c75a3a) !important;
 }
 
 .content-active {
@@ -41,7 +41,7 @@ body {
     bottom: -4px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--color-accent, #4338ca);
+    background-color: var(--color-accent, #c75a3a);
     transition: width 0.3s ease;
 }
 

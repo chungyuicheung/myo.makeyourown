@@ -1,0 +1,91 @@
+<!-- Hallmark · N5 static floating pill nav -->
+<!-- components/site-header.html -->
+<!-- Shared Site Header — copy entire file content into each page's <body> at top -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-6 px-5 py-2.5 rounded-full shadow-lg"
+     style="background-color: var(--color-paper); border: 1px solid var(--color-rule);">
+  <!-- Brand -->
+  <a href="INDEX_HREF" class="font-bold text-base shrink-0" style="color: var(--color-ink);">策略探索家</a>
+
+  <!-- Nav Links -->
+  <div class="flex items-center gap-1">
+    <!-- 旅程 dropdown -->
+    <div class="relative group">
+      <button class="text-sm px-3 py-1.5 rounded-full transition-colors flex items-center gap-1"
+              style="color: var(--color-ink);"
+              onmouseenter="this.style.color='var(--color-accent)'"
+              onmouseleave="this.style.color='var(--color-ink)'">
+        旅程 <span class="text-xs">▼</span>
+      </button>
+      <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50"
+           style="border-color: var(--color-rule, #e5e5e0);">
+        <a href="TRIP_PREFIX + 'trip/okinawa-trip.html'" class="block px-4 py-2 text-sm transition-colors hover:bg-gray-50"
+           style="color: var(--color-ink);"
+           onmouseenter="this.style.color='var(--color-accent)'"
+           onmouseleave="this.style.color='var(--color-ink)'">沖繩七天</a>
+        <a href="TRIP_PREFIX + 'trip/okinawa-food-craft-5days.html'" class="block px-4 py-2 text-sm transition-colors hover:bg-gray-50"
+           style="color: var(--color-ink);"
+           onmouseenter="this.style.color='var(--color-accent)'"
+           onmouseleave="this.style.color='var(--color-ink)'">沖繩美食手作</a>
+        <a href="TRIP_PREFIX + 'trip/okinawa-presentation.html'" class="block px-4 py-2 text-sm transition-colors hover:bg-gray-50"
+           style="color: var(--color-ink);"
+           onmouseenter="this.style.color='var(--color-accent)'"
+           onmouseleave="this.style.color='var(--color-ink)'">沖繩簡報</a>
+        <a href="TRIP_PREFIX + 'trip/hongkong/2025-07-09-red-incense-burner-peak.html'" class="block px-4 py-2 text-sm transition-colors hover:bg-gray-50"
+           style="color: var(--color-ink);"
+           onmouseenter="this.style.color='var(--color-accent)'"
+           onmouseleave="this.style.color='var(--color-ink)'">香港行山</a>
+      </div>
+    </div>
+
+    <!-- 文章 dropdown -->
+    <div class="relative group">
+      <button class="text-sm px-3 py-1.5 rounded-full transition-colors flex items-center gap-1"
+              style="color: var(--color-ink);"
+              onmouseenter="this.style.color='var(--color-accent)'"
+              onmouseleave="this.style.color='var(--color-ink)'">
+        文章 <span class="text-xs">▼</span>
+      </button>
+      <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50"
+           style="border-color: var(--color-rule, #e5e5e0);">
+        <a href="BLOG_PREFIX + 'blog/best-wedding-gifts-hk.html'" class="block px-4 py-2 text-sm transition-colors hover:bg-gray-50"
+           style="color: var(--color-ink);"
+           onmouseenter="this.style.color='var(--color-accent)'"
+           onmouseleave="this.style.color='var(--color-ink)'">婚禮禮物</a>
+        <a href="BLOG_PREFIX + 'blog/hk-marriage-certificate-size-guide.html'" class="block px-4 py-2 text-sm transition-colors hover:bg-gray-50"
+           style="color: var(--color-ink);"
+           onmouseenter="this.style.color='var(--color-accent)'"
+           onmouseleave="this.style.color='var(--color-ink)'">結婚證書尺寸</a>
+        <a href="BLOG_PREFIX + 'blog/hk-marriage-registry-guide.html'" class="block px-4 py-2 text-sm transition-colors hover:bg-gray-50"
+           style="color: var(--color-ink);"
+           onmouseenter="this.style.color='var(--color-accent)'"
+           onmouseleave="this.style.color='var(--color-ink)'">註冊攻略</a>
+        <a href="BLOG_PREFIX + 'blog/how-to-preserve-marriage-certificate.html'" class="block px-4 py-2 text-sm transition-colors hover:bg-gray-50"
+           style="color: var(--color-ink);"
+           onmouseenter="this.style.color='var(--color-accent)'"
+           onmouseleave="this.style.color='var(--color-ink)'">Preservation指南</a>
+        <a href="BLOG_PREFIX + 'blog/hk-marriage-registration-checklist.html'" class="block px-4 py-2 text-sm transition-colors hover:bg-gray-50"
+           style="color: var(--color-ink);"
+           onmouseenter="this.style.color='var(--color-accent)'"
+           onmouseleave="this.style.color='var(--color-ink)'">婚禮檢查表</a>
+      </div>
+    </div>
+
+    <!-- 影視 -->
+    <a href="TV_HREF" class="text-sm px-3 py-1.5 rounded-full transition-colors"
+       style="color: var(--color-ink);"
+       onmouseenter="this.style.color='var(--color-accent)'"
+       onmouseleave="this.style.color='var(--color-ink)'">影視</a>
+
+    <!-- 美食 -->
+    <a href="FOOD_HREF" class="text-sm px-3 py-1.5 rounded-full transition-colors"
+       style="color: var(--color-ink);"
+       onmouseenter="this.style.color='var(--color-accent)'"
+       onmouseleave="this.style.color='var(--color-ink)'">美食</a>
+
+    <!-- 首頁 -->
+    <a href="INDEX_HREF" class="text-sm px-3 py-1.5 rounded-full transition-colors"
+       style="color: var(--color-ink);"
+       onmouseenter="this.style.color='var(--color-accent)'"
+       onmouseleave="this.style.color='var(--color-ink)'">首頁</a>
+  </div>
+</nav>

@@ -1,0 +1,12 @@
+ok: false
+error:
+  code: TIMEOUT
+  message: qianwen image timed out after 180s
+  help: No generated images observed before timeout.
+  exitCode: 75
+trace:
+  traceId: 20260602154446-b0ac033d
+  dir: /Users/bubu/.opencli/profiles/default/traces/20260602154446-b0ac033d
+  summaryPath: /Users/bubu/.opencli/profiles/default/traces/20260602154446-b0ac033d/summary.md
+  receiptPath: /Users/bubu/.opencli/profiles/default/traces/20260602154446-b0ac033d/receipt.json
+  status: failure

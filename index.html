@@ -13,7 +13,7 @@
     <meta property="og:description" content="覺得人生卡關？旅行、理財、職涯總是一團亂？我用產品經理的系統化思維，幫你打造清晰的路線圖，把混亂變成機會。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://makeyourown.pages.dev/">
-    <meta property="og:image" content="https://placehold.co/1200x630/4338ca/eef2ff?text=策略探索家">
+    <meta property="og:image" content="https://placehold.co/1200x630/c75a3a/f5efe6?text=策略探索家">
     <meta property="og:site_name" content="策略探索家">
     <meta property="og:locale" content="zh_TW">
 
@@ -26,7 +26,7 @@
         "name": "策略探索家",
         "headline": "人生是個產品，我幫你打造路線圖。",
         "description": "我不是什麼大師，只是一個熱愛解決問題的產品經理。我相信，那些用來打造好產品的思維，也能用來打造一個更好的自己。在這裡，我會分享如何用這套方法，把旅行、科技、投資這些複雜挑戰，變成一場場值得投入的冒險。",
-        "image": "https://placehold.co/200x200/eef2ff/4338ca?text=Explorer",
+        "image": "https://placehold.co/200x200/f5efe6/c75a3a?text=Explorer",
         "url": "https://www.strategy-explorer.com/",
         "knowsAbout": ["產品管理", "系統化思維", "旅行規劃", "科技評測", "投資策略"]
       },
@@ -34,10 +34,11 @@
     }
     </script>
     
-    <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="tokens.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4331940044118490"
      crossorigin="anonymous"></script>
@@ -45,7 +46,7 @@
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: #f3f4f6; /* Light gray background */
+            background-color: var(--color-ink);
         }
         .cta-btn {
             transition: transform 0.2s ease-out, background-color 0.2s ease-out;
@@ -63,16 +64,6 @@
         @keyframes marquee {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
-        }
-        /* Scroll Reveal Animation */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .reveal-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
         }
         /* Card hover effect */
         .card-link {
@@ -94,56 +85,108 @@
         .mobile-header-hidden {
             transform: translateY(-100%);
         }
-    </style>
+        
+        </style>
 </head>
 
 <body class="antialiased">
 
-    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex flex-col items-center">
-                <a href="/index.html" class="text-xl font-bold text-indigo-700 mb-4">⌂策略探索家</a>
-                
-                <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3">
-                    <a href="/trip.html" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">旅程 ✈️</a>
-                    <a href="/tv.html" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">影視 📺</a>
-                    <a href="/food.html" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">美食 😋</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+<!-- Hallmark · N5 static nav -->
+<header id="header" class="sticky top-0 z-50 transition-all duration-300" style="background-color: var(--color-paper, #FAF9F6); box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-xl font-bold" style="font-family: Georgia, serif; color: var(--color-ink, #333);">
+      策略探索家
+    </a>
 
+    <div class="flex items-center gap-2">
+      <!-- 旅程 dropdown -->
+      <div class="relative group">
+        <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">
+          旅程 <span class="text-xs">▼</span>
+        </button>
+        <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
+          <a href="trip/okinawa-trip.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩七天</a>
+          <a href="trip/okinawa-food-craft-5days.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩美食手作</a>
+          <a href="trip/okinawa-presentation.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩簡報</a>
+          <a href="trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">香港行山</a>
+        </div>
+      </div>
+      <!-- 文章 dropdown -->
+      <div class="relative group">
+        <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">
+          文章 <span class="text-xs">▼</span>
+        </button>
+        <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
+          <a href="blog/best-wedding-gifts-hk.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮禮物</a>
+          <a href="blog/hk-marriage-certificate-size-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">結婚證書尺寸</a>
+          <a href="blog/hk-marriage-registry-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">註冊攻略</a>
+          <a href="blog/how-to-preserve-marriage-certificate.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">Preservation指南</a>
+          <a href="blog/hk-marriage-registration-checklist.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮檢查表</a>
+        </div>
+      </div>
+      <!-- 影視 flat link -->
+      <a href="tv.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">影視</a>
+      <!-- 美食 flat link -->
+      <a href="food.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">美食</a>
+      <!-- 首頁 CTA -->
+      <a href="index.html" class="text-sm px-4 py-1.5 rounded-full transition-opacity" style="background-color: var(--color-accent, #c75a3a); color: #fff;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">首頁</a>
+    </div>
+  </nav>
+</header>
 
     <main>
-        <section 
-            class="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-cover bg-no-repeat bg-left-center md:bg-center reveal-on-scroll" 
-            style="background-image: url('image/hero_hiking_tech3.png');">
-            <div class="absolute inset-0 bg-black/40"></div>
-            <div class="relative container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight text-shadow">
-                    別讓人生卡關，用<span class="text-cyan-300">產品思維</span>破局
-                </h1>
-                <p class="mt-4 text-lg md:text-xl text-gray-100 max-w-3xl mx-auto text-shadow">
-                    我不是什麼大師，只是一個熱愛解決問題的產品經理。我相信，那些用來打造好產品的思維，也能用來打造一個更好的自己。
-                </p>
-            </div>
+        <!-- Hallmark · macrostructure: Marquee Hero · genre: editorial -->
+        <section class="min-h-[85vh] flex flex-col justify-center px-6 md:px-12 lg:px-20 relative overflow-hidden"
+                 style="background-color: var(--color-paper);">
+  
+          <!-- Typographic statement — left-biased, no centered alignment -->
+          <div class="max-w-3xl relative z-10">
+            <p class="text-sm tracking-wide mb-4"
+               style="font-family: var(--font-body); color: var(--color-ink-2);">
+              產品經理的系統化思維
+            </p>
+            <h1 class="font-bold leading-[1.1] mb-6"
+                style="font-family: var(--font-display); font-size: var(--text-display); color: var(--color-ink);">
+              把人生當產品打造<br>為自己規劃路線圖
+            </h1>
+            <p class="text-lg max-w-xl leading-relaxed"
+               style="color: var(--color-ink-2);">
+              旅行、科技、投資 — 那些用來打造好產品的思維，也能用來打造更好的自己。
+            </p>
+            <a href="trip.html" 
+               class="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-[var(--radius-pill)] font-medium transition-opacity"
+               style="background-color: var(--color-accent); color: var(--color-accent-ink);"
+               onmouseover="this.style.opacity='0.9'"
+               onmouseout="this.style.opacity='1'">
+              開始探索旅程
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Decorative element — typography only, no AI blobs, no gradients -->
+          <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none select-none"
+               style="font-size: clamp(15rem, 30vw, 25rem); font-family: var(--font-display); font-weight: 700; color: var(--color-ink);">
+            策
+          </div>
         </section>
         <div class="container mx-auto px-6 py-12 md:py-16">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-16 reveal-on-scroll">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-16">
                 <div class="marquee-content py-3 text-gray-600 font-medium">
-                    <span class="mx-6">🚀 人生也需要產品路線圖</span> • <span class="mx-6">✈️ 像做專案一樣去旅行</span> • <span class="mx-6">📈 把公司當產品來研究</span> • <span class="mx-6">🤖 AI 是你的超強實習生</span> • <span class="mx-6">⚙️ 下載即用的 Notion 模板</span>
-                    <span class="mx-6">🚀 人生也需要產品路線圖</span> • <span class="mx-6">✈️ 像做專案一樣去旅行</span> • <span class="mx-6">📈 把公司當產品來研究</span> • <span class="mx-6">🤖 AI 是你的超強實習生</span> • <span class="mx-6">⚙️ 下載即用的 Notion 模板</span>
+                    <span class="mx-6">人生也需要產品路線圖</span> • <span class="mx-6">像做專案一樣去旅行</span> • <span class="mx-6">把公司當產品來研究</span> • <span class="mx-6">AI 是你的超強實習生</span> • <span class="mx-6">下載即用的 Notion 模板</span>
+                    <span class="mx-6">人生也需要產品路線圖</span> • <span class="mx-6">像做專案一樣去旅行</span> • <span class="mx-6">把公司當產品來研究</span> • <span class="mx-6">AI 是你的超強實習生</span> • <span class="mx-6">下載即用的 Notion 模板</span>
                 </div>
             </div>
 
-            <section id="about" class="mb-16 reveal-on-scroll">
+            <section id="about" class="mb-16">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-gray-800">你是不是也這樣覺得...？</h2>
                     <p class="mt-2 text-gray-600">如果底下的心聲說中了你，那這裡就是你的同溫層。</p>
                 </div>
                 <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
                     <div class="flex flex-wrap justify-center gap-2 mb-6">
-                        <button data-audience="optimizer" class="audience-btn bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full font-semibold text-sm">渴望整合的優化者</button>
+                        <button data-audience="optimizer" class="audience-btn px-4 py-2 rounded-full font-semibold text-sm" style="background-color: var(--color-accent-light); color: var(--color-accent-dark);">渴望整合的優化者</button>
                         <button data-audience="aspiring-pm" class="audience-btn bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-semibold text-sm">心虛的產品新人</button>
                         <button data-audience="adventurer" class="audience-btn bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-semibold text-sm">厭倦踩雷的旅人</button>
                         <button data-audience="investor" class="audience-btn bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-semibold text-sm">不想再焦慮的投資小白</button>
@@ -160,36 +203,36 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <a href="#" class="card-link md:col-span-2 lg:col-span-1 bg-indigo-600 text-white p-8 rounded-xl flex flex-col items-center justify-center text-center reveal-on-scroll">
+                    <a href="#" class="card-link md:col-span-2 lg:col-span-1 text-white p-8 rounded-xl flex flex-col items-center justify-center text-center" style="background-color: var(--color-accent);">
                         <img src="https://www.svgrepo.com/show/493723/rocket.svg" alt="Rocket Icon" class="h-16 w-16 mb-4">
                         <h3 class="text-2xl font-bold">產品 x AI 雙引擎</h3>
                         <p class="mt-2 opacity-80">把 AI 當成你的超強實習生，用產品思維駕馭它。</p>
                     </a>
 
-                    <a href="#" class="card-link md:col-span-2 bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row reveal-on-scroll">
+                    <a href="#" class="card-link md:col-span-2 bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row">
                         <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=600&auto=format&fit=crop" alt="Investing Article" class="h-48 w-full md:h-full md:w-1/3 object-cover">
                         <div class="p-6 flex flex-col justify-center">
-                            <span class="text-indigo-500 font-semibold text-sm mb-1">投資思考</span>
+                            <span class="font-semibold text-sm mb-1" style="color: var(--color-accent);">投資思考</span>
                             <h3 class="text-xl font-bold text-gray-800">美股第一年：我如何用產品分析的笨方法，搞懂 VOO 和 QQQ</h3>
                         </div>
                     </a>
 
-                    <a href="#" class="card-link bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[250px] reveal-on-scroll" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('https://images.unsplash.com/photo-1552634433-6a59a722616f?q=80&w=600&auto=format&fit=crop');">
+                    <a href="#" class="card-link bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[250px]" style="background-color: #1a1a1a; background-image: url('https://images.unsplash.com/photo-1552634433-6a59a722616f?q=80&w=600&auto=format&fit=crop');">
                          <span class="font-semibold text-sm opacity-80 mb-1">旅行規劃</span>
                         <h3 class="text-xl font-bold">東京巷弄拉麵地圖：我不藏私的 Notion 踩點清單</h3>
                     </a>
 
-                    <a href="#" class="card-link md:col-span-2 bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row reveal-on-scroll">
+                    <a href="#" class="card-link md:col-span-2 bg-white rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row">
                         <img src="https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=600&auto=format&fit=crop" alt="AI Article" class="h-48 w-full md:h-full md:w-1/3 object-cover">
                         <div class="p-6 flex flex-col justify-center">
-                            <span class="text-indigo-500 font-semibold text-sm mb-1">AI 工作流</span>
+                            <span class="font-semibold text-sm mb-1" style="color: var(--color-accent);">AI 工作流</span>
                             <h3 class="text-xl font-bold text-gray-800">我用 ChatGPT 自動化 50% 的報告工作，這是我的 Prompt</h3>
                         </div>
                     </a>
                 </div>
             </section>
             
-            <section id="notion-embed" class="mb-16 reveal-on-scroll">
+            <section id="notion-embed" class="mb-16">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-gray-800">Notion 實戰分享</h2>
                     <p class="mt-2 text-gray-600">直接在這裡探索我的 Notion 工作區，看看我是如何組織專案與想法的。</p>
@@ -202,32 +245,14 @@
         </div>
     </main>
 
-    <footer id="contact" class="bg-gray-800 text-white mt-16">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">策略探索家</h3>
-                    <p class="text-gray-400">把人生當成最重要的產品來打造。</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">快速導覽</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition">你是不是也...</a></li>
-                        <li><a href="#content" class="text-gray-400 hover:text-white transition">從這開始</a></li>
-                         <li><a href="#newsletter" class="text-gray-400 hover:text-white transition">訂閱電子報</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">和我聊聊</h4>
-                    <p class="text-gray-400 mb-4">有專案想合作，或想聊聊你遇到的卡關點？</p>
-                    <a href="mailto:hello@explorer.com" class="inline-block bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg cta-btn">隨時歡迎來信</a>
-                </div>
-            </div>
-            <div class="mt-12 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
-                <p>&copy; 2025 策略探索家. All Rights Reserved. | 網站由 AI 與產品思維精心打造</p>
-            </div>
-        </div>
-    </footer>
+    <footer id="contact" class="bg-[var(--color-paper-2)] border-t mt-16" style="border-color: var(--color-rule);">
+  <div class="container mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <span class="font-bold" style="color: var(--color-ink);">策略探索家</span>
+      <p class="text-sm" style="color: var(--color-ink-2);">© 2025 策略探索家. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
 
     <script>
@@ -263,7 +288,7 @@
                 const newContent = document.createElement('div');
                 newContent.className = 'audience-content transition-opacity duration-500 opacity-0';
                 newContent.innerHTML = `
-                    <h3 class="text-2xl font-bold text-indigo-700 mb-4">${data.title}</h3>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--color-accent);">${data.title}</h3>
                     <div class="grid md:grid-cols-2 gap-6 text-left">
                         <div>
                             <h4 class="font-semibold text-lg mb-2 text-gray-700 border-b-2 border-red-200 pb-1">你的心聲 (Before)</h4>
@@ -282,27 +307,16 @@
             audienceBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     audienceBtns.forEach(b => {
-                         b.classList.remove('bg-indigo-100', 'text-indigo-800');
-                         b.classList.add('bg-gray-100', 'text-gray-800');
+                         b.style.backgroundColor = 'var(--color-gray-100, #f3f4f6)';
+                         b.style.color = 'var(--color-gray-800, #1f2937)';
                     });
-                    btn.classList.add('bg-indigo-100', 'text-indigo-800');
-                    btn.classList.remove('bg-gray-100', 'text-gray-800');
+                    btn.style.backgroundColor = 'var(--color-accent-light)';
+                    btn.style.color = 'var(--color-accent-dark)';
                     const audience = btn.dataset.audience;
                     updateAudienceContent(audience);
                 });
             });
             if (audienceBtns.length > 0) { audienceBtns[0].click(); }
-
-            // --- Mobile Menu Toggle ---
-            const mobileToggleButton = document.getElementById('mobile-trip-toggle');
-            if (mobileToggleButton) {
-                const mobileSubmenu = document.getElementById('mobile-trip-submenu');
-                const mobileArrowIcon = mobileToggleButton.querySelector('svg');
-                mobileToggleButton.addEventListener('click', () => {
-                    mobileSubmenu.classList.toggle('hidden');
-                    mobileArrowIcon.classList.toggle('rotate-180');
-                });
-            }
 
             // --- CORRECTED: Header Hide/Show on Scroll (Mobile Only) ---
             const header = document.getElementById('header');
@@ -340,17 +354,6 @@
                 });
             }
         });
-
-        // Script for Scroll Animations
-        const revealElements = document.querySelectorAll('.reveal-on-scroll');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        revealElements.forEach(el => observer.observe(el));
     </script>
 
 <script src="js library/include-ads.js"></script>

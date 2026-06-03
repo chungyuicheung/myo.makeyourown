@@ -118,56 +118,57 @@
     }
     </script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
     <style> 
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f3f4f6; } 
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: var(--color-paper); } 
         .cta-btn { transition: transform 0.2s ease-out, background-color 0.2s ease-out; } 
         .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); } 
         .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.6); } 
         .prose { max-width: 80ch; margin-left: auto; margin-right: auto; } 
-        .prose h2 { font-size: 1.875rem; font-weight: 700; margin-top: 2.5em; margin-bottom: 1em; border-left: 4px solid #4f46e5; padding-left: 0.75rem; } 
+        .prose h2 { font-size: 1.875rem; font-weight: 700; margin-top: 2.5em; margin-bottom: 1em; border-left: 4px solid var(--color-accent); padding-left: 0.75rem; } 
         .prose h3 { font-size: 1.5rem; font-weight: 600; margin-top: 2em; margin-bottom: 0.75em; } 
-        .prose p, .prose ul, .prose ol, .prose table { font-size: 1.125rem; line-height: 1.75; color: #374151; } 
-        .prose a { color: #4f46e5; text-decoration: none; font-weight: 500; transition: color 0.2s; } 
-        .prose a:hover { color: #312e81; } 
-        .prose strong { color: #1f2937; } 
-        .prose blockquote { border-left: 4px solid #a5b4fc; padding-left: 1rem; margin-left: 0; font-style: italic; color: #4b5563; } 
+        .prose p, .prose ul, .prose ol, .prose table { font-size: 1.125rem; line-height: 1.75; color: var(--color-ink); } 
+.prose a { color: var(--color-accent); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .prose a:hover { color: var(--color-ink); }
+        .prose strong { color: var(--color-ink); } 
+        .prose blockquote { border-left: 4px solid var(--color-accent); padding-left: 1rem; margin-left: 0; font-style: italic; color: var(--color-ink-2); } 
         .prose table { width: 100%; border-collapse: collapse; margin-top: 1.5em; margin-bottom: 1.5em; } 
         .prose th, .prose td { border: 1px solid #d1d5db; padding: 0.75rem 1rem; } 
-        .prose th { background-color: #f3f4f6; font-weight: 600; } 
-        .prose .info-box { background-color: #eef2ff; border: 1px solid #c7d2fe; border-radius: 0.5rem; padding: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; } 
+        .prose th { background-color: var(--color-paper-2); font-weight: 600; } 
+        .prose .info-box { background-color: var(--color-paper-2); border: 1px solid var(--color-rule); border-radius: 0.5rem; padding: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; } 
         .prose .info-box ul { list-style-type: none; padding-left: 0; } 
         .prose .info-box li { position: relative; padding-left: 1.75rem; margin-bottom: 0.5rem; } 
-        .prose .info-box li::before { content: '👉'; position: absolute; left: 0; top: 0; }
+        .prose .info-box li::before { content: '•'; position: absolute; left: 0; top: 0; }
         .prose figure { margin-top: 2em; margin-bottom: 2em; }
         .prose img { border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
-        .prose figcaption { font-size: 0.875rem; color: #6b7280; text-align: center; margin-top: 0.5em; }
+        .prose figcaption { font-size: 0.875rem; color: var(--color-ink-2); text-align: center; margin-top: 0.5em; }
     </style>
 </head>
 
 <body class="bg-gray-100 antialiased">
 
-    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex flex-col items-center">
-                <a href="/index.html" class="text-xl font-bold text-indigo-700 mb-4">⌂策略探索家</a>
-                <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3">
-                    <a href="/trip.html" class="text-indigo-700 hover:text-white hover:bg-indigo-600 bg-indigo-100 px-3 py-1.5 rounded-full text-sm font-semibold transition-colors">旅程 ✈️</a>
-                    <a href="/tv.html" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">影視 📺</a>
-                    <a href="/food.html" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">美食 😋</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+<!-- components/site-header.html -->
+<!-- Shared Site Header — copy entire file content into each page's <body> at top -->
+<header id="header" class="nav-bar">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="../index.html" class="text-xl font-bold" style="color:var(--color-ink);">
+      <span>策略探索家</span>
+    </a>
+    <div class="flex items-center gap-8">
+      <a href="../index.html" class="text-sm hover:text-[var(--color-accent)] transition-colors" style="color:var(--color-ink-2);">返回首頁</a>
+    </div>
+  </nav>
+</header>
 
     <main>
-        <section class="relative py-20 md:py-32 bg-cover bg-center" style="background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1594496444855-a0e2a3b2a563?q=80&w=1632&auto=format&fit=crop');">
+        <section class="relative py-20 md:py-32 bg-cover bg-center" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1594496444855-a0e2a3b2a563?q=80&w=1632&auto=format&fit=crop');">
             <div class="relative container mx-auto px-6 text-center text-white">
                 <div class="max-w-3xl mx-auto">
-                    <p class="text-sm font-semibold uppercase tracking-wider text-indigo-300 mb-2">香港島行山</p>
+                    <p class="text-sm font-semibold uppercase tracking-wider mb-2" style="color: var(--color-accent);">香港島行山</p>
                     <h1 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight text-shadow">
                         紅香爐峰一日行山攻略：30分鐘登頂賞維港日落
                     </h1>
@@ -195,14 +196,14 @@
             <div class="info-box" id="overview">
                 <h3 class="!mt-0 !mb-4">紅香爐峰行程核心數據</h3>
                 <ul>
-                    <li><strong>📍 地點:</strong> 香港島，北角，寶馬山</li>
+                    <li><strong>地點:</strong> 香港島，北角，寶馬山</li>
                     <li><strong>路線:</strong> 寶馬山巴士總站 → 聖貞德中學 → 金督馳馬徑 → 紅香爐峰山頂</li>
-                    <li><strong>📏 全程距離:</strong> 約 1.5 公里 (單程)</li>
-                    <li><strong>⏱️ 所需時間:</strong> 約 20-30 分鐘 (單程登頂)</li>
-                    <li><strong>🧗 難度:</strong> 1/5 ★☆☆☆☆ (極低，非常適合新手)</li>
-                    <li><strong>💰 預估費用:</strong> 低於 50 港元 (僅交通費)</li>
-                    <li><strong>🌟 景色評分:</strong> 5/5 ★★★★★ (維港全景、日落、夜景)</li>
-                    <li><strong>📅 最後更新:</strong> 2025年7月9日</li>
+                    <li><strong>全程距離:</strong> 約 1.5 公里 (單程)</li>
+                    <li><strong>所需時間:</strong> 約 20-30 分鐘 (單程登頂)</li>
+                    <li><strong>難度:</strong> 1/5 ★☆☆☆☆ (極低，非常適合新手)</li>
+                    <li><strong>預估費用:</strong> 低於 50 港元 (僅交通費)</li>
+                    <li><strong>景色評分:</strong> 5/5 ★★★★★ (維港全景、日落、夜景)</li>
+                    <li><strong>最後更新:</strong> 2025年7月9日</li>
                 </ul>
             </div>
 
@@ -336,14 +337,14 @@
 
         </article>
         
-        <section class="bg-gray-100">
+        <section style="background-color: var(--color-paper-2);">
             <div class="container mx-auto px-6 py-16">
-                 <div class="bg-indigo-700 text-white rounded-xl p-10 md:p-16 text-center max-w-5xl mx-auto">
+                 <div class="text-white rounded-xl p-10 md:p-16 text-center max-w-5xl mx-auto" style="background-color: var(--color-accent);">
                       <h2 class="text-3xl font-bold mb-4">不想錯過下一趟冒險？</h2>
                       <p class="max-w-2xl mx-auto mb-8 opacity-90">訂閱電子報，我會將獨家的「終極旅行規劃 Notion 模板」與最新遊記直接送到你的信箱。讓我們一起更聰明地探索世界。</p>
                       <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                           <input type="email" placeholder="你的常用電子郵件" class="flex-grow p-3 rounded-lg text-gray-800 focus:ring-4 focus:ring-indigo-300 focus:outline-none" required>
-                           <button type="submit" class="bg-white text-indigo-700 font-bold px-6 py-3 rounded-lg cta-btn">免費領取模板</button>
+                           <input type="email" placeholder="你的常用電子郵件" class="flex-grow p-3 rounded-lg text-gray-800 focus:ring-4 focus:ring-[var(--color-accent)] focus:outline-none" required>
+                           <button type="submit" class="bg-white font-bold px-6 py-3 rounded-lg cta-btn" style="color: var(--color-accent);">免費領取模板</button>
                       </form>
                  </div>
             </div>
@@ -351,33 +352,14 @@
 
     </main>
 
-    <footer id="contact" class="bg-gray-800 text-white">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">策略探索家</h3>
-                    <p class="text-gray-400">把人生當成最重要的產品來打造，而旅行是其中最精彩的篇章。</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">快速導覽</h4>
-                    <ul class="space-y-2">
-                        <li><a href="/index.html#stories" class="text-gray-400 hover:text-white transition">旅程故事</a></li>
-                        <li><a href="/index.html#travelers" class="text-gray-400 hover:text-white transition">旅人分類</a></li>
-                          <li><a href="/index.html#tools" class="text-gray-400 hover:text-white transition">旅行工具</a></li>
-                          <li><a href="/index.html#newsletter" class="text-gray-400 hover:text-white transition">訂閱電子報</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">和我聊聊</h4>
-                    <p class="text-gray-400 mb-4">有旅行相關問題，或想聊聊你最難忘的旅程？</p>
-                    <a href="mailto:hello@explorer.com" class="inline-block bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg cta-btn">隨時歡迎來信</a>
-                </div>
-            </div>
-            <div class="mt-12 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
-                <p>© 2025 策略探索家. All Rights Reserved. | 網站由 AI 與產品思維精心打造</p>
-            </div>
-        </div>
-    </footer>
+    <footer id="contact" class="bg-[var(--color-paper-2)] border-t" style="border-color: var(--color-rule);">
+  <div class="container mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <span class="font-bold" style="color: var(--color-ink);">策略探索家</span>
+      <p class="text-sm" style="color: var(--color-ink-2);">© 2025 策略探索家. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
     
     

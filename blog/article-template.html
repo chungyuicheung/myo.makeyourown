@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <meta name="keywords" content="{{KEYWORDS}}">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://myo-hk.github.io/blog/{{FILENAME}}">
+
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:url" content="https://myo-hk.github.io/blog/{{FILENAME}}">
+    <meta property="og:site_name" content="My O! 結婚證書套">
+    <meta property="og:image" content="https://myo-hk.github.io/image/01_company_logo.png">
+    <meta property="article:published_time" content="{{PUBLISHED_DATE}}">
+    <meta property="article:modified_time" content="{{MODIFIED_DATE}}">
+    <meta property="article:section" content="{{SECTION}}">
+    <meta property="article:tag" content="{{TAGS}}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{TITLE}}">
+    <meta name="twitter:description" content="{{DESCRIPTION}}">
+    <meta name="twitter:image" content="https://myo-hk.github.io/image/01_company_logo.png">
+
+    <link rel="icon" href="../image/01_company_logo.png" type="image/png">
+
+    <script type="application/ld+json">
+    {{JSON_LD}}
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../tokens.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Hallmark · blog article · Long Document · genre: editorial */
+
+        .text-accent { color: var(--color-accent); }
+        .badge-accent { background-color: var(--color-paper-2); color: var(--color-accent); }
+
+        /* Article header */
+        .article-header {
+            padding: var(--space-3xl) var(--space-lg) var(--space-xl);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-header h1 {
+            font-family: var(--font-display);
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--color-ink);
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+        }
+
+        .article-meta {
+            font-size: var(--text-sm);
+            color: var(--color-ink-2);
+        }
+
+        /* Article body — Long Document style */
+        .blog-content {
+            font-family: var(--font-body);
+            font-size: var(--text-md);
+            line-height: 1.8;
+            color: var(--color-ink);
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg) var(--space-3xl);
+        }
+
+        .blog-content h2 {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--color-ink);
+            margin-top: var(--space-2xl);
+            margin-bottom: var(--space-md);
+            border-bottom: 1px solid var(--color-rule);
+            padding-bottom: var(--space-xs);
+        }
+
+        .blog-content h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-ink);
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-sm);
+        }
+
+        .blog-content p {
+            margin-bottom: var(--space-md);
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin-left: var(--space-lg);
+            margin-bottom: var(--space-md);
+        }
+
+        .blog-content li {
+            margin-bottom: var(--space-xs);
+        }
+
+        .blog-content a {
+            color: var(--color-accent);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .blog-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-md) 0;
+        }
+        .blog-content th, .blog-content td {
+            border: 1px solid var(--color-rule);
+            padding: var(--space-sm);
+            text-align: left;
+        }
+        .blog-content th {
+            background-color: var(--color-paper-2);
+            font-weight: 600;
+        }
+
+        /* TOC styling */
+        .toc {
+            background: var(--color-paper-2);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+        .toc h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-md);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            color: var(--color-ink);
+        }
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        .toc li {
+            margin-bottom: var(--space-xs);
+        }
+        .toc a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: var(--text-sm);
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* Base body */
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-paper);
+            color: var(--color-ink);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-accent-ink);
+            padding: 0.7rem 1.8rem;
+            border-radius: var(--radius-pill);
+            transition: background-color var(--dur-short) var(--ease-out);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 0.95rem;
+        }
+        .btn-primary:hover {
+            background-color: var(--color-accent);
+            filter: brightness(0.9);
+        }
+
+        /* Cards */
+        .card {
+            background-color: white;
+            border-radius: var(--radius-card);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.04);
+            padding: 1.2rem;
+            transition: transform var(--dur-medium) var(--ease-out);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Footer links */
+        .footer-link {
+            color: var(--color-accent);
+            transition: color var(--dur-short) var(--ease-out);
+        }
+        .footer-link:hover {
+            color: var(--color-accent);
+            filter: brightness(0.8);
+        }
+
+        /* Product CTA */
+        .product-cta {
+            background: var(--color-paper-2);
+            border: 2px solid var(--color-accent);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 0.75rem;
+        }
+        .faq-toggle {
+            padding: 1rem;
+            cursor: pointer;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--dur-medium) var(--ease-out), padding var(--dur-medium) var(--ease-out);
+            padding: 0 1rem;
+        }
+        .faq-answer.open {
+            max-height: 500px;
+            padding-bottom: 1rem;
+        }
+
+        /* Blog cards */
+        .blog-card {
+            transition: transform var(--dur-medium) var(--ease-out), box-shadow var(--dur-medium) var(--ease-out);
+        }
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 767px) {
+            .article-header h1 {
+                font-size: var(--text-2xl);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hallmark · N5 static nav -->
+<header id="header" class="nav-bar">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="../index.html" class="font-bold text-xl" style="color: var(--color-ink);">策略探索家</a>
+    <div class="flex items-center gap-2">
+      <a href="../trip/okinawa-trip.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">沖繩七天</a>
+      <a href="../trip/okinawa-food-craft-5days.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">沖繩美食手作</a>
+      <a href="../trip/okinawa-presentation.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">沖繩簡報</a>
+      <a href="../trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">香港行山</a>
+      <a href="best-wedding-gifts-hk.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">婚禮禮物</a>
+      <a href="hk-marriage-certificate-size-guide.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">結婚證書尺寸</a>
+      <a href="hk-marriage-registry-guide.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">註冊攻略</a>
+      <a href="how-to-preserve-marriage-certificate.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">Preservation指南</a>
+      <a href="hk-marriage-registration-checklist.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">婚禮檢查表</a>
+      <a href="../index.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink);">首頁</a>
+    </div>
+  </nav>
+</header>
+
+<main id="content" class="container mx-auto px-4 py-8 max-w-3xl">
+
+    <nav class="text-sm mb-6" aria-label="Breadcrumb" style="color: var(--color-ink-2);">
+        <ol class="flex items-center space-x-2">
+            <li><a href="../cert-folder.html" class="hover:text-accent">首頁</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li><a href="../cert-folder.html#blog-preview" class="hover:text-accent">結婚證書小知識</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li style="color: var(--color-ink);">{{BREADCRUMB_TITLE}}</li>
+        </ol>
+    </nav>
+
+    <article class="blog-content">
+        <header class="mb-8">
+            <span class="badge-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">{{SECTION}}</span>
+            <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4">{{H1_TITLE}}</h1>
+            <div class="flex items-center text-sm space-x-4" style="color: var(--color-ink-2);">
+                <span class="flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-width="2"></rect><line x1="16" y1="2" x2="16" y2="6" stroke-width="2"></line><line x1="8" y1="2" x2="8" y2="6" stroke-width="2"></line><line x1="3" y1="10" x2="21" y2="10" stroke-width="2"></line></svg>
+                  {{PUBLISHED_DATE}}
+                </span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"></circle><polyline points="12 6 12 12 16 14" stroke-width="2"></polyline></svg>
+                  {{READ_TIME}} 分鐘閱讀
+                </span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-width="2"></path><circle cx="12" cy="7" r="4" stroke-width="2"></circle></svg>
+                  My O! 編輯團隊
+                </span>
+            </div>
+        </header>
+
+        {{TABLE_OF_CONTENTS}}
+
+        {{ARTICLE_CONTENT}}
+
+        <div class="product-cta">
+            <h3 class="text-xl font-bold mb-2" style="color: var(--color-ink);">正在尋找完美的結婚證書套？</h3>
+            <p class="mb-4" style="color: var(--color-ink-2);">My O! 提供設計師級專屬證書套，支援燙金名字客製化。HK$128 起，5 款設計可選。</p>
+            <a href="https://api.whatsapp.com/send?phone=85263796410&text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E5%BE%9E%E7%B6%B2%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%E9%80%99%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%81%E6%83%B3%E8%A8%82%E8%B3%BC%E8%AD%89%E6%9B%B8%E5%A5%97%EF%BC%81" target="_blank" class="btn-primary inline-block">WhatsApp 立即訂購</a>
+        </div>
+
+    </article>
+
+    <section id="faq" class="mt-12">
+        <h2 class="text-2xl font-bold mb-6 text-center" style="color: var(--color-ink);">常見問題</h2>
+        <div class="space-y-3">
+            {{FAQ_SECTION}}
+        </div>
+    </section>
+
+    <section class="mt-12 text-center">
+        <h2 class="text-xl font-bold mb-4" style="color: var(--color-ink);">更多結婚證書相關文章</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {{RELATED_ARTICLES}}
+        </div>
+    </section>
+
+</main>
+
+<footer class="bg-[var(--color-paper-2)] border-t mt-[var(--space-3xl)]" style="border-color: var(--color-rule);">
+  <div class="container mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <span class="font-bold" style="color: var(--color-ink);">策略探索家</span>
+      <p class="text-sm" style="color: var(--color-ink-2);">© 2025 策略探索家. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+    function toggleFaq(btn) {
+        const answer = btn.nextElementSibling;
+        const arrow = btn.querySelector('.faq-arrow');
+        const isOpen = answer.classList.contains('open');
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-arrow').forEach(a => a.style.transform = 'rotate(0deg)');
+        if (!isOpen) { answer.classList.add('open'); arrow.style.transform = 'rotate(180deg)'; }
+    }
+</script>
+
+</body>
+</html>

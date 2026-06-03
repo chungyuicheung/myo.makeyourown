@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="用產品經理的系統化思維探索美食世界。從餐廳評測框架、食材供應鏈分析到食譜管理系統，建立你的專屬美食決策系統。">
+    
+    <title>策略探索家 | 美食探索：用產品思維吃出精緻</title>
+    
+    <link rel="canonical" href="https://www.strategy-explorer.com/food">
+
+    <meta property="og:title" content="策略探索家 | 美食探索：用產品思維吃出精緻">
+    <meta property="og:description" content="食物不只是吃，更是一場產品體驗。我用 PRD 的態度對待每一餐，從選址、點餐到复盘，打造你的美食決策系統。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.strategy-explorer.com/food">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:site_name" content="策略探索家">
+    <meta property="og:locale" content="zh_TW">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "策略探索家 | 美食探索",
+      "headline": "用產品思維，把每一餐都打造成精緻體驗",
+      "description": "用產品經理的系統化思維探索美食世界。從餐廳評測框架、食材供應鏈分析到食譜管理系統，建立你的專屬美食決策系統。",
+      "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop",
+      "url": "https://www.strategy-explorer.com/food",
+      "author": {
+        "@type": "Person",
+        "name": "策略探索家"
+      },
+       "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "餐廳 PRD：如何用產品規格書精神選店",
+          "url": "#"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "食材供應鏈分析：從農場到餐桌的可視化",
+          "url": "#"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Notion 食譜管理系統：打造你的廚房决策儀表板",
+          "url": "#"
+        }
+      ]
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="antialiased">
+
+<!-- Hallmark · N5 Floating pill nav -->
+<header id="header" class="sticky top-0 z-50 transition-all duration-300" style="background-color: var(--color-paper, #FAF9F6); box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+  <nav class="container mx-auto px-6 py-4">
+    <div class="hidden md:flex justify-between items-center">
+      <a href="index.html" class="text-xl font-bold" style="font-family: Georgia, serif; color: var(--color-ink, #333);">策略探索家</a>
+      <div class="flex items-center gap-2">
+        <div class="relative group">
+          <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">旅程 <span class="text-xs">▼</span></button>
+          <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
+            <a href="trip/okinawa-trip.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩七天</a>
+            <a href="trip/okinawa-food-craft-5days.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩美食手作</a>
+            <a href="trip/okinawa-presentation.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">沖繩簡報</a>
+            <a href="trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">香港行山</a>
+          </div>
+        </div>
+        <div class="relative group">
+          <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">文章 <span class="text-xs">▼</span></button>
+          <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="border-color: var(--color-rule, #e5e5e0);">
+            <a href="blog/best-wedding-gifts-hk.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮禮物</a>
+            <a href="blog/hk-marriage-certificate-size-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">結婚證書尺寸</a>
+            <a href="blog/hk-marriage-registry-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">註冊攻略</a>
+            <a href="blog/how-to-preserve-marriage-certificate.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">Preservation指南</a>
+            <a href="blog/hk-marriage-registration-checklist.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink, #333);">婚禮檢查表</a>
+          </div>
+        </div>
+        <a href="tv.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">影視</a>
+        <a href="food.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-ink, #333);" onmouseover="this.style.backgroundColor='var(--color-paper-2, #f5f5f0)'" onmouseout="this.style.backgroundColor='transparent'">美食</a>
+        <a href="index.html" class="text-sm px-4 py-1.5 rounded-full transition-opacity" style="background-color: var(--color-accent, #c75a3a); color: #fff;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">返回首頁</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <main>
+        <section 
+            class="pt-24 pb-20 md:pt-32 md:pb-28"
+            style="background-color: var(--color-paper-2); background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop'); background-size: cover; background-position: center;">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-shadow" style="color: var(--color-ink);">
+                    吃，也是一門<span style="color: var(--color-accent);">產品工程</span>
+                </h1>
+                <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-shadow" style="color: var(--color-ink-2);">
+                    我用產品經理的思維對待每一餐——從.Define 需求、分析供應鏈，到制定用餐 PRD。讓吃飯不再只是填飽肚子，而是一場可控的、可優化的體驗。
+                </p>
+                <a href="#framework" class="mt-6 text-lg px-8 py-4 rounded-lg cta-btn inline-block shadow-lg transition" style="background-color: var(--color-accent); color: #fff;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">查看我的美食框架</a>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-6 py-12 md:py-16">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-16">
+                <div class="marquee-content py-3 font-medium" style="color: var(--color-ink-2);">
+                    <span class="mx-6">把餐廳當成一個產品來體驗</span> • <span class="mx-6">用餐數據複盤：點餐决策、CP值計算</span> • <span class="mx-6">PRD for Dining：把模糊的「想吃」變成可執行清單</span> • <span class="mx-6">食材供應鏈可視化：從農場到餐桌的旅程</span> • <span class="mx-6">Notion 食譜管理系統：你的廚房決策儀表板</span>
+                    <span class="mx-6">把餐廳當成一個產品來體驗</span> • <span class="mx-6">用餐數據複盤：點餐决策、CP值計算</span> • <span class="mx-6">PRD for Dining：把模糊的「想吃」變成可執行清單</span> • <span class="mx-6">食材供應鏈可視化：從農場到餐桌的旅程</span> • <span class="mx-6">Notion 食譜管理系統：你的廚房決策儀表板</span>
+                </div>
+            </div>
+
+            <section id="framework" class="mb-16">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-gray-800">美食探索的三層框架</h2>
+                    <p class="mt-2 text-gray-600">用產品思維拆解，吃飯也可以很系統。</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="text-4xl mb-4"></div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Define：定義用餐需求</h3>
+                        <p class="text-gray-600">不是「想吃」，而是「想解決什麼問題」——聚餐、慶祝、探索、省時？先明確 goal，再找解決方案。</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="text-4xl mb-4"></div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Analyze：分析餐廳產品</h3>
+                        <p class="text-gray-600">把每一間餐廳當成一個 product：菜單設計、target user、定價策略、服務流程、轉化率（等位時間）……統統可量化。</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <div class="text-4xl mb-4"></div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Retrospective：複盤與迭代</h3>
+                        <p class="text-gray-600">每次用餐都是一次 user test。記錄决策、CP 值、 disappointed points，下一次 eating experience 會更好。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-gray-800">精選美食內容</h2>
+                    <p class="mt-2 text-gray-600">從實用到腦洞，這裡有我用產品思維探索美食的足迹。</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <article class="card-link bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1554679668-f6d9b921c882?q=80&w=600&auto=format&fit=crop" alt="Restaurant PRD" class="h-48 w-full object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span style="color: var(--color-accent);" class="font-semibold text-sm mb-2">餐廳 PRD 模板</span>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3"> Dining PRD：如何把「找餐廳」變成一場 structured research</h3>
+                            <p class="text-gray-600 text-sm flex-grow">用 product requirement document 的思維，定義聚餐目的、constraints、success metrics，再進行 restaurant selection。下載免ㅤ費 Notion 模板。</p>
+                            <a href="#" class="mt-4 font-semibold inline-flex items-center" style="color: var(--color-accent);">阅读更多 →</a>
+                        </div>
+                    </article>
+
+                    <article class="card-link bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=600&auto=format&fit=crop" alt="Supply Chain" class="h-48 w-full object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span style="color: var(--color-accent);" class="font-semibold text-sm mb-2">供應鏈分析</span>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">食材供應鏈可視化：從農場到餐桌的旅程</h3>
+                            <p class="text-gray-600 text-sm flex-grow">用產品思維拆解食材供应链，追踪来源、 Transportation cost、库存管理，做出更 sustainable 的消費决策。</p>
+                            <a href="#" class="mt-4 color: var(--color-accent) font-semibold inline-flex items-center">阅读更多 →</a>
+                        </div>
+                    </article>
+
+                    <article class="card-link bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600&auto=format&fit=crop" alt="Kitchen Dashboard" class="h-48 w-full object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span style="color: var(--color-accent);" class="font-semibold text-sm mb-2">Notion 管理系統</span>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">我的廚房決策儀表板：Notion 模板分享</h3>
+                            <p class="text-gray-600 text-sm flex-grow">食譜存檔、食材 Inventory、每周 Menu planning——用一個 Notion database 整合所有 cooking 决策，告ㅤ別「今晚吃什麼」的焦慮。</p>
+                            <a href="#" class="mt-4 color: var(--color-accent) font-semibold inline-flex items-center">阅读更多 →</a>
+                        </div>
+                    </article>
+
+                    <article class="card-link bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600&auto=format&fit=crop" alt="Pizza Metrics" class="h-48 w-full object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span style="color: var(--color-accent);" class="font-semibold text-sm mb-2">數據分析案例</span>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">CP 值計算公式：一張表讓你明白「貴不貴」</h3>
+                            <p class="text-gray-600 text-sm flex-grow">把用餐經驗量化：食材品質、份量、服務、環境、等待時間……加權評分後再比價，告別主觀感受，做出 rational decision。</p>
+                            <a href="#" class="mt-4 color: var(--color-accent) font-semibold inline-flex items-center">阅读更多 →</a>
+                        </div>
+                    </article>
+
+                    <article class="card-link bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?q=80&w=600&auto=format&fit=crop" alt="Meal Planning" class="h-48 w-full object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span style="color: var(--color-accent);" class="font-semibold text-sm mb-2">飲食規劃系統</span>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">Meal Planning 三步驟：Ingredients list → Cooking schedule → Waste reduction</h3>
+                            <p class="text-gray-600 text-sm flex-grow">用 project management 的方式 Planning 一周 diet，先列出 weekly staples，排程 cooking time， minimise food waste。</p>
+                            <a href="#" class="mt-4 color: var(--color-accent) font-semibold inline-flex items-center">阅读更多 →</a>
+                        </div>
+                    </article>
+
+                    <article class="card-link bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=600&auto=format&fit=crop" alt="Evaluation Framework" class="h-48 w-full object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="font-semibold text-sm mb-2" style="color: var(--color-accent);">評測框架</span>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">Restaurant Scorecard：五個維度給餐廳打分</h3>
+                            <p class="text-gray-600 text-sm flex-grow">Food quality、Service、Ambience、Cleanliness、Value for money——用統一標准評分，build 個人餐廳數據庫。</p>
+                            <a href="#" class="mt-4 font-semibold inline-flex items-center" style="color: var(--color-accent);">阅读更多 →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="mb-16 rounded-2xl p-10 md:p-16" style="background-color: var(--color-paper-2);">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-6" style="color: var(--color-ink);">想要我的美食決策工具？</h2>
+                    <p class="text-lg mb-8" style="color: var(--color-ink-2);">我整理了「Dining PRD 模板」、「Restaurant Scorecard」、「Notion 食譜管理系統」三份工具，完全免費分享给有需要的人。點擊按鈕，直接複製到你的 Notion 工作區。</p>
+                    <a href="#" class="inline-block text-lg px-8 py-4 rounded-lg shadow-lg transition" style="background-color: var(--color-accent); color: #fff;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">免費領取模板包</a>
+                    <p class="mt-4 text-sm" style="color: var(--color-ink-2);">無需 email，立刻使用。</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-[var(--color-paper-2)] border-t mt-[var(--space-3xl)]" style="border-color: var(--color-rule);">
+  <div class="container mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <span class="font-bold" style="color: var(--color-ink);">策略探索家</span>
+      <p class="text-sm" style="color: var(--color-ink-2);">© 2025 策略探索家. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+    
+</body>
+</html>

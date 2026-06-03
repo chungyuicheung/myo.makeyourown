@@ -1,0 +1,10 @@
+{
+  "date": "2026-05-24",
+  "fontStack": "Noto Serif TC + Noto Sans TC (Google Fonts)",
+  "palette": "OKLCH custom properties (tokens.css)",
+  "motion": "motion-cut (no framer-motion detected)",
+  "spacing": "4pt scale (tokens.css --space-*)",
+  "framework": "Vanilla HTML + Tailwind CSS CDN",
+  "preserved": ["font stack", "palette", "spacing scale"],
+  "introduced": ["macrostructure", "microinteraction discipline", "slop-test gates", "N5 floating pill nav", "Ft2 inline footer"]
+}

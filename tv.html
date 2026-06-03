@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="make your own tv (MYO.tv) 是一個強大的影視聚合平台。自由整合、管理並播放您喜愛的電影、劇集、直播與短片。一個介面，無限內容，打造專屬於您的個人電視台。">
     
-    <title>make your own tv | 您的專屬影視聚合平台</title>
+    <title>您的影視宇宙 | 策略探索家</title>
     
     <link rel="canonical" href="https://makeyourown-tv.pages.dev/">
 
@@ -23,7 +23,7 @@
       "@type": "Website",
       "name": "make your own tv",
       "headline": "您的影視宇宙，由您定義",
-      "description": "自由整合、管理並播放您喜愛的電影、劇集、直播與短片。一個介面，無限內容，打造專屬於您的個人電視台。",
+      "description": "自由整合、管理並播放您喜愛的電影、劇集與直播。一個介面，無限內容，打造專屬於您的個人電視台。",
       "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f82e46?q=80&w=1200&auto=format&fit=crop",
       "url": "https://makeyourown-tv.pages.dev/",
       "author": {
@@ -37,15 +37,16 @@
      crossorigin="anonymous"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="tokens.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: #111827; /* Dark background */
-            color: #f3f4f6;
+            background-color: var(--color-ink);
+            color: var(--color-paper);
         }
         .cta-btn {
             transition: transform 0.2s ease-out, background-color 0.2s ease-out;
@@ -64,23 +65,13 @@
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
         }
-        /* Scroll Reveal Animation */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .reveal-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
         /* Card hover effect */
         .card-link {
              transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card-link:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         /* Text shadow for better readability on images */
         .text-shadow {
@@ -91,62 +82,81 @@
 
 <body class="antialiased">
 
-    <header id="header" class="bg-gray-900/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm shadow-indigo-500/10">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="relative flex justify-between items-center">
-                <a href="/index.html" class="text-xl font-bold text-indigo-400 z-10 flex-shrink-0">⬅️ 主頁 > make your own TV 📺</a>
-                
-                <div class="hidden md:flex absolute inset-x-0 justify-center items-center space-x-8">
-                    <a href="#features" class="nav-link text-gray-300 hover:text-indigo-400">核心功能</a>
-                    <a href="#showcase" class="nav-link text-gray-300 hover:text-indigo-400">精選推薦</a>
-                    <a href="#demo" class="nav-link text-gray-300 hover:text-indigo-400">立即體驗</a>
-                    <a href="#contact" class="nav-link text-gray-300 hover:text-indigo-400">關於我們</a>
-                </div>
-                
-                <div class="hidden md:flex flex-grow justify-end">
-                    <a href="#demo" class="bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg cta-btn z-10">開始使用</a>
-                </div>
-            </div>
-    
-            <div id="mobile-menu-visible" class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 pt-4 md:hidden">
-                <a href="#features" class="text-gray-300 hover:text-indigo-400 bg-gray-800/80 px-3 py-1.5 rounded-full text-sm transition-colors">核心功能</a>
-                <a href="#showcase" class="text-gray-300 hover:text-indigo-400 bg-gray-800/80 px-3 py-1.5 rounded-full text-sm transition-colors">精選推薦</a>
-                <a href="#demo" class="font-semibold text-indigo-300 bg-indigo-900/80 px-4 py-1.5 rounded-full text-sm transition-colors hover:bg-indigo-800/80">立即體驗</a>
-            </div>
-        </nav>
-    </header>
+<!-- Hallmark · N5 static nav · dark theme -->
+<header id="header" class="sticky top-0 z-50 transition-all duration-300" style="background-color: var(--color-ink); box-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-xl font-bold" style="font-family: Georgia, serif; color: var(--color-paper);">
+      策略探索家
+    </a>
 
-    <main>
-        <section 
-            class="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-cover bg-center reveal-on-scroll" 
-            style="background-image: url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=1200&auto=format&fit=crop');">
-            <div class="absolute inset-0 bg-black/60"></div>
-            <div class="relative container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight text-shadow">
-                    您的影視宇宙，<span class="text-indigo-400">由您定義</span>
+    <div class="flex items-center gap-2">
+      <!-- 旅程 dropdown -->
+      <div class="relative group">
+        <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-paper);" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'" onmouseout="this.style.backgroundColor='transparent'">
+          旅程 <span class="text-xs">▼</span>
+        </button>
+        <div class="absolute left-0 top-full mt-1 rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="background-color: var(--color-ink); border-color: rgba(255,255,255,0.15);">
+          <a href="trip/okinawa-trip.html" class="block px-4 py-2 text-sm hover:opacity-80" style="color: var(--color-paper);">沖繩七天</a>
+          <a href="trip/okinawa-food-craft-5days.html" class="block px-4 py-2 text-sm hover:opacity-80" style="color: var(--color-paper);">沖繩美食手作</a>
+          <a href="trip/okinawa-presentation.html" class="block px-4 py-2 text-sm hover:opacity-80" style="color: var(--color-paper);">沖繩簡報</a>
+          <a href="trip/hongkong/2025-07-09-red-incense-burner-peak.html" class="block px-4 py-2 text-sm hover:opacity-80" style="color: var(--color-paper);">香港行山</a>
+        </div>
+      </div>
+      <!-- 文章 dropdown -->
+      <div class="relative group">
+        <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1" style="color: var(--color-paper);" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'" onmouseout="this.style.backgroundColor='transparent'">
+          文章 <span class="text-xs">▼</span>
+        </button>
+        <div class="absolute left-0 top-full mt-1 rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50" style="background-color: var(--color-ink); border-color: rgba(255,255,255,0.15);">
+          <a href="blog/best-wedding-gifts-hk.html" class="block px-4 py-2 text-sm hover:opacity-80" style="color: var(--color-paper);">婚禮禮物</a>
+          <a href="blog/hk-marriage-certificate-size-guide.html" class="block px-4 py-2 text-sm hover:opacity-80" style="color: var(--color-paper);">結婚證書尺寸</a>
+          <a href="blog/hk-marriage-registry-guide.html" class="block px-4 py-2 text-sm hover:opacity-80" style="color: var(--color-paper);">註冊攻略</a>
+          <a href="blog/how-to-preserve-marriage-certificate.html" class="block px-4 py-2 text-sm hover:opacity-80" style="color: var(--color-paper);">Preservation指南</a>
+          <a href="blog/hk-marriage-registration-checklist.html" class="block px-4 py-2 text-sm hover:opacity-80" style="color: var(--color-paper);">婚禮檢查表</a>
+        </div>
+      </div>
+      <!-- 影視 flat link (active) -->
+      <a href="tv.html" class="text-sm px-4 py-1.5 rounded-full transition-opacity" style="background-color: var(--color-accent); color: var(--color-accent-ink);" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">影視</a>
+      <!-- 美食 flat link -->
+      <a href="food.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-paper);" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'" onmouseout="this.style.backgroundColor='transparent'">美食</a>
+      <!-- 首頁 flat link -->
+      <a href="index.html" class="text-sm px-4 py-1.5 rounded-full transition-colors" style="color: var(--color-paper);" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'" onmouseout="this.style.backgroundColor='transparent'">首頁</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+        <!-- Hallmark · Hero: dark solid background, typography-only -->
+        <section class="pt-24 pb-20 md:pt-32 md:pb-28"
+                 style="background-color: var(--color-ink);">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight"
+                    style="color: var(--color-paper);">
+                    您的影視宇宙，<span style="color: var(--color-accent);">由您定義</span>
                 </h1>
-                <p class="mt-4 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto text-shadow">
+                <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto"
+                   style="color: var(--color-ink-2);">
                     厭倦了在各個平台間切換嗎？在這裡，聚合所有您喜愛的電影、劇集與直播。一個介面，無限精彩，打造您的個人化電視台。
                 </p>
             </div>
         </section>
         
         <div class="container mx-auto px-6 py-12 md:py-16">
-            <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden mb-16 reveal-on-scroll">
+            <div class="bg-[var(--color-paper-2)] rounded-lg shadow-md overflow-hidden mb-16">
                 <div class="marquee-content py-3 text-gray-400 font-medium">
-                    <span class="mx-6">🎬 最新院線電影</span> • <span class="mx-6">📺 Netflix 熱播劇集</span> • <span class="mx-6">🇯🇵 當季新番動畫</span> • <span class="mx-6">🍿 YouTube 創作者精選</span> • <span class="mx-6">⚽️ 體育賽事直播</span> • <span class="mx-6">📰 新聞即時看</span> • <span class="mx-6">🎮 遊戲實況</span>
-                    <span class="mx-6">🎬 最新院線電影</span> • <span class="mx-6">📺 Netflix 熱播劇集</span> • <span class="mx-6">🇯🇵 當季新番動畫</span> • <span class="mx-6">🍿 YouTube 創作者精選</span> • <span class="mx-6">⚽️ 體育賽事直播</span> • <span class="mx-6">📰 新聞即時看</span> • <span class="mx-6">🎮 遊戲實況</span>
+                    <span class="mx-6">最新院線電影</span> • <span class="mx-6">Netflix 熱播劇集</span> • <span class="mx-6">當季新番動畫</span> • <span class="mx-6">YouTube 創作者精選</span> • <span class="mx-6">體育賽事直播</span> • <span class="mx-6">新聞即時看</span> • <span class="mx-6">遊戲實況</span>
+                    <span class="mx-6">最新院線電影</span> • <span class="mx-6">Netflix 熱播劇集</span> • <span class="mx-6">當季新番動畫</span> • <span class="mx-6">YouTube 創作者精選</span> • <span class="mx-6">體育賽事直播</span> • <span class="mx-6">新聞即時看</span> • <span class="mx-6">遊戲實況</span>
                 </div>
             </div>
 
-            <section id="features" class="mb-16 reveal-on-scroll">
+            <section id="features" class="mb-16">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-white">您是哪一種觀影者？</h2>
                     <p class="mt-2 text-gray-400">看看這些情境，是否說中了您的追劇心聲？</p>
                 </div>
-                <div class="max-w-4xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg">
+                <div class="max-w-4xl mx-auto bg-[var(--color-paper-2)] p-8 rounded-xl shadow-lg">
                     <div class="flex flex-wrap justify-center gap-2 mb-6">
-                        <button data-audience="bingeWatcher" class="audience-btn bg-indigo-900 text-indigo-200 px-4 py-2 rounded-full font-semibold text-sm">資訊焦慮的追劇狂</button>
+                        <button data-audience="bingeWatcher" class="audience-btn px-4 py-2 rounded-full font-semibold text-sm" style="background-color: var(--color-accent); color: var(--color-accent-ink);">資訊焦慮的追劇狂</button>
                         <button data-audience="cinephile" class="audience-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full font-semibold text-sm">品味獨到的電影迷</button>
                         <button data-audience="family" class="audience-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full font-semibold text-sm">尋找共樂的家庭長</button>
                         <button data-audience="casual" class="audience-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full font-semibold text-sm">隨心探索的休閒派</button>
@@ -163,27 +173,27 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <a href="#demo" class="card-link md:col-span-2 lg:col-span-1 bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px] reveal-on-scroll" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1627873649417-c67f701f1949?q=80&w=600&auto=format&fit=crop');">
+                    <a href="#demo" class="card-link md:col-span-2 lg:col-span-1 bg-cover bg-bottom rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px]" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1627873649417-c67f701f1949?q=80&w=600&auto=format&fit=crop');">
                          <span class="font-semibold text-sm opacity-80 mb-1">熱門劇集</span>
                         <h3 class="text-2xl font-bold text-shadow">聚合各大串流平台，新集數絕不錯過</h3>
                     </a>
 
-                    <a href="#demo" class="card-link md:col-span-2 lg:col-span-2 bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px] reveal-on-scroll" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600&auto=format&fit=crop');">
+                    <a href="#demo" class="card-link md:col-span-2 lg:col-span-2 bg-cover bg-bottom rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px]" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600&auto=format&fit=crop');">
                          <span class="font-semibold text-sm opacity-80 mb-1">電影資料庫</span>
                         <h3 class="text-2xl font-bold text-shadow">從經典老片到最新院線，打造您的私人影院</h3>
                     </a>
 
-                    <a href="#demo" class="card-link bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px] reveal-on-scroll" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1616469829911-7a6358343903?q=80&w=600&auto=format&fit=crop');">
+                    <a href="#demo" class="card-link bg-cover bg-bottom rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px]" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1616469829911-7a6358343903?q=80&w=600&auto=format&fit=crop');">
                          <span class="font-semibold text-sm opacity-80 mb-1">動畫新番</span>
                         <h3 class="text-2xl font-bold text-shadow">日本同步放送，建立您的追番清單</h3>
                     </a>
                     
-                    <a href="#demo" class="card-link bg-cover bg-center rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px] reveal-on-scroll" style="background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1603380353725-f8a4d39cc41e?q=80&w=600&auto=format&fit=crop');">
+                    <a href="#demo" class="card-link bg-cover bg-bottom rounded-xl shadow-md text-white p-8 flex flex-col justify-end min-h-[400px]" style="background-color: var(--color-ink); background-image: url('https://images.unsplash.com/photo-1603380353725-f8a4d39cc41e?q=80&w=600&auto=format&fit=crop');">
                          <span class="font-semibold text-sm opacity-80 mb-1">直播與體育</span>
                         <h3 class="text-2xl font-bold text-shadow">遊戲、新聞、體育賽事，即時掌握</h3>
                     </a>
                     
-                     <a href="#demo" class="card-link bg-indigo-700 text-white p-8 rounded-xl flex flex-col items-center justify-center text-center min-h-[400px] reveal-on-scroll">
+                     <a href="#demo" class="card-link text-white p-8 rounded-xl flex flex-col items-center justify-center text-center min-h-[400px]" style="background-color: var(--color-accent);">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 mb-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v1.5a1.5 1.5 0 01-3 0V7a1 1 0 00-1-1H7a1 1 0 00-1 1v1.5a1.5 1.5 0 01-3 0V5a1 1 0 011-1h3a1 1 0 001-1v-.5z" /><path d="M4 11a1 1 0 011-1h10a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4z" /></svg>
                         <h3 class="text-2xl font-bold">自訂您的播放清單</h3>
                         <p class="mt-2 opacity-80 max-w-xs">不只是觀看，更是創造。混合搭配不同來源的內容，打造真正屬於您的電視頻道。</p>
@@ -191,7 +201,7 @@
                 </div>
             </section>
             
-            <section id="demo" class="mb-16 reveal-on-scroll">
+            <section id="demo" class="mb-16">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-white">立即體驗</h2>
                     <p class="mt-2 text-gray-400">
@@ -199,56 +209,75 @@
                         </p>
                         <p class="mt-4">
                         <a href="https://makeyourown-tv.pages.dev/" target="_blank" rel="noopener"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5">
+                            class="text-white font-medium text-sm px-5 py-2.5 cta-btn"
+                            style="background-color: var(--color-accent); border-radius: var(--radius-pill);"
+                            onmouseover="this.style.opacity='0.9'"
+                            onmouseout="this.style.opacity='1'">
                             makeyourown-tv.pages.dev/
                         </a>
                         </p>
 
                     
                 </div>
-                <div class="max-w-7xl mx-auto bg-black p-2 md:p-4 rounded-xl shadow-2xl shadow-indigo-500/10 overflow-hidden">
+                <div class="max-w-7xl mx-auto p-2 md:p-4 rounded-xl shadow-lg overflow-hidden" style="background-color: var(--color-ink);">
                     <iframe src="https://makeyourown-tv.pages.dev/" style="width: 100%; height: 70vh; border: 0; border-radius: 8px;" allowfullscreen></iframe>
                 </div>
             </section>
 
-            <section id="newsletter" class="bg-indigo-900/50 border border-indigo-500/20 text-white rounded-xl p-10 md:p-16 text-center reveal-on-scroll">
-                 <h2 class="text-3xl font-bold mb-4">保持更新，掌握最新功能</h2>
-                 <p class="max-w-2xl mx-auto mb-8 opacity-90">訂閱我們的更新通知。當有新功能、支援更多平台或精選內容推薦時，您將第一時間收到消息。</p>
+            <section id="newsletter" class="border rounded-xl p-10 md:p-16 text-center" style="background-color: var(--color-paper-2); border-color: var(--color-rule);">
+                 <h2 class="text-3xl font-bold mb-4" style="color: var(--color-paper);">保持更新，掌握最新功能</h2>
+                 <p class="max-w-2xl mx-auto mb-8" style="color: var(--color-ink-2);">訂閱我們的更新通知。當有新功能、支援更多平台或精選內容推薦時，您將第一時間收到消息。</p>
                  <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                     <input type="email" placeholder="您的常用電子郵件" class="flex-grow p-3 rounded-lg text-gray-800 bg-gray-200 focus:ring-4 focus:ring-indigo-400 focus:outline-none" required>
-                     <button type="submit" class="bg-indigo-600 text-white font-bold px-6 py-3 rounded-lg cta-btn">訂閱更新</button>
+                     <input type="email" placeholder="您的常用電子郵件" class="flex-grow p-3 rounded-lg text-gray-800 bg-gray-200 focus:ring-4 focus:outline-none" style="--tw-ring-color: var(--color-accent);" required>
+                     <button type="submit" class="text-white font-bold px-6 py-3 cta-btn" style="background-color: var(--color-accent); border-radius: var(--radius-pill);">訂閱更新</button>
                  </form>
             </section>
             
         </div>
     </main>
 
-    <footer id="contact" class="bg-gray-900 text-white mt-16">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-                <div>
-                    <h3 class="text-xl font-bold mb-4 text-indigo-400">make your own tv</h3>
-                    <p class="text-gray-400">我們的使命是打破內容的壁壘，將觀看的選擇權，真正交還到您的手中。</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">快速導覽</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#features" class="text-gray-400 hover:text-white transition">核心功能</a></li>
-                        <li><a href="#showcase" class="text-gray-400 hover:text-white transition">精選推薦</a></li>
-                         <li><a href="#demo" class="text-gray-400 hover:text-white transition">立即體驗</a></li>
-                         <li><a href="#newsletter" class="text-gray-400 hover:text-white transition">訂閱更新</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">與我們聯繫</h4>
-                    <p class="text-gray-400 mb-4">對於功能有任何建議，或是希望支援新的平台？</p>
-                    <a href="mailto:feedback@myo.tv" class="inline-block bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg cta-btn">歡迎來信</a>
-                </div>
+    <!-- Hallmark · Ft2 Inline single line footer · dark theme -->
+    <footer class="border-t mt-[var(--space-3xl)]" style="background-color: var(--color-ink); border-color: rgba(255,255,255,0.1);">
+      <div class="container mx-auto px-6 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          
+          <!-- Brand + Social icons -->
+          <div class="flex items-center gap-6">
+            <span class="font-[var(--font-display)] font-bold" style="color: var(--color-paper);">策略探索家</span>
+            
+            <div class="flex items-center gap-4">
+              <!-- GitHub -->
+              <a href="#" 
+                 aria-label="GitHub"
+                 class="transition-colors"
+                 style="color: var(--color-ink-2);"
+                 onmouseover="this.style.color='var(--color-accent)'"
+                 onmouseout="this.style.color='var(--color-ink-2)'">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </a>
+              
+              <!-- LinkedIn -->
+              <a href="#" 
+                 aria-label="LinkedIn"
+                 class="transition-colors"
+                 style="color: var(--color-ink-2);"
+                 onmouseover="this.style.color='var(--color-accent)'"
+                 onmouseout="this.style.color='var(--color-ink-2)'">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
             </div>
-            <div class="mt-12 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
-                <p>&copy; 2025 make your own tv. All Rights Reserved. | 您的專屬影視聚合平台</p>
-            </div>
+          </div>
+          
+          <!-- Copyright -->
+          <p class="text-sm" style="color: var(--color-ink-2);">
+            &copy; 2025 策略探索家. All rights reserved.
+          </p>
         </div>
+      </div>
     </footer>
 
 
@@ -287,7 +316,7 @@
                 const newContent = document.createElement('div');
                 newContent.className = 'audience-content transition-opacity duration-500 opacity-0';
                 newContent.innerHTML = `
-                    <h3 class="text-2xl font-bold text-indigo-400 mb-4">${data.title}</h3>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--color-accent);">${data.title}</h3>
                     <div class="grid md:grid-cols-2 gap-6 text-left">
                         <div>
                             <h4 class="font-semibold text-lg mb-2 text-gray-300 border-b-2 border-red-400/50 pb-1">您的痛點 (Before)</h4>
@@ -311,11 +340,11 @@
             audienceBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     audienceBtns.forEach(b => {
-                         b.classList.remove('bg-indigo-900', 'text-indigo-200');
-                         b.classList.add('bg-gray-700', 'text-gray-300');
+                         b.style.backgroundColor = 'var(--color-gray-700, #374151)';
+                         b.style.color = 'var(--color-gray-300, #d1d5db)';
                     });
-                    btn.classList.add('bg-indigo-900', 'text-indigo-200');
-                    btn.classList.remove('bg-gray-700', 'text-gray-300');
+                    btn.style.backgroundColor = 'var(--color-accent)';
+                    btn.style.color = 'var(--color-accent-ink)';
 
                     const audience = btn.dataset.audience;
                     updateAudienceContent(audience);
@@ -326,17 +355,6 @@
                 audienceBtns[0].click();
             }
         });
-
-        // Script for Scroll Animations
-        const revealElements = document.querySelectorAll('.reveal-on-scroll');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        revealElements.forEach(el => observer.observe(el));
     </script>
 
 <script src="js library/include-ads.js"></script>

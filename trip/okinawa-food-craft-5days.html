@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>沖繩美食與文化手作之旅｜5天4夜</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+  <style>
+    :root {
+      --mint-green: var(--color-accent);
+      --ocean-blue: var(--color-accent);
+      --cream-white: var(--color-paper);
+      --dark-gray: var(--color-ink);
+      --coral-orange: var(--color-accent);
+      --light-wood: var(--color-paper-2);
+      --font-title: 'Noto Serif JP', serif;
+      --font-body: 'Noto Sans JP', sans-serif;
+      --s2: 0.5rem;
+      --s3: 0.75rem;
+      --s4: 1rem;
+      --s6: 1.5rem;
+      --s8: 2rem;
+      --s10: 2.5rem;
+      --s12: 3rem;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream-white);
+      color: var(--dark-gray);
+      line-height: 1.7;
+    }
+    .hero {
+      min-height: 60vh;
+      background: var(--mint-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--s12) var(--s6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    .hero h1 {
+      font-family: var(--font-title);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: white;
+      margin-bottom: var(--s4);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: rgba(255,255,255,0.95);
+      margin-bottom: var(--s6);
+    }
+    .hero-tags {
+      display: flex;
+      gap: var(--s4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .tag {
+      background: rgba(255,255,255,0.9);
+      color: var(--dark-gray);
+      padding: 0.5rem var(--s4);
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(168, 213, 186, 0.95);
+      z-index: 1000;
+      padding: var(--s3) var(--s6);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-brand {
+      font-family: var(--font-title);
+      font-size: 1.25rem;
+      color: var(--dark-gray);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-links {
+      display: flex;
+      gap: var(--s4);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-links a {
+      color: var(--dark-gray);
+      text-decoration: none;
+      padding: var(--s2) var(--s3);
+      border-radius: 8px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: background 0.3s;
+    }
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.5);
+    }
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: var(--s3);
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--s6);
+    }
+    .day {
+      margin-bottom: var(--s12);
+    }
+    .day-header {
+      display: flex;
+      align-items: center;
+      gap: var(--s4);
+      margin-bottom: var(--s6);
+    }
+    .day-date {
+      background: var(--mint-green);
+      color: white;
+      padding: var(--s2) var(--s4);
+      border-radius: 8px;
+      font-family: var(--font-title);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .day-info h2 {
+      font-family: var(--font-title);
+      font-size: 1.75rem;
+      color: var(--dark-gray);
+    }
+    .day-theme {
+      color: var(--ocean-blue);
+      font-size: 0.95rem;
+    }
+    .route-line {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+      flex-wrap: wrap;
+      padding: var(--s4);
+      background: var(--light-wood);
+      border-radius: 12px;
+      margin-bottom: var(--s6);
+    }
+    .route-stop {
+      background: var(--ocean-blue);
+      color: white;
+      padding: var(--s1) var(--s3);
+      border-radius: 15px;
+      font-size: 0.85rem;
+    }
+    .route-arrow {
+      color: var(--coral-orange);
+      font-weight: bold;
+    }
+    .itinerary {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s4);
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    .card-time {
+      background: var(--mint-green);
+      color: white;
+      padding: var(--s2) var(--s4);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .card-content {
+      padding: var(--s4);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: var(--s4);
+      align-items: start;
+    }
+    .card-icon {
+      font-size: 2rem;
+    }
+    .card-text h3 {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      color: var(--dark-gray);
+      margin-bottom: var(--s1);
+    }
+    .card-location {
+      color: var(--ocean-blue);
+      font-size: 0.9rem;
+      margin-bottom: var(--s2);
+    }
+    .card-desc {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+    }
+    .card-image {
+      width: 150px;
+      height: 100px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .footer {
+      background: var(--dark-gray);
+      color: var(--cream-white);
+      padding: var(--s10) var(--s6) var(--s6);
+      margin-top: var(--s12);
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--s8);
+      margin-bottom: var(--s8);
+    }
+    .footer-section h4 {
+      font-family: var(--font-title);
+      color: var(--mint-green);
+      margin-bottom: var(--s4);
+    }
+    .footer-section ul {
+      list-style: none;
+    }
+    .footer-section li {
+      margin-bottom: var(--s2);
+    }
+    .footer-section a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-section a:hover {
+      color: var(--mint-green);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: var(--s6);
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-bottom p {
+      margin-bottom: var(--s2);
+      opacity: 0.8;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: var(--s6);
+      right: var(--s6);
+      width: 50px;
+      height: 50px;
+      background: var(--mint-green);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      transform: scale(1.1);
+      background: var(--ocean-blue);
+    }
+
+    /* 平板 */
+    @media (max-width: 1024px) {
+      .itinerary {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--s4);
+      }
+    }
+
+    /* 手機 */
+    @media (max-width: 768px) {
+      main {
+        padding: var(--s4);
+      }
+      .day-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .route-line {
+        font-size: 0.8rem;
+        padding: var(--s3);
+      }
+      .route-stop {
+        font-size: 0.75rem;
+        padding: var(--s1) var(--s2);
+      }
+      .itinerary {
+        grid-template-columns: 1fr;
+      }
+      .card-content {
+        grid-template-columns: 1fr;
+      }
+      .card-image {
+        width: 100%;
+        height: 180px;
+        order: -1;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero-tags {
+        gap: var(--s2);
+      }
+      .tag {
+        font-size: 0.85rem;
+        padding: var(--s1) var(--s3);
+      }
+    }
+
+    /* 打印樣式 */
+    @media print {
+      .navbar,
+      .back-to-top,
+      .footer {
+        display: none;
+      }
+      .day {
+        page-break-after: always;
+      }
+      .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+    }
+
+    /* 卡片動畫 */
+    .card {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+<!-- Shared Site Header -->
+<header id="header" class="nav-bar">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="../index.html" class="text-xl font-bold" style="color:var(--color-ink);">
+      <span>策略探索家</span>
+    </a>
+    <div class="flex items-center gap-8">
+      <a href="../index.html" class="text-sm hover:text-[var(--color-accent)] transition-colors" style="color:var(--color-ink-2);">返回首頁</a>
+    </div>
+  </nav>
+</header>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>沖繩美食與文化之旅</h1>
+      <p class="hero-subtitle">5天4夜・不自駕・深度探索琉球王國的靈魂</p>
+      <div class="hero-tags">
+        <span class="tag">美食</span>
+        <span class="tag">手作</span>
+        <span class="tag">歷史</span>
+      </div>
+    </div>
+  </header>
+<main>
+  <section class="day" id="day1">
+    <div class="day-header">
+      <span class="day-date">6/15</span>
+      <div class="day-info">
+        <h2>Day 1｜抵達 + 市區初探</h2>
+        <p class="day-theme">單軌初體驗 × 戰後奇蹟</p>
+      </div>
+    </div>
+    <div class="route-line">
+      <span class="route-stop">Naha Airport</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">新都心</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">T Galleria</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">懸崖神宮</span>
+    </div>
+    <div class="itinerary">
+      <div class="card">
+        <div class="card-time">09:00 - 11:00</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>抵達那霸機場</h3>
+            <p class="card-location">Location: 那霸機場</p>
+            <p class="card-desc">搭乘單軌電車前往市區，車票可直接刷 Visa/Mastercard 入閘，出站步行6分鐘到酒店寄放行李。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse4.mm.bing.net/th/id/OIP.n8i_Jya4Ma0sD_ngvQw14gHaE8?pid=Api" alt="那霸機場單軌電車" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">12:30 - 14:30</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>午餐：和風亭天婦羅/刺身定食</h3>
+            <p class="card-location">Location: SAN-A 那霸 Main Place 1樓</p>
+            <p class="card-desc">完美避開牛肉的天婦羅與刺身定食，新都心商圈內的優質選擇。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse2.mm.bing.net/th/id/OIP.OoNDXVkEwd16Csblll2cnQHaE6?pid=Api" alt="天婦羅刺身定食" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">15:30 - 18:00</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>新都心文藝與免稅店</h3>
+            <p class="card-location">Location: T Galleria 免稅店</p>
+            <p class="card-desc">步行前往 T Galleria 免稅店，選購化妝品與精品。替代方案：沖繩縣立博物館/美術館。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse4.mm.bing.net/th/id/OIP.MQV8afb6_ov8VdGZO0QGlwHaFc?pid=Api" alt="T Galleria 免稅店" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">18:00 - 20:00</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>懸崖神宮參拜</h3>
+            <p class="card-location">Location: 旭橋站步行前往</p>
+            <p class="card-desc">建於珊瑚礁懸崖上的琉球八社之首，俯瞰東海的壯闊景色。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse2.mm.bing.net/th/id/OIP.CWCCZvXrxBhTAEndb_kMmwHaE8?pid=Api" alt="懸崖神宮" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="day2">
+    <div class="day-header">
+      <span class="day-date">6/16</span>
+      <div class="day-info">
+        <h2>Day 2｜歷史秘境</h2>
+        <p class="day-theme">琉球古城 ╳ 達磨寺 ╳ 峭壁神社</p>
+      </div>
+    </div>
+    <div class="route-line">
+      <span class="route-stop">首里城</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">首里そば</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">達磨寺</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">末吉宮</span>
+    </div>
+    <div class="itinerary">
+      <div class="card">
+        <div class="card-time">09:30 - 12:00</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>首里城外圍 ＆ 金城町石疊道</h3>
+            <p class="card-location">Location: 單軌首里站步行</p>
+            <p class="card-desc">UNESCO 世界遺產古城牆與百年石板路，感受琉球王國的歷史氣息。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse4.mm.bing.net/th/id/OIP.T29tI9EYCqgGV8BbfmN_9AHaEV?pid=Api" alt="首里城" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">12:00 - 13:30</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>午餐：首里そば</h3>
+            <p class="card-location">Location: 首里地區</p>
+            <p class="card-desc">古民家餐廳品嚐地道沖繩麵，豬骨湯底無牛肉。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse2.mm.bing.net/th/id/OIP.k4wWnjP-dGEcoeetpFyaeAHaFj?pid=Api" alt="沖繩麵" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">13:30 - 17:30</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>達磨寺 ＆ 末吉宮</h3>
+            <p class="card-location">Location: 儀保站 / 市立病院前站</p>
+            <p class="card-desc">單軌至儀保站參觀達磨寺，再步行進入森林尋找神秘的末吉宮。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse2.mm.bing.net/th/id/OIP.Gk-h8SnnCjHODyGI9qVCfwHaE8?pid=Api" alt="達磨寺" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">18:30 - 20:30</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>晚餐：國際通屋台村</h3>
+            <p class="card-location">Location: 國際通</p>
+            <p class="card-desc">專攻沖繩海鮮鐵板燒與串燒，避開牛串即可。體驗熱鬧的屋台文化。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse4.mm.bing.net/th/id/OIP.ayX67F9S_mQ4a65upZCxtwHaDs?pid=Api" alt="屋台村" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="day3">
+    <div class="day-header">
+      <span class="day-date">6/17</span>
+      <div class="day-info">
+        <h2>Day 3｜手作與市井</h2>
+        <p class="day-theme">珊瑚染 ╳ 牧志市場 ╳ 阿古豬</p>
+      </div>
+    </div>
+    <div class="route-line">
+      <span class="route-stop">首里琉染</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">牧志市場</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">壺屋通</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">阿古豬</span>
+    </div>
+    <div class="itinerary">
+      <div class="card">
+        <div class="card-time">09:15 - 11:30</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>首里琉染：化石珊瑚染體驗</h3>
+            <p class="card-location">Location: 首里（已預約 10:00）</p>
+            <p class="card-desc">親手體驗以化石珊瑚進行的傳統染色技法，製作獨一無二的作品。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse2.mm.bing.net/th/id/OIP.M8xL2kP5qR3nN4oO6iJ9cBHaE8?pid=Api" alt="珊瑚染體驗" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">11:30 - 13:30</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>第一牧志公設市場</h3>
+            <p class="card-location">Location: 單軌牧志站</p>
+            <p class="card-desc">1樓購買活海鮮（夜光貝、龍蝦），2樓代客料理。提醒廚師：炒菜絕不可用牛肉高湯粉。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse4.mm.bing.net/th/id/OIP.k4wWnjP-dGEcoeetpFyaeAHaFj?pid=Api" alt="牧志市場" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">13:30 - 18:30</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>壺屋陶藝通 ＆ 國際通</h3>
+            <p class="card-location">Location: 壺屋 / 國際通</p>
+            <p class="card-desc">漫步文青小巷欣賞陶器，在國際通選購手信。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse2.mm.bing.net/th/id/OIP.OoNDXVkEwd16Csblll2cnQHaE6?pid=Api" alt="壺屋陶藝通" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">18:30 - 20:30</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>晚餐：阿古豬大餐</h3>
+            <p class="card-location">Location: 食彩酒宴 祭（已預約）</p>
+            <p class="card-desc">頂級阿古豬涮涮鍋，安心大啖原味豬肉。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse2.mm.bing.net/th/id/OIP.BUJl7THuN9SCZUp7S05xyQHaFj?pid=Api" alt="阿古豬涮涮鍋" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="day4">
+    <div class="day-header">
+      <span class="day-date">6/18</span>
+      <div class="day-info">
+        <h2>Day 4｜藝文洗禮 ╳ 終極採買</h2>
+        <p class="day-theme">AEON ╳ RYUBO ╳ 蟹宴</p>
+      </div>
+    </div>
+    <div class="route-line">
+      <span class="route-stop">AEON</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">RYUBO</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">蟹松</span>
+    </div>
+    <div class="itinerary">
+      <div class="card">
+        <div class="card-time">10:00 - 12:30</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>AEON 小祿店 / 補漏行程</h3>
+            <p class="card-location">Location: 單軌小祿站</p>
+            <p class="card-desc">如 Day 1 已去過博物館，可前往 AEON 掃日常雜貨與零食。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse4.mm.bing.net/th/id/OIP.58NotW15O4mBzgUlF89PCgHaEU?pid=Api" alt="AEON Mall" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">12:30 - 17:30</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>午餐與終極採買</h3>
+            <p class="card-location">Location: 天久 RYUBO 樂市</p>
+            <p class="card-desc">新都心商圈簡餐商場，無印良品、Uniqlo、超市一次過掃貨，買完放酒店極方便。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse4.mm.bing.net/th/id/OIP.ayX67F9S_mQ4a65upZCxtwHaDs?pid=Api" alt="RYUBO 樂市" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">18:00 - 20:30</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>晚餐：蟹料理專門店 蟹松</h3>
+            <p class="card-location">Location: 那霸市內（已預約）</p>
+            <p class="card-desc">高級 Omakase 餐廳，品嚐鮮甜松葉蟹及海鮮全餐（取代札幌螃蟹本家）。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse2.mm.bing.net/th/id/OIP.J6kM2lO3qR8sN9tO0iK6mEHaEK?pid=Api" alt="蟹料理" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="day5">
+    <div class="day-header">
+      <span class="day-date">6/19</span>
+      <div class="day-info">
+        <h2>Day 5｜滿載而歸</h2>
+        <p class="day-theme">悠閒回程 ╳ 豬肉蛋飯糰</p>
+      </div>
+    </div>
+    <div class="route-line">
+      <span class="route-stop">飯店</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">新都心</span>
+      <span class="route-arrow">→</span>
+      <span class="route-stop">機場</span>
+    </div>
+    <div class="itinerary">
+      <div class="card">
+        <div class="card-time">09:00 - 12:00</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>悠閒 Check-out</h3>
+            <p class="card-location">Location: 飯店</p>
+            <p class="card-desc">辦理退房，大件行李寄放前台，輕裝最後衝刺。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse4.mm.bing.net/th/id/OIP.n8i_Jya4Ma0sD_ngvQw14gHaE8?pid=Api" alt="飯店大堂" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">12:00 - 16:30</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>最後散步與午餐</h3>
+            <p class="card-location">Location: 新都心附近</p>
+            <p class="card-desc">享用輕食或甜品，作最後衝刺，16:30 返回飯店取行李。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse2.mm.bing.net/th/id/OIP.Zl51A2TD2j9l1JCwZKCkWQHaE8?pid=Api" alt="咖啡廳" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">16:30 - 17:15</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>前往機場</h3>
+            <p class="card-location">Location: 那霸機場</p>
+            <p class="card-desc">請酒店前台幫忙叫計程車，20分鐘直達機場。</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse4.mm.bing.net/th/id/OIP.MQV8afb6_ov8VdGZO0QGlwHaFc?pid=Api" alt="那霸機場" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-time">17:15 之後</div>
+        <div class="card-content">
+          <div class="card-icon"></div>
+          <div class="card-text">
+            <h3>豬肉蛋飯糰 (Potamago)</h3>
+            <p class="card-location">Location: 國內線 4 樓</p>
+            <p class="card-desc">登機前購買人氣豬肉蛋飯糰帶上飛機，作為完美結局！</p>
+          </div>
+          <div class="card-image">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https://tse2.mm.bing.net/th/id/OIP.OoNDXVkEwd16Csblll2cnQHaE6?pid=Api" alt="豬肉蛋飯糰" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-[var(--color-paper-2)] border-t" style="border-color: var(--color-rule);">
+  <div class="container mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <span class="font-bold" style="color: var(--color-ink);">策略探索家</span>
+      <p class="text-sm" style="color: var(--color-ink-2);">© 2025 策略探索家. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" title="返回頂部">↑</button>
+
+<script>
+  // 返回頂部按鈕
+  const backToTopBtn = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 平滑滾動到錨點
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

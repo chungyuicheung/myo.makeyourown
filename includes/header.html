@@ -1,12 +1,64 @@
-<header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-    <nav class="container mx-auto px-6 py-4">
-        <div class="flex flex-col items-center">
-            <a href="/index.html" class="text-xl font-bold text-indigo-700 mb-4">⌂ 策略探索家</a>
-            
-            <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3">
-                <a href="/trip.html" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">旅程 ✈️</a>
-                <a href="/tv.html" class="text-gray-700 hover:text-indigo-600 bg-gray-100/80 px-3 py-1.5 rounded-full text-sm transition-colors">影視 📺</a>
-            </div>
+<!-- Hallmark · N5 static nav -->
+<!-- NO emoji in navigation — use SVG icons or text only -->
+
+<header id="header"
+        class="sticky top-0 z-50 transition-all duration-300"
+        style="background-color: var(--color-paper); box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+    <a href="${INDEX_HREF}"
+       class="font-[var(--font-display)] text-xl font-bold"
+       style="color: var(--color-ink);">
+      策略探索家
+    </a>
+
+    <div class="flex items-center gap-2">
+      <div class="relative group">
+        <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1"
+                style="color: var(--color-ink);"
+                onmouseover="this.style.backgroundColor='var(--color-paper-2)'"
+                onmouseout="this.style.backgroundColor='transparent'">
+          旅程 <span class="text-xs">▼</span>
+        </button>
+        <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50"
+             style="border-color: var(--color-rule);">
+          <a href="${TRIP_PREFIX}okinawa-trip.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">沖繩七天</a>
+          <a href="${TRIP_PREFIX}okinawa-food-craft-5days.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">沖繩美食手作</a>
+          <a href="${TRIP_PREFIX}okinawa-presentation.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">沖繩簡報</a>
+          <a href="${TRIP_PREFIX}hongkong/2025-07-09-red-incense-burner-peak.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">香港行山</a>
         </div>
-    </nav>
+      </div>
+      <div class="relative group">
+        <button class="text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1"
+                style="color: var(--color-ink);"
+                onmouseover="this.style.backgroundColor='var(--color-paper-2)'"
+                onmouseout="this.style.backgroundColor='transparent'">
+          文章 <span class="text-xs">▼</span>
+        </button>
+        <div class="absolute left-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[180px] hidden group-hover:block z-50"
+             style="border-color: var(--color-rule);">
+          <a href="${BLOG_PREFIX}best-wedding-gifts-hk.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">婚禮禮物</a>
+          <a href="${BLOG_PREFIX}hk-marriage-certificate-size-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">結婚證書尺寸</a>
+          <a href="${BLOG_PREFIX}hk-marriage-registry-guide.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">註冊攻略</a>
+          <a href="${BLOG_PREFIX}how-to-preserve-marriage-certificate.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">Preservation指南</a>
+          <a href="${BLOG_PREFIX}hk-marriage-registration-checklist.html" class="block px-4 py-2 text-sm hover:bg-gray-50" style="color: var(--color-ink);">婚禮檢查表</a>
+        </div>
+      </div>
+      <a href="${TV_HREF}"
+         class="text-sm px-4 py-1.5 rounded-full transition-colors"
+         style="color: var(--color-ink);"
+         onmouseover="this.style.backgroundColor='var(--color-paper-2)'"
+         onmouseout="this.style.backgroundColor='transparent'">影視</a>
+      <a href="${FOOD_HREF}"
+         class="text-sm px-4 py-1.5 rounded-full transition-colors"
+         style="color: var(--color-ink);"
+         onmouseover="this.style.backgroundColor='var(--color-paper-2)'"
+         onmouseout="this.style.backgroundColor='transparent'">美食</a>
+      <a href="${INDEX_HREF}"
+         class="text-sm px-4 py-1.5 rounded-full transition-opacity"
+         style="background-color: var(--color-accent); color: var(--color-accent-ink);"
+         onmouseover="this.style.opacity='0.9'"
+         onmouseout="this.style.opacity='1'">首頁</a>
+    </div>
+  </nav>
 </header>

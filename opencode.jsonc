@@ -12,7 +12,9 @@
     },
     "control-chrome": {
       "command": [
-        "chrome-devtools-mcp"
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest"
       ],
       "type": "local"
     },

@@ -1,0 +1,23 @@
+/* title-meaning — Chapter 02 · px-based clamp for 1920×1080 stage */
+.tm-stage { position: relative; width: 1920px; height: 1080px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #0a1f3d; font-family: var(--font-display-cn, "Noto Serif SC", serif); color: #f1f3f5; }
+.tm-bg-layer { position: absolute; inset: 0; }
+.tm-bg-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease; filter: blur(4px) brightness(0.18) saturate(0.4); }
+.tm-bg-img.tm-bg-active { opacity: 1; }
+.tm-overlay { position: absolute; inset: 0; background: linear-gradient(170deg, rgba(10,31,61,0.45) 0%, rgba(10,31,61,0.25) 50%, rgba(10,31,61,0.55) 100%); z-index: 1; }
+.tm-step { position: absolute; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; opacity: 0; transition: opacity 0.6s ease; pointer-events: none; padding: 0; width: 100%; height: 100%; justify-content: center; }
+.tm-step.tm-step-active { opacity: 1; pointer-events: auto; }
+.tm-step.tm-step-gone { opacity: 0; }
+.tm-chapter-label { font-size: 16px; font-family: var(--font-body, "IBM Plex Sans", sans-serif); color: rgba(241,243,245,0.38); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 28px; }
+.tm-main-title { font-size: clamp(60px, 6vw, 130px); font-family: var(--font-display-cn, "Noto Serif SC", serif); font-weight: 700; color: #f1f3f5; letter-spacing: 0.05em; margin: 0 0 28px; }
+.tm-subtitle { font-size: clamp(28px, 2.8vw, 56px); font-family: var(--font-display-cn, "Noto Serif SC", serif); color: rgba(241,243,245,0.6); letter-spacing: 0.08em; margin: 0; }
+.tm-term-wrap { display: flex; flex-direction: column; align-items: center; margin-bottom: 16px; }
+.tm-term { font-size: clamp(100px, 12vw, 280px); font-weight: 900; font-family: var(--font-display-cn, "Noto Serif SC", serif); color: #f1f3f5; letter-spacing: 0.02em; line-height: 1; text-shadow: 0 6px 60px rgba(30,58,138,0.45); }
+.tm-term-en { font-size: clamp(24px, 2.2vw, 52px); font-family: var(--font-display-en, "Playfair Display", serif); font-style: italic; color: rgba(241,243,245,0.5); letter-spacing: 0.08em; margin-top: 10px; }
+.tm-pinyin { font-size: clamp(20px, 1.8vw, 36px); font-family: var(--font-body, "IBM Plex Sans", sans-serif); color: rgba(241,243,245,0.36); letter-spacing: 0.18em; margin: 10px 0 0; }
+.tm-divider { width: 80px; height: 1px; background: rgba(30,58,138,0.9); margin: 24px auto; }
+.tm-meaning { font-size: clamp(48px, 6vw, 120px); font-family: var(--font-display-cn, "Noto Serif SC", serif); font-weight: 700; color: #f1f3f5; letter-spacing: 0.03em; margin: 0 0 24px; line-height: 1.2; }
+.tm-detail { font-size: clamp(24px, 2.5vw, 48px); font-family: var(--font-body, "Noto Serif SC", serif); color: rgba(241,243,245,0.7); letter-spacing: 0.02em; line-height: 1.7; margin: 0; max-width: 900px; }
+.tm-shore-visual { display: flex; align-items: center; gap: 28px; margin-top: 36px; font-size: clamp(28px, 3vw, 56px); font-family: var(--font-display-cn, "Noto Serif SC", serif); }
+.tm-shore { color: rgba(241,243,245,0.75); letter-spacing: 0.06em; }
+.tm-shore-arrow { color: rgba(241,243,245,0.4); animation: tm-pulse-arrow 2s ease-in-out infinite; }
+@keyframes tm-pulse-arrow { 0%, 100% { opacity: 0.4; transform: translateX(0); } 50% { opacity: 0.85; transform: translateX(8px); } }

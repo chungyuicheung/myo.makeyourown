@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="策略探索家的探索編年史 — 從程式開發、旅行規劃到工具建置，記錄每一次探索的足跡。">
+
+    <title>策略探索家 | 探索編年史</title>
+
+    <link rel="canonical" href="https://makeyourown.pages.dev/chronicle.html">
+
+    <meta property="og:title" content="策略探索家 | 探索編年史">
+    <meta property="og:description" content="策略探索家的探索編年史 — 從程式開發、旅行規劃到工具建置，記錄每一次探索的足跡。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://makeyourown.pages.dev/chronicle.html">
+    <meta property="og:site_name" content="策略探索家">
+    <meta property="og:locale" content="zh_TW">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4331940044118490"
+     crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* =================================================================
+           Base
+           ================================================================= */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-paper);
+            color: var(--color-ink);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            max-width: 72rem;
+            margin: 0 auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        /* =================================================================
+           Navigation — sticky header
+           ================================================================= */
+        .nav-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: var(--color-paper);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.875rem 1.5rem;
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+        .nav-brand {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            color: var(--color-ink);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .nav-btn {
+            font-size: var(--text-sm);
+            padding: 0.375rem 0.875rem;
+            border-radius: 9999px;
+            color: var(--color-ink);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background-color var(--dur-short) var(--ease-out);
+        }
+        .nav-btn:hover { background-color: var(--color-paper-2); }
+        .nav-btn.active {
+            background-color: var(--color-accent);
+            color: var(--color-accent-ink);
+        }
+
+        /* Dropdown */
+        .nav-group { position: relative; }
+        .nav-chevron { font-size: 0.625rem; margin-left: 0.25rem; }
+        .nav-dropdown {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            margin-top: 0.25rem;
+            background: #fff;
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border: 1px solid var(--color-rule);
+            padding: 0.5rem 0;
+            min-width: 170px;
+            z-index: 50;
+        }
+        .nav-group:hover .nav-dropdown,
+        .nav-group:focus-within .nav-dropdown { display: block; }
+        .nav-dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            font-size: var(--text-sm);
+            color: var(--color-ink);
+            transition: background-color var(--dur-short) var(--ease-out);
+        }
+        .nav-dropdown a:hover { background-color: var(--color-paper-2); }
+
+        /* =================================================================
+           Page header
+           ================================================================= */
+        .page-header {
+            padding: var(--space-2xl) 0 var(--space-lg);
+        }
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--color-ink);
+            letter-spacing: 0.02em;
+        }
+        .page-header p {
+            margin-top: var(--space-sm);
+            font-size: var(--text-md);
+            color: var(--color-ink-2);
+            max-width: 36rem;
+        }
+
+        /* =================================================================
+           Learnings — data insight section
+           ================================================================= */
+        .learnings {
+            background-color: var(--color-paper-2);
+            border: 1px solid var(--color-rule);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg) var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .learnings-header {
+            display: flex;
+            align-items: baseline;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+        .learnings-title {
+            font-family: var(--font-display);
+            font-size: var(--text-md);
+            font-weight: 700;
+            color: var(--color-ink);
+        }
+        .learnings-subtitle {
+            font-size: var(--text-sm);
+            color: var(--color-ink-2);
+        }
+
+        /* Stat cards row */
+        .stat-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+        .stat-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 5rem;
+            padding: var(--space-sm) var(--space-md);
+            background-color: var(--color-paper);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-rule);
+        }
+        .stat-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--text-xl);
+            font-weight: 500;
+            color: var(--color-accent);
+            line-height: 1.2;
+        }
+        .stat-label {
+            font-size: var(--text-xs);
+            color: var(--color-ink-2);
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+
+        /* Mini chart */
+        .chart-section {
+            margin-bottom: var(--space-sm);
+        }
+        .chart-label {
+            display: block;
+            font-size: var(--text-xs);
+            color: var(--color-ink-2);
+            margin-bottom: var(--space-2xs);
+        }
+        .mini-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 60px;
+        }
+        .mini-bar-wrap {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+            cursor: default;
+        }
+        .mini-bar {
+            width: 100%;
+            max-width: 18px;
+            background-color: var(--color-accent);
+            border-radius: 2px 2px 0 0;
+            opacity: 0.7;
+            transition: opacity var(--dur-short) var(--ease-out);
+            flex-shrink: 0;
+        }
+        .mini-bar-wrap:hover .mini-bar { opacity: 1; }
+        .mini-bar-label {
+            font-size: 0.55rem;
+            color: var(--color-ink-2);
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+        .chart-note {
+            display: inline-block;
+            font-size: var(--text-xs);
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        /* Tags in learnings */
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2xs);
+        }
+        .tag-pill {
+            font-size: var(--text-xs);
+            padding: 2px 8px;
+            border-radius: var(--radius-pill);
+            background-color: var(--color-paper);
+            color: var(--color-ink-2);
+            border: 1px solid var(--color-rule);
+        }
+        .tag-count {
+            color: var(--color-accent);
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* =================================================================
+           Filter bar
+           ================================================================= */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: var(--space-2xs);
+            margin-bottom: var(--space-lg);
+        }
+        .filter-btn {
+            font-size: var(--text-sm);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--color-rule);
+            background-color: transparent;
+            color: var(--color-ink-2);
+            cursor: pointer;
+            font-family: inherit;
+            transition: all var(--dur-short) var(--ease-out);
+        }
+        .filter-btn:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+        .filter-btn.active {
+            background-color: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-accent-ink);
+        }
+        .filter-spacer { flex: 1; }
+        .filter-bar-divider {
+            display: inline-block;
+            width: 1px;
+            height: 1.25rem;
+            background-color: var(--color-rule);
+            margin: 0 var(--space-2xs);
+        }
+
+        .year-jumps {
+            display: flex;
+            gap: var(--space-2xs);
+            align-items: center;
+        }
+        .year-jump {
+            font-size: var(--text-sm);
+            color: var(--color-ink-2);
+            text-decoration: none;
+            padding: 0.2rem 0.45rem;
+            border-radius: var(--radius-sm);
+            transition: all var(--dur-short) var(--ease-out);
+        }
+        .year-jump:hover {
+            color: var(--color-accent);
+            background-color: var(--color-paper-2);
+        }
+        .jump-sep {
+            color: var(--color-rule);
+            font-size: var(--text-xs);
+        }
+
+        /* =================================================================
+           Timeline structure
+           ================================================================= */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        /* Vertical rule */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.625rem;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: var(--color-rule);
+        }
+
+        /* =================================================================
+           Year section
+           ================================================================= */
+        .year-section { margin-bottom: var(--space-xl); }
+
+        .year-heading {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: var(--text-xl);
+            color: var(--color-ink);
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-2xs);
+            border-bottom: 2px solid var(--color-accent);
+            display: flex;
+            align-items: baseline;
+            gap: var(--space-sm);
+        }
+        .year-count {
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+            font-weight: 400;
+            color: var(--color-ink-2);
+        }
+
+        /* =================================================================
+           Month section (collapsible)
+           ================================================================= */
+        .month-section {
+            margin-bottom: var(--space-2xs);
+            border-bottom: 1px solid var(--color-paper-2);
+        }
+        .month-section:last-child { border-bottom: none; }
+
+        .month-summary {
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: var(--text-sm);
+            color: var(--color-ink-2);
+            padding: var(--space-sm) 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2xs);
+            user-select: none;
+        }
+        .month-summary::-webkit-details-marker { display: none; }
+        .month-summary::before {
+            content: '\25B8';
+            color: var(--color-accent);
+            transition: transform var(--dur-short) var(--ease-out);
+            display: inline-block;
+            margin-right: var(--space-2xs);
+        }
+        details[open] > .month-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .month-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 1.2rem;
+            height: 1.2rem;
+            padding: 0 0.35rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.65rem;
+            background-color: var(--color-accent-light);
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        /* =================================================================
+           Event cards
+           ================================================================= */
+        .event-card {
+            position: relative;
+            display: flex;
+            gap: var(--space-sm);
+            padding: var(--space-2xs) 0;
+            padding-left: 0.5rem;
+            transition: background-color var(--dur-short) var(--ease-out);
+            border-radius: var(--radius-sm);
+        }
+        .event-card:hover {
+            background-color: var(--color-paper-2);
+        }
+
+        /* Marker dot on the timeline line */
+        .event-marker {
+            position: absolute;
+            left: -1.375rem;
+            top: 0.65rem;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: var(--color-accent);
+            border: 2px solid var(--color-paper);
+            flex-shrink: 0;
+            z-index: 1;
+        }
+
+        .event-body { flex: 1; min-width: 0; }
+
+        /* Event head: date + type label row */
+        .event-head {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2xs);
+            margin-bottom: 1px;
+        }
+        .event-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--color-ink-2);
+            letter-spacing: 0.02em;
+        }
+        .event-type-pill {
+            font-size: 0.6rem;
+            padding: 0 5px;
+            border-radius: var(--radius-pill);
+            background-color: var(--color-paper-2);
+            color: var(--color-ink-2);
+            border: 1px solid var(--color-rule);
+            line-height: 1.4;
+        }
+
+        /* Type-specific styling */
+        .event-card.type-launch .event-type-pill {
+            background-color: var(--color-accent-light);
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+        .event-card.type-session .event-type-pill {
+            background-color: var(--color-paper-2);
+            color: var(--color-ink-2);
+        }
+
+        .event-title {
+            font-weight: 500;
+            font-size: var(--text-sm);
+            color: var(--color-ink);
+            line-height: 1.5;
+        }
+        .event-title a { color: var(--color-ink); }
+        .event-title a:hover {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+        /* Important events (launch, session) get serif title */
+        .event-title-serif {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: var(--text-md);
+        }
+        .event-title-serif a { color: var(--color-ink); }
+
+        .event-desc {
+            font-size: var(--text-xs);
+            color: var(--color-ink-2);
+            margin-top: 2px;
+            line-height: 1.5;
+        }
+
+        /* Event image — side-by-side desktop + mobile */
+        .event-image-group {
+            display: flex;
+            gap: var(--space-2xs);
+            margin-top: var(--space-2xs);
+        }
+        .event-image {
+            flex: 1;
+            min-width: 0;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--color-rule);
+            background-color: var(--color-paper-2);
+        }
+        .event-image-mobile {
+            max-width: 30%;
+        }
+        .event-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+            object-position: top;
+        }
+        .event-image-label {
+            display: block;
+            font-size: 0.55rem;
+            text-align: center;
+            color: var(--color-ink-2);
+            padding: 2px 0;
+            border-top: 1px solid var(--color-rule);
+            background-color: var(--color-paper);
+        }
+
+        .event-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            margin-top: var(--space-2xs);
+        }
+        .event-tag {
+            font-size: 0.6rem;
+            padding: 1px 6px;
+            border-radius: var(--radius-pill);
+            background-color: var(--color-paper);
+            color: var(--color-ink-2);
+            border: 1px solid var(--color-rule);
+        }
+
+        /* =================================================================
+           Milestone cards — learning journey annotations
+           ================================================================= */
+        .milestone-card {
+            display: flex;
+            gap: var(--space-md);
+            padding: var(--space-md);
+            margin: var(--space-md) 0;
+            margin-left: -0.5rem;
+            background-color: var(--color-paper-2);
+            border-left: 3px solid var(--color-accent);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+        .milestone-icon {
+            flex-shrink: 0;
+            font-size: 1.25rem;
+            line-height: 1;
+            color: var(--color-accent);
+            margin-top: 2px;
+        }
+        .milestone-body { flex: 1; min-width: 0; }
+        .milestone-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--color-ink-2);
+        }
+        .milestone-title {
+            font-family: var(--font-display);
+            font-size: var(--text-md);
+            font-weight: 700;
+            color: var(--color-ink);
+            margin: var(--space-2xs) 0 var(--space-2xs);
+        }
+        .milestone-desc {
+            font-size: var(--text-sm);
+            color: var(--color-ink-2);
+            line-height: 1.7;
+        }
+        .milestone-tags { margin-top: var(--space-2xs); }
+        .milestone-tags .event-tag {
+            background-color: var(--color-accent-light);
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        @media (max-width: 639px) {
+            .milestone-card {
+                margin-left: 0;
+                padding: var(--space-sm);
+                flex-direction: column;
+                gap: var(--space-2xs);
+            }
+            .milestone-title { font-size: var(--text-sm); }
+            .milestone-desc { font-size: var(--text-xs); }
+        }
+
+        /* =================================================================
+           States
+           ================================================================= */
+        .event-hidden { display: none; }
+
+        .empty-state {
+            text-align: center;
+            padding: var(--space-xl);
+            color: var(--color-ink-2);
+            font-size: var(--text-sm);
+        }
+
+        /* =================================================================
+           Footer
+           ================================================================= */
+        .site-footer {
+            border-top: 1px solid var(--color-rule);
+            background-color: var(--color-paper-2);
+            margin-top: var(--space-3xl);
+        }
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-lg) 1.5rem;
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .footer-inner {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        .footer-brand {
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--color-ink);
+            font-size: var(--text-sm);
+        }
+        .footer-social {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        .footer-social a {
+            color: var(--color-ink-2);
+            transition: color var(--dur-short) var(--ease-out);
+        }
+        .footer-social a:hover { color: var(--color-accent); }
+        .footer-icon { width: 1.25rem; height: 1.25rem; fill: currentColor; }
+        .footer-copy {
+            font-size: var(--text-xs);
+            color: var(--color-ink-2);
+        }
+
+        /* =================================================================
+           Responsive
+           ================================================================= */
+        @media (max-width: 639px) {
+            .container { padding-left: 1rem; padding-right: 1rem; }
+            .nav-inner { padding-left: 1rem; padding-right: 1rem; }
+            .nav-links { gap: 0; }
+            .nav-btn { padding: 0.3rem 0.6rem; font-size: 0.75rem; }
+
+            .timeline { padding-left: 1.25rem; }
+            .timeline::before { left: 0.25rem; }
+            .event-marker { left: -1rem; width: 6px; height: 6px; top: 0.6rem; }
+            .event-card { padding: var(--space-2xs) 0; padding-left: 0.25rem; }
+
+            .page-header h1 { font-size: var(--text-xl); }
+
+            .stat-card { min-width: 3.5rem; padding: var(--space-2xs) var(--space-sm); }
+            .stat-number { font-size: var(--text-lg); }
+
+            .mini-chart { height: 48px; }
+            .mini-bar-label { font-size: 0.5rem; }
+
+            .year-heading { font-size: var(--text-lg); }
+
+            .year-jumps { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <header class="nav-header">
+      <nav class="nav-inner">
+        <a href="/" class="nav-brand">策略探索家</a>
+        <div class="nav-links">
+          <div class="nav-group">
+            <button class="nav-btn">
+              旅程 <span class="nav-chevron">▼</span>
+            </button>
+            <div class="nav-dropdown">
+              <a href="/trip/okinawa-trip.html">沖繩七天</a>
+              <a href="/trip/okinawa-food-craft-5days.html">沖繩美食手作</a>
+              <a href="/trip/okinawa-presentation.html">沖繩簡報</a>
+              <a href="/trip/hongkong/2025-07-09-red-incense-burner-peak.html">香港行山</a>
+            </div>
+          </div>
+          <div class="nav-group">
+            <button class="nav-btn">
+              文章 <span class="nav-chevron">▼</span>
+            </button>
+            <div class="nav-dropdown">
+              <a href="/blog/best-wedding-gifts-hk.html">婚禮禮物</a>
+              <a href="/blog/hk-marriage-certificate-size-guide.html">結婚證書尺寸</a>
+              <a href="/blog/hk-marriage-registry-guide.html">註冊攻略</a>
+              <a href="/blog/how-to-preserve-marriage-certificate.html">Preservation指南</a>
+              <a href="/blog/hk-marriage-registration-checklist.html">婚禮檢查表</a>
+            </div>
+          </div>
+          <a href="/tv.html" class="nav-btn">影視</a>
+          <a href="/food.html" class="nav-btn">美食</a>
+          <a href="/chronicle.html" class="nav-btn active">歷程</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main class="container">
+
+        <!-- Page header -->
+        <div class="page-header">
+            <h1>探索編年史</h1>
+            <p>從程式開發、旅行規劃到工具建置 — 每一次 commit、每一個 session、每一頁上線，都是探索的足跡。</p>
+        </div>
+
+        <!-- Learnings section -->
+        <div id="learnings" class="learnings">
+            <!-- populated by chronicle.js -->
+        </div>
+
+        <!-- Filter bar -->
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="milestones">里程碑</button>
+            <button class="filter-btn" data-filter="all">全部</button>
+            <span class="filter-bar-divider"></span>
+            <button class="filter-btn" data-filter="commit">Commit</button>
+            <button class="filter-btn" data-filter="session">Session</button>
+            <button class="filter-btn" data-filter="launch">上線</button>
+            <button class="filter-btn" data-filter="note">筆記</button>
+            <span class="filter-spacer"></span>
+            <span class="year-jumps" id="year-jumps"></span>
+        </div>
+
+        <!-- Timeline -->
+        <div id="timeline" class="timeline">
+            <div class="empty-state">載入中…</div>
+        </div>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-social">
+          <span class="footer-brand">策略探索家</span>
+          <a href="#" aria-label="GitHub">
+            <svg class="footer-icon" viewBox="0 0 24 24">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg class="footer-icon" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        </div>
+        <p class="footer-copy">© 2025 策略探索家. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="chronicle-data.js"></script>
+    <script src="assets/js/chronicle.js"></script>
+</body>
+</html>

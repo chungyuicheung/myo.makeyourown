@@ -12,6 +12,7 @@
 - **科技探索** - 深度評測與實用工具（HEIC 轉換器等）
 - **投資策略** - 系統化決策框架
 - **證書套工具** - 自動生成與管理
+- **開發歷程時間軸** - 透過 Git 歷史、頁面上線與學習里程碑記錄專案演進
 
 ## 📁 專案結構
 
@@ -25,16 +26,24 @@ myo.makeyourown/
 ├── cert-folder.html      # 證書套產生器
 ├── heic-converter.html   # HEIC 轉 PNG 工具
 ├── food.html             # 食物相關（待擴展）
+├── chronicle.html         # 開發歷程時間軸（Git 歷史 + 截圖 + 里程碑）
+├── chronicle-data.json    # 時間軸事件資料（110+ 筆）
+├── chronicle-data.js      # 自動產生的 JS 資料載入檔
 ├── includes/             # 可重用組件
 │   ├── head.html
 │   ├── header.html
 │   └── footer.html
+├── scripts/
+│   └── update-chronicle-data.cjs  # 時間軸資料更新腳本
 ├── assets/
 │   ├── css/
 │   │   ├── style.css
-│   │   └── style_system.css
+│   │   ├── style_system.css
+│   │   └── tokens.css    # 設計系統 Token
 │   └── js/
-│       └── main.js
+│       ├── main.js
+│       └── chronicle.js  # 時間軸渲染引擎
+├── images/chronicle/      # 歷史頁面截圖（桌面 + 手機版）
 ├── image/                # 圖片資源
 ├── js library/           # 第三方腳本
 ├── robots.txt
@@ -44,10 +53,11 @@ myo.makeyourown/
 ## 🛠️ 技術棧
 
 - **HTML5** + 語意化標籤
-- **Tailwind CSS** (CDN) - 響應式設計
-- **Vanilla JavaScript** - 互動功能
-- **Font Awesome** - 圖標庫
-- **Google Fonts** - Noto Sans TC（繁體中文）
+- **Pure CSS** (tokens.css 設計系統) - 不含 Tailwind/framework 依賴
+- **Vanilla JavaScript** - 互動功能 + 時間軸渲染引擎
+- **Design Tokens** - CSS 變數系統（色彩、字體、間距、動畫）
+- **Google Fonts** - Noto Sans TC / Noto Serif TC / JetBrains Mono
+- **Chrome Headless + Playwright** - 歷史頁面自動截圖
 
 ## 🚀 快速開始
 
@@ -82,6 +92,29 @@ myo.makeyourown/
 主要頁面已配置完整的 OG 標籤、JSON-LD 結構化數據，適合搜索引擎收錄與社群分享。
 
 ## 📖 學習記錄
+
+### 2026-06-23：開發歷程時間軸（Chronicle）
+
+**目標**：建立一個可視化的時間軸頁面，展示專案從 2025 年 5 月以來的所有開發活動。
+
+**功能**：
+- 90+ Git commits、6 次頁面上線、5 次開發會話、9 個學習里程碑
+- 六個 launch 事件附有**歷史頁面截圖**（桌面 + 手機版），經由 `git worktree` 切換到當時的 commit 後以 Chrome Headless 截取
+- 篩選模式：里程牌（僅顯示里程碑 + 上線事件）、全部、按類型篩選
+- 月分類區塊、學習統計卡片、月份活動條形圖、Top 標籤
+
+**技術要點**：
+- `git worktree add --detach <commit>` 在不影響目前工作區的條件下撈取歷史頁面
+- Chrome Headless screenshot 搭配 Playwright 設定 `document.body.style.zoom` 調整縮放
+- 所有 CSS 基於 `tokens.css` 設計系統（零 Tailwind 依賴）
+- 資料驅動：`chronicle-data.json` → `chronicle-data.js` → `chronicle.js` 渲染
+
+**修改檔案**：
+- `chronicle.html`：時間軸頁面（純 CSS，Archival Scrapbook 風格）
+- `assets/js/chronicle.js`：時間軸渲染引擎（事件卡、里程碑卡、篩選、統計、學習區塊）
+- `chronicle-data.json` / `chronicle-data.js`：事件資料（110 筆）
+- `assets/images/chronicle/`：12 張歷史截圖
+- `scripts/update-chronicle-data.cjs`：資料更新腳本
 
 ### 2026-05-21：沖繩簡報圖片修復
 

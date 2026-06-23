@@ -1,0 +1,18 @@
+Heart Sutra Video — Chapter 01-coldopen
+============================================================
+
+File: pexels_1.jpg
+Provider: Pexels
+Photographer: Dylann  Hendricks
+Photographer URL: https://www.pexels.com/@dylannhendricks
+Source URL: https://www.pexels.com/photo/entrance-to-buddhist-temple-17774735/
+Description: Elegant temple entrance with steps and seating for meditation, highlighting spiritual tranquility.
+
+File: pexels_2.jpg
+Provider: Pexels
+Photographer: ArtHouse Studio
+Photographer URL: https://www.pexels.com/@arthousestudio
+Source URL: https://www.pexels.com/photo/shrine-of-gray-ceramic-buddha-figurine-with-incense-sticks-7169647/
+Description: A serene Buddha statue with incense sticks is surrounded by vibrant plants in an outdoor shrine.
+
+License: All images from Pexels/Pixabay (free, no attribution required)

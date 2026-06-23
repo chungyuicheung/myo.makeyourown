@@ -1,0 +1,236 @@
+[
+  {
+    "chapter": "coldopen",
+    "step": 1,
+    "text": "你知道嗎？全世界每天有數不清的人，在寺廟裏、在家中的佛堂前、甚至在地鐵上戴著耳機，誦讀同一段文字。它只有260個字，卻是大乘佛教般若部經典的精華。",
+    "audio": "coldopen/1.mp3"
+  },
+  {
+    "chapter": "coldopen",
+    "step": 2,
+    "text": "它是《般若波羅蜜多心經》，簡稱《心經》。",
+    "audio": "coldopen/2.mp3"
+  },
+  {
+    "chapter": "coldopen",
+    "step": 3,
+    "text": "今天，我們一起來認識這部流傳了近兩千年的佛經。",
+    "audio": "coldopen/3.mp3"
+  },
+  {
+    "chapter": "title-meaning",
+    "step": 1,
+    "text": "先說這個名字。",
+    "audio": "title-meaning/1.mp3"
+  },
+  {
+    "chapter": "title-meaning",
+    "step": 2,
+    "text": "「般若」，梵文 prajñā，說的是那種能照見諸法實相的智慧。不是你考試得了高分那種聰明，是一種徹底理解世界運作方式的能力。",
+    "audio": "title-meaning/2.mp3"
+  },
+  {
+    "chapter": "title-meaning",
+    "step": 3,
+    "text": "「波羅蜜多」，pāramitā，意思是「到彼岸」。從此岸的迷惑與痛苦，渡到解脫的彼岸去。",
+    "audio": "title-meaning/3.mp3"
+  },
+  {
+    "chapter": "title-meaning",
+    "step": 4,
+    "text": "「心」，不是心臟，是核心、精髓、靈魂——這部經是整部《大般若經》的靈魂所在。",
+    "audio": "title-meaning/4.mp3"
+  },
+  {
+    "chapter": "title-meaning",
+    "step": 5,
+    "text": "「經」，梵語修多羅，是恒常不變的路徑。上契諸佛之理，下契眾生之機。",
+    "audio": "title-meaning/5.mp3"
+  },
+  {
+    "chapter": "five-aggregates",
+    "step": 1,
+    "text": "經文一開始就說：觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
+    "audio": "five-aggregates/1.mp3"
+  },
+  {
+    "chapter": "five-aggregates",
+    "step": 2,
+    "text": "色，是眼睛能看到的物質世界——光、影、形狀、顏色。",
+    "audio": "five-aggregates/2.mp3"
+  },
+  {
+    "chapter": "five-aggregates",
+    "step": 3,
+    "text": "受，是我們感受到的——冷熱、疼痛、快樂、悲傷。",
+    "audio": "five-aggregates/3.mp3"
+  },
+  {
+    "chapter": "five-aggregates",
+    "step": 4,
+    "text": "想，是頭腦裏不停運轉的念頭。行，是我們的意志、決策、驅使行動的力量。",
+    "audio": "five-aggregates/4.mp3"
+  },
+  {
+    "chapter": "five-aggregates",
+    "step": 5,
+    "text": "識，是意識——那個知曉「我在」的東西。",
+    "audio": "five-aggregates/5.mp3"
+  },
+  {
+    "chapter": "five-aggregates",
+    "step": 6,
+    "text": "這五樣加起來，就是你。是我。是每一個人對「自我」的全部認知。",
+    "audio": "five-aggregates/6.mp3"
+  },
+  {
+    "chapter": "core-teaching",
+    "step": 1,
+    "text": "「色不異空，空不異色；色即是空，空即是色。受想行識，亦復如是。」",
+    "audio": "core-teaching/1.mp3"
+  },
+  {
+    "chapter": "core-teaching",
+    "step": 2,
+    "text": "「色不異空」——物質現象和空性沒有分離。",
+    "audio": "core-teaching/2.mp3"
+  },
+  {
+    "chapter": "core-teaching",
+    "step": 3,
+    "text": "「空不異色」——空性和物質現象也沒有分離。",
+    "audio": "core-teaching/3.mp3"
+  },
+  {
+    "chapter": "core-teaching",
+    "step": 4,
+    "text": "「色即是空」——物質現象本身就是空性。",
+    "audio": "core-teaching/4.mp3"
+  },
+  {
+    "chapter": "core-teaching",
+    "step": 5,
+    "text": "「空即是色」——空性本身就是物質現象。",
+    "audio": "core-teaching/5.mp3"
+  },
+  {
+    "chapter": "core-teaching",
+    "step": 6,
+    "text": "「受想行識，亦復如是。」感受、想法、意志、意識，也都是這樣。",
+    "audio": "core-teaching/6.mp3"
+  },
+  {
+    "chapter": "emptiness-meaning",
+    "step": 1,
+    "text": "什麼是「空」？",
+    "audio": "emptiness-meaning/1.mp3"
+  },
+  {
+    "chapter": "emptiness-meaning",
+    "step": 2,
+    "text": "緣起——一切有為法，都是因緣和合而生。條件聚合，事物才能存在。",
+    "audio": "emptiness-meaning/2.mp3"
+  },
+  {
+    "chapter": "emptiness-meaning",
+    "step": 3,
+    "text": "性空——因為是因緣生，所以沒有獨立存在的自性。",
+    "audio": "emptiness-meaning/3.mp3"
+  },
+  {
+    "chapter": "emptiness-meaning",
+    "step": 4,
+    "text": "龍樹菩薩在《中論》裏說：未曾有一法，不從因緣生。是故一切法，無不是空者。",
+    "audio": "emptiness-meaning/4.mp3"
+  },
+  {
+    "chapter": "emptiness-meaning",
+    "step": 5,
+    "text": "《心經》既否定實體論，也否定虛無論——空性不在現象之外，也不是虛無。",
+    "audio": "emptiness-meaning/5.mp3"
+  },
+  {
+    "chapter": "liberation",
+    "step": 1,
+    "text": "心無罣礙——當你看清了五蘊皆空，執著就消失了。",
+    "audio": "liberation/1.mp3"
+  },
+  {
+    "chapter": "liberation",
+    "step": 2,
+    "text": "無罣礙故，無有恐怖，遠離顛倒夢想。",
+    "audio": "liberation/2.mp3"
+  },
+  {
+    "chapter": "liberation",
+    "step": 3,
+    "text": "究竟涅槃——所有痛苦的徹底止息。",
+    "audio": "liberation/3.mp3"
+  },
+  {
+    "chapter": "liberation",
+    "step": 4,
+    "text": "三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+    "audio": "liberation/4.mp3"
+  },
+  {
+    "chapter": "liberation",
+    "step": 5,
+    "text": "《心經》給出的解脫路徑：看清一切條件聚合、無永恆自性——不執著——苦減少。",
+    "audio": "liberation/5.mp3"
+  },
+  {
+    "chapter": "mantra",
+    "step": 1,
+    "text": "揭諦揭諦，波羅揭諦，波羅僧揭諦，菩提薩婆訶。",
+    "audio": "mantra/1.mp3"
+  },
+  {
+    "chapter": "mantra",
+    "step": 2,
+    "text": "去罷！去彼岸！眾人一起去彼岸！覺悟成就！",
+    "audio": "mantra/2.mp3"
+  },
+  {
+    "chapter": "mantra",
+    "step": 3,
+    "text": "這不是神秘的咒語。這是一個行動的呼籲。",
+    "audio": "mantra/3.mp3"
+  },
+  {
+    "chapter": "mantra",
+    "step": 4,
+    "text": "Gate gate pārasaṃgate bodhi svāhā.",
+    "audio": "mantra/4.mp3"
+  },
+  {
+    "chapter": "mantra",
+    "step": 5,
+    "text": "是故般若波羅蜜多，是大神咒，是大明咒，是無上咒，能除一切苦，真實不虛。",
+    "audio": "mantra/5.mp3"
+  },
+  {
+    "chapter": "closing",
+    "step": 1,
+    "text": "《心經》流傳近兩千年，東亞漢傳佛教寺廟每日誦讀。",
+    "audio": "closing/1.mp3"
+  },
+  {
+    "chapter": "closing",
+    "step": 2,
+    "text": "玄奘大師公元七世紀西行取經攜回此經，七譯之一——今日你我仍在讀。",
+    "audio": "closing/2.mp3"
+  },
+  {
+    "chapter": "closing",
+    "step": 3,
+    "text": "沙漠中的玄奘，和地鐵上戴耳機的你——相隔千四百年，讀的是同一段文字。",
+    "audio": "closing/3.mp3"
+  },
+  {
+    "chapter": "closing",
+    "step": 4,
+    "text": "能除一切苦，真實不虛。",
+    "audio": "closing/4.mp3"
+  }
+]

@@ -1,0 +1,31 @@
+/* closing — Chapter 08 · px-based clamp */
+.cl-stage { position: relative; width: 1920px; height: 1080px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #0a1f3d; font-family: var(--font-display-cn, "Noto Serif SC", serif); color: #f1f3f5; }
+.cl-bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease; filter: blur(4px) brightness(0.14) saturate(0.35); }
+.cl-bg-img.cl-bg-visible { opacity: 1; }
+.cl-overlay { position: absolute; inset: 0; background: linear-gradient(175deg, rgba(10,31,61,0.5) 0%, rgba(10,31,61,0.22) 50%, rgba(10,31,61,0.5) 100%); z-index: 1; }
+.cl-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; }
+.cl-step { display: none; flex-direction: column; align-items: center; animation: cl-in 0.7s ease forwards; }
+.cl-step.cl-step-active { display: flex; }
+@keyframes cl-in { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+/* Step 0: 兩千年流傳 */
+.cl-big-num { font-size: clamp(120px, 10vw, 240px); font-weight: 900; font-family: var(--font-display-en, "Playfair Display", serif); color: rgba(241,243,245,0.9); letter-spacing: -0.02em; line-height: 0.9; margin: 0 0 16px; }
+.cl-year-unit { font-size: clamp(40px, 3vw, 80px); font-family: var(--font-display-cn, "Noto Serif SC", serif); color: rgba(241,243,245,0.5); letter-spacing: 0.06em; margin: 0 0 28px; align-self: flex-end; padding-bottom: 0.1em; }
+.cl-history { font-size: clamp(28px, 2vw, 56px); font-family: var(--font-body, "Noto Serif SC", serif); color: rgba(241,243,245,0.65); letter-spacing: 0.06em; margin: 0; }
+/* Step 1: 玄奘大師 */
+.cl-master { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 20px; }
+.cl-master-title { font-size: clamp(16px, 1.2vw, 32px); font-family: var(--font-body, "IBM Plex Sans", sans-serif); color: rgba(241,243,245,0.36); letter-spacing: 0.3em; text-transform: uppercase; }
+.cl-master-name { font-size: clamp(72px, 6vw, 160px); font-family: var(--font-display-cn, "Noto Serif SC", serif); font-weight: 700; color: #f1f3f5; letter-spacing: 0.06em; margin: 0; }
+.cl-master-era { font-size: clamp(20px, 1.4vw, 36px); font-family: var(--font-body, "Noto Serif SC", serif); color: rgba(241,243,245,0.5); letter-spacing: 0.1em; margin: 0; }
+.cl-master-note { font-size: clamp(28px, 1.8vw, 48px); font-family: var(--font-body, "Noto Serif SC", serif); color: rgba(241,243,245,0.65); letter-spacing: 0.04em; margin: 0; }
+.cl-divider { width: 80px; height: 1px; background: rgba(30,58,138,0.9); margin: 0 auto; }
+/* Step 2: 沙漠 vs 地鐵 */
+.cl-vs-container { display: flex; align-items: center; gap: clamp(24px, 4vw, 72px); margin-bottom: 28px; }
+.cl-vs-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.cl-vs-icon { font-size: clamp(60px, 6vw, 120px); margin: 0 0 8px; }
+.cl-vs-zh { font-size: clamp(36px, 3vw, 72px); font-family: var(--font-display-cn, "Noto Serif SC", serif); font-weight: 700; color: rgba(241,243,245,0.88); letter-spacing: 0.04em; margin: 0; }
+.cl-vs-en { font-size: clamp(18px, 1.2vw, 32px); font-family: var(--font-body, "IBM Plex Sans", sans-serif); color: rgba(241,243,245,0.4); letter-spacing: 0.08em; }
+.cl-vs-sep { font-size: clamp(32px, 2.5vw, 56px); color: rgba(91,143,212,0.6); }
+.cl-vs-note { font-size: clamp(28px, 1.8vw, 48px); font-family: var(--font-body, "Noto Serif SC", serif); color: rgba(241,243,245,0.6); letter-spacing: 0.04em; margin: 0; line-height: 1.5; }
+/* Step 3: 最終句 */
+.cl-final { font-size: clamp(88px, 8vw, 180px); font-family: var(--font-display-cn, "Noto Serif SC", serif); font-weight: 900; color: #f1f3f5; letter-spacing: 0.06em; margin: 0 0 20px; line-height: 1.1; text-shadow: 0 0 80px rgba(91,143,212,0.35); }
+.cl-final-note { font-size: clamp(24px, 1.6vw, 40px); font-family: var(--font-body, "Noto Serif SC", serif); color: rgba(241,243,245,0.5); letter-spacing: 0.04em; margin: 0; }

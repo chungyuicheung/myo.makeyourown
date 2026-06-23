@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+
+# OpenCode / temp
+.omo/run-continuation/
+.playwright-mcp/
+
+# Node
+node_modules/

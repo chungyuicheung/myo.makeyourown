@@ -1094,6 +1094,46 @@ var chronicleData = {
       "tags": [
         "milestone"
       ]
+    },
+    {
+      "date": "2026-06-24",
+      "type": "session",
+      "title": "Heart Sutra video production — OpenMontage pipeline",
+      "description": "用 OpenMontage screen-demo pipeline 製作心經動畫視頻。使用 FFmpeg screen_recorder 錄製 React 演示文稿（8 章，39 個音頻段），合成為 3:59 視頻。探索 AI 編排與視頻渲染的整合工作流程（screen-capture → audio concat → FFmpeg mux）。",
+      "sessionId": "ses_heart_sutra_video",
+      "tags": [
+        "video",
+        "openmontage",
+        "ffmpeg",
+        "heart-sutra"
+      ]
+    },
+{
+      "date": "2026-06-24",
+      "type": "milestone",
+      "title": "心經視頻完成 — AI 編排視頻生產",
+      "description": "完成心經（般若波羅蜜多心經）動畫視頻製作，全長 3 分 59 秒，涵蓋 8 個章節：開場鉤子、名字含義、五蘊、核心教義、性空與緣起、解脫之道、咒語、結語。使用 OpenMontage 的 screen-demo pipeline，結合 FFmpeg 屏幕錄製與音頻合成，標誌著從靜態網頁到動態視頻的跨越。",
+      "tags": [
+        "milestone",
+        "video",
+        "heart-sutra"
+      ],
+      "imageUrl": "assets/images/chronicle/heart-sutra-ch1.jpg",
+      "imageCaption": "心經視頻 - 第 1 章：開場鉤子"
+    },
+    {
+      "date": "2026-06-24",
+      "type": "launch",
+      "title": "心經動畫視頻上線",
+      "description": "心經視頻正式完成並交付，包含完整的 8 章節敘事與 39 段音頻合成。視頻採用 indigo-porcelain 主題，Playfair Display + Noto Serif SC 字體組合，深靛藍墨色於瓷白背景。",
+      "link": "/presentation/?auto=1",
+      "tags": [
+        "video",
+        "heart-sutra",
+        "launch"
+      ],
+      "imageUrl": "assets/images/chronicle/heart-sutra-ch3.jpg",
+      "imageCaption": "心經視頻 - 第 3 章：五蘊"
     }
   ]
 };

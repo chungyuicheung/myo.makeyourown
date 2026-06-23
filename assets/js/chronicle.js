@@ -357,9 +357,14 @@
   function restoreFilterState(events) {
     try {
       var saved = localStorage.getItem(FILTER_STORAGE_KEY);
-      if (saved) {
-        var btn = document.querySelector('.filter-btn[data-filter="' + saved + '"]');
-        if (btn) btn.click();
+      var filter = saved || 'milestones';
+      var btn = document.querySelector('.filter-btn[data-filter="' + filter + '"]');
+      if (btn) {
+        btn.classList.add('active');
+        document.querySelectorAll('.filter-btn').forEach(function (b) {
+          if (b !== btn) b.classList.remove('active');
+        });
+        applyFilter(filter, events);
       }
     } catch (_) {}
   }

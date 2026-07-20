@@ -1,0 +1,34 @@
+[      83ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[     902ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    1659ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    1785ms] [ERROR] Framing 'https://myo-makeyourown.notion.site/' violates the following Content Security Policy directive: "frame-ancestors https: http:". The request has been blocked.
+ @ :0
+[    2560ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    2604ms] [ERROR] Framing 'https://myo-makeyourown.notion.site/' violates the following Content Security Policy directive: "frame-ancestors https: http:". The request has been blocked.
+ @ :0
+[    3319ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    4180ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    5112ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    5225ms] [ERROR] Access to fetch at 'file:///includes/header.html' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app. @ file:///tmp/chronicle-food2/food.html:0
+[    5226ms] [ERROR] Failed to load resource: net::ERR_FAILED @ file:///includes/header.html:0
+[    5226ms] [ERROR] TypeError: Failed to fetch
+    at loadComponent (file:///tmp/chronicle-food2/assets/js/main.js:6:9)
+    at HTMLDocument.<anonymous> (file:///tmp/chronicle-food2/assets/js/main.js:25:5) @ file:///tmp/chronicle-food2/assets/js/main.js:19
+[    5226ms] [ERROR] Access to fetch at 'file:///includes/footer.html' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app. @ file:///tmp/chronicle-food2/food.html:0
+[    5226ms] [ERROR] Failed to load resource: net::ERR_FAILED @ file:///includes/footer.html:0
+[    5226ms] [ERROR] TypeError: Failed to fetch
+    at loadComponent (file:///tmp/chronicle-food2/assets/js/main.js:6:9)
+    at HTMLDocument.<anonymous> (file:///tmp/chronicle-food2/assets/js/main.js:26:5) @ file:///tmp/chronicle-food2/assets/js/main.js:19
+[    6424ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    6534ms] [ERROR] Access to fetch at 'file:///includes/header.html' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app. @ file:///tmp/chronicle-food2/food.html:0
+[    6534ms] [ERROR] Failed to load resource: net::ERR_FAILED @ file:///includes/header.html:0
+[    6534ms] [ERROR] TypeError: Failed to fetch
+    at loadComponent (file:///tmp/chronicle-food2/assets/js/main.js:6:9)
+    at HTMLDocument.<anonymous> (file:///tmp/chronicle-food2/assets/js/main.js:25:5) @ file:///tmp/chronicle-food2/assets/js/main.js:19
+[    6534ms] [ERROR] Access to fetch at 'file:///includes/footer.html' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app. @ file:///tmp/chronicle-food2/food.html:0
+[    6534ms] [ERROR] Failed to load resource: net::ERR_FAILED @ file:///includes/footer.html:0
+[    6534ms] [ERROR] TypeError: Failed to fetch
+    at loadComponent (file:///tmp/chronicle-food2/assets/js/main.js:6:9)
+    at HTMLDocument.<anonymous> (file:///tmp/chronicle-food2/assets/js/main.js:26:5) @ file:///tmp/chronicle-food2/assets/js/main.js:19
+[    7242ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[    8116ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63

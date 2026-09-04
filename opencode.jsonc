@@ -22,6 +22,14 @@
       "type": "remote",
       "enabled": true,
       "url": "https://mcp.context7.com/mcp"
+    },
+    "notion": {
+      "type": "local",
+      "command": ["npx", "-y", "@notionhq/notion-mcp-server"],
+      "enabled": true,
+      "environment": {
+        "NOTION_TOKEN": "{env:NOTION_TOKEN}"
+      }
     }
   },
   "plugin": [

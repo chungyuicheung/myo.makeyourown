@@ -5,6 +5,8 @@
 Thumbs.db
 ehthumbs.db
 
-
 # Node
 node_modules/
+
+# OpenCode session continuation (auto-generated)
+.omo/run-continuation/

@@ -1,0 +1,6 @@
+# Cloudflare Pages Redirects
+# 格式：[source] [destination] [code?]
+# 變更會套用至下一次部署。
+
+# 網域轉址：舊網域 → 新網域（保留完整路徑，302 暫時測試用）
+https://makeyourown.pages.dev/*  https://myo-makeyourown.pages.dev/:splat  302

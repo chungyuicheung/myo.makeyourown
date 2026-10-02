@@ -3,6 +3,7 @@
 > **日期**：2026-10-02
 > **關聯 PR**：—
 > **狀態**：已解決
+> **延伸文件**：[`docs/deployment/cloudflare-pages-redirects.md`](../deployment/cloudflare-pages-redirects.md) — 302/301 完整操作指南
 
 ---
 
@@ -53,7 +54,23 @@ Cloudflare Pages **不支援 domain-level redirect**，官方文件在
 
 - 寫 `_redirects` 時，source **永遠只寫路徑**（`/...`），不要寫 `https://host/...`。
 - 需要「依網域條件轉址」（例如只轉 `pages.dev`、保留自訂網域不轉），
-  `_redirects` 做不到，改用 zone 層級的 **Single Redirects / Bulk Redirects**，
-  那裡才能用 host 比對條件。
+  `_redirects` 做不到，只能改用 **Bulk Redirects**（帳號層級）。
+  注意：**Single Redirects 在 `*.pages.dev` 上不可用** —— 它要求規則建在
+  zone-level ruleset 且該 hostname 的流量必須由你 proxy，
+  而 `pages.dev` 的 DNS 歸 Cloudflare 管，你沒有該 zone 的控制權。
 - 除錯順序：先確認 live 內容 hash == `HEAD`（排除部署未生效），
   再回頭查規則語法是否落在官方「不支援」清單內。
+
+---
+
+### 後續（2026-10-02）
+
+修正後的 `/*  https://myo-makeyourown.pages.dev/:splat  302` 已部署並實測通過
+（根路徑、深層路徑、query string 保留、單次轉址無迴圈），隨後依需求移除 `_redirects`。
+
+順帶實測出一件文件查不到、但對「要不要上 301」具有決定性的事實：
+**Cloudflare Pages 的轉址回應不帶任何快取標頭**（實測無 `Cache-Control`、
+`Expires`、`Age`、`CF-Cache-Status`），而 `_headers` 對轉址無效（redirects 優先於 headers），
+代表**你無法從 Cloudflare 端控制 301 被瀏覽器快取多久**。
+完整驗證記錄與 301 的風險評估見
+[`docs/deployment/cloudflare-pages-redirects.md`](../deployment/cloudflare-pages-redirects.md)。

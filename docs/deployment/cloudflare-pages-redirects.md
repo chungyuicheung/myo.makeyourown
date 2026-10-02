@@ -150,9 +150,23 @@ curl -sSI "https://makeyourown.pages.dev/trip.html?utm_source=x&a=1" | grep -i -
 
 # 4. 無轉址迴圈，最終能到 200
 curl -sS -o /dev/null -w "redirects=%{num_redirects} final=%{url_effective} http=%{http_code}\n" \
-  -L --max-time 25 https://makeyourown.pages.dev/blog/best-wedding-gifts-hk.html
-# 期望：redirects=1  http=200
+  -L --max-time 25 https://makeyourown.pages.dev/blog/best-wedding-gifts-hk
+# 期望：redirects=0  http=200
 ```
+
+> ⚠️ **第 4 項刻意用無副檔名路徑，不要用 `.html`。**
+> Cloudflare Pages 會把 `.html` 正規化：實測 `/blog/best-wedding-gifts-hk.html`
+> 會先回 **`308` → `/blog/best-wedding-gifts-hk`**，再回 `200`。
+> 這是 Pages 的既有行為，**與 `_redirects` 無關**，但會讓 `num_redirects` 多跳 1，
+> 容易誤判成「轉址規則還活著」。判斷是否為跨網域轉址，請看 `final=%{url_effective}`
+> 的網域，而不是 `num_redirects` 的數字。
+>
+> 實測對照：
+>
+> | 路徑 | 結果 |
+> |---|---|
+> | `/blog/best-wedding-gifts-hk`（無副檔名） | `200` 直接可取 |
+> | `/blog/best-wedding-gifts-hk.html` | `308` → 無副檔名 → `200` |
 
 **關鍵參考手法**：`curl -I` 只發 HEAD。實測 Cloudflare Pages 對 HEAD 與 GET 的處理一致，但保險起見用 `curl -sS -o /dev/null -w '%{http_code}'`（預設 GET）做交叉確認。
 
@@ -164,6 +178,36 @@ curl -sS -o /dev/null -w "redirects=%{num_redirects} final=%{url_effective} http
 | `/blog/best-wedding-gifts-hk.html` | `302` → `myo-makeyourown.pages.dev/blog/best-wedding-gifts-hk.html` |
 | `/trip.html?utm_source=x&a=1` | `302` → query string 完整保留 |
 | 跟隨轉址 | `redirects=1`，最終 `200`，無迴圈 |
+
+### 移除規則後的驗收
+
+刪掉 `_redirects` 並部署後，確認站台真的恢復原狀（不是只確認檔案不見）：
+
+```bash
+# 1. 根路徑：200 且完全沒有 location 標頭
+curl -sSI https://makeyourown.pages.dev/ | grep -i -E '^(HTTP/|location)'
+
+# 2. 沒有跳到別的網域
+curl -sS -o /dev/null -w "redirects=%{num_redirects} final=%{url_effective} http=%{http_code}\n" \
+  -L --max-time 25 https://makeyourown.pages.dev/
+
+# 3. 部署的是最新 commit（hash 比對）
+curl -sS https://makeyourown.pages.dev/ | shasum -a 256
+git show HEAD:index.html | shasum -a 256
+```
+
+2026-10-02 實測結果：
+
+| 檢查 | 結果 |
+|---|---|
+| `/` | `200`，**無** `location` 標頭 |
+| 跟隨轉址 | `redirects=0`，`final` 停在 `makeyourown.pages.dev` |
+| live vs `HEAD:index.html` sha256 | 連續 3 次比對皆 `MATCH` |
+| `myo-makeyourown.pages.dev` | `200`，未受影響 |
+
+> 教訓：部署後**立刻**做線上驗收時，邊緣可能在部署切換的瞬間回傳不一致的內容。
+> 第一次量到 hash 不符，但落地檔 `diff` = 0 行、重跑 3 次皆一致 → 是量測時機問題，
+> 不是部署了錯誤內容。**遇到不符先重跑，不要立刻改代码。**
 
 ---
 
@@ -316,6 +360,9 @@ find . -name "*.html" -not -path "./node_modules/*" | sed 's|^\./||' | sort
 | `/*` 綁定自訂網域後一起被轉 | 自訂網域也被導走 | 需要區分 → 改用 Bulk Redirects |
 | 301 對 POST 改寫成 GET | 表單資料遺失 | 有表單就用 308 |
 | 看到舊網域還在搜尋結果 | — | **這是正常的，Google 官方明載** |
+| 用 `.html` 路徑驗收 | Pages 會先回 `308` 去副檔名，`num_redirects` 多跳 1 | 驗收用無副檔名路徑；看 `url_effective` 網域別看跳數 |
+| 部署後立刻驗收量到 hash 不符 | 邊緣切換部署瞬間回傳不一致內容 | 重跑 2–3 次；落地檔 `diff` 為 0 就是量測問題，別改代碼 |
+| 不存在的路徑回 `200` 而非 `404` | Pages fallback 到 `index.html`，易誤判為「部署了錯的內容」 | 比對 sha256 確認部署內容，不要只看 status code |
 | 超過 100 條動態轉址 | 超出部分不生效 | 改用 Bulk Redirects |
 
 ---
